@@ -1,0 +1,23 @@
+import React from "react";
+import Loader from "./Loader";
+import useImage from "../hooks/useImage";
+import {main} from "../styles/ImageStyle"
+
+const Image = ({key, src, alt, ...props}) => {
+
+    const _src = src;
+    const {hasLoaded, hasError} = useImage(_src);
+
+    return (
+        <>
+            {
+                !hasLoaded && !hasError && <Loader/>
+            }
+            {
+                <img css={main} key={key} src={!hasError ? _src : process.env.NEXT_PUBLIC_DEFAULT_CART_IMG} alt={alt} {...props}/>
+            }
+        </>
+    );
+};
+
+export default Image;
