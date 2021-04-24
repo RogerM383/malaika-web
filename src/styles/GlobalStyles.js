@@ -133,15 +133,26 @@ export const global = (theme) => {
                     overflow: visible;
                 }
 
-
-
-
-
             }
 
 
 
-        , /*html end*/
+        , /*body end*/
+        .breadcrumb{
+            color:lightgray;
+            margin:2rem 0 ;
+        }
+        .title {
+            width: 40%;
+            font-size: 50px;
+            font-weight: bold;
+            font-family: Didot;
+            > span{
+                color:${theme.colors.primary};
+                font-size: 30px;
+                font-weight: initial;
+            }
+        }
 
             .wrap{
             max-width: 1200px;
@@ -152,6 +163,10 @@ export const global = (theme) => {
         .bold {
             font-weight: bold;
         }
+            .sbold {
+                font-weight: 600;
+            }
+
 
         .primary {
             color: ${theme.colors.primary};
@@ -215,17 +230,20 @@ export const global = (theme) => {
             margin:5rem 0;
         }
 
+        .didot{
+            font-family: 'Didot', sans-serif;;
+        }
 
         * {
             box-sizing: border-box;
         }
 
-            .block1, .block2, .block3, .block4{
+   /*         .block1, .block2, .block3, .block4{
                 margin:8rem 5rem;
                 max-width: 1200px;
 
                 overflow-x: hidden;
-            }
+            }*/
         }
     `;
     return [style];

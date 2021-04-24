@@ -14,71 +14,40 @@ const Index = ({children, ...props}) => {
             //icon: <i className="fas fa-2x fa-chart-line" ></i>
         },
         {
-            label: "Uruk",
-            path: "/uruk",
+            label: "Viatges d'Autor",
+            path: "/viatge_autor",
             //icon: <i className="fas fa-2x fa-chart-line" ></i>
         },
         {
-            label: "Gouze",
-            path: "/gouze",
+            label: "Destinacions",
+            path: "/destinacions",
             // icon: <i className="fas fa-2x fa-object-ungroup" ></i>
         },
         {
-            label: "eTitulo",
-            path: "/eTitulo",
+            label: "Fitxa viatges d'autor",
+            path: "/fitxa_viatge_autor",
             //icon: <i className="fas fa-2x fa-cogs"></i>
         },
         {
-            label: "Certificados digitales",
-            path: "/certificados_digitales",
+            label: "Fitxa viatges destinacions",
+            path: "/fitxa_viatge_destinacio",
             //icon: <i className="fas fa-2x fa-brush" ></i>
         },
         {
-            label: "Certificados en la nube",
-            path: "/certificados_nube",
+            label: "Sobre nosaltres",
+            path: "/nosaltres",
             //icon: <i className="fas fa-2x fa-brush" ></i>
         },
         {
-            label: "Firma electronica",
-            path: "/firma_electronica",
+            label: "Blog",
+            path: "/blog",
             //icon: <i className="fas fa-2x fa-brush" ></i>
         },
         {
-            label: "Sellade de tiempo",
-            path: "/sellado_tiempo",
+            label: "Blog article",
+            path: "/blog_article",
             //icon: <i className="fas fa-2x fa-brush" ></i>
         },
-        {
-            label: "Identidad digital",
-            path: "/identidad_digital",
-            //icon: <i className="fas fa-2x fa-brush" ></i>
-        },
-        {
-            label: "Ciudadania digital",
-            path: "/ciudadania_digital",
-            //icon: <i className="fas fa-2x fa-brush" ></i>
-        },
-        {
-            label: "Universidad inteligente",
-            path: "/universidad_inteligente",
-            //icon: <i className="fas fa-2x fa-brush" ></i>
-        },
-        {
-            label: "Industria 4.0",
-            path: "/industria_4",
-            //icon: <i className="fas fa-2x fa-brush" ></i>
-        },
-        {
-            label: "Sobre nosotros",
-            path: "/sobre_nosotros",
-            //icon: <i className="fas fa-2x fa-brush" ></i>
-        },
-        {
-            label: "Contacta",
-            path: "/contacto",
-            //icon: <i className="fas fa-2x fa-brush" ></i>
-        },
-
 
     ];
 

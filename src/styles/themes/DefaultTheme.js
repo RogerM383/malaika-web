@@ -1,6 +1,6 @@
 const DefaultTheme = {
     colors: {
-        primary: '#098985',
+        primary: '#8AC3E6',
         primary_light: '#2b9dcb',
         white: '#ffffff',
         black: '#000000',
@@ -18,3 +18,4 @@ const DefaultTheme = {
 }
 
 export default DefaultTheme;
+global

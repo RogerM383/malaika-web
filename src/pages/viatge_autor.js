@@ -1,0 +1,112 @@
+import React from 'react';
+import {viatge_autor_style} from "../styles/pages/viatge_autorStyles";
+import Header from "../components/Header";
+import Grid from "../components/Grid";
+import Card from "../../package/components/Card";
+import {card_discover, card_home_2, card_viatge} from "../styles/components/CardStyles";
+import Image from "../../package/components/Image";
+import Footer from "../components/Footer";
+
+
+const Page = ({children, ...props}) => {
+
+    const elements = ['one', 'two', 'three', 'four', 'five', 'six'];
+    return (
+        <div css={viatge_autor_style}>
+
+            <Header
+                img={"Banner.png/"}>
+
+            </Header>
+
+            <div className={"container"}>
+
+                <div className={"info didot fs-18 bold"}>
+                    <p>Gràcies als viatges d'autor, els nostres guies amb gran experiència i coneixedors del destí, dissenyen
+                        diferents rutes de gran interès cultural, històric i patrimonial del lloc, ells els guiaran, il·lustraran
+                        i faran viure increïbles experiències a més d'oferir valuosos detalls i explicar històries desconegudes
+                        sobre la zona que sens dubte els captivaran. </p>
+                    <p>
+                        Amb aquests viatges en grups reduïts, esperem que els nostres clients gaudeixin de cada segon del viatge, guardin uns records inoblidables i es puguin enriquir de les veritables històries dels llocs més màgics del planeta.
+                    </p>
+
+                </div>
+
+
+                <Grid size={"100%"}>
+                    {
+
+                        elements.map((element) => {
+                            return (
+                                <Card css={card_viatge}>
+
+                                    <div className={"row"}>
+                                        <div className={"column column-33"}>
+                                            <Image src={"home_card_1.png"}></Image>
+                                        </div>
+
+                                        <div className={"column "}>
+                                            <span className={"title fs-18 bold didot"}>LA HABANA REVOLUCIONÀRIA</span>
+
+                                            <div className={"timetable"}>
+                                                <p><img src={"/calendar_icon.png"}/> 8 dies </p>
+
+                                                <div className={"plane"}>
+                                                    <div><img src={"/plane_icon.png"}/></div>
+                                                    <ul>
+                                                        <li>del 7 AL 12 D’octubre 2021</li>
+                                                        <li>del 7 AL 12 D’octubre 2021</li>
+                                                        <li>del 7 AL 12 D’octubre 2021</li>
+                                                    </ul>
+                                                </div>
+                                            </div
+                                            ><p>Guiat per en DAVID RULL, Doctor en Història Antiga</p>
+                                            <p className={"didot"}>Més Informació -> &#8594;</p>
+                                        </div>
+                                    </div>
+                                </Card>
+                            )
+                        })
+
+                    }
+                </Grid>
+
+            </div>
+
+
+            <div className={"block2"}>
+                <div className={"container"}>
+                    <p className={"didot fs-14 "}>DESCOBREIX</p>
+
+
+                    <Card css={card_discover}>
+                        <div className={"row"}>
+                            <h1 className={"column fs-50 didot"}>Temple de ramses</h1>
+                            <p className={"column"}>Carved out of the mountain on the west bank of the Nile between 1274 and 1244 BC, this imposing main temple of the Abu Simbel complex was as much dedicated to the deified Ramses II himself as to Ra-Horakhty, Amun and Ptah. The four colossal statues of the…Visit Site </p>
+                        </div>
+
+                        <Image src={"Banner.png/"}/>
+                        <p css={{float:'right'}}>Foto cedida per Manel Vallès</p>
+                    </Card>
+
+                <div className={"next_prev"}>
+                    <button> &#60; </button>
+                    <button> > </button>
+                </div>
+
+                </div>
+            </div>
+
+            <Footer></Footer>
+
+        </div>
+
+    );
+
+};
+
+
+export default Page;
+
+
+
