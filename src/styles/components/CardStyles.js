@@ -199,3 +199,22 @@ export const card_itinerari_finish = (theme) => {
 }
 
 
+export const card_blog = (theme) => {
+    const style = css`
+
+        .inner{
+            img {
+                width: 100%;
+            }
+            .content{
+
+            }
+        }
+
+
+    `;
+
+    return [style];
+}
+
+
