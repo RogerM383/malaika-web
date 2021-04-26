@@ -2,19 +2,25 @@ import {css} from '@emotion/react';
 
 export const menu_styles = (theme) => {
     const style = css`
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         color:black;
         background-color: white;
         height: 100px;
         text-align: center;
-        margin-right: 3rem;
-        width: 80%;
+        width: 100%;
         border-top-right-radius: 50px;
+        align-items: center;
+        margin-right: 3rem;
 
-      & > .column{
-       border-right: 1px solid black;
+      & > .columna{
+          //border-right: 1px solid black;
+          background-color: white;
       }
 
-      & > .column:last-of-type{
+      & > .columna:last-of-type{
         border-right:0;
 
       }
@@ -26,21 +32,30 @@ export const menu_styles = (theme) => {
         white-space: nowrap;
         position: relative;
         display: block;
+
+
       }
+
+        .columna:last-of-type{
+            background-color: transparent;
+            padding:1rem;
+        }
+
 
 
       .item:first-of-type{
-        //background-color: lime;
-      }
 
-  /*      .item::after{
-          content: '/';
-        }*/
+      }
 
       .active{
         color:${theme.colors.primary};
 
       }
+
+
+        @media (min-width: 40.0rem) {
+            width: 85%;
+        }
 
 
     `;

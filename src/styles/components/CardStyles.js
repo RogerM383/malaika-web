@@ -48,6 +48,7 @@ export const card_home_2 = (theme) => {
 export const card_viatge = (theme) => {
     const style = css`
 
+
         border-bottom: 1px solid lightgray;
         padding: 0;
 
@@ -56,7 +57,7 @@ export const card_viatge = (theme) => {
       }
 
        .content {
-
+           cursor:pointer;
          .column-33 > img{
            height: 100%;
           object-fit: cover;
@@ -111,6 +112,7 @@ export const card_destinacio = (theme) => {
         box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
 
         .content {
+            cursor: pointer;
             // text-align: center;
             .text {
                 padding: 1rem;

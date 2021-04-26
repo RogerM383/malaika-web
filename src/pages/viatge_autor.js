@@ -6,11 +6,18 @@ import Card from "../../package/components/Card";
 import {card_discover, card_home_2, card_viatge} from "../styles/components/CardStyles";
 import Image from "../../package/components/Image";
 import Footer from "../components/Footer";
+import {useRouter} from "next/router";
 
 
 const Page = ({children, ...props}) => {
 
     const elements = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+    const router = useRouter();
+
+    const goToFitxa = () =>{
+        router.push("/fitxa_viatge_autor")
+    }
     return (
         <div css={viatge_autor_style}>
 
@@ -39,7 +46,7 @@ const Page = ({children, ...props}) => {
 
                         elements.map((element) => {
                             return (
-                                <Card css={card_viatge}>
+                                <Card onClick={goToFitxa} css={card_viatge}>
 
                                     <div className={"row"}>
                                         <div className={"column column-33"}>
@@ -77,7 +84,7 @@ const Page = ({children, ...props}) => {
 
             <div className={"block2"}>
                 <div className={"container"}>
-                    <p className={"didot fs-14 "}>DESCOBREIX</p>
+                    <p className={"didot fs-14"}>DESCOBREIX</p>
 
 
                     <Card css={card_discover}>

@@ -13,7 +13,10 @@ const Header = ({img = true,title=false, children, ...props}) => {
                 <div className={"container"}>
 
                     <div className={" row_top"}>
-                        <Image src={"/logo.png"}></Image>
+                        <a href={"/home"}>
+                            <Image  src={"/logo.png"}></Image>
+                        </a>
+
 
 
                         <div className={"contact_language"}>

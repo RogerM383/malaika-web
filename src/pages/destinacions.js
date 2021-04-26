@@ -6,10 +6,17 @@ import Grid from "../components/Grid";
 import Card from "../../package/components/Card";
 import {card_destinacio, card_viatge} from "../styles/components/CardStyles";
 import Image from "../../package/components/Image";
+import {useRouter} from "next/router";
 
 
 const Page = ({children, ...props}) => {
     const elements = ['one', 'two', 'three', 'four', 'five', 'six','seven','eight','nine'];
+
+    const router = useRouter();
+
+    const goToFitxa = (e) =>{
+        router.push("/fitxa_viatge_destinacio");
+    }
 
     return (
         <div css={destinacio_style}>
@@ -31,7 +38,7 @@ const Page = ({children, ...props}) => {
 
                         elements.map((element) => {
                             return (
-                                <Card css={card_destinacio}>
+                                <Card  onClick={goToFitxa} css={card_destinacio}>
                                     <Image src={"home_card_1.png"}></Image>
                                     <div className={"text"}>
                                         <p className={"didot bold"}>ANDALUSIA CRUILLA DE CULTURES</p>
