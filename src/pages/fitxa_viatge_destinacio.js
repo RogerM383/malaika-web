@@ -22,12 +22,16 @@ const Page = ({children, ...props}) => {
                 <div className={"row  block1"}>
                     <div className={"column"}>
                         <p className={"title didot bold"}>Salzburg Imperial</p>
-                        <p>Ciutats imperials i Alps</p>
-                        <p>Viatge a Japó amb un ampli recorregut que ens porta desde les modernes ciutats al món rural i els Alps.</p>
-                        <p className={"bold"}> DESTACA </p>
-                        <li>Visita Monte Fuji</li>
-                        <li> Les geisas de Kyoto</li>
-                        <li> Santuari Itsukushima</li>
+                        <p className={"fs-24"}>Ciutats imperials i Alps</p>
+                        <p className={"fs-24"}>La cuna de Mozart, palaus i joies imperials</p>
+                        <p className={"bold fs-24"}> DESTACA </p>
+                        <li className={"fs-24"}>Visita Casa Mozart</li>
+                        <li className={"fs-24"}>Palau Reial</li>
+                        <li className={"fs-24"}>Fabrica violins</li>
+
+
+
+
 
                         <button>Fitxa viatge pdf</button>
 
@@ -35,13 +39,13 @@ const Page = ({children, ...props}) => {
 
 
                     <div className={"column"}>
-                        <div>
+                        <div className={"fs-18 sbold"}>
                             <p>GRUP: 8-16 PERSONES</p>
 
                             <div>
-                                <span> PREU : 3575.00€ (per persona en habitació doble)</span>
-                                <span> Taxes d'aeroport 245.00€</span>
-                                <span> Suplement hab. individual: 660.00€</span>
+                                <li > <span className={"bold"} css={{display:"inline"}}>PREU : 3575.00€ </span>(per persona en habitació doble)</li>
+                                <li> Taxes d'aeroport 245.00€</li>
+                                <li> Suplement hab. individual: 660.00€</li>
 
                             </div>
 

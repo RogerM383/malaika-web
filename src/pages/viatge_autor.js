@@ -15,6 +15,7 @@ const Page = ({children, ...props}) => {
         <div css={viatge_autor_style}>
 
             <Header
+                title={"Viatges d’autor"}
                 img={"Banner.png/"}>
 
             </Header>

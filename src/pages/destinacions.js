@@ -14,7 +14,9 @@ const Page = ({children, ...props}) => {
     return (
         <div css={destinacio_style}>
 
-            <Header img={"Banner.png/"}/>
+            <Header
+                title={"ASIA"}
+                img={"Banner.png/"}/>
 
 
 

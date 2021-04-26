@@ -3,10 +3,13 @@ import {viatge_autor_fitxa} from "../styles/pages/fitxa_viatge_autorStyles";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Image from "../../package/components/Image";
+import {card_itinerari, card_itinerari_finish} from "../styles/components/CardStyles";
+import Card from "../../package/components/Card";
 
 
 const Page = ({children, ...props}) => {
 
+    const elements = ['one', 'two', 'three'];
 
     return (
         <div css={viatge_autor_fitxa}>
@@ -14,14 +17,14 @@ const Page = ({children, ...props}) => {
 
             <div className={"container"}>
 
-                <div className={"breadcrumb"}>VIATGES D’AUTOR >  JAPÓ TRADICIONAL</div>
+                <div className={"breadcrumb"}>VIATGES D’AUTOR > JAPÓ TRADICIONAL</div>
 
                 <div className={"row block1"}>
                     <div className={"column"}>
                         <p className={"title"}>Japó Tradicional</p>
-                        <p>Ciutats imperials i Alps</p>
-                        <p>Viatge a Japó amb un ampli recorregut que ens porta desde les modernes ciutats al món rural i els Alps.</p>
-                        <p className={"bold"}> DESTACA  </p>
+                        <p className={"fs-24 bold"}>Ciutats imperials i Alps</p>
+                        <p className={"fs-24"}>Viatge a Japó amb un ampli recorregut que ens porta desde les modernes ciutats al món rural i els Alps.</p>
+                        <p className={"bold"}> DESTACA </p>
                         <li>Visita Monte Fuji</li>
                         <li> Les geisas de Kyoto</li>
                         <li> Santuari Itsukushima</li>
@@ -49,11 +52,6 @@ const Page = ({children, ...props}) => {
                             <p className={"bold"}>ITINERARI</p>
                             <Image src={"/map.png"}/>
                         </div>
-
-
-
-
-
 
 
                     </div>
@@ -94,7 +92,47 @@ const Page = ({children, ...props}) => {
             </div>
 
 
-            <div className={"block3"}>
+            <div className={"block3 container"}>
+                <p className={"title"}>Itinerari</p>
+
+                <div className={"row"}>
+                    <div className={"column"}>
+                        {
+
+                            elements.map((item) => {
+                                return (
+                                    <Card css={card_itinerari}>
+                                        <p className={"fs-24"}><span className={"bold"}>Dia1</span> 7 octubre</p>
+                                        <p className={" fs-20 sbold"}>Barcelona - Tokyo</p>
+                                        <li className={"fs-20"}>Arribada de matinada i trasllat al nostre hotel.</li>
+                                        <li className={"fs-20"}>sopar lleuger y allotjament</li>
+                                    </Card>)
+                            })
+
+                        }
+                    </div>
+
+                    <div className={"column"}>
+                        {
+
+                            elements.map((item,i) => {
+                                const number = elements.length;
+                                return (
+                                    <Card css={ number !== i+1 ? card_itinerari : card_itinerari_finish}>
+                                        <p className={"fs-24"}><span className={"bold"}>Dia {i}</span> {number} octubre</p>
+                                        <p className={" fs-20 sbold"}>Barcelona - Tokyo</p>
+                                        <li className={"fs-20"}>Arribada de matinada i trasllat al nostre hotel.</li>
+                                        <li className={"fs-20"}>sopar lleuger y allotjament</li>
+                                    </Card>)
+                            })
+
+                        }
+                    </div>
+                </div>
+
+
+                <div className={"separator"}></div>
+
 
             </div>
 

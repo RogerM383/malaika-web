@@ -13,9 +13,8 @@ export const viatge_destinacio_fitxa = (theme) => {
                 display: flex;
                 justify-content: start;
 
-
-                span{
-                    display: block;
+                li{
+                    list-style: none;
                 }
 
                 .plane{

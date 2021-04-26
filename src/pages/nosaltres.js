@@ -10,7 +10,9 @@ const Page = ({children, ...props}) => {
     const elements = ['one', 'two'];
     return (
         <div css={nosaltres_styles}>
-            <Header img={"Banner.png/"}/>
+            <Header
+                title={"Sobre nosaltres"}
+                img={"Banner.png/"}/>
             <div className={"container"}>
                 <div className={"block1"}>
                     <div className={"item"}>

@@ -59,6 +59,21 @@ export const viatge_autor_fitxa = (theme) => {
             }
         }
 
+        .block3{
+
+            .separator{
+                position: relative;
+                content:"";
+                height: 1px;
+                width: 80%;
+                border: 1px solid lightgray;
+                bottom: 0;
+                margin:10rem;
+            ;
+            }
+
+
+        }
 
 
 

@@ -146,3 +146,56 @@ export const card_fitxa_destinacio = (theme) => {
     return [style];
 }
 
+
+export const card_itinerari = (theme) => {
+    const style = css`
+    position:relative;
+
+        .inner:after {
+          content:"";
+          position: absolute;
+          top:15px;
+          left: -18px;
+          border-left: 1px solid black;
+          height: 100%;
+          z-index: 1;
+        }
+
+      .inner:before {
+        content: '';
+        position: absolute;
+        left: -25px;
+        width: 15px;
+        height: 15px;
+        border-radius: 7.5px;
+        background-color: white;
+        border:1px solid black; z-index: 2;
+      }
+
+    `;
+
+    return [style];
+}
+
+export const card_itinerari_finish = (theme) => {
+    const style = css`
+
+      position:relative;
+
+      .inner:before {
+        content: '';
+        position: absolute;
+        left: -25px;
+        width: 15px;
+        height: 15px;
+        border-radius: 7.5px;
+        background-color: white;
+        border:1px solid black; z-index: 2;
+      }
+
+    `;
+
+    return [style];
+}
+
+
