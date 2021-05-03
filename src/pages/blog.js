@@ -55,7 +55,7 @@ const Page = ({children, ...props}) => {
                             {
                                 elements.map((item)=>{
                                     return(
-                                        <Item css={item_blog_thumbnail} img={"blog_card.png"}>
+                                        <Item onClick={goToArticle} css={item_blog_thumbnail} img={"blog_card.png"}>
                                             <span className={"didot fs-16 bold"}>Three Ways To Get Travel Discounts</span>
                                             <p>30 Jul 2019</p>
                                         </Item>

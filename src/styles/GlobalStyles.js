@@ -19,6 +19,8 @@ export const global = (theme) => {
                 min-height: 100vh;
                 font-family: 'Quicksand', sans-serif;
                 font-size: 1.2rem;
+                color: black;
+                line-height: 1.2;
 
                 button {
                     background-color: ${theme.colors.primary};
@@ -136,41 +138,49 @@ export const global = (theme) => {
             }
 
 
-
         , /*body end*/
-        .breadcrumb{
-            color:lightgray;
-            margin:2rem 0 ;
+        . breadcrumb {
+            color: lightgray;
+            margin: 2rem 0;
         }
-        .title {
-            width: 40%;
-            font-size: 50px;
-            font-weight: bold;
-            font-family: Didot;
-            > span{
-                color:${theme.colors.primary};
-                font-size: 30px;
-                font-weight: initial;
+
+            .title {
+                width: 40%;
+                font-size: 50px;
+                font-weight: bold;
+                font-family: Didot;
+
+                > span {
+                    color: ${theme.colors.primary};
+                    font-size: 30px;
+                    font-weight: initial;
+                }
             }
-        }
-
-            .wrap{
-            max-width: 1200px;
-            overflow: visible;
-        }
 
 
-        .bold {
-            font-weight: bold;
-        }
+            .container {
+                max-width: 158.0rem;
+                //158
+            }
+
+            .wrap {
+                max-width: 1200px;
+                overflow: visible;
+            }
+
+
+            .bold {
+                font-weight: bold;
+            }
+
             .sbold {
                 font-weight: 600;
             }
 
 
-        .primary {
-            color: ${theme.colors.primary};
-        }
+            .primary {
+                color: ${theme.colors.primary};
+            }
 
             .white {
                 color: ${theme.colors.white};
@@ -180,70 +190,98 @@ export const global = (theme) => {
                 color: ${theme.colors.black};
             }
 
-        .fs-100{
-            font-size: 100px;
-        }
-        .fs-50{
-            font-size: 50px;
-        }
-        .fs-40{
-            font-size: 40px;
-        }
-        .fs-36{
-            font-size: 36px;
-        }
-        .fs-32{
-            font-size: 32px;
-        }
-        .fs-30{
-            font-size: 30px;
-        }
-        .fs-28{
-            font-size: 28px;
-        }
-        .fs-26{
-            font-size: 26px;
-        }
-        .fs-24{
-            font-size: 24px;
-        }
-        .fs-20{
-            font-size: 20px;
-        }
-        .fs-21{
-            font-size: 21px;
-        }
-        .fs-18{
-            font-size: 18px;
-        }
-        .fs-14{
-            font-size: 14px;
-        }
-        .fs-12{
-            font-size: 12px;
-        }
+            .fs-100 {
+                font-size: 100px;
+            }
 
-        .db{
-            display: block;
-        }
-        .my-5{
-            margin:5rem 0;
-        }
+            .fs-50 {
+                font-size: 50px;
+            }
 
-        .didot{
-            font-family: 'Didot', sans-serif;;
-        }
+            .fs-40 {
+                font-size: 40px;
+            }
 
-        * {
-            box-sizing: border-box;
-        }
+            .fs-36 {
+                font-size: 36px;
+            }
 
-   /*         .block1, .block2, .block3, .block4{
-                margin:8rem 5rem;
-                max-width: 1200px;
+            .fs-32 {
+                font-size: 32px;
+            }
 
-                overflow-x: hidden;
-            }*/
+            .fs-30 {
+                font-size: 30px;
+            }
+
+            .fs-28 {
+                font-size: 28px;
+            }
+
+            .fs-26 {
+                font-size: 26px;
+            }
+
+            .fs-24 {
+                font-size: 24px;
+            }
+
+            .fs-20 {
+                font-size: 20px;
+            }
+
+            .fs-21 {
+                font-size: 21px;
+            }
+
+            .fs-18 {
+                font-size: 18px;
+            }
+
+            .fs-16 {
+                font-size: 16px;
+            }
+
+            .fs-14 {
+                font-size: 14px;
+            }
+
+            .fs-12 {
+                font-size: 12px;
+            }
+
+            .db {
+                display: block;
+            }
+
+            .my-5 {
+                margin: 5rem 0;
+            }
+
+            .didot {
+                font-family: 'Didot', sans-serif;;
+            }
+
+            .sofia {
+                font-family: 'sofia', sans-serif;;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+
+            .next_prev {
+                padding: 3rem 0;
+
+                button {
+                    background-color: white;
+                    color: gray;
+                    border-radius: 0;
+                }
+            }
+
+
         }
     `;
     return [style];

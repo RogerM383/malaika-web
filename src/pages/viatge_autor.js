@@ -41,23 +41,26 @@ const Page = ({children, ...props}) => {
                 </div>
 
 
-                <Grid size={"100%"}>
+                <Grid size={"auto"}>
                     {
 
                         elements.map((element) => {
                             return (
                                 <Card onClick={goToFitxa} css={card_viatge}>
 
-                                    <div className={"row"}>
+                                    <div className={"row row-center"}>
                                         <div className={"column "}>
                                             <Image src={"home_card_1.png"}></Image>
                                         </div>
 
-                                        <div className={"column "}>
+                                        <div className={"column"}>
                                             <span className={"title fs-18 bold didot"}>LA HABANA REVOLUCIONÀRIA</span>
 
                                             <div className={"timetable"}>
-                                                <p><img src={"/calendar_icon.png"}/> 8 dies </p>
+                                                <div className={"plane"}>
+                                                    <img src={"/calendar_icon.png"}/>
+                                                    <span className={"bold"}> 8 dies</span>
+                                                </div>
 
                                                 <div className={"plane"}>
                                                     <div><img src={"/plane_icon.png"}/></div>
@@ -67,9 +70,15 @@ const Page = ({children, ...props}) => {
                                                         <li>del 7 AL 12 D’octubre 2021</li>
                                                     </ul>
                                                 </div>
-                                            </div
-                                            ><p>Guiat per en DAVID RULL, Doctor en Història Antiga</p>
-                                            <p className={"didot"}>Més Informació -> &#8594;</p>
+                                            </div>
+
+
+
+                                            <div className={"more_info"}>
+                                                <span className={"db"}>Guiat per en DAVID RULL, Doctor en Història Antiga</span>
+                                                <span className={"didot"}>Més Informació <span className={"primary"}>&#8594;</span> </span>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </Card>
@@ -90,7 +99,11 @@ const Page = ({children, ...props}) => {
                     <Card css={card_discover}>
                         <div className={"row"}>
                             <h1 className={"column fs-50 didot"}>Temple de ramses</h1>
-                            <p className={"column"}>Carved out of the mountain on the west bank of the Nile between 1274 and 1244 BC, this imposing main temple of the Abu Simbel complex was as much dedicated to the deified Ramses II himself as to Ra-Horakhty, Amun and Ptah. The four colossal statues of the…Visit Site </p>
+                            <p className={"column fs-13 sofia"}>Carved out of the mountain on the west bank of the Nile between 1274
+                                and 1244 BC, this imposing main temple of the Abu Simbel complex was as much dedicated to the deified
+                                Ramses II himself as to Ra-Horakhty, Amun and Ptah. The four colossal statues of the…
+                                <span className={"primary"}>Visit Site </span>
+                            </p>
                         </div>
 
                         <Image src={"Banner.png/"}/>

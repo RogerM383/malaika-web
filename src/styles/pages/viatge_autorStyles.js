@@ -11,16 +11,10 @@ export const viatge_autor_style = (theme) => {
         .block2{
             margin-top: 7rem;
             background-color:#F8F8F8 ;
-            padding: 3rem 0;
+            padding: 8rem 0;
         }
 
-        .next_prev{
-            button{
-                background-color: white;
-                color:gray;
-                border-radius: 0;
-            }
-        }
+
 
     `;
 

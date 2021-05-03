@@ -3,13 +3,31 @@ import {css} from '@emotion/react';
 export const header_styles = (theme) => {
     const style = css`
         > div {
-            height: 600px;
+            height: 800px;
             color: white;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background-size: cover;
             background-repeat: no-repeat;
+
+          .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+
+            div:first-of-type{
+            flex:0 0 20%;
+          }
+
+            div:nth-of-type(2){
+              flex:0 0 80%;
+              align-self: center;
+              align-items: center;
+            }
+          }
+
 
 
             .row_top {
@@ -48,16 +66,21 @@ export const header_styles = (theme) => {
             }
 
             .row_middle {
-
-              font-size: 80px;
+              font-size: 50px;
               padding: 4rem;
+
+
+                @media(min-width: 40.0rem ){
+                    font-size: 80px;
+
+                }
 
             }
 
             .row_menu {
 
                 margin-right: 15rem;
-              height: 100px;
+                 height: 100px;
             }
         }
 

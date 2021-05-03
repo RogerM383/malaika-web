@@ -10,7 +10,7 @@ import Grid from "../components/Grid";
 
 const Page = ({children, ...props}) => {
 
-    const elements = ['one', 'two', 'three','four','five', 'six'];
+    const elements = ['one', 'two', 'three', 'four', 'five', 'six'];
 
     return (
         <div css={home_styles}>
@@ -21,16 +21,13 @@ const Page = ({children, ...props}) => {
             </Header>
 
             <div className={"container"}>
-
                 <div className={"block1"}>
-
-
                     <div className={"alert"}>
-                        <p ><span css={{color:'red'}}>*</span><span className={"didot"}>AVISOS:</span>  Nova normativa de de maletes VUELING cosulteu en aquest enllaç www.vueling.com/maletes</p>
+                        <p><span css={{color: 'red'}}>*</span><span className={"didot"}>AVISOS:</span> Nova normativa de de maletes VUELING cosulteu en aquest enllaç www.vueling.com/maletes</p>
                         <hr/>
                     </div>
 
-                    <div  className={"cita didot"}>
+                    <div className={"cita didot"}>
                         <p>Hi ha experiències que no passen desapercebudes, emocions que no s'obliden i que desitgem que perdurin per sempre.
                         </p>
                     </div>
@@ -43,18 +40,16 @@ const Page = ({children, ...props}) => {
                     </div>
 
 
-
-
-                    <Grid size={"250px"}>
+                    <Grid size={"400px"}>
                         {
 
-                            elements.map((element)=>{
-                                return(
+                            elements.map((element) => {
+                                return (
                                     <Card css={card_home_1}>
                                         <div className={"text"}>
-                                            <p className={"bold didot"}>ANDALUSIA CRUILLA DE CULTURES</p>
-                                            <p className={"sbold"}><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</p>
-                                            <p className={"bold didot"}>Més Informació 	&#8594;</p>
+                                            <span className={" db bold didot fs-16"}>ANDALUSIA CRUILLA DE CULTURES</span>
+                                            <span className={"db sbold fs-12"}><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</span>
+                                            <span className={"db bold didot"}>Més Informació    &#8594;</span>
                                         </div>
 
                                         <Image src={"home_card_1.png"}></Image>
@@ -66,17 +61,19 @@ const Page = ({children, ...props}) => {
                     </Grid>
                 </div>
 
+            </div>
 
 
-                <div className={"block2"}>
+            <div className={"block2"}>
+                <div className={"container"}>
                     <p className={"title"}>Destacats /</p>
 
 
-                    <Grid size={"250px"}>
+                    <Grid size={"350px"}>
                         {
 
-                            elements.map((element)=>{
-                                return(
+                            elements.map((element) => {
+                                return (
                                     <Card css={card_home_2}>
                                         <Image src={"home_card_1.png"}></Image>
                                         <div className={"text"}>
@@ -93,11 +90,86 @@ const Page = ({children, ...props}) => {
                         }
                     </Grid>
 
+                    <div className={"next_prev"}>
+                        <button> &#60; </button>
+                        <button> > </button>
+                    </div>
 
                 </div>
 
+            </div>
 
+
+            <div className={"block3"}>
+                <div className={"container"}>
+                    <div className={"row"}>
+                        <div className={"column"}>
+                            <p css={{color:'#9B9B9B'}}>Farm Visit</p>
+                            <p className={"bold primary fs-40"}>Novetats</p>
+                            <p>Us mantenim informtas de les novetats, normativa,
+                                documentació, i tot allò que
+                                pugui afectar al vostre viatge
+                                o sigui del vostre interès. </p>
+                            <input type={"text"} placeholder={"Busca novetats"}/>
+                        </div>
+                        <div className={"column"}>
+                            <div className={"normas"}>
+                                <div className={"normas_item"}>
+                                    <p>28/01/2021</p>
+                                    <div>
+                                        <p>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
+                                        <p>La nova normativa britànica obliga a les persones que vulguin entrar al
+                                            pais a la presentació del test PCR.
+                                            <span className={"primary"}> + informació</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className={"normas_item"}>
+                                    <p>28/01/2021</p>
+                                    <div>
+                                        <p>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
+                                        <p>La nova normativa britànica obliga a les persones que vulguin entrar al
+                                            pais a la presentació del test PCR.
+                                            <span className={"primary"}> + informació</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
                 </div>
+
+
+            </div>
+
+
+            <div className={"block4"}>
+
+                <div className={"container"}>
+                    <div className={"row"}>
+                        <div className={"columna"}>
+                            <p className={"didot fs-30"}>I si vols estar informat de tot</p>
+                        </div>
+                        <div className={"columna"}>
+                            <div className={"subscribe"}>
+                                <p className={"fs-18 sbold"}>Subscriu-te al nostre Newsletter</p>
+                                <p className={"fs-12"}>Sign Up for our mailing lists and get the latest
+                                    offers and promotions straight in your inbox.</p>
+                            </div>
+                            <div className={"form_subscribe"}>
+                                <input type={"text"} placeholder={"Your Email"}/>
+                                <button>Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
 

@@ -8,9 +8,9 @@ const Header = ({img = true,title=false, children, ...props}) => {
 
     const router = useRouter();
     return (
-        <div className={""} css={header_styles}>
+        <div  css={header_styles}>
             <div  css={{backgroundImage: "url(" + img + ")"}}>
-                <div className={"container"}>
+                <div className={"container content"}>
 
                     <div className={" row_top"}>
                         <a href={"/home"}>
@@ -33,8 +33,9 @@ const Header = ({img = true,title=false, children, ...props}) => {
 
                         </div>
                     </div>
+
                     <div className={"row row_middle didot bold"}>
-                        {title}
+                         {title}
                     </div>
 
 

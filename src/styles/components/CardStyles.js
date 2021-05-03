@@ -3,13 +3,26 @@ import {css} from '@emotion/react';
 export const card_home_1 = (theme) => {
     const style = css`
 
-        border: 1px solid lightgray;
+        box-shadow: 0px 1px 4px -1px #24194D;
         padding: 0;
 
         .content {
             // text-align: center;
+
+            span {
+                margin: 1rem 0;
+            }
+
             .text {
-                padding: 1rem;
+                padding: 2rem;
+
+                span:nth-of-type(2) {
+                    margin: 2rem 0;
+                }
+
+                img {
+                    width: 24px;
+                }
             }
 
             > img {
@@ -52,41 +65,63 @@ export const card_viatge = (theme) => {
         border-bottom: 1px solid lightgray;
         padding: 0;
 
-       .row{
-        max-width: 70%;
-      }
 
-       .content {
-           cursor:pointer;
-         .column > img{
-           height: 100%;
-          object-fit: cover;
-         }
+        .content {
+            cursor: pointer;
+
+            .row {
+                max-width: 100%;
+                @media (min-width: 60rem) {
+                    max-width: 70%;
+                }
+
+
+                .column:nth-of-type(2) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+            }
+
+
+            .column > img {
+                height: 100%;
+                object-fit: cover;
+            }
+
             .timetable {
+                padding: 2rem 0;
                 margin-top: 1rem;
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: flex-start;
 
 
-
-                 .plane {
+                .plane {
                     display: flex;
                     justify-content: start;
 
 
-                     ul {
-                         list-style-type:none;
-                         margin: 0;
-                     }
-                     img {
+                    ul {
+                        list-style-type: none;
+                        margin: 0;
+                    }
 
+                    img {
+                        margin-right: 2rem;
                     }
                 }
 
 
             }
 
+
+            .more_info{
+             padding:2rem 0;
+                span{
+                    padding: 1rem 0;
+                }
+            }
         }
 
     `;
@@ -99,10 +134,10 @@ export const card_discover = (theme) => {
 
         width: 70%;
 
-      .inner .row{
-        margin:2rem 0;
-        padding:0;
-      }
+        .inner .row {
+            margin: 2rem 0;
+            padding: 0;
+        }
     `;
 
     return [style];
@@ -138,13 +173,14 @@ export const card_fitxa_destinacio = (theme) => {
         box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
 
         .content {
-          > .text{
-            padding: 1rem;
-          }
+            > .text {
+                padding: 1rem;
+            }
+
             > img {
-              min-height:300px;
-              width: 100%;
-              object-fit: cover;
+                min-height: 300px;
+                width: 100%;
+                object-fit: cover;
             }
         }
     `;
@@ -155,28 +191,29 @@ export const card_fitxa_destinacio = (theme) => {
 
 export const card_itinerari = (theme) => {
     const style = css`
-    position:relative;
+        position: relative;
 
         .inner:after {
-          content:"";
-          position: absolute;
-          top:15px;
-          left: -18px;
-          border-left: 1px solid black;
-          height: 100%;
-          z-index: 1;
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: -18px;
+            border-left: 1px solid black;
+            height: 100%;
+            z-index: 1;
         }
 
-      .inner:before {
-        content: '';
-        position: absolute;
-        left: -25px;
-        width: 15px;
-        height: 15px;
-        border-radius: 7.5px;
-        background-color: white;
-        border:1px solid black; z-index: 2;
-      }
+        .inner:before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 7.5px;
+            background-color: white;
+            border: 1px solid black;
+            z-index: 2;
+        }
 
     `;
 
@@ -186,18 +223,19 @@ export const card_itinerari = (theme) => {
 export const card_itinerari_finish = (theme) => {
     const style = css`
 
-      position:relative;
+        position: relative;
 
-      .inner:before {
-        content: '';
-        position: absolute;
-        left: -25px;
-        width: 15px;
-        height: 15px;
-        border-radius: 7.5px;
-        background-color: white;
-        border:1px solid black; z-index: 2;
-      }
+        .inner:before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 7.5px;
+            background-color: white;
+            border: 1px solid black;
+            z-index: 2;
+        }
 
     `;
 
@@ -209,11 +247,13 @@ export const card_blog = (theme) => {
     const style = css`
 
         cursor: pointer;
-        .inner{
+
+        .inner {
             img {
                 width: 100%;
             }
-            .content{
+
+            .content {
 
             }
         }

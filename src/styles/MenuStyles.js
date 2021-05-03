@@ -13,7 +13,7 @@ export const menu_styles = (theme) => {
         width: 100%;
         border-top-right-radius: 50px;
         align-items: center;
-        margin-right: 3rem;
+       // margin-right: 3rem;
 
       & > .columna{
           //border-right: 1px solid black;
