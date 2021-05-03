@@ -15,6 +15,7 @@ const Page = ({children, ...props}) => {
 
     const elements = ['one', 'two', 'three'];
     const router = useRouter();
+
     const goToArticle = () => {
         router.push("/blog_article")
     }

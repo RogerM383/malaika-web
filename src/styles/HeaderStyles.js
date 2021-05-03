@@ -28,10 +28,18 @@ export const header_styles = (theme) => {
                 .contact{
                   display: flex;
                   margin-right: 5rem;
+                    :first-of-type{
+                        white-space: nowrap;
+                    }
                   > img{
                     display: block;
                     margin:0 2rem;
+                      max-width: 20px;
+                      max-height: 20px;
                   }
+                    a{
+                        color:white
+                    }
                 }
 
 

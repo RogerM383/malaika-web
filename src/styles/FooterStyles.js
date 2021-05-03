@@ -3,12 +3,14 @@ import {css} from '@emotion/react';
 export const footer_styles = (theme) => {
     const style = css`
 
-        padding: 5rem;
+        padding: 5rem 2rem;
         .info {
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 14px;
         }
 
         .contact {
+            font-size: 12px;
             padding: 2rem;
             flex-direction: column;
             justify-content: flex-end;

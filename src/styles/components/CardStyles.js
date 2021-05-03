@@ -58,13 +58,15 @@ export const card_viatge = (theme) => {
 
        .content {
            cursor:pointer;
-         .column-33 > img{
+         .column > img{
            height: 100%;
           object-fit: cover;
          }
             .timetable {
+                margin-top: 1rem;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
 
 
 
@@ -72,8 +74,10 @@ export const card_viatge = (theme) => {
                     display: flex;
                     justify-content: start;
 
+
                      ul {
                          list-style-type:none;
+                         margin: 0;
                      }
                      img {
 
@@ -204,6 +208,7 @@ export const card_itinerari_finish = (theme) => {
 export const card_blog = (theme) => {
     const style = css`
 
+        cursor: pointer;
         .inner{
             img {
                 width: 100%;

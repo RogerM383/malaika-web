@@ -49,7 +49,7 @@ const Page = ({children, ...props}) => {
                                 <Card onClick={goToFitxa} css={card_viatge}>
 
                                     <div className={"row"}>
-                                        <div className={"column column-33"}>
+                                        <div className={"column "}>
                                             <Image src={"home_card_1.png"}></Image>
                                         </div>
 

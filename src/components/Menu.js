@@ -7,11 +7,8 @@ const Header = ({img = true, children, ...props}) => {
 
     const router = useRouter();
 
+
     const navButtons = [
-/*        {
-            label: "Home",
-            path: "/home",
-        },*/
         {
             label: "Viatges d'Autor",
             path: "/viatge_autor",
@@ -22,16 +19,16 @@ const Header = ({img = true, children, ...props}) => {
             path: "/destinacions",
 
         },
-/*        {
-            label: "Fitxa viatges d'autor",
-            path: "/fitxa_viatge_autor",
+        /*        {
+                    label: "Fitxa viatges d'autor",
+                    path: "/fitxa_viatge_autor",
 
-        },
-        {
-            label: "Fitxa viatges destinacions",
-            path: "/fitxa_viatge_destinacio",
+                },
+                {
+                    label: "Fitxa viatges destinacions",
+                    path: "/fitxa_viatge_destinacio",
 
-        },*/
+                },*/
         {
             label: "Sobre nosaltres",
             path: "/nosaltres",
@@ -42,19 +39,28 @@ const Header = ({img = true, children, ...props}) => {
             path: "/blog",
 
         },
-  /*      {
-            label: "Blog article",
-            path: "/blog_article",
 
-        },*/
+
 
     ];
+
+    const [menu, setMenu] = useState(navButtons);
+
+    useEffect(() => {
+     if(router.pathname === "/home"){
+         setMenu([
+             ...menu,{  label: "Amics",path: "/blog",}])
+     }
+    }, [router]);
+
+
+
 
     return (
         <div  css={menu_styles}>
 
             {
-                navButtons.map((item,index)=>{
+                menu.map((item,index)=>{
                     return(
                         <div className={"columna"}>
                             <Link href={item.path}>

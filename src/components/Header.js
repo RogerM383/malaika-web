@@ -22,7 +22,7 @@ const Header = ({img = true,title=false, children, ...props}) => {
                         <div className={"contact_language"}>
                             <div className={"contact"}>
                                 <Image src={"phone_icon.png"}/>
-                                <span className={"fs-13 bold"}>+34 930 011 176</span>
+                                <span  className={"fs-13 bold"}><a href="tel:34930011176">+34 930 011 176</a></span>
                                 <Image src={"mail_icon.png"}/>
                             </div>
 

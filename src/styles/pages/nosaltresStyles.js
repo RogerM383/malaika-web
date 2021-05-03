@@ -27,10 +27,20 @@ export const nosaltres_styles = (theme) => {
         .block2 {
 
             background-color: #F8F8F8;
-            .column-33{
+            .column:first-of-type{
                 font-size: 34px;
                 font-weight: bold;
                 padding: 5rem 0;
+                max-width: 100%;
+            }
+        }
+
+
+        @media (min-width: 40.0rem) {
+            .block2 {
+                .column:first-of-type {
+                    max-width: 33%;
+                }
             }
         }
 

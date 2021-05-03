@@ -34,10 +34,11 @@ const Page = ({children, ...props}) => {
             </div>
 
 
+
             <div className={"block2"}>
                 <div className={"container"}>
                     <div className={"row"}>
-                        <div className={"column column-33"}>
+                        <div className={"column"}>
                             <p className={"text"}>Viatjar per saber,per olorar la llum dels llocs; també, per ésser, per tenir memòria.
                             </p>
                         </div>
