@@ -11,7 +11,7 @@ export const home_styles = (theme) => {
             margin-bottom: 15rem;
 
             .alert {
-                margin: 4rem 0;
+                margin: 7rem 0;
 
                 > p {
                     margin-bottom: 1rem;

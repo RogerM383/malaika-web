@@ -6,11 +6,19 @@ import Footer from "../components/Footer";
 import Grid from "../components/Grid";
 import Card from "../../package/components/Card";
 import {card_fitxa_destinacio, card_home_2} from "../styles/components/CardStyles";
+import {useRouter} from "next/router";
 
 
 const Page = ({children, ...props}) => {
 
     const elements = ['one', 'two'];
+
+    const router = useRouter();
+
+    const goToFitxa = (e) =>{
+        router.push("/fitxa_viatge_destinacio");
+    }
+
     return (
         <div css={viatge_destinacio_fitxa}>
             <Header img={"Banner.png/"}/>
@@ -22,8 +30,10 @@ const Page = ({children, ...props}) => {
                 <div className={"row  block1"}>
                     <div className={"column"}>
                         <p className={"title didot bold"}>Salzburg Imperial</p>
-                        <p className={"fs-24"}>Ciutats imperials i Alps</p>
+
+                        <p className={"sbold fs-24"}>Ciutats imperials i Alps</p>
                         <p className={"fs-24"}>La cuna de Mozart, palaus i joies imperials</p>
+
                         <p className={"bold fs-24"}> DESTACA </p>
                         <li className={"fs-24"}>Visita Casa Mozart</li>
                         <li className={"fs-24"}>Palau Reial</li>
@@ -101,12 +111,12 @@ const Page = ({children, ...props}) => {
                           <p className={"bold fs-40 text didot"}>Altres viatges que et poden interessar</p>
                           </div>
                       <div className={"column"}>
-                          <Grid size={'250px'}>
+                          <Grid size={'400px'}>
                               {
 
                                   elements.map((element)=>{
                                       return(
-                                          <Card css={card_fitxa_destinacio}>
+                                          <Card onClick={goToFitxa} css={card_fitxa_destinacio}>
                                               <Image src={"home_card_1.png"}></Image>
                                               <div className={"text"}>
                                                   <p className={"didot bold text fs-18"}>ANDALUSIA CRUILLA DE CULTURES</p>

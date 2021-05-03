@@ -19,13 +19,13 @@ const Page = ({children, ...props}) => {
                         <p className={"fs-50 didot sbold title"}>Som viatgeres</p>
                     </div>
                     <div className={"item"}>
-                        <p className={"fs-18"}>
+                        <p className={"fs-18 pad"}>
                             Ens agrada tant viatjar que el món ens queda petit. Cada viatge és una experiència vital i d'aprenentatge: les cultures, la seva gent, els paisatges, les olors, la llum. Tots hem sentit alguna vegada aquella felicitat difícil de traduir en paraules.
                         </p>
 
                     </div>
                     <div className={"item"}>
-                        <p className={"fs-18"}>
+                        <p className={"fs-18 pad"}>
                             Això és el que intentem transmetre als nostres viatges, felicitat, i per aconseguir-ho hi posem tota la nostra passió i dedicació, perque cada viatge sigui una experiència única i irrepetible.
 
                         </p>

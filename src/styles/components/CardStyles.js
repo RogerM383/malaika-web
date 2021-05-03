@@ -5,6 +5,7 @@ export const card_home_1 = (theme) => {
 
         box-shadow: 0px 1px 4px -1px #24194D;
         padding: 0;
+        cursor: pointer;
 
         .content {
             // text-align: center;
@@ -58,7 +59,7 @@ export const card_home_2 = (theme) => {
     return [style];
 }
 
-export const card_viatge = (theme) => {
+export const card_viatge_autor = (theme) => {
     const style = css`
 
 
@@ -76,7 +77,9 @@ export const card_viatge = (theme) => {
                 }
 
 
-                .column:nth-of-type(2) {
+                .column{
+
+                    padding-left:3rem;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -87,19 +90,26 @@ export const card_viatge = (theme) => {
             .column > img {
                 height: 100%;
                 object-fit: cover;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
             }
 
             .timetable {
                 padding: 2rem 0;
                 margin-top: 1rem;
+
+
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
-
+                flex-direction: column;
 
                 .plane {
                     display: flex;
                     justify-content: start;
+                    padding:1rem 0;
 
 
                     ul {
@@ -109,6 +119,13 @@ export const card_viatge = (theme) => {
 
                     img {
                         margin-right: 2rem;
+                    }
+                }
+
+                @media(min-width: 65rem){
+                    flex-direction: row;
+                    .plane {
+                        padding:0
                     }
                 }
 
@@ -155,6 +172,14 @@ export const card_destinacio = (theme) => {
             // text-align: center;
             .text {
                 padding: 1rem;
+
+                p:nth-of-type(2){
+                    color:#9B9B9B;
+                }
+
+                .arrow{
+                    margin-left: 2rem;
+                }
             }
 
             > img {
@@ -213,6 +238,10 @@ export const card_itinerari = (theme) => {
             background-color: white;
             border: 1px solid black;
             z-index: 2;
+        }
+
+        li{
+            list-style: none;
         }
 
     `;

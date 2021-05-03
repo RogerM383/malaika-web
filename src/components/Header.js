@@ -26,8 +26,8 @@ const Header = ({img = true,title=false, children, ...props}) => {
                                 <Image src={"mail_icon.png"}/>
                             </div>
 
-                            <div>
-                                <span className={"fs-14 bold"}>Català / Castella</span>
+                            <div className={"language"}>
+                                <span className={"fs-14  "}>Català / Castella</span>
                             </div>
 
 

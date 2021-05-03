@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Grid from "../components/Grid";
 import Card from "../../package/components/Card";
-import {card_destinacio, card_viatge} from "../styles/components/CardStyles";
+import {card_destinacio} from "../styles/components/CardStyles";
 import Image from "../../package/components/Image";
 import {useRouter} from "next/router";
 
@@ -31,9 +31,9 @@ const Page = ({children, ...props}) => {
             <div className={"container"}>
 
 
-                <p className={"title didot"}>Ens apassiona l’Asia</p>
+                <p className={"title didot"}>Ens apassiona <br/> l’Asia</p>
 
-                <Grid size={"300px"}>
+                <Grid size={"350px"}>
                     {
 
                         elements.map((element) => {
@@ -41,9 +41,10 @@ const Page = ({children, ...props}) => {
                                 <Card  onClick={goToFitxa} css={card_destinacio}>
                                     <Image src={"home_card_1.png"}></Image>
                                     <div className={"text"}>
-                                        <p className={"didot bold"}>ANDALUSIA CRUILLA DE CULTURES</p>
-                                        <p className={"sbold"}><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</p>
-                                        <p className={"didot bold"}>Més Informació 	&#8594;</p>
+                                        <span className={"didot bold"}>ANDALUSIA CRUILLA DE CULTURES</span>
+                                        <p className={"fs-14"}>Palaus i cultura mil.lenària</p>
+                                        <p className={"fs-14 sbold"}><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</p>
+                                        <p className={"didot bold"}>Més Informació <span className={"arrow"}>&#8594;</span>	</p>
                                     </div>
 
 

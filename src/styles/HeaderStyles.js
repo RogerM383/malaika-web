@@ -17,30 +17,32 @@ export const header_styles = (theme) => {
             justify-content: space-between;
             height: 100%;
 
-            div:first-of-type{
-            flex:0 0 20%;
-          }
-
-            div:nth-of-type(2){
-              flex:0 0 80%;
-              align-self: center;
-              align-items: center;
-            }
-          }
-
 
 
             .row_top {
+              flex:0 0 20%;
+
+                img{
+                    padding-bottom: 4rem;
+                }
+
               display: flex;
               flex-wrap: wrap;
               padding: 4rem;
-              justify-content: space-between;
+              justify-content: flex-start;
+                flex-direction: column;
+                @media(min-width: 40rem){
+                flex-direction: row;
+
+                }
+            }
 
               .contact_language{
+
                 flex:1 1 auto;
                 display: flex;
                 justify-content: flex-end;
-                align-items: center;
+                align-items: flex-start;
 
 
                 .contact{
@@ -52,20 +54,26 @@ export const header_styles = (theme) => {
                   > img{
                     display: block;
                     margin:0 2rem;
-                      max-width: 20px;
-                      max-height: 20px;
+                 /*     max-width: 20px;
+                      max-height: 20px;*/
                   }
                     a{
                         color:white
                     }
                 }
+                  .language{
+                      display: flex;
 
-
+                      align-items: flex-start;
+                  }
 
               }
             }
 
             .row_middle {
+                flex:0 0 80%;
+                align-self: center;
+                align-items: center;
               font-size: 50px;
               padding: 4rem;
 

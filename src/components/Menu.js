@@ -10,12 +10,12 @@ const Header = ({img = true, children, ...props}) => {
 
     const navButtons = [
         {
-            label: "Viatges d'Autor",
+            label: "VIATGES D'AUTOR",
             path: "/viatge_autor",
 
         },
         {
-            label: "Destinacions",
+            label: "DESTINACIONS",
             path: "/destinacions",
 
         },
@@ -30,12 +30,12 @@ const Header = ({img = true, children, ...props}) => {
 
                 },*/
         {
-            label: "Sobre nosaltres",
+            label: "SOBRE NOSALTRES",
             path: "/nosaltres",
 
         },
         {
-            label: "Blog",
+            label: "BLOG",
             path: "/blog",
 
         },
@@ -49,7 +49,7 @@ const Header = ({img = true, children, ...props}) => {
     useEffect(() => {
      if(router.pathname === "/home"){
          setMenu([
-             ...menu,{  label: "Amics",path: "/blog",}])
+             ...menu,{  label: "AMICS",path: "/blog",}])
      }
     }, [router]);
 

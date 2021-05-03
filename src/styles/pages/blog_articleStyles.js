@@ -10,7 +10,7 @@ export const blog_article_styles = (theme) => {
             }
         }
 
-        .content {
+        > .content {
             padding: 10rem;
             font-size: 14px;
             font-family: 'Sofia', serif;

@@ -3,7 +3,7 @@ import {viatge_autor_style} from "../styles/pages/viatge_autorStyles";
 import Header from "../components/Header";
 import Grid from "../components/Grid";
 import Card from "../../package/components/Card";
-import {card_discover, card_home_2, card_viatge} from "../styles/components/CardStyles";
+import {card_discover, card_viatge_autor} from "../styles/components/CardStyles";
 import Image from "../../package/components/Image";
 import Footer from "../components/Footer";
 import {useRouter} from "next/router";
@@ -41,17 +41,17 @@ const Page = ({children, ...props}) => {
                 </div>
 
 
-                <Grid size={"auto"}>
+                <Grid size={"60%"}>
                     {
 
                         elements.map((element) => {
                             return (
-                                <Card onClick={goToFitxa} css={card_viatge}>
+                                <Card onClick={goToFitxa} css={card_viatge_autor}>
 
                                     <div className={"row row-center"}>
-                                        <div className={"column "}>
+
                                             <Image src={"home_card_1.png"}></Image>
-                                        </div>
+
 
                                         <div className={"column"}>
                                             <span className={"title fs-18 bold didot"}>LA HABANA REVOLUCIONÀRIA</span>

@@ -22,36 +22,40 @@ const Page = ({children, ...props}) => {
                 <div className={"row block1"}>
                     <div className={"column"}>
                         <p className={"title"}>Japó Tradicional</p>
-                        <p className={"fs-24 bold"}>Ciutats imperials i Alps</p>
+                        <p className={"fs-24 bold my-5"}>Ciutats imperials i Alps</p>
                         <p className={"fs-24"}>Viatge a Japó amb un ampli recorregut que ens porta desde les modernes ciutats al món rural i els Alps.</p>
                         <p className={"bold"}> DESTACA </p>
                         <li>Visita Monte Fuji</li>
                         <li> Les geisas de Kyoto</li>
                         <li> Santuari Itsukushima</li>
 
-                        <button>Fitxa viatge pdf</button>
+                        <button className={"my-5"}>Fitxa viatge pdf</button>
 
                     </div>
 
 
                     <div className={"column"}>
-                        <p>GRUP: 8-16 PERSONES</p>
+                        <div className={"itinerari_info"}>
 
-                        <div>
-                            <span> PREU : 3575.00€ (per persona en habitació doble)</span>
-                            <span> Taxes d'aeroport 245.00€</span>
-                            <span> Suplement hab. individual: 660.00€</span>
+                            <p>GRUP: 8-16 PERSONES</p>
 
+                            <div>
+                                <span> PREU : 3575.00€ (per persona en habitació doble)</span>
+                                <span> Taxes d'aeroport 245.00€</span>
+                                <span> Suplement hab. individual: 660.00€</span>
+
+                            </div>
+
+                            <div className={"plane"}>
+                                <img src={"plane_icon.png"}/>del 7 AL 12 D’octubre 2021
+                            </div>
+
+                            <div className={""}>
+                                <p className={"bold"}>ITINERARI</p>
+                                <Image src={"/map.png"}/>
+                            </div>
                         </div>
 
-                        <div className={"plane"}>
-                            <img src={"plane_icon.png"}/>del 7 AL 12 D’octubre 2021
-                        </div>
-
-                        <div className={""}>
-                            <p className={"bold"}>ITINERARI</p>
-                            <Image src={"/map.png"}/>
-                        </div>
 
 
                     </div>

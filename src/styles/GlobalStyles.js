@@ -145,7 +145,7 @@ export const global = (theme) => {
         }
 
             .title {
-                width: 40%;
+               // width: 40%;
                 font-size: 50px;
                 font-weight: bold;
                 font-family: Didot;

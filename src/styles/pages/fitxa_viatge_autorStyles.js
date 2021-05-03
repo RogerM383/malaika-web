@@ -5,18 +5,28 @@ export const viatge_autor_fitxa = (theme) => {
 
 
         .block1 {
+            .title{
+                padding:4rem 0
+            }
             .column{
                 padding: 2rem;
             }
             .column:first-of-type {
                 border-right: 0;
+                li{
+                    list-style: none;
+                }
+
+                button{
+
+                }
             }
 
             .column:nth-of-type(2){
-
                 display: flex;
-                flex-direction: column;
-                justify-content: space-around;
+                justify-content: center;
+                padding:6rem 0;
+
 
                 span{
                     display: block;
@@ -48,11 +58,15 @@ export const viatge_autor_fitxa = (theme) => {
 
                 > .columna {
                     flex: 0 0 50%;
-                    padding: 2rem 0;
+                    padding: 2rem 3rem;
 
-                    :nth-of-type(2) {
-                        padding: 2rem
+                    :first-child{
+                        padding: 3rem 3rem 3rem 0;
                     }
+                    :nth-of-type(2){
+                        padding: 3rem ;
+                    }
+
                 }
 
 
@@ -61,6 +75,7 @@ export const viatge_autor_fitxa = (theme) => {
 
         .block3{
 
+            padding:5rem;
             .separator{
                 position: relative;
                 content:"";

@@ -5,7 +5,7 @@ export const menu_styles = (theme) => {
 
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+
         color:black;
         background-color: white;
         height: 100px;
@@ -17,11 +17,31 @@ export const menu_styles = (theme) => {
 
       & > .columna{
           //border-right: 1px solid black;
+        flex: 1 0 auto;
           background-color: white;
+      }
+
+      > .columna{
+        .NavButton::after{
+          content:"/";
+          font-size: 40px;
+          position: absolute;
+          right: -10px;
+          top: -15px;
+          bottom: 0;
+          font-weight: 100;
+          color:lightgray;
+        }
       }
 
       & > .columna:last-of-type{
         border-right:0;
+
+        .NavButton::after{
+          content:"";
+          position: absolute;
+          right: 0;
+        }
 
       }
 
@@ -36,6 +56,17 @@ export const menu_styles = (theme) => {
 
       }
 
+
+
+      /*
+      .NavButton:last-child:after{
+        content:"";
+        position: absolute;
+        right: 0;
+      }
+      */
+
+
         .columna:last-of-type{
             background-color: transparent;
             padding:1rem;
@@ -43,7 +74,8 @@ export const menu_styles = (theme) => {
 
 
 
-      .item:first-of-type{
+      .item{
+
 
       }
 

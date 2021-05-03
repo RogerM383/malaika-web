@@ -4,14 +4,20 @@ export const nosaltres_styles = (theme) => {
     const style = css`
 
         .block1 {
-            padding: 5em;
+            padding: 5em 0;
             margin-bottom: 2rem;
             display: flex;
             flex-wrap: wrap;
 
             .item{
                 flex:1 0 300px;
+                padding:3rem 0;
+                .pad{
+                    padding:0 3rem;
+                }
             }
+
+
             & .row{
 
             }

@@ -6,11 +6,18 @@ import Card from "../../package/components/Card";
 import Image from "../../package/components/Image";
 import {card_home_1, card_home_2} from "../styles/components/CardStyles";
 import Grid from "../components/Grid";
+import {useRouter} from "next/router";
 
 
 const Page = ({children, ...props}) => {
 
     const elements = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+    const router = useRouter();
+
+    const goToFitxa = () =>{
+        router.push("/fitxa_viatge_autor")
+    }
 
     return (
         <div css={home_styles}>
@@ -23,7 +30,7 @@ const Page = ({children, ...props}) => {
             <div className={"container"}>
                 <div className={"block1"}>
                     <div className={"alert"}>
-                        <p><span css={{color: 'red'}}>*</span><span className={"didot"}>AVISOS:</span> Nova normativa de de maletes VUELING cosulteu en aquest enllaç www.vueling.com/maletes</p>
+                        <p><span css={{color: 'red'}}>*</span><span className={"didot  my-5"}>AVISOS:</span> Nova normativa de de maletes VUELING cosulteu en aquest enllaç www.vueling.com/maletes</p>
                         <hr/>
                     </div>
 
@@ -45,7 +52,7 @@ const Page = ({children, ...props}) => {
 
                             elements.map((element) => {
                                 return (
-                                    <Card css={card_home_1}>
+                                    <Card onClick={goToFitxa} css={card_home_1}>
                                         <div className={"text"}>
                                             <span className={" db bold didot fs-16"}>ANDALUSIA CRUILLA DE CULTURES</span>
                                             <span className={"db sbold fs-12"}><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</span>
