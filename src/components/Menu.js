@@ -63,7 +63,7 @@ const Header = ({img = true, children, ...props}) => {
             {
                 menu.map((item,index)=>{
                     return(
-                        <div className={`columna ${item?.image ? "AMICS" : 'ivan'} `}>
+                        <div className={`columna ${item?.image ? "AMICS" : 'lastBeforeAmics'}`}>
                             <Link href={item.path}>
                                 <a className={`NavButton ${router.pathname === item.path ? "active" : ""} `}>
                                     {

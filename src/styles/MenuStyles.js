@@ -16,9 +16,6 @@ export const menu_styles = (theme) => {
       // margin-right: 3rem;
 
 
-      .column:last-child {
-        background-color: purple;
-      }
 
 
       & > .columna {
@@ -40,9 +37,9 @@ export const menu_styles = (theme) => {
         }
       }
 
-      .ivan:last-child{
+      .ivan:last-child {
         .NavButton:after {
-          content:"";
+          content: "";
         }
       }
 
@@ -84,11 +81,12 @@ export const menu_styles = (theme) => {
         flex-direction: column;
         justify-content: center;
 
-        img{
+        img {
           display: block;
           margin-left: auto;
           margin-right: auto;
         }
+
         /*        background-image:url('/amics_museu.svg');
                 background-position: center;*/
 
@@ -99,6 +97,10 @@ export const menu_styles = (theme) => {
         width: 85%;
       }
 
+
+      .lastBeforeAmics:nth-child(4) ::after{
+        display: none;
+      }
 
     `;
 
