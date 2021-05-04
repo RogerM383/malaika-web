@@ -23,7 +23,7 @@ const Page = ({children, ...props}) => {
 
             <Header
                 title={"Viatges d’autor"}
-                img={"Banner.png/"}>
+                img={"foto1.png/"}>
 
             </Header>
 

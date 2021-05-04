@@ -13,7 +13,7 @@ const Page = ({children, ...props}) => {
 
     return (
         <div css={viatge_autor_fitxa}>
-            <Header img={"Banner.png/"}/>
+            <Header img={"foto3.png/"}/>
 
             <div className={"container"}>
 

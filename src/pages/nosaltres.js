@@ -12,7 +12,7 @@ const Page = ({children, ...props}) => {
         <div css={nosaltres_styles}>
             <Header
                 title={"Sobre nosaltres"}
-                img={"Banner.png/"}/>
+                img={"foto5.png/"}/>
             <div className={"container"}>
                 <div className={"block1"}>
                     <div className={"item"}>

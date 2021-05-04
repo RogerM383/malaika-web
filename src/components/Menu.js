@@ -44,12 +44,13 @@ const Header = ({img = true, children, ...props}) => {
 
     ];
 
+
     const [menu, setMenu] = useState(navButtons);
 
     useEffect(() => {
      if(router.pathname === "/home"){
          setMenu([
-             ...menu,{  label: "AMICS",path: "/blog",}])
+             ...menu,{  label: "AMICS",path: "/blog", image:"amics_museu.svg"}])
      }
     }, [router]);
 
@@ -57,16 +58,23 @@ const Header = ({img = true, children, ...props}) => {
 
 
     return (
-        <div  css={menu_styles}>
+        <div  css={menu_styles} >
 
             {
                 menu.map((item,index)=>{
                     return(
-                        <div className={"columna"}>
+                        <div className={`columna ${item?.image ? "AMICS" : 'ivan'} `}>
                             <Link href={item.path}>
-                                <a className={`NavButton ${router.pathname === item.path ? "active" : ""}`}>
+                                <a className={`NavButton ${router.pathname === item.path ? "active" : ""} `}>
+                                    {
+                                        item.image &&
+                                         <img src={"amics_museu.svg"}/>
+                                    }
+                                    { !item.image &&
+                                        <span className={"item"}>{item.label}</span>
+                                    }
 
-                                    <span className={"item"}>{item.label}</span>
+
                                 </a>
                             </Link>
                         </div>

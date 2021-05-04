@@ -23,7 +23,9 @@ const Page = ({children, ...props}) => {
 
     return (
         <div css={blog_styles}>
-            <Header img={"Banner.png/"}/>
+            <Header
+                title={"New Ideas For A Low Cost Vacation On Water"}
+                img={"palmeras.png/"}/>
 
             <div className={"container"}>
 

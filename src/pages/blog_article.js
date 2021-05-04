@@ -13,7 +13,7 @@ const Page = ({children, ...props}) => {
 
             <Header
                 title={"New Ideas For A Low Cost Vacation On Water"}
-                img={"Banner.png/"}></Header>
+                img={"blog_card.png/"}></Header>
 
 
             <div className={"container content"}>

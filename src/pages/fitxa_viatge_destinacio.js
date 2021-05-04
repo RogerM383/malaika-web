@@ -21,7 +21,7 @@ const Page = ({children, ...props}) => {
 
     return (
         <div css={viatge_destinacio_fitxa}>
-            <Header img={"Banner.png/"}/>
+            <Header img={"foto4.png/"}/>
 
             <div className={"container"}>
 

@@ -3,49 +3,51 @@ import {css} from '@emotion/react';
 export const menu_styles = (theme) => {
     const style = css`
 
-        display: flex;
-        flex-wrap: wrap;
+      display: flex;
+      flex-wrap: nowrap;
 
-        color:black;
-        background-color: white;
-        height: 100px;
-        text-align: center;
-        width: 100%;
-        border-top-right-radius: 50px;
-        align-items: center;
-       // margin-right: 3rem;
+      color: black;
+      background-color: white;
+      height: 100px;
+      text-align: center;
+      width: 100%;
+      border-top-right-radius: 50px;
+      align-items: center;
+      // margin-right: 3rem;
 
-      & > .columna{
-          //border-right: 1px solid black;
-        flex: 1 0 auto;
-          background-color: white;
+
+      .column:last-child {
+        background-color: purple;
       }
 
-      > .columna{
-        .NavButton::after{
-          content:"/";
+
+      & > .columna {
+        flex: 1 0 20%;
+        background-color: white;
+
+      }
+
+      > .columna:not(:last-child) {
+        .NavButton:after {
+          content: "/";
           font-size: 40px;
           position: absolute;
           right: -10px;
           top: -15px;
           bottom: 0;
           font-weight: 100;
-          color:lightgray;
+          color: lightgray;
         }
       }
 
-      & > .columna:last-of-type{
-        border-right:0;
-
-        .NavButton::after{
+      .ivan:last-child{
+        .NavButton:after {
           content:"";
-          position: absolute;
-          right: 0;
         }
-
       }
 
-      a{
+
+      a {
         color: black;
         font-size: 14px;
         font-weight: bold;
@@ -57,37 +59,45 @@ export const menu_styles = (theme) => {
       }
 
 
-
-      /*
-      .NavButton:last-child:after{
-        content:"";
-        position: absolute;
-        right: 0;
+      .columna:last-of-type {
+        background-color: transparent;
+        padding: 1rem;
       }
-      */
 
 
-        .columna:last-of-type{
-            background-color: transparent;
-            padding:1rem;
+      .item {
+
+
+      }
+
+      .active {
+        color: ${theme.colors.primary};
+
+      }
+
+      .AMICS:last-child {
+        border-top-right-radius: 50px;
+        background-color: #4B4C4C;
+        max-width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        img{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
         }
-
-
-
-      .item{
-
-
-      }
-
-      .active{
-        color:${theme.colors.primary};
+        /*        background-image:url('/amics_museu.svg');
+                background-position: center;*/
 
       }
 
 
-        @media (min-width: 40.0rem) {
-            width: 85%;
-        }
+      @media (min-width: 40.0rem) {
+        width: 85%;
+      }
 
 
     `;

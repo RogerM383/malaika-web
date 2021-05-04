@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 export const header_styles = (theme) => {
     const style = css`
         > div {
-            height: 800px;
+            height: 100vh;
             color: white;
             display: flex;
             flex-direction: column;
