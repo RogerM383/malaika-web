@@ -266,6 +266,11 @@ export const card_itinerari_finish = (theme) => {
             z-index: 2;
         }
 
+
+        li{
+            list-style: none;
+        }
+
     `;
 
     return [style];
