@@ -4,48 +4,60 @@ export const nosaltres_styles = (theme) => {
     const style = css`
 
         .block1 {
-            padding: 5em 0;
-            margin-bottom: 2rem;
+            padding-top: ${theme.container.mobile_screen_top_padding};
             display: flex;
             flex-wrap: wrap;
 
-            .item{
-                flex:1 0 300px;
-                padding:3rem 0;
-                .pad{
-                    padding:0 3rem;
-                }
-            }
-
-
-            & .row{
+            .item {
+                flex: 1 0 100%;
+                flex-direction: column;
+                padding: 0 1rem;
 
             }
-            & .column{
-               //flex: 1 0 300px;
+
+            .title {
+                padding-bottom: 1rem;
             }
 
-            & .title{
-              margin:0;
+            & .title {
+                margin: 0;
             }
         }
 
         .block2 {
-
+            margin-top: ${theme.container.mobile_screen_top_padding};
             background-color: #F8F8F8;
-            .column:first-of-type{
+
+            .column:first-of-type {
                 font-size: 34px;
                 font-weight: bold;
                 padding: 5rem 0;
                 max-width: 100%;
             }
+
+            img{
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
         }
 
 
-        @media (min-width: 40.0rem) {
+        ${theme.mq('mobile-landscape')} {
             .block2 {
                 .column:first-of-type {
                     max-width: 33%;
+                }
+            }
+        }
+
+
+        ${theme.mq('tablet-landscape')} {
+            .block1 {
+                .item {
+                    flex-direction: row;
+                    flex: 1 0 300px;
+
                 }
             }
         }

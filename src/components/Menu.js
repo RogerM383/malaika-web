@@ -11,7 +11,7 @@ const Header = ({img = true, children, ...props}) => {
     const navButtons = [
         {
             label: "VIATGES D'AUTOR",
-            path: "/viatge_autor",
+            path: "/viatge-autor",
 
         },
         {
@@ -21,12 +21,12 @@ const Header = ({img = true, children, ...props}) => {
         },
         /*        {
                     label: "Fitxa viatges d'autor",
-                    path: "/fitxa_viatge_autor",
+                    path: "/fitxa-viatge-autor",
 
                 },
                 {
                     label: "Fitxa viatges destinacions",
-                    path: "/fitxa_viatge_destinacio",
+                    path: "/fitxa-viatge-destinacio",
 
                 },*/
         {

@@ -4,41 +4,38 @@ export const home_styles = (theme) => {
     const style = css`
 
 
-
-
         .block1 {
 
-            margin-bottom: 15rem;
-
-            .alert {
-                margin: 7rem 0;
-
-                > p {
-                    margin-bottom: 1rem;
-                    font-size: 16px;
-
-                    > span {
-                        font-size: 18px;
-                    }
-                }
-
-            }
+            padding-top: ${theme.container.mobile_screen_top_padding};
 
             .cita {
-                max-width: 500px;
-                margin: 4rem 0;
-
-                p {
-                    font-weight: bold;
-                    font-size: 24px;
-                }
-
+                padding-top: ${theme.container.mobile_screen_top_padding};
+                max-width: 600px;
             }
 
+            .title {
+                padding-top: ${theme.container.mobile_screen_top_padding};
+            }
+
+
             .subtitle {
-                font-size: 16px;
+
                 max-width: 700px;
-                margin: 4rem 0;
+                margin: ${theme.container.mobile_screen_top_padding} 0;
+            }
+
+            hr {
+                margin: 0;
+            }
+
+            .more {
+                float: right;
+
+                > a {
+                    margin-bottom: ${theme.container.mobile_screen_top_padding};
+                    display: block;
+                    color: black;
+                }
             }
 
 
@@ -47,11 +44,13 @@ export const home_styles = (theme) => {
 
         .block2 {
 
-            background-color: #F8F8F8;
 
-             .title {
-                padding: 8rem 0;
+            margin-top: 6rem;
+
+            .title {
+                padding-top: 2rem;
             }
+
 
         }
 
@@ -60,21 +59,31 @@ export const home_styles = (theme) => {
             background-color: #4D4D4D;
 
             .row {
-                padding-top: 5rem;
+                padding-top: ${theme.container.mobile_screen_top_padding};
             }
+
+
+            /*Columna GRIS*/
 
             .column:first-of-type {
                 color: white;
-                padding: 0 5rem;
-                flex: 1 0 25% ;
+                padding: 0 3rem;
+                flex: 1 0 30%;
+
+                p:nth-of-type(3) {
+                    width: 80%;
+                }
 
                 input {
                     background-color: white;
                     border-radius: 1px;
-                   // width: 50%;
+                    // width: 50%;
                 }
 
             }
+
+
+            /*Columna BLANCA*/
 
             .column:nth-of-type(2) {
                 color: initial;
@@ -86,13 +95,18 @@ export const home_styles = (theme) => {
 
             .normas {
                 padding: 4rem;
-                font-size: 16px;
+
 
                 .normas_item {
                     display: flex;
                     border-bottom: 1px solid #979797;
                     margin-right: 1rem;
-                    margin-bottom: 2rem;
+                    margin-bottom: 1rem;
+
+                    div > p {
+                        margin-bottom: 1rem;
+                    }
+
 
                     p:first-child {
                         margin-right: 1rem;
@@ -103,25 +117,26 @@ export const home_styles = (theme) => {
                 .normas_item:last-child {
                     border-bottom: none;
                 }
-                }
-
-
             }
 
 
-            .block4 {
-                background-color: #F8F8F8;
+        }
 
-                .row {
-                    padding: 6rem;
 
-                    .columna{
-                        flex: 0 0 50% ;
+        .block4 {
+            background-color: #F8F8F8;
 
-                        @media(min-width: 60rem){
-                            flex:0 0 33%;
-                        }
-                    }
+            .row {
+                padding: 6rem 0;
+
+                .left {
+
+                    flex: 0 0 50%;
+
+                }
+
+                .right {
+                    padding-left: 1rem;
 
                     .subscribe {
                         width: 70%;
@@ -131,15 +146,27 @@ export const home_styles = (theme) => {
                     .form_subscribe {
                         display: flex;
 
-                        input {
-                            background-color: white;
-                        }
                     }
-
                 }
 
-
             }
+
+
+        }
+
+        ${theme.mq('tablet-portrait')} {
+            .block4 {
+                .row {
+                    .left {
+                        flex: 0 0 33%;
+                    }
+
+                    .right {
+
+                    }
+                }
+            }
+        }
 
     `;
 

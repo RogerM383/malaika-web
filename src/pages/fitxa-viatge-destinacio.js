@@ -7,6 +7,8 @@ import Grid from "../components/Grid";
 import Card from "../../package/components/Card";
 import {card_fitxa_destinacio, card_home_2} from "../styles/components/CardStyles";
 import {useRouter} from "next/router";
+import MaxWidthContainer from "../components/MaxWidthContainer";
+import {bicolor_style} from "../styles/components/BiColorBlock";
 
 
 const Page = ({children, ...props}) => {
@@ -16,63 +18,62 @@ const Page = ({children, ...props}) => {
     const router = useRouter();
 
     const goToFitxa = (e) =>{
-        router.push("/fitxa_viatge_destinacio");
+        router.push("/fitxa-viatge-destinacio");
     }
 
     return (
         <div css={viatge_destinacio_fitxa}>
             <Header img={"foto4.png/"}/>
 
-            <div className={"container"}>
 
+            <MaxWidthContainer>
                 <div className={"breadcrumb"}>DESTINACIONS > EUROPA > SALZBURG</div>
+            </MaxWidthContainer>
 
-                <div className={"row  block1"}>
-                    <div className={"column"}>
-                        <p className={"title didot bold"}>Salzburg Imperial</p>
+            <MaxWidthContainer>
+                    <div className={"row  block1"}>
+                        <div className={"column"}>
+                            <p className={"title didot bold"}>Salzburg Imperial</p>
 
-                        <p className={"sbold fs-24"}>Ciutats imperials i Alps</p>
-                        <p className={"fs-24"}>La cuna de Mozart, palaus i joies imperials</p>
+                            <p className={"sbold fs-24"}>Ciutats imperials i Alps</p>
+                            <p className={"fs-24"}>La cuna de Mozart, palaus i joies imperials</p>
 
-                        <p className={"bold fs-24"}> DESTACA </p>
-                        <li className={"fs-24"}>Visita Casa Mozart</li>
-                        <li className={"fs-24"}>Palau Reial</li>
-                        <li className={"fs-24"}>Fabrica violins</li>
+                            <p className={"bold fs-24"}> DESTACA </p>
+                            <li className={"fs-24"}>Visita Casa Mozart</li>
+                            <li className={"fs-24"}>Palau Reial</li>
+                            <li className={"fs-24"}>Fabrica violins</li>
+                            <button className={"fs-24"}>Fitxa viatge pdf</button>
 
-
-
-
-
-                        <button>Fitxa viatge pdf</button>
-
-                    </div>
-
-
-                    <div className={"column"}>
-                        <div className={"fs-18 sbold"}>
-                            <p>GRUP: 8-16 PERSONES</p>
-
-                            <div>
-                                <li > <span className={"bold"} css={{display:"inline"}}>PREU : 3575.00€ </span>(per persona en habitació doble)</li>
-                                <li> Taxes d'aeroport 245.00€</li>
-                                <li> Suplement hab. individual: 660.00€</li>
-
-                            </div>
-
-                            <div className={"plane"}>
-                                <img src={"plane_icon.png"}/>del 7 AL 12 D’octubre 2021
-                            </div>
                         </div>
 
 
+                        <div className={"column"}>
+                            <div className={"fs-18 sbold"}>
+                                <p>GRUP: 8-16 PERSONES</p>
 
+                                <div>
+                                    <li > <span className={"bold"} css={{display:"inline"}}>PREU : 3575.00€ </span>(per persona en habitació doble)</li>
+                                    <li> Taxes d'aeroport 245.00€</li>
+                                    <li> Suplement hab. individual: 660.00€</li>
+
+                                </div>
+
+                                <div className={"plane"}>
+                                    <img src={"plane_icon.png"}/>del 7 AL 12 D’octubre 2021
+                                </div>
+                            </div>
+
+
+
+                        </div>
                     </div>
-                </div>
-
-            </div>
 
 
-            <div className={"block2"}>
+
+            </MaxWidthContainer>
+
+
+            <div css={bicolor_style} className={"block2"} >
                 <div className={"container"}>
                     <div className={"columna"}>
                         <p className={"fs-30 bold didot"}>Inclou</p>
@@ -119,9 +120,14 @@ const Page = ({children, ...props}) => {
                                           <Card onClick={goToFitxa} css={card_fitxa_destinacio}>
                                               <Image src={"home_card_1.png"}></Image>
                                               <div className={"text"}>
-                                                  <p className={"didot bold text fs-18"}>ANDALUSIA CRUILLA DE CULTURES</p>
-                                                  <p><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</p>
-                                                  <p>Més Informació -></p>
+                                                  <span className={" db didot bold text fs-18"}>ANDALUSIA CRUILLA DE CULTURES</span>
+                                                  <p className={"fs-14"}>Ciutat imperial</p>
+                                                  <div className={"calendar"}>
+                                                      <img src={"/calendar_icon.png"}/>
+                                                      <p className={"fs-14 sbold"}>3 dies - Sortides 13 Octubre, 18 Novembre</p>
+                                                  </div>
+
+                                                  {/*<p>Més Informació -></p>*/}
                                               </div>
 
 

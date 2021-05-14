@@ -4,29 +4,40 @@ export const footer_styles = (theme) => {
     const style = css`
 
         padding: 5rem 2rem;
-        .info {
-            font-weight: 600;
-            font-size: 14px;
-        }
+
+
 
         .contact {
-            font-size: 12px;
-            padding: 2rem;
+
+            padding: 0 2rem;
             flex-direction: column;
             justify-content: flex-end;
             vertical-align: middle;
-            text-align: center;
 
-            > p > img {
+
+
+
+             img {
 
                 filter: invert(100%);
-                padding: 0 1rem
+                padding-right: 0.5rem;
+            }
+
+            .phone{
+                display: flex;
+                align-items: center;
+                margin:1rem 0;
             }
         }
 
         .social {
             display: flex;
-            justify-content: space-between;
+            margin:1rem 0;
+            img {
+
+                filter: invert(0%);
+                padding-right: 2rem;
+            }
 
         }
     `;

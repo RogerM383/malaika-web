@@ -5,18 +5,27 @@ export const viatge_autor_style = (theme) => {
 
       .info {
         width: 100%;
-        margin: 8rem 0;
+        margin: ${theme.container.big_screen_top_padding} 0;
 
-        @media(min-width: 40rem){
-          width: 65%;
-        }
+
       }
 
       .block2 {
         margin-top: 7rem;
         background-color: #F8F8F8;
-        padding: 8rem 0;
+        padding: ${theme.container.big_screen_top_padding} 0;
+
+          .discover{
+              color: ${theme.colors.light_gray}
+          }
+
       }
+
+        ${theme.mq('tablet-portrait')} {
+            .info{
+                width: 65%;
+            }
+        }
 
 
 

@@ -9,6 +9,7 @@ import {card_blog} from "../styles/components/CardStyles";
 import Item from "../../package/components/Item";
 import {item_blog_thumbnail} from "../styles/components/ItemStyles";
 import {useRouter} from "next/router";
+import MaxWidthContainer from "../components/MaxWidthContainer";
 
 
 const Page = ({children, ...props}) => {
@@ -17,7 +18,7 @@ const Page = ({children, ...props}) => {
     const router = useRouter();
 
     const goToArticle = () => {
-        router.push("/blog_article")
+        router.push("/blog-article")
     }
 
 
@@ -27,52 +28,57 @@ const Page = ({children, ...props}) => {
                 title={"New Ideas For A Low Cost Vacation On Water"}
                 img={"palmeras.png/"}/>
 
-            <div className={"container"}>
 
-                <div className={"listBlock row"}>
-                    <div className={"column column-66"}>
-
-                        {
-                            elements.map((item)=>{
-                                return(
-                                    <Card onClick={goToArticle} css={card_blog} img={"blog_card.png"}>
-                                        <p>30 Jul 2019</p>
-                                        <p className={"didot fs-24"}>Three Ways To Get Travel Discounts</p>
-                                        <p className={"didot fs-14"}>So you’re going abroad, you’ve chosen your destination and now you have to choose a hotel. Ten years ago, you’d have probably visited your local travel agent and trusted the face-to-face advice you were given by the …</p>
-                                        <p className={"didot"}>Més Informació &#8594;</p>
-                                    </Card>
-                                )
-                            })
-                        }
+            <MaxWidthContainer>
 
 
-
-                    </div>
-                    <div className={"column column-33"}>
-                        <input className={"search_input"} placeholder={"cercar..."} type={"text"}/>
-
-                        <div className={"recent"}>
-                            <p className={"didot fs-18"}>Recent Posts</p>
+                    <div className={"listBlock row"}>
+                        <div className={"column column-66"}>
 
                             {
                                 elements.map((item)=>{
                                     return(
-                                        <Item onClick={goToArticle} css={item_blog_thumbnail} img={"blog_card.png"}>
-                                            <span className={"didot fs-16 bold"}>Three Ways To Get Travel Discounts</span>
-                                            <p>30 Jul 2019</p>
-                                        </Item>
+                                        <div onClick={goToArticle} css={card_blog} >
+                                            <span><Image src={"blog_card.png"}/></span>
+                                            <p className={"fs-14"}>30 Jul 2019</p>
+                                            <p className={"didot fs-24"}>Three Ways To Get Travel Discounts</p>
+                                            <p className={"didot fs-14 more"}>So you’re going abroad, you’ve chosen your destination and now you have to choose a hotel. Ten years ago, you’d have probably visited your local travel agent and trusted the face-to-face advice you were given by the …</p>
+                                            <p className={"didot fs-14  "}>Més Informació &#8594;</p>
+                                        </div>
                                     )
                                 })
                             }
+
+
+
                         </div>
+                        <div className={"column column-33"}>
+                            <input className={"search_input"} placeholder={"cercar..."} type={"text"}/>
+
+                            <div className={"recent"}>
+                                <p className={"didot fs-18"}>Recent Posts</p>
+
+                                {
+                                    elements.map((item)=>{
+                                        return(
+                                            <Item onClick={goToArticle} css={item_blog_thumbnail} img={"blog_card.png"}>
+                                                <span className={"didot fs-16 bold"}>Three Ways To Get Travel Discounts</span>
+                                                <p>30 Jul 2019</p>
+                                            </Item>
+                                        )
+                                    })
+                                }
+                            </div>
 
 
+                        </div>
                     </div>
-                </div>
 
 
 
-            </div>
+
+            </MaxWidthContainer>
+
 
             <Footer/>
         </div>

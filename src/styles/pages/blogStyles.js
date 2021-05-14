@@ -3,8 +3,12 @@ import {css} from '@emotion/react';
 export const blog_styles = (theme) => {
     const style = css`
 
+
+      .more{
+        color:#4A4A4A;
+      }
         .listBlock {
-            padding: 5rem 0;
+            padding: ${theme.container.mobile_screen_top_padding} 0;
             align-items: center;
         }
 

@@ -138,17 +138,38 @@ export const global = (theme) => {
             }
 
 
-        , /*body end*/
-        . breadcrumb {
-            color: lightgray;
-            margin: 2rem 0;
-        }
+            .link{
+                cursor: pointer;
+            }
+
+
+            button {
+
+                border-radius: 1px;
+                height: 2.5rem;
+                align-items: center;
+                background-color: ${theme.colors.primary};
+                font-size: ${theme.font.small};
+                line-height: 1;
+
+            }
+
+            input[type="text"] {
+                border-radius: 0;
+                height: 2.5rem;
+            }
+
+
+            .breadcrumb {
+                color: lightgray;
+                margin: 2rem 0;
+            }
 
             .title {
-               // width: 40%;
-                font-size: 50px;
+                // width: 40%;
+                font-size: 2.5rem;
                 font-weight: bold;
-                font-family: Didot;
+                font-family: Didot, serif;
 
                 > span {
                     color: ${theme.colors.primary};
@@ -177,6 +198,10 @@ export const global = (theme) => {
                 font-weight: 600;
             }
 
+            .mbold {
+                font-weight: 500;
+            }
+
 
             .primary {
                 color: ${theme.colors.primary};
@@ -191,63 +216,63 @@ export const global = (theme) => {
             }
 
             .fs-100 {
-                font-size: 100px;
+                font-size: 5rem;
             }
 
             .fs-50 {
-                font-size: 50px;
+                font-size: 2.5rem;
             }
 
             .fs-40 {
-                font-size: 40px;
+                font-size: 2rem;
             }
 
             .fs-36 {
-                font-size: 36px;
+                font-size: 1.8rem;
             }
 
             .fs-32 {
-                font-size: 32px;
+                font-size: 1.6rem;
             }
 
             .fs-30 {
-                font-size: 30px;
+                font-size: 1.5rem;
             }
 
             .fs-28 {
-                font-size: 28px;
+                font-size: 1.4rem;
             }
 
             .fs-26 {
-                font-size: 26px;
+                font-size: 1.3rem;
             }
 
             .fs-24 {
-                font-size: 24px;
+                font-size: 1.2rem;
             }
 
             .fs-20 {
-                font-size: 20px;
+                font-size: 1rem;
             }
 
             .fs-21 {
-                font-size: 21px;
+                font-size: 1.05rem;
             }
 
             .fs-18 {
-                font-size: 18px;
+                font-size: 0.9rem;
             }
 
             .fs-16 {
-                font-size: 16px;
+                font-size: 0.8rem;
             }
 
             .fs-14 {
-                font-size: 14px;
+                font-size: 0.7rem;
             }
 
             .fs-12 {
-                font-size: 12px;
+                font-size: 0.6rem;
             }
 
             .db {
@@ -282,6 +307,32 @@ export const global = (theme) => {
             }
 
 
+            .psmall {
+                padding-top: 2rem;
+            }
+
+            .pmedium {
+                padding-top: 3.5rem;
+            }
+
+            .plarge {
+                padding-top: 4rem;
+            }
+
+
+        }
+
+
+        ${theme.mq('mobile-landscape')} {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        ${theme.mq('laptop')} {
+            html {
+                font-size: 20px;
+            }
         }
     `;
     return [style];

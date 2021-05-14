@@ -8,17 +8,12 @@ export const card_home_1 = (theme) => {
         cursor: pointer;
 
         .content {
-            // text-align: center;
-
-            span {
-                margin: 1rem 0;
-            }
 
             .text {
-                padding: 2rem;
+                padding: 1rem;
 
                 span:nth-of-type(2) {
-                    margin: 2rem 0;
+                    margin: 1.5rem 0;
                 }
 
                 img {
@@ -42,6 +37,7 @@ export const card_home_2 = (theme) => {
         border: 1px solid lightgray;
         padding: 0;
         box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
+        cursor: pointer;
 
         .content {
             // text-align: center;
@@ -62,84 +58,86 @@ export const card_home_2 = (theme) => {
 export const card_viatge_autor = (theme) => {
     const style = css`
 
+        width: 90%;
 
         border-bottom: 1px solid lightgray;
-        padding: 0;
+        padding-left: 0;
+        cursor: pointer;
+        padding-bottom: 1rem;
 
 
-        .content {
-            cursor: pointer;
+        .photo {
 
-            .row {
+            height: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            object-fit: cover;
+
+        }
+
+        .row {
+            max-width: 100%;
+            @media (min-width: 60rem) {
                 max-width: 100%;
-                @media (min-width: 60rem) {
-                    max-width: 70%;
-                }
-
-
-                .column{
-
-                    padding-left:3rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                }
             }
 
 
-            .column > img {
-                height: 100%;
-                object-fit: cover;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 100%;
-            }
-
-            .timetable {
-                padding: 2rem 0;
-                margin-top: 1rem;
-
+            .column {
 
                 display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
                 flex-direction: column;
-
-                .plane {
-                    display: flex;
-                    justify-content: start;
-                    padding:1rem 0;
-
-
-                    ul {
-                        list-style-type: none;
-                        margin: 0;
-                    }
-
-                    img {
-                        margin-right: 2rem;
-                    }
-                }
-
-                @media(min-width: 65rem){
-                    flex-direction: row;
-                    .plane {
-                        padding:0
-                    }
-                }
-
-
-            }
-
-
-            .more_info{
-             padding:2rem 0;
-                span{
-                    padding: 1rem 0;
-                }
+                justify-content: space-between;
             }
         }
+
+        .timetable {
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: column;
+
+            .plane {
+                display: flex;
+                justify-content: start;
+                padding: 1rem 0;
+
+
+                .days {
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                }
+
+                img {
+                    margin-right: 2rem;
+                }
+            }
+
+            @media (min-width: 65rem) {
+                flex-direction: row;
+                .plane {
+                    padding: 0
+                }
+            }
+
+
+        }
+
+
+        .more_info {
+
+            span {
+                padding: 1rem 0;
+            }
+        }
+
 
     `;
 
@@ -151,9 +149,18 @@ export const card_discover = (theme) => {
 
         width: 70%;
 
-        .inner .row {
+        .row {
             margin: 2rem 0;
             padding: 0;
+
+
+            .title {
+                flex: 1 1 35%;
+            }
+
+            .text {
+
+            }
         }
     `;
 
@@ -166,20 +173,12 @@ export const card_destinacio = (theme) => {
         border: 1px solid lightgray;
         padding: 0;
         box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
+        cursor: pointer;
 
         .content {
-            cursor: pointer;
             // text-align: center;
             .text {
                 padding: 1rem;
-
-                p:nth-of-type(2){
-                    color:#9B9B9B;
-                }
-
-                .arrow{
-                    margin-left: 2rem;
-                }
             }
 
             > img {
@@ -193,19 +192,40 @@ export const card_destinacio = (theme) => {
 
 export const card_fitxa_destinacio = (theme) => {
     const style = css`
-        border: 1px solid lightgray;
+        //border: 1px solid lightgray;
         padding: 0;
         box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
 
         .content {
             > .text {
                 padding: 1rem;
+
+
+                span {
+                    line-height: 2rem;
+                }
+
+               >  p:first-of-type {
+                    color: ${theme.colors.light_gray};
+                }
             }
 
             > img {
                 min-height: 300px;
                 width: 100%;
                 object-fit: cover;
+            }
+
+            .calendar {
+                display: flex;
+                align-items: baseline;
+
+                p {
+                    margin-left: 1rem;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+
             }
         }
     `;
@@ -221,7 +241,7 @@ export const card_itinerari = (theme) => {
         .inner:after {
             content: "";
             position: absolute;
-            top: 15px;
+            top: 20px;
             left: -18px;
             border-left: 1px solid black;
             height: 100%;
@@ -240,7 +260,7 @@ export const card_itinerari = (theme) => {
             z-index: 2;
         }
 
-        li{
+        li {
             list-style: none;
         }
 
@@ -267,7 +287,7 @@ export const card_itinerari_finish = (theme) => {
         }
 
 
-        li{
+        li {
             list-style: none;
         }
 
@@ -282,15 +302,13 @@ export const card_blog = (theme) => {
 
         cursor: pointer;
 
-        .inner {
             img {
                 width: 100%;
-            }
-
-            .content {
 
             }
-        }
+
+
+
 
 
     `;

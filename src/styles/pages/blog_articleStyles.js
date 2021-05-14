@@ -10,9 +10,10 @@ export const blog_article_styles = (theme) => {
             }
         }
 
-        > .content {
-            padding: 10rem;
-            font-size: 14px;
+         .block_text {
+
+            margin-top: ${theme.container.big_screen_top_padding};
+            font-size: 0.7rem;
             font-family: 'Sofia', serif;
             line-height: 1.6;
 
@@ -26,17 +27,9 @@ export const blog_article_styles = (theme) => {
                 }
             }
 
-            .doble_image {
-                padding: 5rem 0;
-            }
 
             .steps_block {
-                padding: 3rem 0;
-
-
-                .steps {
-                    padding: 2rem 0;
-                }
+                margin-top: ${theme.container.mobile_screen_padding};
             }
 
 

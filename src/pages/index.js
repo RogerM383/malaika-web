@@ -15,7 +15,7 @@ const Index = ({children, ...props}) => {
         },
         {
             label: "Viatges d'Autor",
-            path: "/viatge_autor",
+            path: "/viatge-autor",
             //icon: <i className="fas fa-2x fa-chart-line" ></i>
         },
         {
@@ -25,12 +25,12 @@ const Index = ({children, ...props}) => {
         },
         {
             label: "Fitxa viatges d'autor",
-            path: "/fitxa_viatge_autor",
+            path: "/fitxa-viatge-autor",
             //icon: <i className="fas fa-2x fa-cogs"></i>
         },
         {
             label: "Fitxa viatges destinacions",
-            path: "/fitxa_viatge_destinacio",
+            path: "/fitxa-viatge-destinacio",
             //icon: <i className="fas fa-2x fa-brush" ></i>
         },
         {
@@ -45,7 +45,7 @@ const Index = ({children, ...props}) => {
         },
         {
             label: "Blog article",
-            path: "/blog_article",
+            path: "/blog-article",
             //icon: <i className="fas fa-2x fa-brush" ></i>
         },
 
