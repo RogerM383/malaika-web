@@ -4,6 +4,7 @@ import createCache from '@emotion/cache';
 import { useRouter } from 'next/router';
 import DefaultTheme from 'styles/themes/DefaultTheme';
 import { global } from '../styles/GlobalStyles'
+import {ApolloContextProvider} from "../contexts/apollo/ApolloContext";
 
 
 const cacheOptions = {
@@ -22,7 +23,7 @@ const cacheOptions = {
     }
 };
 
-const fresaCache = createCache(cacheOptions);
+const malaikaCache = createCache(cacheOptions);
 
 /*
 //Binding Router events.
@@ -65,12 +66,13 @@ export default function App ({ Component, pageProps }) {
     }
 
     return (
+        <ApolloContextProvider>
                 <ThemeProvider theme={DefaultTheme}>
-                    <CacheProvider value={fresaCache}>
+                    <CacheProvider value={malaikaCache}>
                         <Global styles={global}/>
                         <Component {...pageProps} />
                     </CacheProvider>
                 </ThemeProvider>
-
+        </ApolloContextProvider>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {home_styles} from "../styles/pages/homeStyles";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -8,6 +8,8 @@ import {card_home_1, card_home_2} from "../styles/components/CardStyles";
 import Grid from "../components/Grid";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
+import {useQuery} from "@apollo/client";
+import {GET_POSTS} from "../contexts/apollo/queries";
 
 
 const Page = ({children, ...props}) => {
@@ -19,6 +21,16 @@ const Page = ({children, ...props}) => {
     const goToFitxa = () => {
         router.push("/fitxa-viatge-autor")
     }
+
+    const { loading: loadingPosts, error: errorPosts, data: dataPosts } = useQuery(GET_POSTS,{variables: {last: 20}});
+    const [posts, setPosts] = useState([]);
+    useEffect(()=>{
+        if (dataPosts) {
+            const posts = dataPosts.posts.nodes.slice(0,3);
+            setPosts(posts);
+            console.log(dataPosts)
+        }
+    },[dataPosts]);
 
     const goToViatges = () => {
         router.push("/destinacions")
