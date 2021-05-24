@@ -3,6 +3,7 @@ import {useRouter} from "next/router";
 import {header_styles} from "../styles/HeaderStyles";
 import Image from "../../package/components/Image";
 import Menu from "./Menu";
+import MaxWidthContainer from "./MaxWidthContainer";
 
 const Header = ({img = true,title=false, children, ...props}) => {
 
@@ -10,7 +11,8 @@ const Header = ({img = true,title=false, children, ...props}) => {
     return (
         <div  css={header_styles}>
             <div  css={{backgroundImage: "url(" + img + ")"}}>
-                <div className={"container content"}>
+
+                <MaxWidthContainer className={"content"}>
 
                     <div className={" row_top"}>
                         <a href={"/home"}>
@@ -30,16 +32,16 @@ const Header = ({img = true,title=false, children, ...props}) => {
                                 <span className={"fs-14  "}>Català / Castella</span>
                             </div>
 
-
                         </div>
                     </div>
 
-                    <div className={"row row_middle didot bold"}>
-                         {title}
+                    <div className={"row row_middle didot bold fs-50"}>
+                        <span>{title} </span>
                     </div>
 
 
-                </div>
+                </MaxWidthContainer>
+
 
                    <Menu></Menu>
 

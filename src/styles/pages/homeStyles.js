@@ -44,7 +44,7 @@ export const home_styles = (theme) => {
 
         .block2 {
 
-
+            background-color: #F8F8F8;
             margin-top: 6rem;
 
             .title {

@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 export const card_home_1 = (theme) => {
     const style = css`
 
-        box-shadow: 0px 1px 4px -1px #24194D;
+        box-shadow: 0px 1px 4px -1px RGBA(0,0,0,.20);
         padding: 0;
         cursor: pointer;
 

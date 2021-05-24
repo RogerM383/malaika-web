@@ -297,12 +297,22 @@ export const global = (theme) => {
 
 
             .next_prev {
+                display: flex;
                 padding: 3rem 0;
 
-                button {
+                button, span {
                     background-color: white;
                     color: gray;
                     border-radius: 0;
+                    margin: 0;
+                    border:0;
+                   color:  #9B9B9B;
+                    padding: 1rem;
+                }
+
+                button:nth-of-type(2){
+                    //padding:0;
+
                 }
             }
 

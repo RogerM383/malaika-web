@@ -2,87 +2,102 @@ import React, {useContext, useState, useEffect} from 'react';
 import {useRouter} from "next/router";
 import {menu_styles} from "../styles/MenuStyles";
 import Link from "next/link";
+import Image from "../../package/components/Image";
+import {brown} from "@material-ui/core/colors";
 
 const Header = ({img = true, children, ...props}) => {
 
     const router = useRouter();
 
 
-    const navButtons = [
-        {
-            label: "VIATGES D'AUTOR",
-            path: "/viatge-autor",
-
-        },
-        {
-            label: "DESTINACIONS",
-            path: "/destinacions",
-
-        },
-        /*        {
-                    label: "Fitxa viatges d'autor",
-                    path: "/fitxa-viatge-autor",
-
-                },
-                {
-                    label: "Fitxa viatges destinacions",
-                    path: "/fitxa-viatge-destinacio",
-
-                },*/
-        {
-            label: "SOBRE NOSALTRES",
-            path: "/nosaltres",
-
-        },
-        {
-            label: "BLOG",
-            path: "/blog",
-
-        },
-
-
-
-    ];
-
-
     const [menu, setMenu] = useState(navButtons);
 
+
+    const [sticky,setSticky]=React.useState(false);
+
+    const handleScroll=() => {
+        const offset = window.scrollY;
+        const point_stiky = window.innerHeight;
+
+        console.log(offset);
+        if(offset + 80 > point_stiky ){
+            setSticky(true);
+         //   setMenu( [ {label: "AMICS", path: "/blog", image: "logo.png"},...navButtonsHome])
+        }
+        else{
+            //setMenu( navButtonsHome)
+            setSticky(false);
+        }
+    }
     useEffect(() => {
-     if(router.pathname === "/home"){
-         setMenu([
-             ...menu,{  label: "AMICS",path: "/blog", image:"amics_museu.svg"}])
-     }
-    }, [router]);
+        window.addEventListener('scroll',handleScroll)
+    })
 
 
 
+    useEffect(() => {
+        if (router.pathname === "/home") {
+            setMenu(navButtonsHome)
+        }
+    }, []);
+
+
+    const [active, setActive] = useState(null);
+    const burguerClick = (e) => {
+        setActive(active === 'active' ? null : 'active')
+    }
 
     return (
-        <div  css={menu_styles} >
+        <div css={menu_styles}>
 
-            {
-                menu.map((item,index)=>{
-                    return(
-                        <div className={`columna ${item?.image ? "AMICS" : 'lastBeforeAmics'}`}>
-                            <Link href={item.path}>
-                                <a className={`NavButton ${router.pathname === item.path ? "active" : ""} `}>
-                                    {
-                                        item.image &&
-                                         <img src={"amics_museu.svg"}/>
-                                    }
-                                    { !item.image &&
-                                        <span className={"item"}>{item.label}</span>
-                                    }
+            <div className={`containers ${sticky=== true  ? 'sticky' : ''}`}>
+                <nav className="navbar">
 
 
-                                </a>
-                            </Link>
-                        </div>
-                    )
-                })
-            }
+                    <ul className={`nav-links ${active}`}>
 
 
+                     <img src={"logo.png"}  className={`containers ${sticky=== true  ? 'img_sticky' : 'img_no_sticky'}`}/>
+
+                        {
+                            navButtons &&
+                            menu.map((button, index,array) => {
+                                return (
+
+
+                                <li key={index}  className={`${(router.pathname === "/home" && array.length -1 === index) ? "amics" : "normal"}`}>
+                                        <Link href={button?.path ?? ''}>
+                                            <a className={`NavButton ${router.pathname === button.path ? "active" : ""}`}>
+                                                {button.icon}
+                                                <span css={{textAlign: 'center', display: 'inline-block'}}>
+
+                                                    {
+                                                        button.image &&
+                                                        <div>
+                                                            <img src={button.image}/>
+                                                        </div>
+
+                                                    }
+                                                    {!button.image &&
+                                                    button.label
+                                                    }
+
+
+                                                    </span>
+
+                                            </a>
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+
+                    {/*icono del burguer*/}
+                    <i className="fas fa-bars fa-2x" id="burger" onClick={burguerClick}/>
+
+                </nav>
+            </div>
 
 
         </div>
@@ -93,5 +108,56 @@ const Header = ({img = true, children, ...props}) => {
 
 export default Header;
 
+
+const navButtons = [
+    {
+        label: "VIATGES D'AUTOR",
+        path: "/viatge-autor",
+
+    },
+    {
+        label: "DESTINACIONS",
+        path: "/destinacions",
+
+    },
+    {
+        label: "SOBRE NOSALTRES",
+        path: "/nosaltres",
+
+    },
+    {
+        label: "BLOG",
+        path: "/blog",
+
+    },
+
+
+];
+
+const navButtonsHome = [
+    {
+        label: "VIATGES D'AUTOR",
+        path: "/viatge-autor",
+
+    },
+    {
+        label: "DESTINACIONS",
+        path: "/destinacions",
+
+    },
+    {
+        label: "SOBRE NOSALTRES",
+        path: "/nosaltres",
+
+    },
+    {
+        label: "BLOG",
+        path: "/blog",
+
+    },
+    {label: "AMICS", path: "/blog", image: "amics_museu.svg"}
+
+
+];
 
 

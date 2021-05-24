@@ -2,7 +2,10 @@ import {css} from '@emotion/react';
 
 export const header_styles = (theme) => {
     const style = css`
+
+
         > div {
+            position: relative;
             height: 100vh;
             color: white;
             display: flex;
@@ -12,23 +15,22 @@ export const header_styles = (theme) => {
             background-repeat: no-repeat;
 
           .content{
+              width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            //justify-content: space-between;
             height: 100%;
-
-
 
             .row_top {
               flex:0 0 20%;
 
                 img{
-                    padding-bottom: 4rem;
+                    padding-bottom: 2rem;
                 }
 
               display: flex;
               flex-wrap: wrap;
-              padding: 4rem;
+              padding: 1rem;
               justify-content: flex-start;
                 flex-direction: column;
                 @media(min-width: 40rem){
@@ -74,14 +76,7 @@ export const header_styles = (theme) => {
                 flex:0 0 80%;
                 align-self: center;
                 align-items: center;
-              font-size: 50px;
-              padding: 4rem;
-
-
-                @media(min-width: 40.0rem ){
-                    font-size: 80px;
-
-                }
+                padding: 4rem;
 
             }
 
@@ -89,6 +84,14 @@ export const header_styles = (theme) => {
 
                 margin-right: 15rem;
                  height: 100px;
+            }
+        }
+
+
+        ${theme.mq('mobile-landscape')} {
+            > div {
+
+                height: 100vh;
             }
         }
 

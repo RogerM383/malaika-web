@@ -22,7 +22,7 @@ const Page = ({children, ...props}) => {
         router.push("/fitxa-viatge-autor")
     }
 
-    const { loading: loadingPosts, error: errorPosts, data: dataPosts } = useQuery(GET_POSTS,{variables: {last: 20}});
+/*    const { loading: loadingPosts, error: errorPosts, data: dataPosts } = useQuery(GET_POSTS,{variables: {last: 20}});
     const [posts, setPosts] = useState([]);
     useEffect(()=>{
         if (dataPosts) {
@@ -30,7 +30,7 @@ const Page = ({children, ...props}) => {
             setPosts(posts);
             console.log(dataPosts)
         }
-    },[dataPosts]);
+    },[dataPosts]);*/
 
     const goToViatges = () => {
         router.push("/destinacions")
@@ -62,7 +62,7 @@ const Page = ({children, ...props}) => {
                 </p>
 
 
-                <Grid size={"400px"}>
+                <Grid size={"300px"}>
                     {
 
                         elements.map((element) => {
@@ -119,6 +119,7 @@ const Page = ({children, ...props}) => {
 
                     <div className={"next_prev"}>
                         <button> &#60; </button>
+                        <button >/</button>
                         <button> ></button>
                     </div>
 
