@@ -47,6 +47,10 @@ export const header_styles = (theme) => {
                         a {
                             margin: 0 .5rem;
                             display: block;
+                            color: white;
+                            &:hover {
+                                color: ${theme.colors.primary}
+                            }
                         }    
                     }
                     

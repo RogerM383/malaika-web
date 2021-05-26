@@ -3,9 +3,7 @@ import {css} from '@emotion/react';
 export const footer_styles = (theme) => {
     const style = css`
 
-        padding: 5rem 2rem;
-
-
+        padding: 5rem ${theme.container.horizontal_padding};
 
         .contact {
 
@@ -13,9 +11,6 @@ export const footer_styles = (theme) => {
             flex-direction: column;
             justify-content: flex-end;
             vertical-align: middle;
-
-
-
 
              img {
 

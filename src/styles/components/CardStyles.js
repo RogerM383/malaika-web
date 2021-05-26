@@ -58,15 +58,158 @@ export const card_home_2 = (theme) => {
 export const card_viatge_autor = (theme) => {
     const style = css`
 
-        width: 90%;
-
         border-bottom: 1px solid lightgray;
         padding-left: 0;
         cursor: pointer;
-        padding-bottom: 1rem;
-
-
-        .photo {
+        margin-bottom: 2rem;
+        width: 100%;
+        
+        & > div {
+        
+        }
+        
+        &.cva:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        .photo-wrapper {
+             margin-bottom: 2rem;  
+            .photo {
+                max-width: 100%;
+            }
+        }
+        
+        .card-info {
+            
+            margin-bottom: 2rem;
+        
+            .title {
+                font-size: ${theme.font.l};
+                font-weight: ${theme.font.bold};
+                font-family: ${theme.font.didot};
+                margin-bottom: 2rem;
+                display: block;
+            }
+            .timetable {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0; 
+                margin-bottom: 2rem;
+                
+                .calendar {
+                    display: flex;
+                    img {
+                        margin-right: 1.5rem;
+                    }
+                    .days {
+                        font-size: ${theme.font.m};
+                        font-weight: ${theme.font.bold};
+                        justify-self: center;
+                        flex: 1;
+                    }
+                }
+                .plane {
+                    display: flex;
+                    flex-direction: row;
+                    
+                    & > div {
+                        margin-right: 1rem;
+                        img {
+                            
+                        }
+                    }
+                    ul {
+                        li {
+                            font-size: ${theme.font.sm};
+                            font-weight: ${theme.font.medium};
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+            .more_info {
+                display: flex;
+                flex-direction: column;
+                
+                .author {
+                    font-size: ${theme.font.sm};
+                    font-weight: ${theme.font.medium};
+                    font-family: ${theme.font.quicksand};
+                    margin-bottom: 1rem;
+                }
+                .button {
+                    font-size: ${theme.font.sm};
+                    font-weight: ${theme.font.bold};
+                    font-family: ${theme.font.didot};
+                }
+            }
+        }
+         
+        ${theme.mq('tablet-landscape')} {
+            
+            
+            
+            & > div {
+                max-width: 80%;
+                display: flex;
+            }
+            
+            .photo-wrapper {
+                flex: 2;
+                .photo {
+                
+                }
+            }
+            
+            .card-info {
+                flex: 3;
+                padding: 0 2rem;
+                .title {
+                
+                }
+                .timetable {
+                
+                    
+                    .calendar {
+                    
+                        img {
+                        
+                        }
+                        .days {
+                        
+                        }
+                    }
+                    .plane {
+                    
+                        
+                        & > div {
+                        
+                            img {
+                                
+                            }
+                        }
+                        ul {
+                            li {
+                            
+                            }
+                        }
+                    }
+                }
+                .more_info {
+                
+                    
+                    .author {
+                    
+                    }
+                    .button {
+                    
+                    }
+                }
+            }
+        }
+        
+        /*.photo {
 
             height: 100%;
             display: block;
@@ -136,7 +279,7 @@ export const card_viatge_autor = (theme) => {
             span {
                 padding: 1rem 0;
             }
-        }
+        }*/
 
 
     `;
@@ -147,25 +290,48 @@ export const card_viatge_autor = (theme) => {
 export const card_discover = (theme) => {
     const style = css`
 
-        width: 70%;
+        width: 100%;
 
         .text-info {
-            margin: 0 0 1rem 0;
+            margin: 0 0 2rem 0;
             padding: 0;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             
             .title {
-                width: 50%;
-                padding: 0 .5rem 0 0;
-                margin: 0;
+                margin-bottom: 2rem;
+                font-family: ${theme.font.didot};
             }
 
             .text {
-                width: 50%;
-                padding: 0 0 0 .5rem;
-                font-size: ${theme.font.smedium};
+                font-size: ${theme.font.sm};
+                a {
+                    color: ${theme.colors.primary}
+                }
             } 
+        }
+        
+        img {
+            max-width: 100%;
+            width: 100%;
+        }
+        
+        ${theme.mq('tablet-landscape')} {
+            width: 80%;
+            .text-info {
+                display: flex;
+                flex-direction: row;
+                
+                .title {
+                    flex: 2;
+                    margin-bottom: 0;
+                }
+    
+                .text {
+                    flex: 3;
+                    padding: 0 0 0 2rem;
+                } 
+            }
         }
     `;
 

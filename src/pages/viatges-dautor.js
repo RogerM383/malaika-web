@@ -44,6 +44,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
         if (dataTextos) {
             const { nodes, pageInfo } = dataTextos.textos;
             setTextos(nodes);
+            debugger
         }
     },[dataTextos]);
 
@@ -68,85 +69,79 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
             <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
-            <MaxWidthContainer>
+            <MaxWidthContainer className={'container'}>
 
-                <div className={"info didot fs-18 bold"} dangerouslySetInnerHTML={{__html: content}}/>
+                <div className={"info"} dangerouslySetInnerHTML={{__html: content}}/>
 
-                <Grid size={"100%"}>
-                    {
+                {
+                    viatgesAutor.map((viatge) => {
+                        const {
+                            content,
+                            date,
+                            id,
+                            slug,
+                            status,
+                            title,
+                            viatgedautorId,
+                            Campsviatge: customFields,
+                            featuredImage: image
+                        } = viatge;
+                        const {
+                            autor,
+                            durada,
+                            preu,
+                            taxes,
+                            suplement,
+                            etapes,
+                            fitxa
+                        } = customFields;
 
-                        viatgesAutor.map((viatge) => {
+                        return (
+                            <div className={'cva'} css={card_viatge_autor}>
+                                <div>
+                                    <div className={'photo-wrapper'}>
+                                        <Image className={"photo"} alt={image?.altText} src={image?.mediaItemUrl}/>
+                                    </div>
 
-                            const {
-                                content,
-                                date,
-                                id,
-                                slug,
-                                status,
-                                title,
-                                viatgedautorId,
-                                Campsviatge: customFields,
-                                featuredImage: image
-                            } = viatge;
-                            const {
-                                autor,
-                                durada,
-                                preu,
-                                taxes,
-                                suplement,
-                                etapes,
-                                fitxa
-                            } = customFields;
+                                    <div className={'card-info'}>
 
-                            return (
-                                <div onClick={goToFitxa} css={card_viatge_autor}>
+                                        <span className={"title"}>{title}</span>
 
-                                    <div className={"row"}>
-                                        <div className={"column"}>
-                                            <Image className={"photo"} alt={image?.altText} src={image?.mediaItemUrl}/>
-                                        </div>
+                                        <div className={"timetable"}>
 
-
-                                        <div className={"column"}>
-                                            <span className={"title fs-24 bold didot"}>{title}</span>
-
-                                            <div className={"timetable"}>
-                                                <div className={"plane"}>
-                                                    <img src={"/calendar_icon.png"}/>
-                                                    <span className={"db bold fs-16 days"}>{durada}</span>
-                                                </div>
-
-                                                <div className={"plane"}>
-                                                    <div><img src={"/plane_icon.png"}/></div>
-                                                    <ul className={"fs-16"}>
-
-                                                        {
-                                                            etapes.map( (item) => {
-                                                                const {etapa} = item;
-                                                                return (
-                                                                   <li>{etapa.dia}</li>
-                                                                );
-                                                            })
-                                                        }
-                                                    </ul>
-                                                </div>
+                                            <div className={"calendar"}>
+                                                <div><img src={"/calendar_icon.png"}/></div>
+                                                <span className={"days"}>{durada}</span>
                                             </div>
 
-
-
-                                            <div className={"more_info"}>
-                                                <span className={"db fs-18"}>{autor}</span>
-                                                <span className={"didot bold fs-18"}>Més Informació <span className={"primary"}>&#8594;</span> </span>
+                                            <div className={"plane"}>
+                                                <div><img src={"/plane_icon.png"}/></div>
+                                                <ul className={"fs-16"}>
+                                                    {
+                                                        etapes.map( (item) => {
+                                                            const {etapa} = item;
+                                                            return (
+                                                               <li>{etapa.dia}</li>
+                                                            );
+                                                        })
+                                                    }
+                                                </ul>
                                             </div>
 
                                         </div>
+
+                                        <div className={"more_info"}>
+                                            <span className={"author"}>{autor}</span>
+                                            <span className={"button"} onClick={goToFitxa} >Més Informació <span className={"primary"}>&#8594;</span> </span>
+                                        </div>
+
                                     </div>
                                 </div>
-                            )
-                        })
+                            </div>
+                        )
+                    })
 
-                    }
-                </Grid>
+                }
 
                 <div className={'navButons'} css={nav_buttons}>
                     {
@@ -168,29 +163,32 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
 
             <div className={"block2"}>
+
                 <MaxWidthContainer>
 
-                    <p className={"didot fs-14 discover"}>DESCOBREIX</p>
+                    <p className={"discover"}>DESCOBREIX</p>
 
                         <Slider {...settings}>
                             {
-                                t.map((item) => {
+                                textos.map((text) => {
+                                    const {
+                                        content,
+                                        date,
+                                        id,
+                                        slug,
+                                        status,
+                                        title,
+                                        featuredImage: image
+                                    } = text;
                                     return (
                                         <div>
                                             <div css={card_discover}>
                                                 <div className={"text-info"}>
-                                                    <h1 className={"bold fs-50 didot title"}>Temple de ramses II</h1>
-                                                    <p className={"fs-13 sofia text"}>
-                                                        Carved out of the mountain on the west bank of the Nile between 1274
-                                                        and 1244 BC, this imposing main temple of the Abu Simbel complex was as much
-                                                        dedicated to the deified
-                                                        Ramses II himself as to Ra-Horakhty, Amun and Ptah. The four colossal
-                                                        statues of the…
-                                                        <span className={"primary"}>Visit Site </span>
-                                                    </p>
+                                                    <h2 className={"title"}>{title}</h2>
+                                                    <div className={'text'} dangerouslySetInnerHTML={{__html: content}}/>
                                                 </div>
-                                                <Image src={"Banner.png/"}/>
-                                                <p css={{float: 'right'}}>Foto cedida per Manel Vallès</p>
+                                                <Image alt={image?.altText} src={image?.mediaItemUrl}/>
+                                                <p css={{float: 'right'}}></p>
                                             </div>
                                         </div>
                                     )
@@ -208,7 +206,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
             </div>
 
-            <Footer></Footer>
+            <Footer/>
 
         </div>
 

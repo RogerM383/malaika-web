@@ -84,7 +84,7 @@ export const global = (theme) => {
 
                 a {
                     text-decoration: none;
-                    color: white;
+                    color: ${theme.colors.primary};
                     &:hover {
                         color: darkgray;
                     }
@@ -93,10 +93,31 @@ export const global = (theme) => {
                 p {
                     font-size: ${theme.font.medium};
                     font-family: Didot, serif;
+                    margin-bottom: 1rem;
                 }
                 
                 ul, ol {
                     list-style: none;
+                }
+                
+                h1 {
+                    font-size: ${theme.font.h1};
+                }
+                
+                h2 {
+                    font-size: ${theme.font.h2};
+                }
+                
+                h3 {
+                    font-size: ${theme.font.h3};
+                }
+                
+                h4 {
+                    font-size: ${theme.font.h4};
+                }
+                
+                h5 {
+                    font-size: ${theme.font.h5};
                 }
             }
         }

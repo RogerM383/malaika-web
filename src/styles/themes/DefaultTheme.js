@@ -51,7 +51,7 @@ const DefaultTheme = {
         h2: '2.5rem',
         h1: '4rem',
         regular: 400,
-        medium: 500,
+        medium: 600,
         bold: 700,
         didot: 'Didot, serif',
         quicksand: 'Quicksand, sans-serif'

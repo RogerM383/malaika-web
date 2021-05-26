@@ -145,8 +145,8 @@ export const menu_styles = (theme) => {
                         padding: 0;
                         &.separator {
                             border-left: 1px solid darkgrey;
-                            padding: 1.7rem 0px;
-                            transform: rotate(15deg);
+                            padding: 1.5rem 0px;
+                            transform: rotate(25deg);
                             display: initial;
                             &:last-of-type {
                                 display: none;
