@@ -2,7 +2,7 @@ import React from "react";
 import {ApolloClient, ApolloLink as authLink, ApolloProvider, createHttpLink, InMemoryCache} from "@apollo/client";
 
 const link = new createHttpLink({
-    uri: process.env.NEXT_PUBLIC_API + '/index.php?graphql'
+    uri: process.env.NEXT_PUBLIC_MALAIKA_API + '/index.php?graphql'
 });
 
 /*const authLink = setContext((_, { headers }) => {

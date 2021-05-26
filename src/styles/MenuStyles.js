@@ -2,16 +2,169 @@ import {css} from '@emotion/react';
 
 export const menu_styles = (theme) => {
     const style = css`
+    
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            max-width: 100%;
+            width: 100%;
+            align-items: center;
+            background-color: ${theme.colors.white};
+            border-top-right-radius: ${theme.header.menu.border_top_right_radius};
+            position: relative;
+            z-index: 999;
+            transform: translateX(0%);
+            overflow: hidden;
+            transition: width 1s ease-in-out, max-height 1s ease-in-out, max-width .5s, opacity .5s, border-top-right-radius 1s;
+            
+            &.sticky {
+                position: fixed;
+                top: 0;
+                border-top-right-radius: 0;
+                max-width: ${theme.container.max_width};
+                width: 100%;
+            }
+            
+            &.active {
+                ul.nav-links {
+                    display: initial;
+                }
+            }
+                
+            .mobile {   
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem ${theme.header.padding_horizontal};
+                img {
+                    filter: invert(50%);
+                    max-width: 10rem;
+                    transition: all 1s;
+                }
+                i {
+                    color: ${theme.colors.primary};
+                    font-size: 2rem;
+                    transition: opacity 1s;
+                }
+            }
+            
+            ul.nav-links {
+                padding: 2rem ${theme.header.padding_horizontal};
+                max-width: 100%;
+                width: 100%;
+                display: none;
+                font-family: ${theme.font.quicksand};
+                li {
+                    padding: 1rem 0;
+                    &.separator {
+                        display: none;
+                    }
+                    span {
+                        color: ${theme.colors.black};       
+                        font-size: ${theme.font.s};
+                        font-weight: ${theme.font.bold};
+                    }
+                }
+            }
+        }  
+      
+        // DROP DOWMN *************************!/
+        & .navli:hover .dropdown-content {
+            display: block;
+        }
 
-        width: 85%;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: ${theme.colors.white};
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 1.2rem 1.6rem;
+            margin-top: .3rem;
+            z-index: 1;
+            min-width: 16rem;
+            
+            & > a {
+                display: block;
+                padding-top: 1rem;
+                margin-bottom: 1rem;
+                white-space: nowrap;
+            }
+            
+            li {
+                padding: 2rem;
+                a {
+                    &::after {
+                        background-color: ${theme.colors.primary};
+                    }
+                }
+            }
+            
+            button {
+                border-color: ${theme.colors.primary};
+                color: ${theme.colors.primary};
+                padding: 0.75rem 1.5rem;
+            }
 
+            &.active {
+                display: block;
+                transform: translateX(0%);
+            }
+        }
+        
+        ${theme.mq('tablet-landscape')} {
+            .navbar {
+                max-width: 66%;
+                overflow: initial;
+                .mobile { 
+                    position: absolute;
+                    img {
+                        transform: translateX(-200%);
+                        opacity: 0;
+                    }
+                    i {
+                        opacity: 0;
+                    }
+                }
+                
+                &.active ul.nav-links {
+                    display: flex;
+                }
+                
+                ul.nav-links {
+                    max-width: 100%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    padding: 1rem 0;
+                    align-items: center;
+                    z-index: 1;
+                    
+                    li {
+                        padding: 0;
+                        &.separator {
+                            border-left: 1px solid darkgrey;
+                            padding: 1.7rem 0px;
+                            transform: rotate(15deg);
+                            display: initial;
+                            &:last-of-type {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+/*
         .img_sticky {
             filter: invert(50%);
             display:block
         }
 
         .img_no_sticky {
-            display:none
+            display: none
         }
 
         .sticky {
@@ -96,11 +249,11 @@ export const menu_styles = (theme) => {
                         transform: translateX(0%);
                     }
 
-                    /*      
+                    /!*      
                         li:last-of-type{
                         background-color: #4B4C4C;
                         border-top-right-radius: initial;
-                    }*/
+                    }*!/
                 }
                 
                 i {
@@ -196,7 +349,7 @@ export const menu_styles = (theme) => {
                             margin: 0;
                             list-style-type: none;
                             position:relative;
-/*
+/!*
                             &:not(:last-child):after{
                                 position: absolute;
                                 right: 0;
@@ -204,7 +357,7 @@ export const menu_styles = (theme) => {
                                 font-size: 25px;
                                 content: '/';
                                 color:#D8D8D8;
-                            }*/
+                            }*!/
 
                             a {
                                 color: ${theme.colors.menu_text};
@@ -245,7 +398,7 @@ export const menu_styles = (theme) => {
         
         .label {
 
-        }
+        }*/
          /*        .label::before{
                     content: "";
                     display: block;

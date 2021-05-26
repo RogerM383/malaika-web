@@ -9,47 +9,41 @@ const Header = ({img = true,title=false, children, ...props}) => {
 
     const router = useRouter();
     return (
-        <div  css={header_styles}>
-            <div  css={{backgroundImage: "url(" + img + ")"}}>
+        <div css={[header_styles, {backgroundImage: "url(" + img + ")"}]}>
 
-                <MaxWidthContainer className={"content"}>
+            <MaxWidthContainer className={'header-max-container'}>
 
-                    <div className={" row_top"}>
-                        <a href={"/home"}>
-                            <Image  src={"/logo.png"}></Image>
-                        </a>
+                <div className={'content'}>
 
+                    <a className={'logo'} href={"/home"}>
+                        <Image alt={'Malaika'} src={"/logo.png"}/>
+                    </a>
 
+                    <div className={"info"}>
 
-                        <div className={"contact_language"}>
-                            <div className={"contact"}>
-                                <Image src={"phone_icon.png"}/>
-                                <span  className={"fs-13 bold"}><a href="tel:34930011176">+34 930 011 176</a></span>
-                                <Image src={"mail_icon.png"}/>
-                            </div>
+                        <span className={"contact"}>
+                            <Image src={"phone_icon.png"}/>
+                            <a href="tel:34930011176">+34 930 011 176</a>
+                            <Image src={"mail_icon.png"}/>
+                        </span>
 
-                            <div className={"language"}>
-                                <span className={"fs-14  "}>Català / Castella</span>
-                            </div>
+                        <span className={"language"}>
+                            <span>Català</span> / <span>Castella</span>
+                        </span>
 
-                        </div>
                     </div>
 
-                    <div className={"row row_middle didot bold fs-50"}>
-                        <span>{title} </span>
+                    <div className={"title"}>
+                        {title}
                     </div>
+                </div>
 
+                <Menu/>
 
-                </MaxWidthContainer>
-
-
-                   <Menu></Menu>
-
-            </div>
+            </MaxWidthContainer>
 
         </div>
     );
-
 };
 
 

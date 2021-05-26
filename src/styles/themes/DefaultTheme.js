@@ -15,6 +15,7 @@ export const mq = n => {
 
     return result;
 };
+
 const DefaultTheme = {
     mq: mq,
     colors: {
@@ -27,34 +28,37 @@ const DefaultTheme = {
         light_gray: '#9B9B9B'
     },
     header: {
-        big_screen_height: '10.5rem',
-        mobile_screen_height: '5rem',
-        font_weight: 500,
-        font_size: '1.6rem',
+        padding_vertical: '1.37rem',
+        padding_horizontal: '2.5rem',
+        menu: {
+            border_top_right_radius: '25px',
+        }
     },
     paddings: {
-        xl_padding:'8rem',
-        big_screen_general: '5.5rem',
-        mobile_screen_general: '2rem',
 
     },
     font: {
-        small: '.8rem',
-        smedium: '1.2rem',
-        medium: '1.4rem',   // regular
-        large: '1.8rem',    // h2
-        xlarge: '2rem',
-        XLlarge:'3rem',
-        XXLlarge:'4rem',// h1
-        slim_bold: 500,
+        xs: '.6rem',
+        s: '.7rem',
+        sm: '.8rem',
+        m: '1rem',
+        l: '1.2rem',
+        xl: '1.3rem',
+        xxl:'1.4rem',
+        h5: '1.5rem',
+        h4: '1.7rem',
+        h3: '2rem',
+        h2: '2.5rem',
+        h1: '4rem',
+        regular: 400,
+        medium: 500,
         bold: 700,
+        didot: 'Didot, serif',
+        quicksand: 'Quicksand, sans-serif'
     },
     container: {
         max_width: '1580px',
-        mobile_screen_padding: '2rem',
-        big_screen_padding: '4rem',
-        mobile_screen_top_padding: '3.5rem',
-        big_screen_top_padding: '4rem'
+        horizontal_padding: '4rem',
     }
 }
 

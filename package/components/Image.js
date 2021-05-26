@@ -14,7 +14,7 @@ const Image = ({key, src, alt, ...props}) => {
                 !hasLoaded && !hasError && <Loader/>
             }
             {
-                <img css={main} key={key} src={!hasError ? _src : process.env.NEXT_PUBLIC_DEFAULT_CART_IMG} alt={alt} {...props}/>
+                <img css={main} key={key} src={!hasError ? _src : process.env.NEXT_PUBLIC_DEFAULT_IMG} alt={alt} {...props}/>
             }
         </>
     );

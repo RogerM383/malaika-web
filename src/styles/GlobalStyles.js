@@ -3,14 +3,74 @@ import {css} from '@emotion/react';
 export const global = (theme) => {
 
     const style = css`
+        
+        /* --- RESET ------------------------------------------------------------------------------------------------ */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        
+        body {
+            line-height: 1;
+        }
+        
+        ol, ul {
+            list-style: none;
+        }
+        
+        blockquote, q {
+            quotes: none;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        /* ---------------------------------------------------------------------------------------------------------- */
+        
+        @font-face {
+            font-family: 'Didot';
+            src: local('Didot'), url('./fonts/didot/Didot Regular.ttf') format('truetype');
+        }
+        
+        @font-face {
+            font-family: 'Quicksand';
+            src: local('Quicksand'), url('./fonts/quicksand/Quicksand-Regular.ttf') format('truetype');
+        }
+        
+        * {
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+        
         html {
             padding: 0;
             margin: 0;
             background: ${theme.colors.white};
             min-height: 100vh;
-            font-size: 62.5%;
+            font-size: 12px;
             scroll-behavior: smooth;
-
 
             body {
                 padding: 0;
@@ -22,8 +82,40 @@ export const global = (theme) => {
                 color: black;
                 line-height: 1.2;
 
+                a {
+                    text-decoration: none;
+                    color: white;
+                    &:hover {
+                        color: darkgray;
+                    }
+                }
+
+                p {
+                    font-size: ${theme.font.medium};
+                    font-family: Didot, serif;
+                }
+                
+                ul, ol {
+                    list-style: none;
+                }
+            }
+        }
+
+        ${theme.mq('mobile-landscape')} {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        ${theme.mq('laptop')} {
+            html {
+                font-size: 20px;
+            }
+        }
+
+/*
                 button {
-                    background-color: ${theme.colors.primary};
+                    background-color: ${theme.colors.medium};
                     border: ${theme.colors.primary};
 
                 }
@@ -32,7 +124,6 @@ export const global = (theme) => {
                     color: ${theme.colors.primary};
                 }
 
-            ,
             select {
                 &:hover {
                     border-color: ${theme.colors.primary};
@@ -177,125 +268,10 @@ export const global = (theme) => {
                     font-weight: initial;
                 }
             }
+*/
+            
 
-
-            .container {
-                max-width: 158.0rem;
-                //158
-            }
-
-            .wrap {
-                max-width: 1200px;
-                overflow: visible;
-            }
-
-
-            .bold {
-                font-weight: bold;
-            }
-
-            .sbold {
-                font-weight: 600;
-            }
-
-            .mbold {
-                font-weight: 500;
-            }
-
-
-            .primary {
-                color: ${theme.colors.primary};
-            }
-
-            .white {
-                color: ${theme.colors.white};
-            }
-
-            .black {
-                color: ${theme.colors.black};
-            }
-
-            .fs-100 {
-                font-size: 5rem;
-            }
-
-            .fs-50 {
-                font-size: 2.5rem;
-            }
-
-            .fs-40 {
-                font-size: 2rem;
-            }
-
-            .fs-36 {
-                font-size: 1.8rem;
-            }
-
-            .fs-32 {
-                font-size: 1.6rem;
-            }
-
-            .fs-30 {
-                font-size: 1.5rem;
-            }
-
-            .fs-28 {
-                font-size: 1.4rem;
-            }
-
-            .fs-26 {
-                font-size: 1.3rem;
-            }
-
-            .fs-24 {
-                font-size: 1.2rem;
-            }
-
-            .fs-20 {
-                font-size: 1rem;
-            }
-
-            .fs-21 {
-                font-size: 1.05rem;
-            }
-
-            .fs-18 {
-                font-size: 0.9rem;
-            }
-
-            .fs-16 {
-                font-size: 0.8rem;
-            }
-
-            .fs-14 {
-                font-size: 0.7rem;
-            }
-
-            .fs-12 {
-                font-size: 0.6rem;
-            }
-
-            .db {
-                display: block;
-            }
-
-            .my-5 {
-                margin: 5rem 0;
-            }
-
-            .didot {
-                font-family: 'Didot', sans-serif;;
-            }
-
-            .sofia {
-                font-family: 'sofia', sans-serif;;
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-
+/*
             .next_prev {
                 display: flex;
                 padding: 3rem 0;
@@ -330,56 +306,9 @@ export const global = (theme) => {
             }
 
 
-        }
+        }*/
 
 
-        ${theme.mq('mobile-landscape')} {
-            html {
-                font-size: 15px;
-            }
-        }
-
-        ${theme.mq('laptop')} {
-            html {
-                font-size: 20px;
-            }
-        }
     `;
     return [style];
 }
-
-
-/*         input:hover, textarea:hover, select:hover {
-           border-color:${theme.colors.primary};
-         }
-
-         input:focus, textarea:focus, select:focus {
-           border-color:${theme.colors.primary};
-         }*/
-
-/*      input[type=checkbox] {
-
-    filter: hue-rotate(55deg);*/
-
-/*        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-
-        width: 14px !important;
-        height: 14px !important;
-        margin: 5px;
-
-        outline: 1px solid gray;
-        box-shadow: none;
-        font-size: 0.8em;
-        text-align: center;
-        line-height: 1em;
-        background: ${theme.colors.primary};
-
-        &:checked:after {
-          content: '✔';
-          color: white;
-        }
-
-      }*/

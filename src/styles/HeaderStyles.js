@@ -2,6 +2,80 @@ import {css} from '@emotion/react';
 
 export const header_styles = (theme) => {
     const style = css`
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+            
+        .header-max-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          
+            .content {
+                position: relative;
+                margin-top: ${theme.header.padding_vertical};
+                padding: 0 ${theme.header.padding_horizontal};
+                height: 100vh;
+                
+                .logo {
+                    display: block;
+                    img {
+                        max-width: 10rem;
+                    }
+                }
+                
+                .info {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    align-items: flex-end;
+                    position: absolute;
+                    width: calc(50% - ${theme.header.padding_horizontal});
+                    top: 0;
+                    right: ${theme.header.padding_horizontal};
+                    
+                    .contact  {
+                        font-size: ${theme.font.s};
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-end;
+                        img {
+                            height: .8rem;
+                            width: .8rem;
+                        }
+                        a {
+                            margin: 0 .5rem;
+                            display: block;
+                        }    
+                    }
+                    
+                    .language {
+                        font-size: ${theme.font.s};
+                        color: white;
+                        margin: 0 0 1rem 0;
+                    }
+                }
+                
+                .title {
+                    font-size: ${theme.font.h1};
+                    font-family: ${theme.font.didot};
+                    font-weight: ${theme.font.bold};
+                    color: ${theme.colors.white};
+                    position: absolute;
+                    top: 50vh;
+                    width: 5rem;
+                }
+            }
+        }
+    `;
+
+    return [style];
+}
+
+/*
+export const header_styles = (theme) => {
+    const style = css`
 
 
         > div {
@@ -56,8 +130,8 @@ export const header_styles = (theme) => {
                   > img{
                     display: block;
                     margin:0 2rem;
-                 /*     max-width: 20px;
-                      max-height: 20px;*/
+                 /!*     max-width: 20px;
+                      max-height: 20px;*!/
                   }
                     a{
                         color:white
@@ -100,3 +174,4 @@ export const header_styles = (theme) => {
 
     return [style];
 }
+*/

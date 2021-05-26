@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 
 const container = (theme) => {
     const style = css`
-        max-width: ${theme.container.max_width} !important;
+        max-width: ${theme.container.max_width};
         padding: 0 ${theme.container.mobile_screen_padding};
         margin: auto;
         

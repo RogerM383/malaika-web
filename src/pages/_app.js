@@ -9,7 +9,7 @@ import {ApolloContextProvider} from "../contexts/apollo/ApolloContext";
 
 const cacheOptions = {
     // prefix styles with "custom-cache" instead of "css"
-    key: "custom-cache-fresa",
+    key: "custom-cache-malaika",
     // only prefix the following style properties
     prefix: key => {
         switch (key) {

@@ -149,18 +149,23 @@ export const card_discover = (theme) => {
 
         width: 70%;
 
-        .row {
-            margin: 2rem 0;
+        .text-info {
+            margin: 0 0 1rem 0;
             padding: 0;
-
-
+            display: flex;
+            flex-direction: row;
+            
             .title {
-                flex: 1 1 35%;
+                width: 50%;
+                padding: 0 .5rem 0 0;
+                margin: 0;
             }
 
             .text {
-
-            }
+                width: 50%;
+                padding: 0 0 0 .5rem;
+                font-size: ${theme.font.smedium};
+            } 
         }
     `;
 

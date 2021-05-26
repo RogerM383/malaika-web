@@ -1,11 +1,14 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState, useEffect, useRef} from 'react';
 import {useRouter} from "next/router";
 import {menu_styles} from "../styles/MenuStyles";
 import Link from "next/link";
 import {GET_MENU_BY_NAME} from "../contexts/apollo/queries";
 import {useLazyQuery} from "@apollo/client";
+import Image from "../../package/components/Image";
+import {useWindowSize} from "../../package/hooks/useWindowSize";
+import {useTheme} from "@emotion/react";
 
-const Header = ({img = true, children, ...props}) => {
+const Menu = ({img = true, children, ...props}) => {
 
     // --- MENU --------------------------------------------------------------------------------------------------------
     const [navButtons, setNavButtons] = useState(null);
@@ -51,90 +54,121 @@ const Header = ({img = true, children, ...props}) => {
     // -----------------------------------------------------------------------------------------------------------------
 
     const router = useRouter();
-    const [sticky,setSticky] = React.useState(false);
+    const [active, setActive] = useState(false);
+    const [sticky, setSticky] = useState(false);
+    const [maxMenuWidth, setMaxMenuWidth] = useState(0);
+    const [maxMenuHeight, setMaxMenuHeight] = useState(0);
+    const {width, height} = useWindowSize();
+    const mobileMenu = useRef(null);
+    const nav = useRef(null);
+    const theme = useTheme();
 
     const handleScroll = () => {
         const offset = window.scrollY;
         const point_stiky = window.innerHeight;
-        if (offset + 80 > point_stiky ) {
-            setSticky(true);
-        } else {
-            setSticky(false);
-        }
+        setSticky(offset + nav.current.getBoundingClientRect().height > point_stiky);
+        //setMaxMenuWidth(calcMaxMenuWidth);
     }
 
+    // --- Scroll event listener ---------------------------------------------------------------------------------------
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const [active, setActive] = useState(null);
+    useEffect(() => {
+        setMaxMenuHeight(mobileMenu.current.getBoundingClientRect().height);
+    }, [width, height]);
+
+    useEffect(() => {
+        if (mobileMenu.current) {
+            //setMaxMenuWidth(calcMaxMenuWidth);
+            setMaxMenuHeight(mobileMenu.current.getBoundingClientRect().height);
+        }
+    }, [mobileMenu]);
+
+    const calcMaxMenuWidth = () => {
+        return ( window.scrollY  * 100 / width)
+    }
+
     const burguerClick = (e) => {
-        setActive(active === 'active' ? null : 'active')
+        setActive(!active);
     }
 
     return (
         <div css={menu_styles}>
-            <div className={`containers ${sticky=== true  ? 'sticky' : ''}`}>
-                <nav className="navbar">
-                    <ul className={`nav-links ${active}`}>
 
-                        {/* El logo deberia estar fuera del UL en un UL solo LIs!!!! */}
-                        <img src={"logo.png"}  className={`containers ${sticky=== true  ? 'img_sticky' : 'img_no_sticky'}`}/>
+            {/*<div className={`containers ${sticky === true  ? 'sticky' : ''}`}>*/}
+
+                <nav className={`navbar${active ? ' active' : ''}${sticky ? ' sticky' : ''}`}
+                     style={{
+                         maxHeight: active || height <= 995 ? '100vh' :  maxMenuHeight
+                     }}
+                     ref={nav}>
+
+                    <div className={'mobile'} ref={mobileMenu}>
+                        <Image src={"logo.png"}/>
+                        <i className="fas fa-bars fa-2x" id="burger" onClick={burguerClick}/>
+                    </div>
+
+                    <ul className={`nav-links ${active}`}>
 
                         {
                             navButtons &&
                             navButtons.map((button, index, array) => {
                                 return (
-                                    <li key={index}  className={`navli ${(router.pathname === "/home" && array.length -1 === index) ? "amics" : "normal"}`}>
-                                        <Link href={button?.path ?? ''}>
-                                            <a className={`NavButton ${router.pathname === button.path ? "active" : ""}`}>
-                                                {button.icon}
-                                                <span css={{textAlign: 'center', display: 'inline-block'}}>
-                                                {
-                                                    button.image &&
-                                                    <div>
-                                                        <img src={button.image}/>
-                                                    </div>
+                                    <>
+                                        <li key={index}  className={`navli ${(router.pathname === "/home" && array.length -1 === index) ? "amics" : "normal"}`}>
+                                            <Link href={button?.path ?? ''}>
+                                                <a className={`NavButton ${router.pathname === button.path ? "active" : ""}`}>
+                                                    {button.icon}
+                                                    <span css={{textAlign: 'center', display: 'inline-block'}}>
+                                                    {
+                                                        button.image &&
+                                                        <div>
+                                                            <img src={button.image}/>
+                                                        </div>
 
-                                                }
-                                                {
-                                                    !button.image &&
-                                                    button.label
-                                                }
-                                                </span>
-                                            </a>
-                                        </Link>
-                                        {
-                                            button.submenu.length > 0 &&
-                                            <div className={"dropdown-content"}>
-                                                {
-                                                    button.submenu.map((item) => {
-                                                        return (
-                                                            <Link href={item.path} passHref={true}>
-                                                                <a>{item.label}</a>
-                                                            </Link>
-                                                        )
-                                                    })
-                                                }
-                                            </div>
-                                        }
-                                    </li>
+                                                    }
+                                                    {
+                                                        !button.image &&
+                                                        button.label
+                                                    }
+                                                    </span>
+                                                </a>
+                                            </Link>
+                                            {
+                                                button.submenu.length > 0 &&
+                                                <div className={"dropdown-content"}>
+                                                    {
+                                                        button.submenu.map((item) => {
+                                                            return (
+                                                                <Link href={item.path} passHref={true}>
+                                                                    <a>{item.label}</a>
+                                                                </Link>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            }
+                                        </li>
+                                        <li className={'separator'}/>
+                                    </>
                                 )
                             })
                         }
 
                     </ul>
-                    {/*icono del burguer*/}
-                    <i className="fas fa-bars fa-2x" id="burger" onClick={burguerClick}/>
+
                 </nav>
             </div>
-        </div>
+        /*</div>*/
     );
 };
 
-export default Header;
+export default Menu;
 
-
+/*
 const navButtons = [
     {
         label: "VIATGES D'AUTOR",
@@ -184,6 +218,6 @@ const navButtonsHome = [
     {label: "AMICS", path: "/blog", image: "amics_museu.svg"}
 
 
-];
+];*/
 
 
