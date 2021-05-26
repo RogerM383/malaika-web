@@ -37,6 +37,14 @@ export const GET_PAGE_BY_URI = gql`
             }
             content
             date
+            notadestacada {
+                avisos {
+                    avis
+                }
+            }
+            descripcioviatgesdautor {
+                descripcioViatgesDautor
+            }
         }
     }
 `;

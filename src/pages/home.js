@@ -8,11 +8,31 @@ import {card_home_1, card_home_2} from "../styles/components/CardStyles";
 import Grid from "../components/Grid";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
-import {useQuery} from "@apollo/client";
-import {GET_POSTS} from "../contexts/apollo/queries";
+import {useLazyQuery, useQuery} from "@apollo/client";
+import {GET_PAGE_BY_URI, GET_POSTS, GET_VIATGES_AUTOR} from "../contexts/apollo/queries";
+import {apolloClient} from "../contexts/apollo/ApolloContext";
 
 
-const Page = ({children, ...props}) => {
+const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestacada, descripcioviatgesdautor, ...props }) => {
+
+    const PER_PAGE = 6;
+    const [loadViatgesAutor, { loading: loadingVA, error: errorVA, data: dataVA }] = useLazyQuery(GET_VIATGES_AUTOR,{variables: {first: PER_PAGE}});
+    const [viatgesAutor, setViatgesAutor] = useState([]);
+    const [pageInfo, setPageInfo] = useState(null);
+
+    useEffect(() => {
+        loadViatgesAutor();
+        //loadTextos();
+    }, []);
+
+    useEffect(() => {
+        if (dataVA) {
+            const { nodes, pageInfo } = dataVA.viatgesdautor;
+            setPageInfo(pageInfo);
+            setViatgesAutor(viatgesAutor.concat(nodes));
+        }
+    },[dataVA]);
+
 
     const elements = ['one', 'two', 'three', 'four', 'five', 'six'];
 
@@ -22,59 +42,87 @@ const Page = ({children, ...props}) => {
         router.push("/fitxa-viatge-autor")
     }
 
-/*    const { loading: loadingPosts, error: errorPosts, data: dataPosts } = useQuery(GET_POSTS,{variables: {last: 20}});
-    const [posts, setPosts] = useState([]);
-    useEffect(()=>{
-        if (dataPosts) {
-            const posts = dataPosts.posts.nodes.slice(0,3);
-            setPosts(posts);
-            console.log(dataPosts)
-        }
-    },[dataPosts]);*/
-
     const goToViatges = () => {
         router.push("/destinacions")
     }
 
     return (
         <div css={home_styles}>
-                      <Header
-                title={"Groenlandia"}
-                img={"Banner.png/"}>
 
-            </Header>
-
+            <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer className={"block1"}>
 
-                <div className={"alert "}>
-                    <p className={"fs-16"}><span css={{color: 'red'}}>*</span><span className={"didot fs-18  my-5"}>AVISOS:</span> Nova normativa de de maletes VUELING cosulteu en aquest enllaç www.vueling.com/maletes</p>
-                    <hr/>
-                </div>
+                {
+                    notadestacada.avisos &&
+                    notadestacada.avisos.length > 0 &&
+                    <div className={"alert"}>
+                        <div className={'head'}>
+                            <span css={{color: 'red'}}>*</span>
+                            <span className={"didot fs-18  my-5"}>AVISOS:</span>
+                        </div>
+                        <div className={'alert-group'}>
+                            {
+                                notadestacada.avisos.map((item) => {
+                                    const {avis} = item;
+                                    return (
+                                        <div dangerouslySetInnerHTML={{__html: avis}}/>
+                                    );
+                                })
+                            }
+                        </div>
+                    </div>
+                }
 
                 <div className={"cita didot"}>
                     <p className={"fs-26 bold"}>Hi ha experiències que no passen desapercebudes, emocions que no s'obliden i que desitgem que perdurin per sempre.
                     </p>
                 </div>
 
-                <p className={"title"}>Viatges<br/> d’Autor / <span>Grups reduits</span></p>
-                <p className={"subtitle fs-16 bold didot"}>Els nostres guies, amb gran experiència i coneixedors del destí, dissenyen diferents rutes de gran interès cultural, històric i patrimonial del lloc. Us faran viure increïbles experiències a més d'oferir valuosos detalls i explicar històries desconegudes sobre la zona que sens dubte els captivaran.
-                </p>
+                <div className={'title'}>
+                    <h2>
+                        <span>Viatges</span><span>d’Autor /</span>
+                    </h2>
+                    <h5 className={'litle'}>Grups reduits</h5>
+                </div>
+                {
+                    descripcioviatgesdautor && descripcioviatgesdautor.descripcioViatgesDautor &&
+                    <div className={"subtitle fs-16 bold didot"}
+                         dangerouslySetInnerHTML={{__html: descripcioviatgesdautor.descripcioViatgesDautor}}/>
+                }
 
 
                 <Grid size={"300px"}>
                     {
-
-                        elements.map((element) => {
+                        viatgesAutor.map((viatge) => {
+                            const {
+                                content,
+                                date,
+                                id,
+                                slug,
+                                status,
+                                title,
+                                viatgedautorId,
+                                Campsviatge: customFields,
+                                featuredImage: image
+                            } = viatge;
+                            const {
+                                autor,
+                                durada,
+                                preu,
+                                taxes,
+                                suplement,
+                                etapes,
+                                fitxa
+                            } = customFields;
                             return (
-                                <Card onClick={goToFitxa} css={card_home_1}>
-                                    <div className={"text"}>
-                                        <span className={" db bold didot fs-16"}>ANDALUSIA CRUILLA DE CULTURES</span>
-                                        <span className={"db sbold fs-12"}><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</span>
-                                        <span className={"db bold didot fs-14"}>Més Informació    &#8594;</span>
+                                <Card className={'card-vautor'} css={card_home_1}>
+                                    <div className={"card-text"}>
+                                        <span className={"card-title"}>{title}</span>
+                                        <div className={"card-data"}><img src={"/calendar_icon.png"}/><span>{durada}</span></div>
+                                        <span className={"more-info"} onClick={goToFitxa}>Més Informació    &#8594;</span>
                                     </div>
-
-                                    <Image src={"home_card_1.png"}></Image>
+                                    <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
                                 </Card>
                             )
                         })
@@ -82,19 +130,16 @@ const Page = ({children, ...props}) => {
 
                 </Grid>
 
-                <div>
-                    <p className={"bold fs-18 psmall more"}><a href={"viatge-autor"}>Veure més viatges d’autor  &#8594;</a></p>
-                </div>
-
+                <div className={"bold fs-18 psmall more"}><a href={"viatges-dautor"}>Veure més viatges d’autor  &#8594;</a></div>
 
             </MaxWidthContainer>
 
 
             <div className={"block2"}>
 
-                <MaxWidthContainer>
+                <MaxWidthContainer className={'container'}>
 
-                    <p className={"title"}>Destacats /</p>
+                    <h2 className={"title"}>Destacats /</h2>
                     <Grid size={"300px"}>
                         {
 
@@ -117,11 +162,11 @@ const Page = ({children, ...props}) => {
                         }
                     </Grid>
 
-                    <div className={"next_prev"}>
+                    {/*<div className={"next_prev"}>
                         <button> &#60; </button>
                         <button >/</button>
                         <button> ></button>
-                    </div>
+                    </div>*/}
 
 
                 </MaxWidthContainer>
@@ -135,21 +180,21 @@ const Page = ({children, ...props}) => {
                     <div className={"row"}>
 
                         <div className={"column"}>
-                            <p css={{color: '#9B9B9B'}}>Farm Visit</p>
-                            <p className={"bold primary fs-40"}>Novetats</p>
+                            <span css={{color: '#9B9B9B'}}>Farm Visit</span>
+                            <h4 className={"bold primary fs-40"}>Novetats</h4>
                             <p className={"fs-16"}>Us mantenim informtas de les novetats, normativa,
                                 documentació, i tot allò que
                                 pugui afectar al vostre viatge
                                 o sigui del vostre interès. </p>
-                            <input className={"fs-16"} type={"text"} placeholder={"Busca novetats"}/>
+                            {/*<input className={"fs-16"} type={"text"} placeholder={"Busca novetats"}/>*/}
                         </div>
 
 
                         <div className={"column"}>
-                            <div className={"normas  fs-16"}>
+                            <div className={"normas"}>
                                 <div className={"normas_item"}>
-                                    <p>28/01/2021</p>
-                                    <div>
+                                    <div className={'fecha'}>28/01/2021</div>
+                                    <div className={'data'}>
                                         <p>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
                                         <p>La nova normativa britànica obliga a les persones que vulguin entrar al
                                             pais a la presentació del test PCR.
@@ -216,6 +261,14 @@ const Page = ({children, ...props}) => {
 
 };
 
+export const getStaticProps = async (ctx) => {
+    const data = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/inici/' }})
+    .then((data) => {
+        return data.data.pageBy;
+    });
+    console.log(data)
+    return {props: data, revalidate: 3600};
+}
 
 export default Page;
 

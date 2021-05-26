@@ -45,9 +45,9 @@ const Menu = ({img = true, children, ...props}) => {
                     order: subItem.order
                 });
             }
-            if (menu && router.pathname === "/home") {
+            /*if (menu && router.pathname === "/home") {
                 menu.push({id: 'amics-museu', label: "AMICS", path: "/blog", image: "amics_museu.svg", submenu: []});
-            }
+            }*/
             setNavButtons(menu);
         }
     },[menuData]);

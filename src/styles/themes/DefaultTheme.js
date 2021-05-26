@@ -54,7 +54,7 @@ const DefaultTheme = {
         medium: 600,
         bold: 700,
         didot: 'Didot, serif',
-        quicksand: 'Quicksand, sans-serif'
+        quicksand: '"Quicksand", sans-serif'
     },
     container: {
         max_width: '1580px',
@@ -64,3 +64,8 @@ const DefaultTheme = {
 
 export default DefaultTheme;
 
+/*
+    ${theme.mq('tablet-portrait')} {
+
+    }
+* */

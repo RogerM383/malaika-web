@@ -188,7 +188,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                                     <h2 className={"title"}>{title}</h2>
                                                     <div className={'text'} dangerouslySetInnerHTML={{__html: content}}/>
                                                 </div>
-                                                <Image alt={image?.altText} src={image?.mediaItemUrl}/>
+                                                <Image alt={image?.altText} src={image?.node?.mediaItemUrl}/>
                                                 <p css={{float: 'right'}}></p>
                                             </div>
                                         </div>
