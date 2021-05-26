@@ -8,6 +8,8 @@ import {card_destinacio} from "../styles/components/CardStyles";
 import Image from "../../package/components/Image";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
+import {apolloClient} from "../contexts/apollo/ApolloContext";
+import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 
 
 const Page = ({children, ...props}) => {
@@ -22,14 +24,12 @@ const Page = ({children, ...props}) => {
     return (
         <div css={destinacio_style}>
 
-            <Header
-                title={"ASIA"}
-                img={"foto2.png/"}/>
+            <Header title={"ASIA"} img={"foto2.png/"}/>
 
 
             <MaxWidthContainer className={"block1"}>
 
-                    <p className={"title didot"}>Ens apassiona <br/> l’Asia</p>
+                    <h2 className={"title didot"}>Ens apassiona l’Asia</h2>
 
                     <Grid size={"350px"}>
                         {
@@ -37,15 +37,13 @@ const Page = ({children, ...props}) => {
                             elements.map((element) => {
                                 return (
                                     <Card  onClick={goToFitxa} css={card_destinacio}>
-                                        <Image src={"home_card_1.png"}></Image>
+                                        <Image src={"home_card_1.png"}/>
                                         <div className={"text"}>
                                             <span className={"db didot bold fs-18"}>ANDALUSIA CRUILLA DE CULTURES</span>
                                             <p className={"fs-14"}>Palaus i cultura mil.lenària</p>
                                             <p className={"fs-12 sbold"}><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</p>
                                             <span className={" db didot fs-14 bold"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
                                         </div>
-
-
                                     </Card>
                                 )
                             })
@@ -64,6 +62,14 @@ const Page = ({children, ...props}) => {
     );
 };
 
+export const getStaticProps = async (ctx) => {
+    const data = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/destinacions/' }})
+    .then((data) => {
+        return data.data.pageBy;
+    });
+    console.log(data)
+    return {props: data, revalidate: 3600};
+}
 
 export default Page;
 

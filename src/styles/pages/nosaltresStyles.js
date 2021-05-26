@@ -4,60 +4,60 @@ export const nosaltres_styles = (theme) => {
     const style = css`
 
         .block1 {
-            padding-top: ${theme.container.mobile_screen_top_padding};
+            padding: 7.5rem ${theme.container.horizontal_padding};
             display: flex;
-            flex-wrap: wrap;
-
+            flex-direction: column;
             .item {
-                flex: 1 0 100%;
-                flex-direction: column;
-                padding: 0 1rem;
-
-            }
-
-            .title {
-                padding-bottom: 1rem;
-            }
-
-            & .title {
-                margin: 0;
-            }
-        }
-
-        .block2 {
-            margin-top: ${theme.container.mobile_screen_top_padding};
-            background-color: #F8F8F8;
-
-            .column:first-of-type {
-                font-size: 34px;
-                font-weight: bold;
-                padding: 5rem 0;
-                max-width: 100%;
-            }
-
-            img{
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-        }
-
-
-        ${theme.mq('mobile-landscape')} {
-            .block2 {
-                .column:first-of-type {
-                    max-width: 33%;
+                flex: 1;
+                
+                .title {
+                    font-family: ${theme.font.didot};
+                    margin-right: 2rem;
+                    margin-bottom: 2rem;
+                }
+                p {
+                    font-family: ${theme.font.quicksand};
+                    font-size: ${theme.font.m};
                 }
             }
         }
 
+        .block2 {
+            background-color: #F8F8F8;
+            padding: 2rem 0;
+            h4 {
+                font-family: ${theme.font.didot};
+                font-weight: ${theme.font.bold};
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                padding: 0 2rem;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
 
         ${theme.mq('tablet-landscape')} {
             .block1 {
-                .item {
+                flex-direction: row;
+                .item:last-of-type {
+                    margin-left: 1rem;
+                }
+            }
+            
+            .block2 {
+                padding-bottom: 0;
+                & > div {
+                    display: flex;
                     flex-direction: row;
-                    flex: 1 0 300px;
-
+                    h4 {
+                        flex: 3;
+                    }
+                    img {
+                        transform: translateX(10%);
+                        flex: 10;
+                    }
                 }
             }
         }

@@ -95,12 +95,13 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                             etapes,
                             fitxa
                         } = customFields;
+                        debugger
 
                         return (
                             <div className={'cva'} css={card_viatge_autor}>
                                 <div>
                                     <div className={'photo-wrapper'}>
-                                        <Image className={"photo"} alt={image?.altText} src={image?.mediaItemUrl}/>
+                                        <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
                                     </div>
 
                                     <div className={'card-info'}>

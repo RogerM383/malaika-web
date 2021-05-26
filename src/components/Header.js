@@ -38,10 +38,10 @@ const Header = ({img = true,title=false, children, ...props}) => {
                     </div>
                 </div>
 
-                <Menu/>
+
 
             </MaxWidthContainer>
-
+            <Menu/>
         </div>
     );
 };

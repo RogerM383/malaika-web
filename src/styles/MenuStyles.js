@@ -16,8 +16,10 @@ export const menu_styles = (theme) => {
             transform: translateX(0%);
             overflow: hidden;
             transition: width 1s ease-in-out, max-height 1s ease-in-out, max-width .5s, opacity .5s, border-top-right-radius 1s;
+            transform: translateY(-100%);
             
             &.sticky {
+                transform: translateY(0%);
                 position: fixed;
                 top: 0;
                 border-top-right-radius: 0;
