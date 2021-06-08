@@ -41,7 +41,7 @@ const Menu = ({img = true, children, ...props}) => {
                 parent.submenu.push({
                     id: subItem.id,
                     label: subItem.label.toUpperCase(),
-                    path: subItem.path.replace('/index.php',''),
+                    path: '/' + parent.label.toLowerCase() + subItem.path.replace('/index.php',''),
                     order: subItem.order
                 });
             }

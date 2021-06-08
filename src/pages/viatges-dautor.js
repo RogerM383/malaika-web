@@ -8,7 +8,7 @@ import Image from "../../package/components/Image";
 import Footer from "../components/Footer";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
-import {apolloClient} from "../contexts/apollo/ApolloContext";
+import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 import {GET_PAGE_BY_URI, GET_TEXTOS, GET_VIATGES_AUTOR} from "../contexts/apollo/queries";
 import {useLazyQuery, useQuery} from "@apollo/client";
 import Slider from "react-slick";
@@ -216,7 +216,8 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 };
 
 export const getStaticProps = async (ctx) => {
-    const data = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/viatges-dautor/' }})
+    const client = initializeApollo();
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/viatges-dautor/' }})
     .then((data) => {
         return data.data.pageBy;
     });

@@ -338,6 +338,50 @@ export const card_discover = (theme) => {
     return [style];
 }
 
+export const top_img_tagged_card = (theme) => {
+    const style = css`
+        border: 1px solid lightgray;
+        padding: 0;
+        box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
+        cursor: pointer;
+
+        img {
+            max-width: 100%;
+        }
+
+        .text {
+            padding: 1rem;
+            
+            .tags {
+                font-family: ${theme.font.quicksand};
+                font-weight: ${theme.font.regular};
+                font-size: ${theme.font.s};
+            }
+            
+            .calendar {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-family: ${theme.font.quicksand};
+                font-size: ${theme.font.s};
+                font-weight: ${theme.font.medium};
+            }
+            
+            .more_info {
+                font-family: ${theme.font.didot};
+                font-size: ${theme.font.s};
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                span {
+                    margin-left: .5rem;
+                }
+            }
+        }
+    `;
+
+    return [style];
+}
 
 export const card_destinacio = (theme) => {
     const style = css`

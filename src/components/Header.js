@@ -22,9 +22,9 @@ const Header = ({img = true,title=false, children, ...props}) => {
                     <div className={"info"}>
 
                         <span className={"contact"}>
-                            <Image src={"phone_icon.png"}/>
+                            <Image src={"/phone_icon.png"}/>
                             <a href="tel:34930011176">+34 930 011 176</a>
-                            <Image src={"mail_icon.png"}/>
+                            <Image src={"/mail_icon.png"}/>
                         </span>
 
                         <span className={"language"}>

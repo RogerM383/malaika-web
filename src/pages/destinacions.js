@@ -8,7 +8,7 @@ import {card_destinacio} from "../styles/components/CardStyles";
 import Image from "../../package/components/Image";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
-import {apolloClient} from "../contexts/apollo/ApolloContext";
+import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 
 
@@ -63,11 +63,11 @@ const Page = ({children, ...props}) => {
 };
 
 export const getStaticProps = async (ctx) => {
-    const data = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/destinacions/' }})
+    const client = initializeApollo();
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/destinacions/' }})
     .then((data) => {
         return data.data.pageBy;
     });
-    console.log(data)
     return {props: data, revalidate: 3600};
 }
 

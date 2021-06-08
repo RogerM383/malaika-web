@@ -26,7 +26,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
     }, []);
 
     useEffect(() => {
-        if (dataVA) {
+        if (!loadingVA && dataVA) {
             const { nodes, pageInfo } = dataVA.viatgesdautor;
             setPageInfo(pageInfo);
             setViatgesAutor(viatgesAutor.concat(nodes));
@@ -266,6 +266,10 @@ export const getStaticProps = async (ctx) => {
     .then((data) => {
         return data.data.pageBy;
     });
+    console.log(data)
+
+
+
     return {props: data, revalidate: 3600};
 }
 

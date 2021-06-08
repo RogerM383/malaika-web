@@ -10,7 +10,7 @@ import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
 import {useLazyQuery, useQuery} from "@apollo/client";
 import {GET_PAGE_BY_URI, GET_POSTS, GET_VIATGES_AUTOR} from "../contexts/apollo/queries";
-import {apolloClient} from "../contexts/apollo/ApolloContext";
+import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 
 
 const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestacada, descripcioviatgesdautor, ...props }) => {
@@ -142,7 +142,6 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                     <h2 className={"title"}>Destacats /</h2>
                     <Grid size={"300px"}>
                         {
-
                             elements.map((element) => {
                                 return (
                                     <Card onClick={goToViatges} css={card_home_2}>
@@ -158,7 +157,6 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                                     </Card>
                                 )
                             })
-
                         }
                     </Grid>
 
@@ -168,12 +166,9 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                         <button> ></button>
                     </div>*/}
 
-
                 </MaxWidthContainer>
 
-
             </div>
-
 
             <div className={"block3"}>
                 <MaxWidthContainer>
@@ -188,7 +183,6 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                                 o sigui del vostre interès. </p>
                             {/*<input className={"fs-16"} type={"text"} placeholder={"Busca novetats"}/>*/}
                         </div>
-
 
                         <div className={"column"}>
                             <div className={"normas"}>
@@ -253,19 +247,19 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
 
             </div>
 
+            <Footer/>
 
-            <Footer></Footer>
         </div>
-
     );
-
 };
 
 export const getStaticProps = async (ctx) => {
-    const data = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/inici/' }})
+    const client = initializeApollo();
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/inici/' }})
     .then((data) => {
         return data.data.pageBy;
     });
+
     return {props: data, revalidate: 3600};
 }
 

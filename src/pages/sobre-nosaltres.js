@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Image from "../../package/components/Image";
 import MaxWidthContainer from "../components/MaxWidthContainer";
-import {apolloClient} from "../contexts/apollo/ApolloContext";
+import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 
 
@@ -55,11 +55,11 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 };
 
 export const getStaticProps = async (ctx) => {
-    const data = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/sobre-nosaltres/' }})
+    const client = initializeApollo();
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/sobre-nosaltres/' }})
     .then((data) => {
         return data.data.pageBy;
     });
-    console.log(data)
     return {props: data, revalidate: 3600};
 }
 

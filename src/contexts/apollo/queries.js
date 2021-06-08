@@ -49,6 +49,108 @@ export const GET_PAGE_BY_URI = gql`
     }
 `;
 
+export const GET_PAGES_FROM_ZONES = gql`
+    query getPagesWithZones {
+        terms(where: {taxonomies: ZONA}) {
+            nodes {
+                ... on Zona {
+                    contentNodes {
+                        nodes {
+                            ... on Page {
+                                id
+                                title
+                                slug
+                                uri
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
+export const GET_PAGE_BY_TERM_SLUG = gql`
+    query getPagesByTermSlug ($slug: String!) {
+        terms(where: {taxonomies: ZONA, slug: [$slug]}) {
+            nodes {
+                ... on Zona {
+                    contentNodes {
+                        nodes {
+                            ... on Page {
+                                id
+                                title
+                                uri
+                                status
+                                slug
+                                featuredImage {
+                                    node {
+                                        mediaItemUrl
+                                        altText
+                                    }
+                                }
+                                content
+                                date
+                                notadestacada {
+                                    avisos {
+                                        avis
+                                    }
+                                }
+                                descripcioviatgesdautor {
+                                    descripcioViatgesDautor
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
+export const GET_VIATGE_BY_TERM_SLUG = gql`
+    query getViatgeByTermSlug ($slug: String!, $last: Int, $first: Int, $before: String, $after: String) {
+        terms(where: {taxonomies: ZONA, slug: [$slug]}, __typename: "Viatge" ) {
+            nodes {
+                ... on Zona {
+                    contentNodes (last: $last, first: $first, before: $before, after: $after) {
+                        nodes {
+                            ... on Viatge {
+                                __typename
+                                date
+                                content
+                                id
+                                modified
+                                slug
+                                title
+                                uri
+                                featuredImage {
+                                    node {
+                                        altText
+                                        mediaItemUrl
+                                    }
+                                }
+                                Campsviatge {
+                                    fieldGroupName
+                                    preu
+                                    grup
+                                    suplement
+                                    taxes
+                                    fitxa {
+                                        fileSize
+                                        title
+                                        mediaItemUrl
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
 export const GET_MENU_BY_NAME = gql`
     query getMenuByName ($name: ID!, $first: Int) {
         menu(id: $name, idType: NAME) {
@@ -121,7 +223,7 @@ export const GET_VIATGES_AUTOR = gql`
 
 export const GET_VIATGES = gql`
     query geytVietages ($first: Int, $last: Int, $before: String, $after: String) {
-        viatgesdautor(first: $first, last: $last, before: $before, after: $after) {
+        viatges(first: $first, last: $last, before: $before, after: $after) {
             nodes {
                 date
                 content

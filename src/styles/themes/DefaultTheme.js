@@ -23,7 +23,7 @@ const DefaultTheme = {
         primary_light: '#2b9dcb',
         white: '#ffffff',
         black: '#000000',
-        dark_gray: '#212B36',
+        dark_gray: '#979797',
         text_gray: '#293340',
         light_gray: '#9B9B9B'
     },

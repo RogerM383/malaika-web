@@ -4,12 +4,15 @@ export const destinacio_style = (theme) => {
     const style = css`
 
         .block1{
-            margin-top: ${theme.container.big_screen_top_padding};
-            margin-bottom:${theme.container.big_screen_top_padding};
-
+            padding: 5.1rem ${theme.container.horizontal_padding} 0;
+            margin-bottom: 11.5rem;
+            
             .title {
-
                 margin-bottom:${theme.container.big_screen_top_padding};
+            }
+            
+            #viatges {
+                border-bottom: 1px solid ${theme.colors.dark_gray};
             }
         }
 

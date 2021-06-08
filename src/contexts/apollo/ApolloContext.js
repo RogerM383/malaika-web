@@ -2,7 +2,8 @@ import React from "react";
 import {ApolloClient, ApolloLink as authLink, ApolloProvider, createHttpLink, InMemoryCache} from "@apollo/client";
 
 const link = new createHttpLink({
-    uri: process.env.NEXT_PUBLIC_MALAIKA_API + '/index.php?graphql'
+    uri: process.env.NEXT_PUBLIC_MALAIKA_API + '/index.php?graphql',
+
 });
 
 /*const authLink = setContext((_, { headers }) => {
@@ -17,14 +18,34 @@ const link = new createHttpLink({
     }
 });*/
 
-export const apolloClient = new ApolloClient({
+/*export const apolloClient = new ApolloClient({
     ssrMode: typeof window === 'undefined',
     cache: new InMemoryCache(),
-    link: link
-});
+    link: link,
+});*/
 
+let apolloClient;
+
+const createApolloClient = () => {
+    return new ApolloClient({
+        ssrMode: typeof window === 'undefined',
+        cache: new InMemoryCache(),
+        link: link,
+    })
+}
+
+export const initializeApollo = (initialState = null, token) => {
+    const _apolloClient = apolloClient ?? createApolloClient(token)
+    if (initialState) {
+        _apolloClient.cache.restore(initialState)
+    }
+    if (typeof window === 'undefined') return _apolloClient
+    if (!apolloClient) apolloClient = _apolloClient
+    return _apolloClient
+}
 
 export const ApolloContextProvider = ({initialValue,...props}) => {
+    let apolloClient = initializeApollo(initialValue);
     return (
         <ApolloProvider client={apolloClient}>
             {props.children}
