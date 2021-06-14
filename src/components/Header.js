@@ -15,7 +15,7 @@ const Header = ({img = true,title=false, children, ...props}) => {
 
                 <div className={'content'}>
 
-                    <a className={'logo'} href={"/home"}>
+                    <a className={'logo'} href={"/inici"}>
                         <Image alt={'Malaika'} src={"/logo.png"}/>
                     </a>
 

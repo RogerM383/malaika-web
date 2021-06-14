@@ -35,8 +35,8 @@ debugger
 
     const router = useRouter();
 
-    const goToFitxa = (e) =>{
-        router.push("/viatge-destinacio-destinacio");
+    const goTo = (slug)=>(e) =>{
+        router.push(slug);
     }
 
     return (
@@ -75,22 +75,25 @@ debugger
                     </MaxWidthContainer>
 
 
-                    <div css={bicolor_style} className={"block2"} >
-                        <MaxWidthContainer>
-                            <div className={"columna"}>
-                                <p className={"didot fs-30 bold"}>Inclou</p>
-                                <p className={"fs-20"}>{inclou} </p>
-                            </div>
+                    {
+                        inclou &&
+                        <div css={bicolor_style} className={"block2"} >
+                            <MaxWidthContainer>
+                                <div className={"columna"}>
+                                    <p className={"didot fs-30 bold"}>Inclou</p>
+                                    <p className={"fs-20"}>{inclou} </p>
+                                </div>
 
-                            <div className={"columna"}>
-                                <p className={"didot fs-30 bold"}>No inclou</p>
-                                <p className={"fs-20"}>{noInclou}
-                                </p>
-                            </div>
-                        </MaxWidthContainer>
+                                <div className={"columna"}>
+                                    <p className={"didot fs-30 bold"}>No inclou</p>
+                                    <p className={"fs-20"}>{noInclou}
+                                    </p>
+                                </div>
+                            </MaxWidthContainer>
 
 
-                    </div>
+                        </div>
+                    }
 
 
                     <div className={"block3"}>
@@ -108,7 +111,7 @@ debugger
                                             debugger
                                             return (
                                                 <Col sm={24} md={12}>
-                                                    <Card onClick={goToFitxa} css={top_img_tagged_card}>
+                                                    <Card onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
                                                     <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
                                                     <div className={"text"}>
                                                         <span className={"title"}>{item.zones?.nodes[0]?.name}</span>

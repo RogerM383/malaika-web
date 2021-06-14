@@ -17,8 +17,8 @@ const Page = ({children, ...props}) => {
 
     const router = useRouter();
 
-    const goToFitxa = (e) =>{
-        router.push("/viatge-destinacio-destinacio");
+    const goTo = (slug)=> (e) =>{
+        router.push(slug);
     }
 
     return (
@@ -117,7 +117,7 @@ const Page = ({children, ...props}) => {
 
                                   elements.map((element)=>{
                                       return(
-                                          <Card onClick={goToFitxa} css={card_fitxa_destinacio}>
+                                          <Card onClick={goTo("/viatge-destinacio/"+item.slug)} css={card_fitxa_destinacio}>
                                               <Image src={"home_card_1.png"}></Image>
                                               <div className={"text"}>
                                                   <span className={" db didot bold text fs-18"}>ANDALUSIA CRUILLA DE CULTURES</span>
