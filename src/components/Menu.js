@@ -114,7 +114,7 @@ const Menu = ({img = true, children, ...props}) => {
                      ref={nav}>
 
                     <div className={'mobile'} ref={mobileMenu}>
-                        <Image src={"logo.png"}/>
+                        <Image src={"/logo.png"}/>
                         <i className="fas fa-bars fa-2x" id="burger" onClick={burguerClick}/>
                     </div>
 
