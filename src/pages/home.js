@@ -10,7 +10,7 @@ import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
 import {useLazyQuery, useQuery} from "@apollo/client";
 import {GET_PAGE_BY_URI, GET_POSTS, GET_VIATGES_AUTOR} from "../contexts/apollo/queries";
-import {apolloClient} from "../contexts/apollo/ApolloContext";
+import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 
 
 const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestacada, descripcioviatgesdautor, ...props }) => {
@@ -48,7 +48,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
 
     return (
         <div css={home_styles}>
-
+{/*
             <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer className={"block1"}>
@@ -162,11 +162,11 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                         }
                     </Grid>
 
-                    {/*<div className={"next_prev"}>
+                    <div className={"next_prev"}>
                         <button> &#60; </button>
                         <button >/</button>
                         <button> ></button>
-                    </div>*/}
+                    </div>
 
 
                 </MaxWidthContainer>
@@ -186,7 +186,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                                 documentació, i tot allò que
                                 pugui afectar al vostre viatge
                                 o sigui del vostre interès. </p>
-                            {/*<input className={"fs-16"} type={"text"} placeholder={"Busca novetats"}/>*/}
+                            <input className={"fs-16"} type={"text"} placeholder={"Busca novetats"}/>
                         </div>
 
 
@@ -254,20 +254,24 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
             </div>
 
 
-            <Footer></Footer>
+            <Footer></Footer>*/}
         </div>
 
     );
 
 };
 
-export const getStaticProps = async (ctx) => {
-    const data = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/inici/' }})
-    .then((data) => {
-        return data.data.pageBy;
-    });
-    return {props: data, revalidate: 3600};
-}
+/*export const getStaticProps = async (ctx) => {
+    const client = initializeApollo();
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/inici/' }});
+    /!*    .then((data) => {
+            return data.data.pageBy;
+        });*!/
+
+    console.log( data.data);
+
+    return {props: {page:data.data.pageBy}, revalidate: 3600};
+}*/
 
 export default Page;
 

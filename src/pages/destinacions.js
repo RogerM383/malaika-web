@@ -24,6 +24,7 @@ const Page = ({children, ...props}) => {
     return (
         <div css={destinacio_style}>
 
+{/*
             <Header title={"ASIA"} img={"foto2.png/"}/>
 
 
@@ -56,20 +57,21 @@ const Page = ({children, ...props}) => {
 
             <Footer></Footer>
 
+*/}
 
         </div>
 
     );
 };
 
-export const getStaticProps = async (ctx) => {
+/*export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/destinacions/' }})
-    .then((data) => {
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/destinacions/' }});
+/!*    .then((data) => {
         return data.data.pageBy;
-    });
-    return {props: data, revalidate: 3600};
-}
+    });*!/
+    return {props: data.data.pageBy, revalidate: 3600};
+}*/
 
 export default Page;
 
