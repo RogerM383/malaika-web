@@ -5,7 +5,7 @@ import Image from "../../../package/components/Image";
 import Footer from "../../components/Footer";
 import Grid from "../../components/Grid";
 import Card from "../../../package/components/Card";
-import {card_fitxa_destinacio, card_home_2} from "../../styles/components/CardStyles";
+import {card_fitxa_destinacio, card_home_2, top_img_tagged_card} from "../../styles/components/CardStyles";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../../components/MaxWidthContainer";
 import {bicolor_style} from "../../styles/components/BiColorBlock";
@@ -13,8 +13,8 @@ import {initializeApollo} from "../../contexts/apollo/ApolloContext";
 import {GET_VIATGE_BY_SLUG, GET_VIATGES_DESTACATS} from "../../contexts/apollo/queriesTest";
 import {Col, Row} from "antd";
 import 'antd/dist/antd.css';
-import { Typography, Switch } from 'antd';
-const { Paragraph, Text } = Typography;
+
+
 
 
 
@@ -107,19 +107,17 @@ debugger
                                             const {dates} = item.Campsviatge;
                                             debugger
                                             return (
-                                                <Col sm={24} md={12}><Card onClick={goToFitxa} css={card_fitxa_destinacio}>
-                                                    <Image src={item.featuredImage.node.mediaItemUrl}></Image>
+                                                <Col sm={24} md={12}>
+                                                    <Card onClick={goToFitxa} css={top_img_tagged_card}>
+                                                    <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
                                                     <div className={"text"}>
-                                                        <span className={" db didot bold text fs-18"}>{item.zones?.nodes[0]?.name}</span>
-                                                        <p className={"fs-14"}>{item.title}</p>
-                                                        <div className={"calendar"}>
-                                                            <img src={"/calendar_icon.png"}/>
-                                                            <p className={"fs-14 sbold"}>{dates}</p>
-                                                        </div>
-
+                                                        <span className={"title"}>{item.zones?.nodes[0]?.name}</span>
+                                                        <p className={"tags"}>{item.title}</p>
+                                                        <span className={"calendar"}><img src={"/calendar_icon.png"}/>{dates}</span>
                                                         {/*<p>Més Informació -></p>*/}
                                                     </div>
-                                                </Card></Col>
+                                                </Card>
+                                                </Col>
                                             )
                                         })
 

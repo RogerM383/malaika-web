@@ -131,13 +131,19 @@ const Page = ({page, ...props }) => {
                                 taxes,
                                 suplement,
                                 etapes,
-                                fitxa
+                                fitxa,
+                                vols,
+                                sortides
                             } = customFields;
+
+                            debugger
                             return (
                                 <Card className={'card-vautor'} css={card_home_1}>
                                     <div className={"card-text"}>
                                         <span className={"card-title"}>{title}</span>
-                                        <div className={"card-data"}><img src={"/calendar_icon.png"}/><span>{durada}</span></div>
+                                        <div className={"card-data"}><img src={"/calendar_icon.png"}/><span>
+                                            {sortides.map((item) => item.datasortida)}
+                                        </span></div>
                                         <span className={"more-info"} onClick={goTo("viatge-dautor/"+slug)}>Més Informació    &#8594;</span>
                                     </div>
                                     <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>

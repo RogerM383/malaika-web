@@ -352,6 +352,11 @@ export const top_img_tagged_card = (theme) => {
         }
 
         .text {
+            .title {
+                font-family: ${theme.font.didot};
+                font-weight: ${theme.font.medium};
+                margin-bottom: 4.4rem;
+            }
             padding: 1rem;
 
             .tags {
@@ -359,6 +364,8 @@ export const top_img_tagged_card = (theme) => {
                 font-weight: ${theme.font.regular};
                 font-size: ${theme.font.s};
                 margin-bottom: 1rem;
+                margin-top: 1rem;
+
             }
 
             .calendar {
@@ -369,6 +376,12 @@ export const top_img_tagged_card = (theme) => {
                 font-size: ${theme.font.s};
                 font-weight: ${theme.font.medium};
                 margin-bottom: 1rem;
+
+                > img{
+                    margin-right: 1rem;
+                }
+
+
             }
 
             .more_info {

@@ -14,7 +14,7 @@ export const viatge_autor_fitxa = (theme) => {
 
         .block1 {
           padding-bottom: 4rem;
-          .ant-col:first-of-type{
+          .left_column{
               padding-bottom: 4rem;
             border: none;
             font-size:${theme.font.l} ;
@@ -27,7 +27,7 @@ export const viatge_autor_fitxa = (theme) => {
 
           }
 
-          .ant-col:nth-of-type(2){
+          .right_column{
               padding-left:2rem;
             font-size:0.9rem ;
             img.mapa{
@@ -80,7 +80,7 @@ export const viatge_autor_fitxa = (theme) => {
 
         ${theme.mq('tablet-portrait')} {
             .block1 {
-                .ant-col:first-of-type{
+                .left_column{
                     border-right:1px solid black ;
                 }
             }

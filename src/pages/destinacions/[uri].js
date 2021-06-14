@@ -45,8 +45,8 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
     /****WORKAROUND*******************************************************************/
 
 
-    const goToFitxa = (e) =>{
-        router.push("/fitxa-viatge-destinacio");
+    const goTo = (url) => (e) => {
+        router.push(url)
     }
 
     return (
@@ -65,12 +65,12 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
                         viatges?.nodes?.map((item) => {
                             const {dates} = item.Campsviatge;
                             return (
-                                <Card  onClick={goToFitxa} css={top_img_tagged_card}>
-                                    <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
+                                <Card  onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
+                                    <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}/>
                                     <div className={"text"}>
                                         <span className={"title"}>{item.title}</span>
                                         <span  className={"tags"} dangerouslySetInnerHTML={{__html: item.content}}/>
-                                        <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates}</span>
+                                        <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
                                         <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
                                     </div>
                                 </Card>

@@ -20,7 +20,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
     }
 
     const {Campsviatge,slug,title,uri,content,featuredImage} = page
-    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,sortides,mapa}=Campsviatge
+    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa}=Campsviatge
 
     debugger
 
@@ -36,7 +36,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             <MaxWidthContainer className={"block1"}>
 
                 <Row gutter={[60]}>
-                    <Col sm={24} md={12} >
+                    <Col className={"left_column"} sm={24} md={12} >
                         <div className={""}>
                             <p className={"title"}>{title}</p>
                             <p className={""} dangerouslySetInnerHTML={{__html: content}}/>
@@ -44,7 +44,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
                         </div>
                     </Col>
-                    <Col  sm={24} md={12}>
+                    <Col  className={"right_column"}  sm={24} md={12}>
                         <div>
                             <p>{grup}</p>
                             <p>{preu}</p>
@@ -52,9 +52,20 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                             <p>Suplemento: {suplement}</p>
                         </div>
 
-                        <div className={"plane"}>
-                            <img src={"../plane_icon.png"}/>{sortides[0].data}
-                        </div>
+                        <Row className={"plane"}>
+                            <Col span={2}>
+                                <img src={"../plane_icon.png"}/>
+                            </Col>
+                            <Col span={22}>
+                                {
+                                    vols.map((item)=><p>{item.datavol}</p>)
+                                }
+                            </Col>
+
+
+
+
+                        </Row>
 
                         <div className={"block_mapa"}>
                             <p className={"bold"}>ITINERARI</p>

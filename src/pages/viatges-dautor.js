@@ -93,7 +93,9 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                             taxes,
                             suplement,
                             etapes,
-                            fitxa
+                            fitxa,
+                            vols,
+                            sortides
                         } = customFields;
                         debugger
 
@@ -119,10 +121,10 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                                 <div><img src={"/plane_icon.png"}/></div>
                                                 <ul className={"fs-16"}>
                                                     {
-                                                        etapes.map( (item) => {
-                                                            const {etapa} = item;
+                                                        sortides.map( (item) => {
+
                                                             return (
-                                                               <li>{etapa.dia}</li>
+                                                               <li>{item.datasortida}</li>
                                                             );
                                                         })
                                                     }
