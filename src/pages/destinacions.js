@@ -18,7 +18,7 @@ const Page = ({children, ...props}) => {
     const router = useRouter();
 
     const goToFitxa = (e) =>{
-        router.push("/fitxa-viatge-destinacio");
+        router.push("/viatge-destinacio-destinacio");
     }
 
     return (

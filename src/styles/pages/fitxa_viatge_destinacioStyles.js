@@ -3,64 +3,72 @@ import {css} from '@emotion/react';
 export const viatge_destinacio_fitxa = (theme) => {
     const style = css`
 
+
+        .breadcrumb{
+            color: lightgray;
+            margin: 2rem 0;
+            padding-bottom: 4rem;
+            padding-top: 2rem;
+        }
+
         .block1 {
-
-            padding: ${theme.container.mobile_screen_padding} 0;
-
-            button{
-                border-radius: 8px;
-                margin-top:  ${theme.container.big_screen_top_padding} ;
-            }
-            .column:first-of-type {
-                border-right: 0;
-                //padding-right: 3rem;
-            }
-
-            .column:nth-of-type(2) {
-                display: flex;
-                justify-content: start;
-
-
-                .plane {
-                    margin-top:  ${theme.container.big_screen_top_padding} ;
+            padding-bottom: 4rem;
+            .ant-col:first-of-type{
+                padding-bottom: 4rem;
+                border: none;
+                font-size:${theme.font.l} ;
+                .title{
+                    font-size:${theme.font.h2} ;
+                    font-weight:${theme.bold} ;
+                    padding-bottom: 4rem;
                 }
 
+
             }
 
-            li {
-                line-height: 1rem;
-                list-style: none;
-            }
+            .ant-col:nth-of-type(2){
+                padding-left:2rem;
+                font-size:0.9rem ;
+                img.mapa{
+                    object-fit: contain;
+                    width: 80%;
+                    max-height: 400px;
+                    margin:0 auto;
+                    display: block;
+                }
 
+                > div{
+                    margin-bottom: 2.5rem;
+                }
+            }
 
 
         }
 
+        .block2{
+            margin-bottom: 4rem;
+        }
 
         .block3 {
             background-color: #F8F8F8;
-            padding: 8rem 0;
+            padding: 4rem 0;
 
-            > .text {
-                padding-top: 4rem;
-                text-align: center;
+            .title{
+                font-weight: ${theme.font.bold} ;
+                font-size:${theme.font.h3};
             }
+
         }
 
 
         ${theme.mq('tablet-portrait')} {
             .block1 {
-
-                .column:first-of-type {
-                    border-right: 1px solid black;
+                .ant-col:first-of-type{
+                    border-right:1px solid black ;
                 }
-
-                .column:nth-of-type(2) {
-                    justify-content: center;
-                    padding-top: 0;
-                }
-
             }
+
+
         }
 
 

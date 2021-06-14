@@ -39,7 +39,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
     const router = useRouter();
 
     const goToFitxa = () => {
-        router.push("/fitxa-viatge-autor")
+        router.push("/viatge-destinacio-autor")
     }
 
     const goToViatges = () => {

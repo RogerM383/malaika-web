@@ -7,6 +7,7 @@ import { global } from '../styles/GlobalStyles'
 import {ApolloContextProvider} from "../contexts/apollo/ApolloContext";
 
 
+
 const cacheOptions = {
     // prefix styles with "custom-cache" instead of "css"
     key: "custom-cache-malaika",

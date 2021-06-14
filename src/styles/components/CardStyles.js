@@ -63,26 +63,26 @@ export const card_viatge_autor = (theme) => {
         cursor: pointer;
         margin-bottom: 2rem;
         width: 100%;
-        
+
         & > div {
-        
+
         }
-        
+
         &.cva:last-of-type {
             margin-bottom: 0;
         }
-        
+
         .photo-wrapper {
-             margin-bottom: 2rem;  
+             margin-bottom: 2rem;
             .photo {
                 max-width: 100%;
             }
         }
-        
+
         .card-info {
-            
+
             margin-bottom: 2rem;
-        
+
             .title {
                 font-size: ${theme.font.l};
                 font-weight: ${theme.font.bold};
@@ -94,9 +94,9 @@ export const card_viatge_autor = (theme) => {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                padding: 0; 
+                padding: 0;
                 margin-bottom: 2rem;
-                
+
                 .calendar {
                     display: flex;
                     img {
@@ -112,11 +112,11 @@ export const card_viatge_autor = (theme) => {
                 .plane {
                     display: flex;
                     flex-direction: row;
-                    
+
                     & > div {
                         margin-right: 1rem;
                         img {
-                            
+
                         }
                     }
                     ul {
@@ -131,7 +131,7 @@ export const card_viatge_autor = (theme) => {
             .more_info {
                 display: flex;
                 flex-direction: column;
-                
+
                 .author {
                     font-size: ${theme.font.sm};
                     font-weight: ${theme.font.medium};
@@ -145,70 +145,70 @@ export const card_viatge_autor = (theme) => {
                 }
             }
         }
-         
+
         ${theme.mq('tablet-landscape')} {
-            
-            
-            
+
+
+
             & > div {
                 max-width: 80%;
                 display: flex;
             }
-            
+
             .photo-wrapper {
                 flex: 2;
                 .photo {
-                
+
                 }
             }
-            
+
             .card-info {
                 flex: 3;
                 padding: 0 2rem;
                 .title {
-                
+
                 }
                 .timetable {
-                
-                    
+
+
                     .calendar {
-                    
+
                         img {
-                        
+
                         }
                         .days {
-                        
+
                         }
                     }
                     .plane {
-                    
-                        
+
+
                         & > div {
-                        
+
                             img {
-                                
+
                             }
                         }
                         ul {
                             li {
-                            
+
                             }
                         }
                     }
                 }
                 .more_info {
-                
-                    
+
+
                     .author {
-                    
+
                     }
                     .button {
-                    
+
                     }
                 }
             }
         }
-        
+
         /*.photo {
 
             height: 100%;
@@ -297,7 +297,7 @@ export const card_discover = (theme) => {
             padding: 0;
             display: flex;
             flex-direction: column;
-            
+
             .title {
                 margin-bottom: 2rem;
                 font-family: ${theme.font.didot};
@@ -308,29 +308,29 @@ export const card_discover = (theme) => {
                 a {
                     color: ${theme.colors.primary}
                 }
-            } 
+            }
         }
-        
+
         img {
             max-width: 100%;
             width: 100%;
         }
-        
+
         ${theme.mq('tablet-landscape')} {
             width: 80%;
             .text-info {
                 display: flex;
                 flex-direction: row;
-                
+
                 .title {
                     flex: 2;
                     margin-bottom: 0;
                 }
-    
+
                 .text {
                     flex: 3;
                     padding: 0 0 0 2rem;
-                } 
+                }
             }
         }
     `;
@@ -345,19 +345,22 @@ export const top_img_tagged_card = (theme) => {
         box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
         cursor: pointer;
 
-        img {
-            max-width: 100%;
+        .image_card {
+
+            height: 250px;
+            width: 100%;
         }
 
         .text {
             padding: 1rem;
-            
+
             .tags {
                 font-family: ${theme.font.quicksand};
                 font-weight: ${theme.font.regular};
                 font-size: ${theme.font.s};
+                margin-bottom: 1rem;
             }
-            
+
             .calendar {
                 display: flex;
                 flex-direction: row;
@@ -365,14 +368,16 @@ export const top_img_tagged_card = (theme) => {
                 font-family: ${theme.font.quicksand};
                 font-size: ${theme.font.s};
                 font-weight: ${theme.font.medium};
+                margin-bottom: 1rem;
             }
-            
+
             .more_info {
                 font-family: ${theme.font.didot};
                 font-size: ${theme.font.s};
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                margin-bottom: 1rem;
                 span {
                     margin-left: .5rem;
                 }
@@ -452,6 +457,11 @@ export const card_fitxa_destinacio = (theme) => {
 export const card_itinerari = (theme) => {
     const style = css`
         position: relative;
+
+         .etapa_title{
+            font-size:${theme.font.l};
+            font-weight:${theme.font.bold};
+        }
 
         .inner:after {
             content: "";

@@ -5,26 +5,26 @@ export const header_styles = (theme) => {
         height: 100vh;
         background-size: cover;
         background-repeat: no-repeat;
-            
+
         .header-max-container {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-          
+
             .content {
                 position: relative;
                 margin-top: ${theme.header.padding_vertical};
                 padding: 0 ${theme.header.padding_horizontal};
                 height: 100vh;
-                
+
                 .logo {
                     display: block;
                     img {
                         max-width: 10rem;
                     }
                 }
-                
+
                 .info {
                     display: flex;
                     flex-direction: column-reverse;
@@ -33,7 +33,7 @@ export const header_styles = (theme) => {
                     width: calc(50% - ${theme.header.padding_horizontal});
                     top: 0;
                     right: ${theme.header.padding_horizontal};
-                    
+
                     .contact  {
                         font-size: ${theme.font.s};
                         display: flex;
@@ -51,16 +51,16 @@ export const header_styles = (theme) => {
                             &:hover {
                                 color: ${theme.colors.primary}
                             }
-                        }    
+                        }
                     }
-                    
+
                     .language {
                         font-size: ${theme.font.s};
                         color: white;
                         margin: 0 0 1rem 0;
                     }
                 }
-                
+
                 .title {
                     font-size: ${theme.font.h1};
                     font-family: ${theme.font.didot};

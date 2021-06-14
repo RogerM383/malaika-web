@@ -7,10 +7,10 @@ export const home_styles = (theme) => {
         .block1 {
 
             margin-top: 5.5rem;
-            
-            padding: 0 ${theme.container.horizontal_padding};
+
+           // padding: 0 ${theme.container.horizontal_padding};
             border-bottom: 1ps solif ${theme.colors.light_gray};
-            
+
             .alert {
                 display: flex;
                 flex-direction: row;
@@ -46,13 +46,13 @@ export const home_styles = (theme) => {
                 font-family: ${theme.font.didot};
                 font-weight: ${theme.font.bold};
                 margin-bottom: 2.2rem;
-                   
+
                 h2 {
                     display: flex;
                     flex-direction: column;
                     margin-right: 1rem;
                 }
-                
+
                 .litle {
                     color: ${theme.colors.primary}
                 }
@@ -64,9 +64,9 @@ export const home_styles = (theme) => {
                     font-family: ${theme.font.didot};
                     font-weight: ${theme.font.bold};
                     font-size: ${theme.font.sm};
-                }                
+                }
             }
-             
+
             .card-vautor {
                 display: flex;
                 flex-direction: column;
@@ -82,7 +82,7 @@ export const home_styles = (theme) => {
                         font-weight: ${theme.font.bold};
                         font-size: ${theme.font.sm};
                         margin-bottom: 1rem;
-                    }    
+                    }
                     .card-data {
                         font-family: ${theme.font.quicksand};
                         font-weight: ${theme.font.medium};
@@ -108,7 +108,7 @@ export const home_styles = (theme) => {
                     }
                 }
             }
-            
+
             .more {
                 float: right;
                 font-family: ${theme.font.didot};
@@ -127,7 +127,7 @@ export const home_styles = (theme) => {
             padding-top: 4.5rem;
             padding-bottom: 4.5rem;
             margin-top: 4.5rem;
-            
+
             .container {
                 padding: 0 ${theme.container.horizontal_padding};
                 .title {
@@ -144,7 +144,7 @@ export const home_styles = (theme) => {
             padding-top: 3rem;
 
             .row {
-            
+
                 span {
                     margin-bottom: .5rem;
                     font-family: ${theme.font.didot};
@@ -170,6 +170,16 @@ export const home_styles = (theme) => {
                   margin-bottom: 3rem;
                   padding: 1rem;
                }
+
+                p.data_title{
+                    color: #9B9B9B;
+                }
+
+                p.data_content{
+                    color: initial;
+                }
+
+
             }
 
 
@@ -179,6 +189,7 @@ export const home_styles = (theme) => {
                 color: white;
                 padding: 0 3rem;
                 flex: 1 0 30%;
+
 
                 p:nth-of-type(3) {
                     width: 80%;
@@ -203,7 +214,10 @@ export const home_styles = (theme) => {
             }
 
 
-            .normas {
+            .normas{
+                padding:2rem;
+            }
+/*            .normas {
                 padding: 4rem;
 
 
@@ -227,61 +241,42 @@ export const home_styles = (theme) => {
                 .normas_item:last-child {
                     border-bottom: none;
                 }
-            }
+            }*/
+
+
 
 
         }
 
 
         .block4 {
+            padding:  4.5rem 3rem;
             background-color: #F8F8F8;
+            .info{
+                font-family: ${theme.font.didot};
+                font-weight: ${theme.font.bold};
+                font-size: ${theme.font.h5};
+            }
 
-            .row {
-                padding: 6rem 0;
-
-                .left {
-
-                    flex: 0 0 50%;
-
+            .subscribe{
+                p:first-of-type{
+                    font-size: 0.9rem;
                 }
 
-                .right {
-                    padding-left: 1rem;
-
-                    .subscribe {
-                        width: 70%;
-
-                    }
-
-                    .form_subscribe {
-                        display: flex;
-
-                    }
+                p:nth-of-type(2){
+                    font-size: 0.6rem;
                 }
+
 
             }
 
 
-        }
 
-        ${theme.mq('tablet-portrait')} {
-            
-            .block1 {
-                width: 80%;
+
+
             }
-            
-            .block4 {
-                .row {
-                    .left {
-                        flex: 0 0 33%;
-                    }
 
-                    .right {
 
-                    }
-                }
-            }
-        }
 
     `;
 

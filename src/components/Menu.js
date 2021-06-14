@@ -66,7 +66,7 @@ const Menu = ({img = true, children, ...props}) => {
     const handleScroll = () => {
         const offset = window.scrollY;
         const point_stiky = window.innerHeight;
-        setSticky(offset + nav.current.getBoundingClientRect().height > point_stiky);
+      //  setSticky(offset + nav.current.getBoundingClientRect().height > point_stiky);
         //setMaxMenuWidth(calcMaxMenuWidth);
     }
 
@@ -172,7 +172,7 @@ export default Menu;
 const navButtons = [
     {
         label: "VIATGES D'AUTOR",
-        path: "/viatge-autor",
+        path: "/viatge-destinacio-autor",
 
     },
     {
@@ -197,7 +197,7 @@ const navButtons = [
 const navButtonsHome = [
     {
         label: "VIATGES D'AUTOR",
-        path: "/viatge-autor",
+        path: "/viatge-destinacio-autor",
 
     },
     {

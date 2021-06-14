@@ -3,7 +3,7 @@ import {css} from '@emotion/react';
 export const global = (theme) => {
 
     const style = css`
-        
+
         /* --- RESET ------------------------------------------------------------------------------------------------ */
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -14,8 +14,8 @@ export const global = (theme) => {
         dl, dt, dd, ol, ul, li,
         fieldset, form, label, legend,
         table, caption, tbody, tfoot, thead, tr, th, td,
-        article, aside, canvas, details, embed, 
-        figure, figcaption, footer, header, hgroup, 
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
         menu, nav, output, ruby, section, summary,
         time, mark, audio, video {
             margin: 0;
@@ -24,46 +24,46 @@ export const global = (theme) => {
             font: inherit;
             vertical-align: baseline;
         }
-        
+
         /* HTML5 display-role reset for older browsers */
-        article, aside, details, figcaption, figure, 
+        article, aside, details, figcaption, figure,
         footer, header, hgroup, menu, nav, section {
             display: block;
         }
-        
+
         body {
             line-height: 1;
         }
-        
+
         ol, ul {
             list-style: none;
         }
-        
+
         blockquote, q {
             quotes: none;
         }
-        
+
         table {
             border-collapse: collapse;
             border-spacing: 0;
         }
         /* ---------------------------------------------------------------------------------------------------------- */
-        
+
         @font-face {
             font-family: 'Didot';
             src: local('Didot'), url('./fonts/didot/Didot Regular.ttf') format('truetype');
         }
-        
+
         @font-face {
             font-family: 'Quicksand';
             src: local('Quicksand'), url('./fonts/quicksand/Quicksand-Regular.ttf') format('truetype');
         }
-        
+
         * {
             box-sizing: border-box;
             border: 1px solid black;
         }
-        
+
         html {
             padding: 0;
             margin: 0;
@@ -95,30 +95,56 @@ export const global = (theme) => {
                     font-family: Didot, serif;
                     margin-bottom: 1rem;
                 }
-                
+
                 ul, ol {
                     list-style: none;
                 }
-                
+
                 h1 {
                     font-size: ${theme.font.h1};
                 }
-                
+
                 h2 {
                     font-size: ${theme.font.h2};
                 }
-                
+
                 h3 {
                     font-size: ${theme.font.h3};
                 }
-                
+
                 h4 {
                     font-size: ${theme.font.h4};
                 }
-                
+
                 h5 {
                     font-size: ${theme.font.h5};
                 }
+
+                button {
+
+                    border-radius: 1px;
+                    height: 2.5rem;
+                    align-items: center;
+                    background-color: ${theme.colors.primary};
+                    font-size: ${theme.font.small};
+                    line-height: 1;
+                    border:0;
+                    color:${theme.colors.white};
+                    font-size: 1rem;
+
+                }
+
+                input{
+
+                        border:none;
+                        height: 2.5rem;
+                        margin-bottom: 3rem;
+                        padding: 1rem;
+                        font-size: 1rem;
+
+                }
+
+
             }
         }
 
@@ -133,6 +159,8 @@ export const global = (theme) => {
                 font-size: 20px;
             }
         }
+
+
 
 /*
                 button {
@@ -290,7 +318,7 @@ export const global = (theme) => {
                 }
             }
 */
-            
+
 
 /*
             .next_prev {

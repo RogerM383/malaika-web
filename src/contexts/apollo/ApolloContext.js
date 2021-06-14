@@ -24,7 +24,7 @@ const link = new createHttpLink({
     link: link,
 });*/
 
-let apolloClient;
+export let apolloClient;
 
 const createApolloClient = () => {
     return new ApolloClient({

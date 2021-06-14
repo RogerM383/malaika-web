@@ -1,5 +1,5 @@
 import React from 'react';
-import {asia_styles} from "../../styles/pages/asiaStyles";
+import {destinacions_styles} from "../../styles/pages/destinacioStyle";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Grid from "../../components/Grid";
@@ -8,7 +8,7 @@ import {top_img_tagged_card} from "../../styles/components/CardStyles";
 import Image from "../../../package/components/Image";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../../components/MaxWidthContainer";
-import {apolloClient} from "../../contexts/apollo/ApolloContext";
+import {apolloClient, initializeApollo} from "../../contexts/apollo/ApolloContext";
 import {GET_PAGE_BY_URI} from "../../contexts/apollo/queries";
 
 
@@ -18,11 +18,11 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
     const router = useRouter();
 
     const goToFitxa = (e) =>{
-        router.push("/fitxa-viatge-destinacio");
+        router.push("/viatge-destinacio-destinacio");
     }
 
     return (
-        <div css={asia_styles}>
+        <div css={destinacions_styles}>
 
             <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
@@ -62,7 +62,8 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 };
 
 export const getStaticProps = async (ctx) => {
-    const data = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/asia/' }})
+    const client = initializeApollo();
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/asia/' }})
     .then((data) => {
         return data.data.pageBy;
     });

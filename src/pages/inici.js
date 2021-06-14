@@ -4,46 +4,64 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../../package/components/Card";
 import Image from "../../package/components/Image";
-import {card_home_1, card_home_2} from "../styles/components/CardStyles";
+import {card_home_1, card_home_2, top_img_tagged_card} from "../styles/components/CardStyles";
 import Grid from "../components/Grid";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
 import {useLazyQuery, useQuery} from "@apollo/client";
 import {GET_PAGE_BY_URI, GET_POSTS, GET_VIATGES_AUTOR} from "../contexts/apollo/queries";
 import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
+import {GET_VIATGES_DESTACATS} from "../contexts/apollo/queriesTest";
+import {Col, Row} from "antd";
+import 'antd/dist/antd.css';
 
 
-const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestacada, descripcioviatgesdautor, ...props }) => {
+const Page = ({page, ...props }) => {
+
+    if(page?.title === undefined){
+        return null
+    }
+
+    debugger
+    const router = useRouter();
+
+    /*PAGE INFO*/
+    const { title, uri, status, slug, content, featuredImage, notadestacada, descripcioviatgesdautor,Novetats} = page;
 
     const PER_PAGE = 6;
     const [loadViatgesAutor, { loading: loadingVA, error: errorVA, data: dataVA }] = useLazyQuery(GET_VIATGES_AUTOR,{variables: {first: PER_PAGE}});
+    const [loadViatgesDestacats, { loading: loadingVD, error: errorVD, data: dataVD }] = useLazyQuery(GET_VIATGES_DESTACATS);
+
+
     const [viatgesAutor, setViatgesAutor] = useState([]);
-    const [pageInfo, setPageInfo] = useState(null);
+    const [viatgesDestacats, setViatgesDestacats] = useState([]);
+    //const [pageInfo, setPageInfo] = useState(null);
 
     useEffect(() => {
         loadViatgesAutor();
-        //loadTextos();
+        loadViatgesDestacats();
     }, []);
 
     useEffect(() => {
         if (dataVA) {
             const { nodes, pageInfo } = dataVA.viatgesdautor;
-            setPageInfo(pageInfo);
+           // setPageInfo(pageInfo);
             setViatgesAutor(viatgesAutor.concat(nodes));
         }
     },[dataVA]);
 
+    useEffect(() => {
+        if (dataVD) {
+            setViatgesDestacats( dataVD.viatges)
+        }
+    },[dataVD]);
 
-    const elements = ['one', 'two', 'three', 'four', 'five', 'six'];
 
-    const router = useRouter();
 
-    const goToFitxa = () => {
-        router.push("/fitxa-viatge-autor")
-    }
 
-    const goToViatges = () => {
-        router.push("/destinacions")
+
+    const goTo = (url) => (e) => {
+        router.push(url)
     }
 
     return (
@@ -75,8 +93,8 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                 }
 
                 <div className={"cita didot"}>
-                    <p className={"fs-26 bold"}>Hi ha experiències que no passen desapercebudes, emocions que no s'obliden i que desitgem que perdurin per sempre.
-                    </p>
+                    <p className={"fs-26 bold"} dangerouslySetInnerHTML={{__html: content}}/>
+
                 </div>
 
                 <div className={'title'}>
@@ -87,7 +105,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                 </div>
                 {
                     descripcioviatgesdautor && descripcioviatgesdautor.descripcioViatgesDautor &&
-                    <div className={"subtitle fs-16 bold didot"}
+                    <div css={{width:'60%'}} className={"subtitle fs-16 bold didot"}
                          dangerouslySetInnerHTML={{__html: descripcioviatgesdautor.descripcioViatgesDautor}}/>
                 }
 
@@ -120,7 +138,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                                     <div className={"card-text"}>
                                         <span className={"card-title"}>{title}</span>
                                         <div className={"card-data"}><img src={"/calendar_icon.png"}/><span>{durada}</span></div>
-                                        <span className={"more-info"} onClick={goToFitxa}>Més Informació    &#8594;</span>
+                                        <span className={"more-info"} onClick={goTo("viatge-dautor/"+slug)}>Més Informació    &#8594;</span>
                                     </div>
                                     <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
                                 </Card>
@@ -140,20 +158,21 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
                 <MaxWidthContainer className={'container'}>
 
                     <h2 className={"title"}>Destacats /</h2>
+
                     <Grid size={"300px"}>
-                        {
-                            elements.map((element) => {
+                       {
+
+                            viatgesDestacats?.nodes?.map((item) => {
+                                const {dates} = item.Campsviatge;
                                 return (
-                                    <Card onClick={goToViatges} css={card_home_2}>
-                                        <Image src={"home_card_1.png"}></Image>
+                                    <Card onClick={goTo("viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
+                                        <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
                                         <div className={"text"}>
-                                            <span className={"db didot bold fs-18"}>FLORÈNCIA, art i cultura</span>
-                                            <span css={{marginBottom: '1.5rem'}} className={"db fs-12"}>Museus, gastonomia i música clàssica</span>
-                                            <p className={"fs-12 sbold"}><img src={"/calendar_icon.png"}/> 3 dies - Sortides 13 Octubre, 18 Novembre</p>
-                                            <span className={" db didot fs-14 bold"}>Més Informació -></span>
+                                            <span className={"title"}>{item.title}</span>
+                                            <span  className={"tags"} dangerouslySetInnerHTML={{__html: item.content}}/>
+                                            <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates}</span>
+                                            <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
                                         </div>
-
-
                                     </Card>
                                 )
                             })
@@ -172,48 +191,37 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
 
             <div className={"block3"}>
                 <MaxWidthContainer>
-                    <div className={"row"}>
+                    <Row className={"row"} >
 
-                        <div className={"column"}>
-                            <span css={{color: '#9B9B9B'}}>Farm Visit</span>
-                            <h4 className={"bold primary fs-40"}>Novetats</h4>
-                            <p className={"fs-16"}>Us mantenim informtas de les novetats, normativa,
-                                documentació, i tot allò que
-                                pugui afectar al vostre viatge
-                                o sigui del vostre interès. </p>
-                            {/*<input className={"fs-16"} type={"text"} placeholder={"Busca novetats"}/>*/}
-                        </div>
+                        <Col  sm={20} md={8} lg={6}  className={"column"}>
+                            <span css={{color: '#9B9B9B'}}>Malaika</span>
+                            <h4 className={"title-novetats"}>{Novetats.titolNovetats}</h4>
+                            <p className={"fs-16"}>{Novetats.descripcioNovetats} </p>
 
-                        <div className={"column"}>
+                        </Col>
+
+                        <Col sm={20} md={16} lg={18}  className={"column"}>
+
                             <div className={"normas"}>
-                                <div className={"normas_item"}>
-                                    <div className={'fecha'}>28/01/2021</div>
-                                    <div className={'data'}>
-                                        <p>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
-                                        <p>La nova normativa britànica obliga a les persones que vulguin entrar al
+                                <Row gutter={[40,40]}>
+                                    <Col sm={24} md={5} lg={5} className={'fecha'}>28/01/2021</Col>
+                                    <Col sm={24} md={19} lg={19}  className={'data'} >
+                                        <p className={"data_title"}>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
+                                        <p className={"data_content"}>La nova normativa britànica obliga a les persones que vulguin entrar al
                                             pais a la presentació del test PCR.
                                             <span className={"primary"}> + informació</span>
                                         </p>
-                                    </div>
-                                </div>
-                                <div className={"normas_item"}>
-                                    <p>28/01/2021</p>
-                                    <div>
-                                        <p>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
-                                        <p>La nova normativa britànica obliga a les persones que vulguin entrar al
-                                            pais a la presentació del test PCR.
-                                            <span className={"primary"}> + informació</span>
-                                        </p>
-                                    </div>
-                                </div>
+                                    </Col>
+                                </Row>
+
 
 
                             </div>
 
-                        </div>
+                        </Col>
 
 
-                    </div>
+                    </Row>
 
 
                 </MaxWidthContainer>
@@ -224,24 +232,26 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
 
                 <MaxWidthContainer>
 
-                    <div className={"row"}>
+                    <Row className={"row"}>
 
-                        <div className={"left"}>
-                            <p className={"didot fs-30"}>I si vols estar informat de tot</p>
-                        </div>
+                        <Col  sm={20} md={24} lg={12}  >
+                            <p className={"info"}>I si vols estar informat de tot</p>
+                        </Col>
 
-                        <div className={"right"}>
+                        <Col  sm={20} md={24} lg={12} >
+
                             <div className={"subscribe"}>
-                                <p className={"fs-18 sbold"}>Subscriu-te al nostre Newsletter</p>
-                                <p className={"fs-12"}>Inscriviu-vos a les nostres llistes de correu i rebreu les novetats
+                                <p>Subscriu-te al nostre Newsletter</p>
+                                <p>Inscriviu-vos a les nostres llistes de correu i rebreu les novetats
                                     ofertes i promocions directament a la safata d’entrada.</p>
                             </div>
-                            <div className={"form_subscribe"}>
-                                <input className={"fs-12"} type={"text"} placeholder={"El teu email"}/>
-                                <button className={"fs-12"}>Subscriu-te</button>
+
+                            <div >
+                                <input type={"text"} placeholder={"El teu email"}/>
+                                <button>Subscriu-te</button>
                             </div>
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
 
                 </MaxWidthContainer>
 
@@ -255,12 +265,14 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/inici/' }})
-    .then((data) => {
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/inici/' }});
+/*    .then((data) => {
         return data.data.pageBy;
-    });
+    });*/
 
-    return {props: data, revalidate: 3600};
+    console.log( data.data);
+
+    return {props: {page:data.data.pageBy}, revalidate: 3600};
 }
 
 export default Page;

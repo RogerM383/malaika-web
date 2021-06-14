@@ -45,6 +45,10 @@ export const GET_PAGE_BY_URI = gql`
             descripcioviatgesdautor {
                 descripcioViatgesDautor
             }
+            Novetats {
+                descripcioNovetats
+                titolNovetats
+            }
         }
     }
 `;
@@ -110,10 +114,10 @@ export const GET_PAGE_BY_TERM_SLUG = gql`
 
 export const GET_VIATGE_BY_TERM_SLUG = gql`
     query getViatgeByTermSlug ($slug: String!, $last: Int, $first: Int, $before: String, $after: String) {
-        terms(where: {taxonomies: ZONA, slug: [$slug]}, __typename: "Viatge" ) {
+        terms(where: {taxonomies: ZONA, slug: [$slug]} ) {
             nodes {
                 ... on Zona {
-                    contentNodes (last: $last, first: $first, before: $before, after: $after) {
+                    contentNodes {
                         nodes {
                             ... on Viatge {
                                 __typename

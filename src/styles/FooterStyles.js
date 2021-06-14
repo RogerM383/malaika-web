@@ -3,11 +3,16 @@ import {css} from '@emotion/react';
 export const footer_styles = (theme) => {
     const style = css`
 
-        padding: 5rem ${theme.container.horizontal_padding};
+          padding: 2rem ;
+         font-size: ${theme.font.xs};
 
+
+      .info_contact{
+        font-weight: ${theme.font.medium};
+        font-size:0.9rem;
+      }
         .contact {
 
-            padding: 0 2rem;
             flex-direction: column;
             justify-content: flex-end;
             vertical-align: middle;
@@ -35,6 +40,14 @@ export const footer_styles = (theme) => {
             }
 
         }
+
+        ${theme.mq('tablet-portrait')} {
+            padding: 5rem ${theme.container.horizontal_padding};
+        }
+
+
+
+
     `;
 
     return [style];

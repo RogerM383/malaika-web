@@ -48,8 +48,8 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
         }
     },[dataTextos]);
 
-    const goToFitxa = () =>{
-        router.push("/fitxa-viatge-autor")
+    const goToFitxa = (slug) => (e) =>{
+       router.push("/viatge-dautor/"+slug)
     }
 
     // --- Slider ------------------------------------------------------------------------------------------------------
@@ -133,7 +133,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                                         <div className={"more_info"}>
                                             <span className={"author"}>{autor}</span>
-                                            <span className={"button"} onClick={goToFitxa} >Més Informació <span className={"primary"}>&#8594;</span> </span>
+                                            <span className={"button"} onClick={goToFitxa(slug)} >Més Informació <span className={"primary"}>&#8594;</span> </span>
                                         </div>
 
                                     </div>

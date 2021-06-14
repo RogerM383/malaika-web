@@ -2,74 +2,76 @@ import {css} from '@emotion/react';
 
 export const viatge_autor_fitxa = (theme) => {
     const style = css`
+      padding-bottom: 4rem;
+      font-size: 1rem;
 
+      .breadcrumb{
+        color: lightgray;
+        margin: 2rem 0;
+        padding-bottom: 4rem;
+        padding-top: 2rem;
+      }
 
         .block1 {
-            margin-top: ${theme.container.mobile_screen_padding};
-
-            .row {
-                margin-top: ${theme.container.big_screen_top_padding};
-
-
-                .column {
-                    padding-right: 1rem;
-                    padding-left: 1rem;
-                }
-
-                .column:first-of-type {
-                    position: relative;
-                    border-right: 0;
-
-                    button {
-
-                       margin-bottom: 3rem;
-                       margin-top: 3rem
-                    }
-
-                    li {
-                        list-style: none;
-                    }
-
-
-                }
-
-                .column:nth-of-type(2) {
-                    display: flex;
-                    justify-content: center;
-
-
-                    span {
-                        display: block;
-                    }
-
-                    .plane {
-                        margin: 2rem 0;
-                    }
-
-
-                }
-
-
+          padding-bottom: 4rem;
+          .ant-col:first-of-type{
+              padding-bottom: 4rem;
+            border: none;
+            font-size:${theme.font.l} ;
+            .title{
+              font-size:${theme.font.h2} ;
+              font-weight:${theme.bold} ;
+              padding-bottom: 4rem;
             }
+
+
+          }
+
+          .ant-col:nth-of-type(2){
+              padding-left:2rem;
+            font-size:0.9rem ;
+            img.mapa{
+                object-fit: contain;
+              width: 80%;
+              max-height: 400px;
+              margin:0 auto;
+              display: block;
+            }
+
+           > div{
+               margin-bottom: 2.5rem;
+           }
+          }
 
 
         }
 
         .block2 {
-
+          margin-bottom: 4rem;
+            .title{
+                font-weight:${theme.font.bold};
+                font-size: ${theme.font.h5};
+            }
         }
 
-        .block3 {
 
-            margin:0 1rem;
-            .separator {
-                position: relative;
+        .block3 {
+            padding-bottom: 4rem;
+
+
+            .title{
+                font-weight:${theme.font.bold};
+                font-size: ${theme.font.h3};
+            }
+
+            :after {
+                display: block;
                 content: "";
-                height: 1px;
-                width: 80%;
+                width: 100%;
                 border: 1px solid lightgray;
                 bottom: 0;
-                margin:${theme.container.big_screen_padding} 0;
+                margin-top: 8rem;
+
             }
 
 
@@ -78,16 +80,12 @@ export const viatge_autor_fitxa = (theme) => {
 
         ${theme.mq('tablet-portrait')} {
             .block1 {
-                .row {
-                    .column:first-of-type {
-                        border-right: 1px solid black;
-                    }
+                .ant-col:first-of-type{
+                    border-right:1px solid black ;
                 }
             }
 
-            .block2{
 
-            }
         }
 
 
