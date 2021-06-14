@@ -95,6 +95,13 @@ const Menu = ({img = true, children, ...props}) => {
         setActive(!active);
     }
 
+    useEffect(() => {
+        if(width > 992){
+            setActive(false);
+        }
+    }, [width]);
+
+
     return (
         <div css={menu_styles}>
 
@@ -139,7 +146,7 @@ const Menu = ({img = true, children, ...props}) => {
                                             </Link>
                                             {
                                                 button.submenu.length > 0 &&
-                                                <div className={"dropdown-content"}>
+                                                <div className={`dropdown-content ${active ? 'mobile_menu ' : ''} `}>
                                                     {
                                                         button.submenu.map((item) => {
                                                             return (
