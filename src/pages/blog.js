@@ -18,8 +18,8 @@ const Page = ({children, ...props}) => {
     const elements = ['one', 'two', 'three'];
     const router = useRouter();
 
-    const goToArticle = () => {
-        router.push("/blog-article")
+    const goTo = (slug) => (e) =>{
+        router.push(slug)
     }
 
 
@@ -39,7 +39,7 @@ const Page = ({children, ...props}) => {
                             {
                                 elements.map((item)=>{
                                     return(
-                                        <div onClick={goToArticle} css={card_blog} >
+                                        <div onClick={goTo("/blog/test_blog")} css={card_blog} >
                                             <span><Image src={"blog_card.png"}/></span>
                                             <p>30 Jul 2019</p>
                                             <p className={"title_entry"}>Three Ways To Get Travel Discounts</p>
@@ -63,7 +63,7 @@ const Page = ({children, ...props}) => {
                                 {
                                     elements.map((item)=>{
                                         return(
-                                            <Row gutter={[20]} onClick={goToArticle} css={card_blog_thumbnail}>
+                                            <Row gutter={[20]} onClick={goTo("/blog/test_blog")} css={card_blog_thumbnail}>
                                                 <Col span={8}><Image src={"blog_card.png"}/></Col>
                                                 <Col span={16}>
                                                     <span className={"title_entry"}>Three Ways To Get Travel Discounts</span>
