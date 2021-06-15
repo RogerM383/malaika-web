@@ -48,7 +48,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
         }
     },[dataTextos]);
 
-    const goToFitxa = (slug) => (e) =>{
+    const goTo = (slug) => (e) =>{
        router.push("/viatge-dautor/"+slug)
     }
 
@@ -100,7 +100,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                         debugger
 
                         return (
-                            <div className={'cva'} css={card_viatge_autor}>
+                            <div onClick={goTo(slug)} className={'cva'} css={card_viatge_autor}>
                                 <div>
                                     <div className={'photo-wrapper'}>
                                         <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
@@ -135,7 +135,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                                         <div className={"more_info"}>
                                             <span className={"author"}>{autor}</span>
-                                            <span className={"button"} onClick={goToFitxa(slug)} >Més Informació <span className={"primary"}>&#8594;</span> </span>
+                                            <span className={"button"} onClick={goTo(slug)} >Més Informació <span className={"primary"}>&#8594;</span> </span>
                                         </div>
 
                                     </div>

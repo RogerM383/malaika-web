@@ -59,6 +59,7 @@ const DefaultTheme = {
     container: {
         max_width: '1580px',
         horizontal_padding: '4rem',
+        vertical_padding:'4rem'
     }
 }
 

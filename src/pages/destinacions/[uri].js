@@ -14,6 +14,7 @@ import {useLazyQuery} from "@apollo/client";
 import {GET_ZONED_PAGES, GET_PAGE_BY_URI} from "../../contexts/apollo/queries/pages";
 import {destinacions_styles} from "../../styles/pages/destinacioStyle";
 import {GET_VIATGES_DESTACATS, GET_VIATGES_ZONA} from "../../contexts/apollo/queriesTest";
+import {Col, Row} from "antd";
 
 
 const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content, date, ...props}) => {
@@ -49,6 +50,8 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
         router.push(url)
     }
 
+    const elements =[1,2,3,4,5,6,7,8,9,10]
+
     return (
         <div css={destinacions_styles}>
 
@@ -60,25 +63,30 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
                     <span  className={""} dangerouslySetInnerHTML={{__html: content}}/>
                 </h2>
 
-                <Grid size={"350px"}>
+                <Row gutter={[40,40]}>
                     {
+
                         viatges?.nodes?.map((item) => {
                             const {dates} = item.Campsviatge;
                             return (
-                                <Card  onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
-                                    <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}/>
-                                    <div className={"text"}>
-                                        <span className={"title"}>{item.title}</span>
-                                        <span  className={"tags"} dangerouslySetInnerHTML={{__html: item.content}}/>
-                                        <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
-                                        <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
-                                    </div>
-                                </Card>
+                                <Col sm={24} md={12} lg={8} >
+                                    <Card  onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
+                                        <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}/>
+                                        <div className={"text"}>
+                                            <span className={"title"}>{item.title}</span>
+                                            <span  className={"tags"} dangerouslySetInnerHTML={{__html: item.content}}/>
+                                            <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
+                                            <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
+                                        </div>
+                                    </Card>
+                                </Col>
+
                             )
                         })
 
                     }
-                </Grid>
+
+                </Row>
 
 
             </MaxWidthContainer>

@@ -537,15 +537,47 @@ export const card_itinerari_finish = (theme) => {
 
 export const card_blog = (theme) => {
     const style = css`
-
+        font-size: ${theme.font.s};
         cursor: pointer;
+        margin-bottom: 4rem;
+
+        .title_entry{
+            font-size: ${theme.font.l};
+            font-weight: ${theme.font.bold};
+        }
 
             img {
                 width: 100%;
 
             }
 
+    `;
 
+    return [style];
+}
+
+export const card_blog_thumbnail = (theme) => {
+    const style = css`
+        cursor: pointer;
+
+        margin-bottom: 0.5rem;
+        .title_entry{
+            font-family:${theme.font.didot}; ;
+            font-size: ${theme.font.sm};
+            font-weight: ${theme.font.bold};
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .date{
+            display: block;
+            font-size: ${theme.font.s};
+            color:${theme.colors.text_gray}
+        }
+
+        img {
+            width: 100%;
+
+        }
 
 
 
@@ -553,5 +585,3 @@ export const card_blog = (theme) => {
 
     return [style];
 }
-
-

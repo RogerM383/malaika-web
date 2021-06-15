@@ -138,7 +138,7 @@ export const global = (theme) => {
 
                         border:none;
                         height: 2.5rem;
-                        margin-bottom: 3rem;
+                        margin-bottom: 1rem;
                         padding: 1rem;
                         font-size: 1rem;
 

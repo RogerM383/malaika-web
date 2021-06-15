@@ -5,11 +5,12 @@ import Image from "../../package/components/Image";
 import Footer from "../components/Footer";
 import {blog_styles} from "../styles/pages/blogStyles";
 import Card from "../../package/components/Card";
-import {card_blog} from "../styles/components/CardStyles";
+import {card_blog, card_blog_thumbnail} from "../styles/components/CardStyles";
 import Item from "../../package/components/Item";
 import {item_blog_thumbnail} from "../styles/components/ItemStyles";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
+import {Col, Row} from "antd";
 
 
 const Page = ({children, ...props}) => {
@@ -31,19 +32,19 @@ const Page = ({children, ...props}) => {
 
             <MaxWidthContainer>
 
+                <div className={"block1"}>
 
-                    <div className={"listBlock row"}>
-                        <div className={"column column-66"}>
-
+                    <Row gutter={[40]}>
+                        <Col className={"left_column"} sm={24} md={16} lg={14} >
                             {
                                 elements.map((item)=>{
                                     return(
                                         <div onClick={goToArticle} css={card_blog} >
                                             <span><Image src={"blog_card.png"}/></span>
-                                            <p className={"fs-14"}>30 Jul 2019</p>
-                                            <p className={"didot fs-24"}>Three Ways To Get Travel Discounts</p>
-                                            <p className={"didot fs-14 more"}>So you’re going abroad, you’ve chosen your destination and now you have to choose a hotel. Ten years ago, you’d have probably visited your local travel agent and trusted the face-to-face advice you were given by the …</p>
-                                            <p className={"didot fs-14  "}>Més Informació &#8594;</p>
+                                            <p>30 Jul 2019</p>
+                                            <p className={"title_entry"}>Three Ways To Get Travel Discounts</p>
+                                            <p >So you’re going abroad, you’ve chosen your destination and now you have to choose a hotel. Ten years ago, you’d have probably visited your local travel agent and trusted the face-to-face advice you were given by the …</p>
+                                            <p >Més Informació &#8594;</p>
                                         </div>
                                     )
                                 })
@@ -51,28 +52,35 @@ const Page = ({children, ...props}) => {
 
 
 
-                        </div>
-                        <div className={"column column-33"}>
+                        </Col>
+
+                        <Col className={"right_column recent"} sm={24} md={8} lg={10}  >
                             <input className={"search_input"} placeholder={"cercar..."} type={"text"}/>
 
-                            <div className={"recent"}>
-                                <p className={"didot fs-18"}>Recent Posts</p>
+                            <div >
+                                <p className={"recent_post"}>Recent Posts</p>
 
                                 {
                                     elements.map((item)=>{
                                         return(
-                                            <Item onClick={goToArticle} css={item_blog_thumbnail} img={"blog_card.png"}>
-                                                <span className={"didot fs-16 bold"}>Three Ways To Get Travel Discounts</span>
-                                                <p>30 Jul 2019</p>
-                                            </Item>
+                                            <Row gutter={[20]} onClick={goToArticle} css={card_blog_thumbnail}>
+                                                <Col span={8}><Image src={"blog_card.png"}/></Col>
+                                                <Col span={16}>
+                                                    <span className={"title_entry"}>Three Ways To Get Travel Discounts</span>
+                                                    <span className={"date"}>30 Jul 2019</span></Col>
+
+                                            </Row>
                                         )
                                     })
                                 }
                             </div>
 
 
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
+
+
+                </div>
 
 
 

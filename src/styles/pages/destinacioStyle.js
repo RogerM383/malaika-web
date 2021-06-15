@@ -16,6 +16,16 @@ export const destinacions_styles = (theme) => {
 
 
             }
+
+          :after {
+            display: block;
+            content: "";
+            width: 100%;
+            border: 1px solid lightgray;
+            bottom: 0;
+            margin-top: 8rem;
+
+          }
         }
     `;
 
