@@ -12,10 +12,10 @@ import {GET_VIATGE_BY_SLUG, GET_VIATGE_DAUTOR_BY_SLUG} from "../../contexts/apol
 import {Row, Col} from 'antd';
 import 'antd/dist/antd.css';
 import {blog_article_styles} from "../../styles/pages/blog_articleStyles";
+import {GET_BLOG_ENTRY_BY_SLUG} from "../../contexts/apollo/queries/blog";
 
 
-const PageBlogEntry = ({children, page, ...props}) => {
-
+const PageBlogEntry = ({children,title,slug,content,featuredImage,date,page, ...props}) => {
 
     return (
         <>
@@ -23,11 +23,11 @@ const PageBlogEntry = ({children, page, ...props}) => {
             <div css={blog_article_styles}>
 
                 <Header
-                    title={"New Ideas"}
+                    title={title}
                     img={"/blog_card.png/"}/>
 
                 <MaxWidthContainer>
-                    <div className={"block_text"}>
+                    <div className={"block_text"}><p>{title}</p>
                         <p>If you really enjoy spending your vacation ‘on water’ or would like to try something new and exciting for the first time, then you can consider a houseboat vacation. There are so many fun things to do and so many great landscapes to see on a houseboat vacation! But before making further plans, let’s take a look at the options that you have for a low-cost vacation on water: you could rent a houseboat this year and try out an altogether exotic kind of vacation this year, or you could indulge in a houseboat timeshare.</p>
                         <p>What is a houseboat timeshare? Most people who have used a houseboat timeshare say that it is a great way to spend your vacation at a very high-quality resort, in a place where you couldn’t get reservations so easily that too at a very low price! Doesn’t that sound great? But let’s see how and why houseboat timeshares can offer you with such fabulous opportunities of low-cost vacationing on water.</p>
 
@@ -114,11 +114,9 @@ export async function getStaticProps({params, ...ctx}) {
 
     const client = initializeApollo();
 
-    const {error, data} = await client.query({query: GET_VIATGE_DAUTOR_BY_SLUG, variables: {slug: params.slug}});
-    const page = data.viatgedautor;
-
-    console.log(data);
-    return {props: {page}, revalidate: 3600};
+    const {error, data} = await client.query({query: GET_BLOG_ENTRY_BY_SLUG, variables: {slug: params.slug}});
+    const page = data.postBy;
+    return {props: {...page}, revalidate: 3600};
 }
 
 
