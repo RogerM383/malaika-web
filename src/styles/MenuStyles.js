@@ -26,6 +26,8 @@ export const menu_styles = (theme) => {
                 border-top-right-radius: 0;
                 max-width: ${theme.container.max_width};
                 width: 100%;
+
+
             }
 
             &.active {

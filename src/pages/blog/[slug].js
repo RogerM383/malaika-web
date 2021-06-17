@@ -13,16 +13,21 @@ import {Row, Col} from 'antd';
 import 'antd/dist/antd.css';
 import {blog_article_styles} from "../../styles/pages/blog_articleStyles";
 import {GET_BLOG_ENTRY_BY_SLUG} from "../../contexts/apollo/queries/blog";
+import HeaderInici from "../../components/HeaderInici";
 
 
-const PageBlogEntry = ({children,title,slug,content,featuredImage,date,page, ...props}) => {
+const PageBlogEntry = ({children,title,slug,content,featuredImage,date, ...props}) => {
+
+    if(title === undefined){
+        return null
+    }
 
     return (
         <>
 
             <div css={blog_article_styles}>
 
-                <Header
+                <HeaderInici
                     title={"Notícia"}
                     img={"/blog_card.png/"}/>
 
@@ -113,7 +118,7 @@ export async function getStaticPaths() {
 
     return {
         paths: [
-            {params: {slug: "sorprenent-troballa-a-galapagos-duna-tortuga-que-es-creia-extingida-des-de-fa-mes-de-100-anys"}} // See the "paths" section below
+            {params: {slug: "expo-dubai-2021"}} // See the "paths" section below
         ],
         fallback: true // See the "fallback" section below
     };

@@ -49,7 +49,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, notadestac
     return (
         <div css={home_styles}>
 {/*
-            <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
+            <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer className={"block1"}>
 

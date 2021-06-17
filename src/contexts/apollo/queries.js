@@ -305,6 +305,7 @@ export const GET_POSTS = gql`
     query getPosts($first: Int, $last: Int, $before: String, $after: String) {
         posts(first: $first, last: $last, before: $before, after: $after) {
             nodes {
+                excerpt
                 date
                 content
                 id
@@ -335,6 +336,7 @@ export const GET_POST_BY_SLUG = gql`
     query getPostBySLug($slug: String!) {
         postBy(slug: $slug) {
             content
+            excerpt
             date
             slug
             title

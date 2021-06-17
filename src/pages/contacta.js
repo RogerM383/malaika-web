@@ -7,6 +7,7 @@ import {SEND_MAIL} from "../contexts/apollo/mutations/contacta";
 import {useMutation} from "@apollo/client";
 import {Col, notification, Row} from "antd";
 import {contacta_styles} from "../styles/pages/contactaStyles";
+import HeaderInici from "../components/HeaderInici";
 
 
 const PageContacta = ({children, ...props}) => {
@@ -94,7 +95,7 @@ const PageContacta = ({children, ...props}) => {
 
     return (
         <div css={contacta_styles}>
-            <Header
+            <HeaderInici
                 title={"Contacta"}
                 img={"palmeras.png/"}/>
 

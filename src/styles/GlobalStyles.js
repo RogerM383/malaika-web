@@ -144,6 +144,27 @@ export const global = (theme) => {
 
                 }
 
+                .next_prev{
+                    display: flex;
+                    align-items: baseline;
+                    margin-top: 2rem;
+                    button{
+                        background-color:white;
+                        color:gray;
+                        font-size: ${theme.font.xl};
+                    }
+                    .fa-slash{
+                        background-color: transparent;
+                        -webkit-transform: rotate(90deg);
+                        -moz-transform: rotate(90deg);
+                        -ms-transform: rotate(90deg);
+                        -o-transform: rotate(90deg);
+                        transform: rotate(90deg);
+                    }
+
+
+                }
+
 
             }
         }

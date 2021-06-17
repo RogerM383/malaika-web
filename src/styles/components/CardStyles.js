@@ -553,6 +553,10 @@ export const card_blog = (theme) => {
 
         }
 
+      .link-more{
+        display: none;
+      }
+
             img {
                 width: 100%;
 

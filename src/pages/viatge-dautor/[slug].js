@@ -11,6 +11,7 @@ import {initializeApollo} from "../../contexts/apollo/ApolloContext";
 import {GET_VIATGE_BY_SLUG, GET_VIATGE_DAUTOR_BY_SLUG} from "../../contexts/apollo/queriesTest";
 import { Row, Col } from 'antd';
 import 'antd/dist/antd.css';
+import HeaderInici from "../../components/HeaderInici";
 
 
 const PageViatgeDautor = ({children,page, ...props}) => {
@@ -27,7 +28,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
     return (
         <div css={viatge_autor_fitxa}>
-            <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
+            <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer>
                 <div className={"breadcrumb"}>Viatges d'autor > {title}</div>

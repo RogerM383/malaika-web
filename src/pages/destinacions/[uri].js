@@ -15,6 +15,7 @@ import {GET_ZONED_PAGES, GET_PAGE_BY_URI} from "../../contexts/apollo/queries/pa
 import {destinacions_styles} from "../../styles/pages/destinacioStyle";
 import {GET_VIATGES_DESTACATS, GET_VIATGES_ZONA} from "../../contexts/apollo/queriesTest";
 import {Col, Row} from "antd";
+import HeaderInici from "../../components/HeaderInici";
 
 
 const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content, date, ...props}) => {
@@ -55,7 +56,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
     return (
         <div css={destinacions_styles}>
 
-            <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
+            <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer className={"block1"}>
 

@@ -12,6 +12,7 @@ import {useLazyQuery} from "@apollo/client";
 import {GET_VIATGES_DESTACATS} from "../contexts/apollo/queriesTest";
 import {GET_BLOG_ENTRYS} from "../contexts/apollo/queries/blog";
 import moment from "moment";
+import HeaderInici from "../components/HeaderInici";
 
 
 const Page = ({children, ...props}) => {
@@ -49,7 +50,7 @@ const Page = ({children, ...props}) => {
 
     return (
         <div css={blog_styles}>
-            <Header
+           <HeaderInici
                 title={"Blog"}
                 img={"palmeras.png/"}/>
 
@@ -63,13 +64,13 @@ const Page = ({children, ...props}) => {
                                 posts &&
                                 posts.map((element)=>{
                                     debugger
-                                    const{content,title,slug,featuredImage,date} = element;
+                                    const{content,title,slug,featuredImage,date,excerpt} = element;
                                     return(
                                         <div  onClick={goTo("/blog/"+slug)} css={card_blog} >
                                             <span><Image  src={featuredImage?.node?.mediaItemUrl}/></span>
                                             <p>{moment(date).format('DD-MM-YYYY')}</p>
                                             <p className={"title_entry"}>{title}</p>
-                                            <p  className={""} dangerouslySetInnerHTML={{__html: content}}/>
+                                            <p  className={""} dangerouslySetInnerHTML={{__html: excerpt}}/>
                                             <p >Més Informació &#8594;</p>
                                         </div>
                                     )

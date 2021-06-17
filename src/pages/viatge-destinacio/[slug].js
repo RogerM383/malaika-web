@@ -13,6 +13,7 @@ import {initializeApollo} from "../../contexts/apollo/ApolloContext";
 import {GET_VIATGE_BY_SLUG, GET_VIATGES_DESTACATS} from "../../contexts/apollo/queriesTest";
 import {Col, Row} from "antd";
 import 'antd/dist/antd.css';
+import HeaderInici from "../../components/HeaderInici";
 
 
 
@@ -42,7 +43,7 @@ debugger
     return (
 
                 <div css={viatge_destinacio_fitxa}>
-                    <Header img={featuredImage?.node?.mediaItemUrl}/>
+                    <HeaderInici img={featuredImage?.node?.mediaItemUrl}/>
 
 
                     <MaxWidthContainer>

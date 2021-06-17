@@ -139,6 +139,8 @@ export const home_styles = (theme) => {
                     margin-bottom: 4.4rem;
                 }
             }
+
+
         }
 
 

@@ -15,6 +15,7 @@ import Slider from "react-slick";
 // Import css slick files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import HeaderInici from "../components/HeaderInici";
 
 const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }) => {
 
@@ -67,7 +68,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
     return (
         <div css={viatge_autor_style}>
 
-            <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
+           <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer className={'container'}>
 
@@ -199,10 +200,16 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                             }
                         </Slider>
 
+
                     <div className={"next_prev"}>
                         <button> &#60; </button>
+                        <button disabled className={"separate"}>
+                            /
+                            {/*   <i className="fas fa-slash"></i>*/}
+                        </button>
                         <button> > </button>
                     </div>
+
 
 
                 </MaxWidthContainer>

@@ -65,8 +65,10 @@ const Menu = ({img = true, children, ...props}) => {
 
     const handleScroll = () => {
         const offset = window.scrollY;
-        const point_stiky = window.innerHeight;
-      //  setSticky(offset + nav.current.getBoundingClientRect().height > point_stiky);
+        const point_sticky = window.innerHeight;
+        setSticky(offset + nav.current.getBoundingClientRect().height > point_sticky);
+        console.log("offset" + offset)
+        console.log("point sticky" + point_sticky)
         //setMaxMenuWidth(calcMaxMenuWidth);
     }
 
@@ -76,9 +78,13 @@ const Menu = ({img = true, children, ...props}) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    useEffect(() => {
+ /*   useEffect(() => {
         setMaxMenuHeight(mobileMenu.current.getBoundingClientRect().height);
-    }, [width, height]);
+    }, [width, height]);*/
+
+/*    const calcMaxMenuWidth = () => {
+        return ( window.scrollY  * 100 / width)
+    }*/
 
     useEffect(() => {
         if (mobileMenu.current) {
@@ -87,9 +93,7 @@ const Menu = ({img = true, children, ...props}) => {
         }
     }, [mobileMenu]);
 
-    const calcMaxMenuWidth = () => {
-        return ( window.scrollY  * 100 / width)
-    }
+
 
     const burguerClick = (e) => {
         setActive(!active);
@@ -98,8 +102,14 @@ const Menu = ({img = true, children, ...props}) => {
     useEffect(() => {
         if(width > 992){
             setActive(false);
+           /// console.log(width)
         }
     }, [width]);
+
+/*    useEffect(() => {
+
+     console.log(calcMaxMenuWidth())
+    }, [maxMenuHeight]);*/
 
 
     return (

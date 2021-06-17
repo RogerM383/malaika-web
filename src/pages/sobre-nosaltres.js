@@ -7,6 +7,7 @@ import MaxWidthContainer from "../components/MaxWidthContainer";
 import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 import {Col, Row} from "antd";
+import HeaderInici from "../components/HeaderInici";
 
 
 const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }) => {
@@ -15,7 +16,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
     return (
         <div css={nosaltres_styles}>
 
-            <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
+            <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer  className={"block1"}>
 

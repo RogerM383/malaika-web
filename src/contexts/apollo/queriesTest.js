@@ -1,8 +1,8 @@
 import {gql} from "@apollo/client";
 
 export const GET_VIATGES_DESTACATS = gql`
-        query geytViatgesDestacats {
-            viatges(where: {categoryName: "Destacat"}) {
+        query geytViatgesDestacats($first: Int,$after:String) {
+            viatges(where: {categoryName: "Destacat"},first:$first,after:$after) {
                 nodes {
                     content
                     date
