@@ -30,16 +30,16 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             <Header title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer>
-                <div className={"breadcrumb"}>VIATGES D’AUTOR > {title}</div>
+                <div className={"breadcrumb"}>Viatges d'autor > {title}</div>
             </MaxWidthContainer>
 
             <MaxWidthContainer className={"block1"}>
 
                 <Row gutter={[60]}>
                     <Col className={"left_column"} sm={24} md={12} >
-                        <div className={""}>
+                        <div >
                             <p className={"title"}>{title}</p>
-                            <p className={""} dangerouslySetInnerHTML={{__html: content}}/>
+                            <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
                             <button >Fitxa viatge pdf</button>
 
                         </div>
@@ -111,7 +111,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                                 return (
                                     <Card css={card_itinerari}>
                                         <p className={"etapa_title"}>{item.etapa.dia}</p>
-                                        <p className={""}>{item.etapa.ubicacio}</p>
+                                        <p className={"etapa_ubicacio"}>{item.etapa.ubicacio}</p>
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
 
                                     </Card>)
@@ -127,8 +127,8 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                                 const number = etapes.length;
                                 return (
                                     <Card css={ number !== i+1 ? card_itinerari : card_itinerari_finish}>
-                                        <p className={"fs-24"}>{item.etapa?.dia}</p>
-                                        <p className={" fs-20 sbold"}>{item?.etapa?.ubicacio}</p>
+                                        <p className={"etapa_title"}>{item.etapa?.dia}</p>
+                                        <p className={"etapa_ubicacio"}>{item?.etapa?.ubicacio}</p>
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
                                     </Card>)
                             })

@@ -57,7 +57,7 @@ const DefaultTheme = {
         quicksand: '"Quicksand", sans-serif'
     },
     container: {
-        max_width: '1580px',
+        max_width: '1800px',
         horizontal_padding: '4rem',
         vertical_padding:'4rem'
     }

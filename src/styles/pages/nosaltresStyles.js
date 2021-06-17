@@ -9,33 +9,39 @@ export const nosaltres_styles = (theme) => {
             flex-direction: column;
             .item {
                 flex: 1;
-                
+
                 .title {
                     font-family: ${theme.font.didot};
+                    font-weight: ${theme.font.bold};
                     margin-right: 2rem;
                     margin-bottom: 2rem;
                 }
                 p {
                     font-family: ${theme.font.quicksand};
-                    font-size: ${theme.font.m};
+                    font-size: 0.9rem;
+                    padding-top: 1rem;
                 }
             }
         }
 
         .block2 {
             background-color: #F8F8F8;
-            padding: 2rem 0;
-            h4 {
+
+            p.text{
                 font-family: ${theme.font.didot};
                 font-weight: ${theme.font.bold};
+                font-size: ${theme.font.h4};
                 margin-top: 2rem;
                 margin-bottom: 2rem;
-                padding: 0 2rem;
+                padding-right: 2rem;
+
             }
 
             img {
                 width: 100%;
+               margin-right: auto;
             }
+
         }
 
         ${theme.mq('tablet-landscape')} {
@@ -45,21 +51,7 @@ export const nosaltres_styles = (theme) => {
                     margin-left: 1rem;
                 }
             }
-            
-            .block2 {
-                padding-bottom: 0;
-                & > div {
-                    display: flex;
-                    flex-direction: row;
-                    h4 {
-                        flex: 3;
-                    }
-                    img {
-                        transform: translateX(10%);
-                        flex: 10;
-                    }
-                }
-            }
+
         }
 
 

@@ -52,29 +52,44 @@ debugger
                     <MaxWidthContainer className={"block1"}>
 
                         <Row gutter={[60]}>
-                            <Col sm={24} md={12}>
-                                <p className={"title"}>{title}</p>
-                                <p className={""} dangerouslySetInnerHTML={{__html: content}}/>
-                                <button className={"fs-24"}>Fitxa viatge pdf</button>
+                            <Col className={"left_column"} sm={24} md={12} >
+                                <div >
+                                    <p className={"title"}>{title}</p>
+                                    <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
+                                    <button >Fitxa viatge pdf</button>
+
+                                </div>
+                            </Col>
+                            <Col  className={"right_column"}  sm={24} md={12}>
+                                <div>
+                                    <p>{grup}</p>
+                                    <p>{preu}</p>
+                                    <p>Taxes: {taxes}</p>
+                                    <p>Suplemento: {suplement}</p>
+                                </div>
+
+                                <Row className={"plane"}>
+                                    <Col span={2}>
+                                        <img src={"../plane_icon.png"}/>
+                                    </Col>
+                                    <Col span={22}>
+                                      <p> "TODO coger el dato correcto"</p>
+                                    </Col>
+
+
+
+
+                                </Row>
+
+
+
+
+
                             </Col>
 
-                            <Col sm={24} md={12}>
-                                        <p>{grup}</p>
-                                        <p>{preu}</p>
-                                        <p>Taxes: {taxes}</p>
-                                        <p>Suplemento: {suplement}</p>
-
-                                        <div className={"plane"}>
-                                            <img src={"../plane_icon.png"}/> "TODO coger el dato correcto"
-                                        </div>
-                            </Col>
                         </Row>
 
-
-
                     </MaxWidthContainer>
-
-
                     {
                         inclou &&
                         <div css={bicolor_style} className={"block2"} >

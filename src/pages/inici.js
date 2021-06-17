@@ -26,7 +26,9 @@ const Page = ({page, ...props }) => {
     const router = useRouter();
 
     /*PAGE INFO*/
-    const { title, uri, status, slug, content, featuredImage, notadestacada, descripcioviatgesdautor,Novetats} = page;
+    const { title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor,Novetats} = page;
+
+    debugger
 
     const PER_PAGE = 6;
     const [loadViatgesAutor, { loading: loadingVA, error: errorVA, data: dataVA }] = useLazyQuery(GET_VIATGES_AUTOR,{variables: {first: PER_PAGE}});
@@ -77,7 +79,7 @@ const Page = ({page, ...props }) => {
                     <div className={"alert"}>
                         <div className={'head'}>
                             <span css={{color: 'red'}}>*</span>
-                            <span className={"didot fs-18  my-5"}>AVISOS:</span>
+                            <span className={""}>AVISOS:</span>
                         </div>
                         <div className={'alert-group'}>
                             {
@@ -92,10 +94,14 @@ const Page = ({page, ...props }) => {
                     </div>
                 }
 
-                <div className={"cita didot"}>
-                    <p className={"fs-26 bold"} dangerouslySetInnerHTML={{__html: content}}/>
+                {
+                    page.content &&
+                    <div className={"cita"}>
 
-                </div>
+                        <p dangerouslySetInnerHTML={{__html: page.content}}/>
+                    </div>
+                }
+
 
                 <div className={'title'}>
                     <h2>
@@ -202,7 +208,7 @@ const Page = ({page, ...props }) => {
                         <Col  sm={20} md={8} lg={6}  className={"column"}>
                             <span css={{color: '#9B9B9B'}}>Malaika</span>
                             <h4 className={"title-novetats"}>{Novetats.titolNovetats}</h4>
-                            <p className={"fs-16"}>{Novetats.descripcioNovetats} </p>
+                            <p className={"descripcio_novetats"}>{Novetats.descripcioNovetats} </p>
 
                         </Col>
 
@@ -215,7 +221,7 @@ const Page = ({page, ...props }) => {
                                         <p className={"data_title"}>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
                                         <p className={"data_content"}>La nova normativa britànica obliga a les persones que vulguin entrar al
                                             pais a la presentació del test PCR.
-                                            <span className={"primary"}> + informació</span>
+                                            <span className={"more"}> + informació</span>
                                         </p>
                                     </Col>
                                 </Row>

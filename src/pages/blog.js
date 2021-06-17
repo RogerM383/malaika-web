@@ -11,6 +11,7 @@ import {Col, Row} from "antd";
 import {useLazyQuery} from "@apollo/client";
 import {GET_VIATGES_DESTACATS} from "../contexts/apollo/queriesTest";
 import {GET_BLOG_ENTRYS} from "../contexts/apollo/queries/blog";
+import moment from "moment";
 
 
 const Page = ({children, ...props}) => {
@@ -49,7 +50,7 @@ const Page = ({children, ...props}) => {
     return (
         <div css={blog_styles}>
             <Header
-                title={"New Ideas For A Low Cost Vacation On Water"}
+                title={"Blog"}
                 img={"palmeras.png/"}/>
 
 
@@ -66,7 +67,7 @@ const Page = ({children, ...props}) => {
                                     return(
                                         <div  onClick={goTo("/blog/"+slug)} css={card_blog} >
                                             <span><Image  src={featuredImage?.node?.mediaItemUrl}/></span>
-                                            <p>{date}</p>
+                                            <p>{moment(date).format('DD-MM-YYYY')}</p>
                                             <p className={"title_entry"}>{title}</p>
                                             <p  className={""} dangerouslySetInnerHTML={{__html: content}}/>
                                             <p >Més Informació &#8594;</p>
@@ -93,7 +94,7 @@ const Page = ({children, ...props}) => {
                                                 <Col span={8}><Image  src={featuredImage?.node?.mediaItemUrl}/></Col>
                                                 <Col span={16}>
                                                     <span className={"title_entry"}>{title}</span>
-                                                    <span className={"date"}>{date}</span></Col>
+                                                    <span className={"date"}>{moment(date).format('DD-MM-YYYY')}</span></Col>
 
                                             </Row>
                                         )

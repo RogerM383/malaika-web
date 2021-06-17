@@ -60,7 +60,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
             <MaxWidthContainer className={"block1"}>
 
                 <h2 className={"title"}>
-                    <span  className={""} dangerouslySetInnerHTML={{__html: content}}/>
+                    <p dangerouslySetInnerHTML={{__html: content}}/>
                 </h2>
 
                 <Row gutter={[40,40]}>

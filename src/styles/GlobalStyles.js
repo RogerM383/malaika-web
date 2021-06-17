@@ -92,7 +92,7 @@ export const global = (theme) => {
 
                 p {
                     font-size: ${theme.font.medium};
-                    font-family: Didot, serif;
+                    font-family: ${theme.font.quicksand};
                     margin-bottom: 1rem;
                 }
 

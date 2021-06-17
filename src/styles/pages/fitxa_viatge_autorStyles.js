@@ -15,21 +15,42 @@ export const viatge_autor_fitxa = (theme) => {
         .block1 {
           padding-bottom: 4rem;
           .left_column{
-              padding-bottom: 4rem;
+            padding-bottom: 4rem;
             border: none;
             font-size:${theme.font.l} ;
             .title{
               font-size:${theme.font.h2} ;
               font-weight:${theme.bold} ;
+              font-family:${theme.font.didot} ;
               padding-bottom: 4rem;
             }
+            .content{
+              margin-bottom: 4rem;
 
+            }
+
+            button{
+              padding-left: 1rem;
+              padding-right: 1rem;
+              border-radius: 8px;
+              font-size:1.2rem ;
+            }
 
           }
 
           .right_column{
-              padding-left:2rem;
-            font-size:0.9rem ;
+            padding-left:2rem;
+            p{
+              font-size:0.9rem ;
+            }
+
+            .plane{
+              p{
+                font-size:0.8rem ;
+              }
+            }
+
+
             img.mapa{
                 object-fit: contain;
               width: 80%;
@@ -51,17 +72,24 @@ export const viatge_autor_fitxa = (theme) => {
             .title{
                 font-weight:${theme.font.bold};
                 font-size: ${theme.font.h5};
+                font-family: ${theme.font.didot};
             }
+
+          .columna:nth-of-type(2){
+            padding-left: 0rem;
+          }
         }
 
 
         .block3 {
-            padding-bottom: 4rem;
+            padding-bottom: ${theme.container.vertical_padding};
 
 
             .title{
                 font-weight:${theme.font.bold};
                 font-size: ${theme.font.h3};
+                font-family: ${theme.font.didot};
+              padding-bottom: ${theme.container.vertical_padding};
             }
 
             :after {
@@ -84,6 +112,12 @@ export const viatge_autor_fitxa = (theme) => {
                     border-right:1px solid black ;
                 }
             }
+
+          .block2{
+            .columna:nth-of-type(2){
+              padding-left: 3rem;
+            }
+          }
 
 
         }

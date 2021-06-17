@@ -3,36 +3,67 @@ import {css} from '@emotion/react';
 export const footer_styles = (theme) => {
     const style = css`
 
-          padding: 2rem ;
-         font-size: ${theme.font.xs};
+        padding: 2rem 0;
+        font-size: ${theme.font.xs};
+
+        img{
+            max-height: 1.5rem;
+        }
 
 
-      .info_contact{
-        font-weight: ${theme.font.medium};
-        font-size:0.9rem;
-      }
+        .info_contact {
+            font-weight: ${theme.font.medium};
+            font-size: 0.9rem;
+        }
+
         .contact {
 
             flex-direction: column;
             justify-content: flex-end;
             vertical-align: middle;
+            color:#4A4A4A;
+            .address{
+                display: block;
+                font-size:0.65rem ;
+               :last-of-type{
+                   margin-bottom: 1.5rem;
+               }
 
-             img {
+
+            }
+
+            img {
 
                 filter: invert(100%);
                 padding-right: 0.5rem;
             }
 
-            .phone{
+            a{
+                color:#4A90E2;
+            }
+
+            .phone {
                 display: flex;
                 align-items: center;
-                margin:1rem 0;
+                margin: 1rem 0;
+                font-size:0.6rem ;
             }
+
+
+
+        }
+
+        .last{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
 
         .social {
             display: flex;
-            margin:1rem 0;
+            margin: 1rem 0;
+
             img {
 
                 filter: invert(0%);
@@ -42,7 +73,7 @@ export const footer_styles = (theme) => {
         }
 
         ${theme.mq('tablet-portrait')} {
-            padding: 5rem ${theme.container.horizontal_padding};
+            padding: 5rem 0;
         }
 
 

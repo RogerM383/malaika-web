@@ -8,11 +8,15 @@ export const destinacions_styles = (theme) => {
 
 
             .title {
-                font-family: ${theme.font.didot};
-                font-weight: ${theme.font.medium};
+                p{
+                    font-family: ${theme.font.didot};
+                    font-weight: ${theme.font.medium};
+                }
+
                 display: flex;
                 flex-direction: column;
                 margin-bottom: 2rem;
+
 
 
             }

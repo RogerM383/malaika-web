@@ -356,6 +356,7 @@ export const top_img_tagged_card = (theme) => {
                 font-family: ${theme.font.didot};
                 font-weight: ${theme.font.medium};
                 margin-bottom: 4.4rem;
+                font-size: 0.9rem;
             }
             padding: 1rem;
 
@@ -476,6 +477,10 @@ export const card_itinerari = (theme) => {
             font-weight:${theme.font.bold};
         }
 
+      .etapa_ubicacio{
+        font-weight:${theme.font.medium};
+      }
+
         .inner:after {
             content: "";
             position: absolute;
@@ -544,6 +549,8 @@ export const card_blog = (theme) => {
         .title_entry{
             font-size: ${theme.font.l};
             font-weight: ${theme.font.bold};
+            font-family: ${theme.font.didot};
+
         }
 
             img {

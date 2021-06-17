@@ -4,20 +4,48 @@ export const blog_article_styles = (theme) => {
     const style = css`
 
 
-      font-size: ${theme.font.s};
-      font-family: 'Sofia', serif;
-      line-height: 1.6;
 
-      img {
-
-        width: 100%;
-        display: block;
-        margin: 0 auto;
-      }
 
 
       .block_text {
         padding-top: ${theme.container.vertical_padding};
+
+        .notice{
+          .title{
+            font-size: ${theme.font.l};
+            font-weight: ${theme.font.bold};
+            font-family: ${theme.font.didot};
+          }
+
+          .content{
+            font-size: ${theme.font.s};
+          }
+            img{
+                width: 100%;
+                object-fit: contain;
+                max-height: 80vh;
+                margin-bottom:2rem ;
+            }
+        }
+
+
+
+
+      }
+
+      .block_text {
+        :after {
+          display: block;
+          content: "";
+          width: 100%;
+          border: 1px solid lightgray;
+          bottom: 0;
+          margin-top: 8rem;
+
+        }
+      }
+/*
+
 
 
         .doble_image {
@@ -36,7 +64,16 @@ export const blog_article_styles = (theme) => {
         }
 
 
+      font-size: ${theme.font.s};
+      line-height: 1.6;
+
+      img {
+
+        width: 100%;
+        display: block;
+        margin: 0 auto;
       }
+
 
       .steps_block {
         .step {
@@ -63,6 +100,7 @@ export const blog_article_styles = (theme) => {
         }
       }
 
+*/
 
 
     `;

@@ -20,7 +20,8 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col sm={24} md={8} lg={8}>
                         <div className={"contact"}>
-                            <span>c/Enric granados 114. 1-2B 08008 BARCELONA</span>
+                            <span className={"address"}>c/Enric granados 114. 1-2B</span>
+                            <span className={"address"}>08008 BARCELONA</span>
 
                             <div className={"phone"}>
                                 <img src={"/phone_icon.png"}/>
@@ -35,7 +36,8 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col sm={24} md={8} lg={8}>
                         <div className={"contact"}>
-                            <span>c/Horts, 817124 Llofriu, Girona</span>
+                            <span  className={"address"}>c/Horts, 8</span>
+                            <span  className={"address"}>17124 Llofriu, Girona</span>
                             <div className={"phone"}>
                                 <img src={"/phone_icon.png"}/>
                                 <span className={"db"}> +34 930 011 176 </span>
@@ -47,7 +49,7 @@ const Footer = ({img = true, children, ...props}) => {
 
 
                     <Col sm={24} md={8} lg={8}>
-                        <div className={"contact"}>
+                        <div className={" last"}>
                             <span>Avis legal / Política privacitat</span>
                             <div className={"social"}>
                                 <img src={"/facebook_icon.png"}/>

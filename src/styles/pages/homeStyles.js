@@ -33,9 +33,12 @@ export const home_styles = (theme) => {
 
 
             .cita {
-                font-family: ${theme.font.didot};
-                font-weight: ${theme.font.bold};
-                font-size: ${theme.font.xl};
+                p{
+                    font-family: ${theme.font.didot};
+                    font-weight: ${theme.font.bold};
+                    font-size: ${theme.font.xl};
+                }
+
                 margin-bottom: 6rem;
             }
 
@@ -143,52 +146,43 @@ export const home_styles = (theme) => {
             background-color: #4D4D4D;
             padding-top: 3rem;
 
+
             .row {
-
-                span {
-                    margin-bottom: .5rem;
-                    font-family: ${theme.font.didot};
-                    font-weight: ${theme.font.regular};
-                    font-size: ${theme.font.s};
-                    display: block;
-                }
-               h4 {
-                  font-family: ${theme.font.didot};
-                  font-weight: ${theme.font.regular};
-                  color: ${theme.colors.primary};
-                  margin-bottom: 1.7rem;
-               }
-               p {
-                  font-family: ${theme.font.quicksand};
-                  font-weight: ${theme.font.regular};
-                  font-size: ${theme.font.m};
-                  color: white;
-                  margin-bottom: 3.5rem;
-               }
-               input {
-                  height: 3rem;
-                  margin-bottom: 3rem;
-                  padding: 1rem;
-               }
-
-                p.data_title{
-                    color: #9B9B9B;
-                }
-
-                p.data_content{
-                    color: initial;
-                }
-
-
-            }
-
 
             /*Columna GRIS*/
 
             .column:first-of-type {
                 color: white;
-                padding: 0 3rem;
+                padding: 0 2rem;
                 flex: 1 0 30%;
+
+                span {
+                    margin-bottom: .5rem;
+                    font-family: ${theme.font.quicksand};
+                    font-weight: ${theme.font.regular};
+                    font-size: ${theme.font.s};
+                    display: block;
+                }
+
+                h4 {
+                    font-family: ${theme.font.didot};
+                    font-weight: ${theme.font.regular};
+                    color: ${theme.colors.primary};
+                    font-size: ${theme.font.h3};
+                    margin-bottom: 1.7rem;
+                }
+
+                p {
+                    font-family: ${theme.font.quicksand};
+                    font-weight: ${theme.font.regular};
+                    font-size: ${theme.font.m};
+                    margin-bottom: 3.5rem;
+                }
+
+                .descripcio_novetats{
+                    color:white;
+                    font-size: ${theme.font.sm};
+                }
 
 
                 p:nth-of-type(3) {
@@ -207,50 +201,41 @@ export const home_styles = (theme) => {
             /*Columna BLANCA*/
 
             .column:nth-of-type(2) {
-                color: initial;
+
                 background-color: white;
                 border-top-left-radius: 23px;
                 border-top-right-radius: 23px;
-            }
+
+                .normas{
+
+                    p, span{
+                        font-family: ${theme.font.quicksand};
+                        font-size: ${theme.font.sm};
+                    }
+                    font-size: ${theme.font.sm};
+                    color:black;
+                    padding:2rem;
 
 
-            .normas{
-                padding:2rem;
-            }
-/*            .normas {
-                padding: 4rem;
+                    p.data_title{
 
+                    }
 
-                .normas_item {
-                    display: flex;
-                    border-bottom: 1px solid #979797;
-                    margin-right: 1rem;
-                    margin-bottom: 1rem;
-
-                    div > p {
-                        margin-bottom: 1rem;
+                    .more{
+                        color:${theme.colors.primary}
                     }
 
 
-                    p:first-child {
-                        margin-right: 1rem;
-                    }
                 }
+            }
 
-
-                .normas_item:last-child {
-                    border-bottom: none;
-                }
-            }*/
-
-
-
+            }
 
         }
 
 
         .block4 {
-            padding:  4.5rem 3rem;
+            padding:  4.5rem 0;
             background-color: #F8F8F8;
             .info{
                 font-family: ${theme.font.didot};
@@ -259,22 +244,27 @@ export const home_styles = (theme) => {
             }
 
             .subscribe{
+
                 p:first-of-type{
                     font-size: 0.9rem;
+                    font-weight: ${theme.font.medium};
                 }
 
                 p:nth-of-type(2){
                     font-size: 0.6rem;
                 }
+            }
 
 
+            button{
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
 
 
 
 
-
-            }
+        }
 
 
 

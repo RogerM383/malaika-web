@@ -6,6 +6,7 @@ import Image from "../../package/components/Image";
 import MaxWidthContainer from "../components/MaxWidthContainer";
 import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
+import {Col, Row} from "antd";
 
 
 const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }) => {
@@ -40,8 +41,16 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
             <div className={"block2"}>
 
                 <MaxWidthContainer>
-                        <h4 className={"text"}>Viatjar per saber,per olorar la llum dels llocs; també, per ésser, per tenir memòria.</h4>
-                        <Image src={"image_nosaltres.png"}/>
+                    <Row>
+                        <Col span={8}>
+                            <p className={"text"}>Viatjar per saber,per olorar la llum dels llocs; també, per ésser, per tenir memòria.</p>
+
+                        </Col>
+                        <Col span={16}>
+                            <Image src={"image_nosaltres.png"}/>
+                        </Col>
+                    </Row>
+
                 </MaxWidthContainer>
 
 

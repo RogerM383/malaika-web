@@ -11,41 +11,62 @@ export const viatge_destinacio_fitxa = (theme) => {
             padding-top: 2rem;
         }
 
-        .block1 {
+      .block1 {
+        padding-bottom: 4rem;
+        .left_column{
+          padding-bottom: 4rem;
+          border: none;
+          font-size:${theme.font.l} ;
+          .title{
+            font-size:${theme.font.h2} ;
+            font-weight:${theme.bold} ;
+            font-family:${theme.font.didot} ;
             padding-bottom: 4rem;
-            .ant-col:first-of-type{
-                padding-bottom: 4rem;
-                border: none;
-                font-size:${theme.font.l} ;
-                .title{
-                    font-size:${theme.font.h2} ;
-                    font-weight:${theme.bold} ;
-                    padding-bottom: 4rem;
-                }
+          }
+          .content{
+            margin-bottom: 4rem;
 
+          }
 
-            }
-
-            .ant-col:nth-of-type(2){
-                padding-left:2rem;
-                font-size:0.9rem ;
-                img.mapa{
-                    object-fit: contain;
-                    width: 80%;
-                    max-height: 400px;
-                    margin:0 auto;
-                    display: block;
-                }
-
-                > div{
-                    margin-bottom: 2.5rem;
-                }
-            }
-
+          button{
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 8px;
+            font-size:1.2rem ;
+          }
 
         }
 
-        .block2{
+        .right_column{
+          padding-left:2rem;
+          p{
+            font-size:0.9rem ;
+          }
+
+          .plane{
+            p{
+              font-size:0.8rem ;
+            }
+          }
+
+
+          img.mapa{
+            object-fit: contain;
+            width: 80%;
+            max-height: 400px;
+            margin:0 auto;
+            display: block;
+          }
+
+          > div{
+            margin-bottom: 2.5rem;
+          }
+        }
+
+
+      }
+
+      .block2{
             margin-bottom: 4rem;
         }
 
@@ -53,20 +74,21 @@ export const viatge_destinacio_fitxa = (theme) => {
             background-color: #F8F8F8;
             padding: 4rem 0;
 
-            .title{
+            p.title{
                 font-weight: ${theme.font.bold} ;
                 font-size:${theme.font.h3};
+                font-family:${theme.font.didot};
             }
 
         }
 
 
         ${theme.mq('tablet-portrait')} {
-            .block1 {
-                .ant-col:first-of-type{
-                    border-right:1px solid black ;
-                }
+          .block1 {
+            .left_column{
+              border-right:1px solid black ;
             }
+          }
 
 
         }
