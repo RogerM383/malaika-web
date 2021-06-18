@@ -72,6 +72,12 @@ export const menu_styles = (theme) => {
                     }
                 }
             }
+
+
+            .amics{
+              //  background-color: red;
+                padding:5rem;
+            }
         }
 
         // DROP DOWMN DESTINACIONES *************************!/

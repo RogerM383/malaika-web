@@ -45,9 +45,9 @@ const Menu = ({img = true, children, ...props}) => {
                     order: subItem.order
                 });
             }
-            /*if (menu && router.pathname === "/home") {
+            if (menu && router.pathname === "/inici") {
                 menu.push({id: 'amics-museu', label: "AMICS", path: "/blog", image: "amics_museu.svg", submenu: []});
-            }*/
+            }
             setNavButtons(menu);
         }
     },[menuData]);
@@ -135,7 +135,7 @@ const Menu = ({img = true, children, ...props}) => {
                             navButtons.map((button, index, array) => {
                                 return (
                                     <>
-                                        <li key={index}  className={`navli ${(router.pathname === "/home" && array.length -1 === index) ? "amics" : "normal"}`}>
+                                        <li key={index}  className={`navli ${(router.pathname === "/inici" && array.length -1 === index) ? "amics" : "normal"}`}>
                                             <Link href={button?.path ?? ''}>
                                                 <a className={`NavButton ${router.pathname === button.path ? "active" : ""}`}>
                                                     {button.icon}

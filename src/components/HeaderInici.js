@@ -15,8 +15,6 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
 
     const router = useRouter();
 
-    debugger
-
     const carrosusel = (theme) => {
         const style = css`
 
@@ -33,15 +31,15 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
         return [style];
     }
 
-
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         //arrows: true
     };
 
     const slider = useRef();
     const [slide, setSlide] = useState(0);
+
     return (
         <div css={[header_inici_styles]}>
 
@@ -49,14 +47,14 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
             <MaxWidthContainer>
                 <div className={"topRow"}>
                     <Row align={"middle"}>
-                        <Col xs={24} sm={12} md={12} lg={12} xl={12}    >
+                        <Col xs={24} sm={15} md={15} lg={15} xl={15}    >
                             <a className={'logo'} href={"/inici"}>
                                 <Image alt={'Malaika'} src={"/logo.png"}/>
                             </a>
                         </Col>
 
 
-                        <Col xs={24} sm={12} md={12} lg={12} xl={12} >
+                        <Col xs={24} sm={9} md={9} lg={9} xl={9} >
                             <Row  align={"middle"}>
                                 <Col span={12} className={"contact"}>
                                     <Image className={"icons"} src={"/phone_icon.png"}/>
@@ -78,6 +76,7 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
                     {title}
                 </div>
             </MaxWidthContainer>
+{/*
 
             { Array.isArray(img) &&
                 img.length > 1 &&
@@ -86,12 +85,14 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
                     <p onClick={e => { setSlide(e); slider.current.prev(); }}><i className="fas fa-chevron-right"></i></p>
                 </div>
             }
+*/}
 
 
             <Carousel
                 {...settings}
+                autoplay
                 ref={ref => {console.log(ref); slider.current = ref; }}
-             /*   dotPosition={'right'}*/
+                dotPosition={'bottom'}
                 css={carrosusel}
                 effect="fade">
 

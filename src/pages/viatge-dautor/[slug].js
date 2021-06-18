@@ -85,19 +85,21 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             {
                 inclou &&
                 <div className={"block2"} css={bicolor_style}>
-                    <MaxWidthContainer>
-                        <div className={"columna"}>
-                            <p className={"title"}>Inclou</p>
-                            <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
-                        </div>
+                    <Row>
+                        <Col sm={24} md={12} css={{backgroundColor: 'red'}}>
+                            <MaxWidthContainer>
+                                <p className={"title"}>Inclou</p>
+                                <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
 
-                        <div className={"columna"}>
-                            <p className={"title"}>No inclou</p>
-                            <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
-                        </div>
-
-                    </MaxWidthContainer>
-
+                            </MaxWidthContainer>
+                        </Col>
+                        <Col sm={24} md={12} css={{backgroundColor: 'lime'}}>
+                            <MaxWidthContainer>
+                                <p className={"title"}>No inclou</p>
+                                <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
+                            </MaxWidthContainer>
+                        </Col>
+                    </Row>
                 </div>
             }
 

@@ -93,21 +93,22 @@ debugger
                     </MaxWidthContainer>
                     {
                         inclou &&
-                        <div css={bicolor_style} className={"block2"} >
-                            <MaxWidthContainer>
-                                <div className={"columna"}>
-                                    <p className={"didot fs-30 bold"}>Inclou</p>
-                                    <p className={"fs-20"}>{inclou} </p>
-                                </div>
+                        <div className={"block2"} css={bicolor_style}>
+                            <Row>
+                                <Col sm={24} md={12} css={{backgroundColor: 'red'}}>
+                                    <MaxWidthContainer>
+                                        <p className={"title"}>Inclou</p>
+                                        <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
 
-                                <div className={"columna"}>
-                                    <p className={"didot fs-30 bold"}>No inclou</p>
-                                    <p className={"fs-20"}>{noInclou}
-                                    </p>
-                                </div>
-                            </MaxWidthContainer>
-
-
+                                    </MaxWidthContainer>
+                                </Col>
+                                <Col sm={24} md={12} css={{backgroundColor: 'lime'}}>
+                                    <MaxWidthContainer>
+                                        <p className={"title"}>No inclou</p>
+                                        <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
+                                    </MaxWidthContainer>
+                                </Col>
+                            </Row>
                         </div>
                     }
 

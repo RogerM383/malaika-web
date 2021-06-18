@@ -83,6 +83,7 @@ export const viatge_autor_fitxa = (theme) => {
 
         .block3 {
             padding-bottom: ${theme.container.vertical_padding};
+            margin-left: 1rem ;
 
 
             .title{
@@ -118,6 +119,8 @@ export const viatge_autor_fitxa = (theme) => {
               padding-left: 3rem;
             }
           }
+
+
 
 
         }

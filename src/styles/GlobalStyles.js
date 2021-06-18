@@ -81,6 +81,7 @@ export const global = (theme) => {
                 font-size: 1.2rem;
                 color: black;
                 line-height: 1.2;
+                overflow-x: hidden;
 
                 a {
                     text-decoration: none;
