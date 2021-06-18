@@ -100,73 +100,101 @@ const PageContacta = ({children, ...props}) => {
                 img={"palmeras.png/"}/>
 
 
-            <MaxWidthContainer>
+
+
                 <div className={"block1"}>
+                    <MaxWidthContainer>
+                    <p className={"title"}>On som</p>
+                    <Row gutter={[40, 40]}>
+                        <Col xs={24} sm={12} md={12}>
 
-                            <p className={"title"}>CONTACTA CON NOSOTROS</p>
-                            <form ref={form} onChange={onChange} onSubmit={onSubmit}>
+                            <p className={"address"}>c/Enric granados 114. 1-2B</p>
+                            <p className={"address"}>08008 BARCELONA</p>
+                            <Row >
+                                <Col flex={0}>
+                                    <img src={"/phone_icon.png"}/>
+                                </Col>
+                                <Col flex={"auto"}>
+                                    <p className={"db"}> 645 35 35 35 </p>
+                                </Col>
 
+                            </Row>
+                            <a> aayats@malaikaviatges.com </a>
 
-
-                                <Row className={"input_form"} align={"middle"}>
-                                    <Col span={8}>
-                                        <span className={""}>Nombe completo</span>
-                                    </Col>
-                                    <Col span={8}>
-                                        <input name={'nombre'} style={(data && data['nombre']?.length <= 0) ? error : null} type={"text"} />
-
-                                    </Col>
-                                </Row>
-
-                                <Row align={"middle"}>
-                                    <Col span={8}>
-                                        <span className={""}>Correo electrónico</span>
-                                    </Col>
-                                    <Col span={8}>
-                                        <input style={(data && data['email']?.length <= 0) ? error : null} name={'email'} type={"text"} />
-                                    </Col>
-                                </Row>
-
-                                <Row align={"middle"}>
-                                    <Col span={8}>
-                                        <span className={""}>Teléfono</span>
-                                    </Col>
-                                    <Col span={8}>
-                                        <input name={"telefono"} style={(data && data['telefono']?.length <= 0) ? error : null} name={'telefono'} type={"text"}/>
-                                    </Col>
-                                </Row>
-
-                                <Row align={"middle"}>
-                                    <Col span={8}>
-                                        <span className={""}>Mensaje</span>
-                                    </Col>
-                                    <Col span={8}>
-                                        <textarea name={'mensaje'} style={(data && data['mensaje']?.length <= 0) ? error : null} id="w3review" rows="6" cols="50"/>
-
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col span={8}></Col>
-                                    <Col span={16}>
-                                        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}} className={"conditions"}>
-                                            <input style={{margin: '1rem'}} name={'condiciones'} type={"checkbox"} required/><span className={"fs-16"}>Acepto condiciones y <a target={"_blank"} href={"/politica-de-privacidad"}>aviso legal</a></span>
-                                        </div>
-                                        <button>Enviar</button>
-                                    </Col>
-                                </Row>
+                        </Col>
 
 
+                        <Col xs={24} sm={12} md={12}>
 
-                            </form>
+                            <p className={"address"}>c/Horts, 8</p>
+                            <p className={"address"}>17124 Llofriu, Girona</p>
+                            <Row >
+                                <Col flex={0}>
+                                    <img src={"/phone_icon.png"}/>
+                                </Col>
+                                <Col flex={"auto"}>
+                                    <p className={"db"}> +34 930 011 176 </p>
+                                </Col>
+
+                            </Row>
+                            <a> aayats@malaikaviatges.com </a>
+
+                        </Col>
+                    </Row>
+                    </MaxWidthContainer>
+                    </div>
+            <MaxWidthContainer>
+                <div className={"block2"}>
+
+                    <form ref={form} onChange={onChange} onSubmit={onSubmit}>
+
+                        <div className={"card_form"}>
+                            <p className={"title"}>Contacta amb nosaltres</p>
+
+                            <Row justify={"space-between"}>
+                                <span className={"label"}>Nom complet</span>
+                                <span>Opcional</span>
+                            </Row>
+
+                            <input name={'nombre'} style={(data && data['nombre']?.length <= 0) ? error : null} type={"text"}/>
+
+
+                            <div>
+                                <p className={"label"}>Correu electrónic</p>
+                                <input style={(data && data['email']?.length <= 0) ? error : null} name={'email'} type={"text"}/>
+                            </div>
+
+
+                            <div>
+                                <p className={"label"}>Teléfon</p>
+                                <input name={"telefono"} style={(data && data['telefono']?.length <= 0) ? error : null} name={'telefono'} type={"text"}/>
+                            </div>
+
+
+                            <div>
+                                <p className={"label"}>Missatge</p>
+                                <textarea name={'mensaje'} style={(data && data['mensaje']?.length <= 0) ? error : null} id="w3review" rows="6"/>
+                            </div>
+
+                            <Row>
+
+                                <Col span={16}>
+                                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}} className={"conditions"}>
+                                        <input style={{margin: '1rem'}} name={'condiciones'} type={"checkbox"} required/><span className={"fs-16"}>Accepto condicions y <a target={"_blank"} href={"/politica-de-privacidad"}>avís legal </a></span>
+                                    </div>
+                                    <button>Enviar</button>
+                                </Col>
+                            </Row>
 
                         </div>
 
 
+                    </form>
 
-
-
+                </div>
             </MaxWidthContainer>
+
+
 
 
             <Footer/>
