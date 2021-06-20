@@ -210,7 +210,7 @@ const Page = ({page, ...props}) => {
 
                     <div className={"next_prev"}>
                         <button> &#60; </button>
-                        <button disabled className={"separate"}>
+                        <button disabled>
                             /
                          {/*   <i className="fas fa-slash"></i>*/}
                         </button>

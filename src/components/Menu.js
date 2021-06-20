@@ -135,7 +135,8 @@ const Menu = ({img = true, children, ...props}) => {
                             navButtons.map((button, index, array) => {
                                 return (
                                     <>
-                                        <li key={index}  className={`navli ${(router.pathname === "/inici" && array.length -1 === index) ? "amics" : "normal"}`}>
+                                        <li key={index}  className={`navli
+                                        ${(router.pathname === "/inici" && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
                                             <Link href={button?.path ?? ''}>
                                                 <a className={`NavButton ${router.pathname === button.path ? "active" : ""}`}>
                                                     {button.icon}
@@ -168,8 +169,10 @@ const Menu = ({img = true, children, ...props}) => {
                                                     }
                                                 </div>
                                             }
+
+                                            <li className={'separator'}/>
                                         </li>
-                                        <li className={'separator'}/>
+
                                     </>
                                 )
                             })

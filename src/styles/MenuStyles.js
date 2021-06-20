@@ -23,9 +23,9 @@ export const menu_styles = (theme) => {
                 transform: translateY(0%);
                 position: fixed;
                 top: 0;
-                border-top-right-radius: 0;
                 max-width: ${theme.container.max_width};
                 width: 100%;
+                border-top-right-radius: ${theme.header.menu.border_top_right_radius};
 
 
             }
@@ -55,13 +55,41 @@ export const menu_styles = (theme) => {
             }
 
             ul.nav-links {
-                padding: 0 ${theme.header.padding_horizontal};
+                padding: 0 0;
                 max-width: 100%;
                 width: 100%;
                 display: none;
                 font-family: ${theme.font.quicksand};
+                text-align: center;
+                align-items: center;
+                min-height: 50px;
+
+
                 li {
-                    padding: 1rem 0;
+                    width: 100%;
+                    position: relative;
+                  //  padding:1rem;
+/*                    :after {
+!*
+                        content: url('../slash.png');
+                        display: block;
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        display: block;*!
+
+                       position: absolute;
+                        right: 0;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 400;
+                        content: "\\f715";
+                        color:#D8D8D8;
+
+
+                    }*/
+
+
+
                     &.separator {
                         display: none;
                     }
@@ -71,13 +99,36 @@ export const menu_styles = (theme) => {
                         font-weight: ${theme.font.bold};
                     }
                 }
+
+                .normal:after {
+                    content:none;
+                }
+
+                .first:after{
+                    content:none;
+                }
+
             }
 
 
             .amics{
-              //  background-color: red;
-                padding:5rem;
+
+                border-top-right-radius: ${theme.header.menu.border_top_right_radius};
+                background-color: #4B4C4C;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    padding:0;
+                  //  max-height: 10px;
+                    //padding:0.5rem;
+                }
             }
+
+
+
+
+
         }
 
         // DROP DOWMN DESTINACIONES *************************!/
@@ -158,6 +209,7 @@ export const menu_styles = (theme) => {
             box-shadow: initial;
 
 
+
         }
 
         // END DROP DOWMN DESTINACIONES *************************!/
@@ -167,6 +219,8 @@ export const menu_styles = (theme) => {
 
         ${theme.mq('tablet-landscape')} {
             .navbar {
+
+
                 max-width: 66%;
                 overflow: initial;
                 .mobile {
@@ -207,8 +261,40 @@ export const menu_styles = (theme) => {
                             }
                         }
                     }
+
+                    .normal:after {
+                        content: "";
+                        position: absolute;
+                        width: 0%;
+                        height: 80%;
+                        top: 10%;
+                        z-index: -1;
+                        left: 0%;
+
+
+                        border:2px solid ${theme.colors.light_gray};
+                        border-radius: 1000px;
+                        border-right: 0px;
+
+                        transform-origin: bottom right ;
+                        -ms-transform: skew(-30deg, 0deg);
+                        -webkit-transform: skew(-30deg, 0deg);
+                        transform: skew(-30deg, 0deg) translateX(50%);
+                    }
+
+                    .first:after{
+                        content:none;
+                    }
+
                 }
+
+
+
             }
+
+
+
+
         }
 
 /*

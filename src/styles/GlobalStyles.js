@@ -147,13 +147,22 @@ export const global = (theme) => {
 
                 .next_prev{
                     display: flex;
-                    align-items: baseline;
-                    margin-top: 2rem;
+                    align-items: center;
+
+
+
                     button{
+
                         background-color:white;
                         color:gray;
                         font-size: ${theme.font.xl};
-                    }
+                        line-height: initial;
+                        display: flex;
+                        align-items: center;
+                        height: 3.5rem;
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+
                     .fa-slash{
                         background-color: transparent;
                         -webkit-transform: rotate(90deg);
