@@ -189,3 +189,19 @@ export default PageViatgeDestinacio;
 
 
 
+/*
+const page = await client.query({query: GET_VIATGE_BY_SLUG, variables: { slug: params.slug }})
+    .then((data) => {
+        return data.data.viatge;
+    });
+
+
+const destacats = await client.query({query: GET_VIATGES_DESTACATS})
+    .then((data) => {
+        return data.data.viatges;
+    });
+
+
+return { props:{...page,...destacats}, revalidate: 3600};
+*/
+

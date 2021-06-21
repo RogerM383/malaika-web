@@ -131,14 +131,17 @@ export const home_styles = (theme) => {
             padding-bottom: 4.5rem;
             margin-top: 4.5rem;
 
-            .container {
+            > div {
                 padding: 0 ${theme.container.horizontal_padding};
                 .title {
                     font-family: ${theme.font.didot};
                     font-weight: ${theme.font.medium};
                     margin-bottom: 4.4rem;
                 }
+
             }
+
+
 
 
         }

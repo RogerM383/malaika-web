@@ -53,7 +53,6 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
                             </a>
                         </Col>
 
-
                         <Col xs={24} sm={9} md={9} lg={9} xl={9} >
                             <Row  align={"middle"}>
                                 <Col span={12} className={"contact"}>

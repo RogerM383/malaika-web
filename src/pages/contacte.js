@@ -8,9 +8,11 @@ import {useMutation} from "@apollo/client";
 import {Col, notification, Row} from "antd";
 import {contacta_styles} from "../styles/pages/contactaStyles";
 import HeaderInici from "../components/HeaderInici";
+import {initializeApollo} from "../contexts/apollo/ApolloContext";
+import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 
 
-const PageContacta = ({children, ...props}) => {
+const PageContacta = ({title,featuredImage,children, ...props}) => {
 
     const [sendMail, resp] = useMutation(SEND_MAIL);
     const form = useRef(null);
@@ -96,10 +98,8 @@ const PageContacta = ({children, ...props}) => {
     return (
         <div css={contacta_styles}>
             <HeaderInici
-                title={"Contacta"}
-                img={"palmeras.png/"}/>
-
-
+                title={title}
+                img={featuredImage?.node?.mediaItemUrl}/>
 
 
                 <div className={"block1"}>
@@ -108,36 +108,36 @@ const PageContacta = ({children, ...props}) => {
                     <Row gutter={[40, 40]}>
                         <Col xs={24} sm={12} md={12}>
 
-                            <p className={"address"}>c/Enric granados 114. 1-2B</p>
+                            <p className={"address"}>Carrer de París, 209 Ppal 2a.</p>
                             <p className={"address"}>08008 BARCELONA</p>
                             <Row >
                                 <Col flex={0}>
                                     <img src={"/phone_icon.png"}/>
                                 </Col>
                                 <Col flex={"auto"}>
-                                    <p className={"db"}> 645 35 35 35 </p>
+                                    <p className={"db"}>+34 930 011 176</p>
                                 </Col>
 
                             </Row>
-                            <a> aayats@malaikaviatges.com </a>
+                            <a>aayats@malaikaviatges.com</a>
 
                         </Col>
 
 
                         <Col xs={24} sm={12} md={12}>
 
-                            <p className={"address"}>c/Horts, 8</p>
+                            <p className={"address"}>Camí dels Horts, 8</p>
                             <p className={"address"}>17124 Llofriu, Girona</p>
                             <Row >
                                 <Col flex={0}>
                                     <img src={"/phone_icon.png"}/>
                                 </Col>
                                 <Col flex={"auto"}>
-                                    <p className={"db"}> +34 930 011 176 </p>
+                                    <p className={"db"}>872 503 266</p>
                                 </Col>
 
                             </Row>
-                            <a> aayats@malaikaviatges.com </a>
+                            <a>mtribulietx@malaikaviatges.com</a>
 
                         </Col>
                     </Row>
@@ -203,6 +203,16 @@ const PageContacta = ({children, ...props}) => {
     );
 
 };
+
+
+export const getStaticProps = async (ctx) => {
+    const client = initializeApollo();
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/contacte/' }})
+        .then((data) => {
+            return data.data.pageBy;
+        });
+    return {props: data, revalidate: 3600};
+}
 
 
 export default PageContacta;

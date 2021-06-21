@@ -127,34 +127,32 @@ export const global = (theme) => {
                     height: 2.5rem;
                     align-items: center;
                     background-color: ${theme.colors.primary};
-                    font-size: ${theme.font.small};
                     line-height: 1;
-                    border:0;
-                    color:${theme.colors.white};
+                    border: 0;
+                    color: ${theme.colors.white};
                     font-size: 1rem;
 
                 }
 
-                input{
+                input {
 
-                        border:none;
-                        height: 2.5rem;
-                        margin-bottom: 1rem;
-                        padding: 1rem;
-                        font-size: 1rem;
+                    border: none;
+                    height: 2.5rem;
+                    margin-bottom: 1rem;
+                    padding: 1rem;
+                    font-size: 1rem;
 
                 }
 
-                .next_prev{
+                .next_prev {
                     display: flex;
                     align-items: center;
+                    padding:2rem 0;
 
+                    button {
 
-
-                    button{
-
-                        background-color:white;
-                        color:gray;
+                        background-color: white;
+                        color: gray;
                         font-size: ${theme.font.xl};
                         line-height: initial;
                         display: flex;
@@ -163,19 +161,20 @@ export const global = (theme) => {
                         padding-left: 1rem;
                         padding-right: 1rem;
 
-                    .fa-slash{
-                        background-color: transparent;
-                        -webkit-transform: rotate(90deg);
-                        -moz-transform: rotate(90deg);
-                        -ms-transform: rotate(90deg);
-                        -o-transform: rotate(90deg);
-                        transform: rotate(90deg);
+                        .fa-slash {
+                            background-color: transparent;
+                            -webkit-transform: rotate(90deg);
+                            -moz-transform: rotate(90deg);
+                            -ms-transform: rotate(90deg);
+                            -o-transform: rotate(90deg);
+                            transform: rotate(90deg);
+                        }
+
+
                     }
 
 
                 }
-
-
             }
         }
 

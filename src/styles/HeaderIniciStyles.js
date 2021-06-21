@@ -6,7 +6,7 @@ export const header_inici_styles = (theme) => {
         position: relative;
 
         .topRow{
-          /*  padding:2rem 0;*/
+            padding:2rem 0;
             position: absolute;
             top:0;
             z-index:200;

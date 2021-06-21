@@ -33,7 +33,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     const router = useRouter();
 
 
-    const PER_PAGE = 1;
+    const PER_PAGE = 4;
     const [loadViatgesAutor, {loading: loadingVA, error: errorVA, data: dataVA}] = useLazyQuery(GET_VIATGES_AUTOR, {variables: {first: PER_PAGE}});
     const [loadViatgesDestacats, {loading: loadingVD, error: errorVD, data: dataVD}] = useLazyQuery(GET_VIATGES_DESTACATS);
 
@@ -51,6 +51,8 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
         if (dataVA) {
             const {nodes, pageInfo} = dataVA.viatgesdautor;
             // setPageInfo(pageInfo);
+
+            debugger
             setViatgesAutor(viatgesAutor.concat(nodes));
         }
     }, [dataVA]);
@@ -125,6 +127,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                 }
 
 
+
                 <Grid size={"300px"}>
                     {
                         viatgesAutor.map((viatge) => {
@@ -179,6 +182,10 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                         }
                     })
                 }}>Veure més viatges d’autor  &#8594;</a></div>
+
+            </MaxWidthContainer>
+
+            <MaxWidthContainer>
 
             </MaxWidthContainer>
 
