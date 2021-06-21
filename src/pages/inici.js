@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {home_styles} from "../styles/pages/homeStyles";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../../package/components/Card";
 import Image from "../../package/components/Image";
-import {card_home_1, card_home_2, top_img_tagged_card} from "../styles/components/CardStyles";
+import {card_viatge_autor_small, top_img_tagged_card} from "../styles/components/CardStyles";
 import Grid from "../components/Grid";
 import {useRouter} from "next/router";
 import MaxWidthContainer from "../components/MaxWidthContainer";
@@ -29,13 +29,14 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     // const {title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats} = page;
 
 
-    debugger
+
     const router = useRouter();
 
 
     const PER_PAGE = 4;
     const [loadViatgesAutor, {loading: loadingVA, error: errorVA, data: dataVA}] = useLazyQuery(GET_VIATGES_AUTOR, {variables: {first: PER_PAGE}});
-    const [loadViatgesDestacats, {loading: loadingVD, error: errorVD, data: dataVD}] = useLazyQuery(GET_VIATGES_DESTACATS);
+
+    const [loadViatgesDestacats, {loading: loadingVD, error: errorVD, data: dataVD}] = useLazyQuery(GET_VIATGES_DESTACATS,{variables:{first:16}});
 
 
     const [viatgesAutor, setViatgesAutor] = useState([]);
@@ -52,7 +53,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
             const {nodes, pageInfo} = dataVA.viatgesdautor;
             // setPageInfo(pageInfo);
 
-            debugger
+
             setViatgesAutor(viatgesAutor.concat(nodes));
         }
     }, [dataVA]);
@@ -60,6 +61,8 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     useEffect(() => {
         if (dataVD) {
             setViatgesDestacats(dataVD.viatges)
+
+            debugger
         }
     }, [dataVD]);
 
@@ -68,11 +71,31 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
         router.push(url)
     }
 
-    const moreAutor = (e)=>{
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        arrows: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        rows: 2,
+
+    };
+
+    const carrosusel = (theme) => {
+        const style = css`
+            .slick-slide{
+                padding:1rem;
+
+
+            }
+
+        `;
+        return [style];
     }
 
-
+    const slider = useRef();
+    const [slide, setSlide] = useState(0);
 
     const images =[featuredImage?.node?.mediaItemUrl,'/foto1.png'];
 
@@ -154,18 +177,20 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                 sortides
                             } = customFields;
 
-                            debugger
+
                             return (
-                                <Card className={'card-vautor'} css={card_home_1}>
+                                <div  css={card_viatge_autor_small}>
                                     <div className={"card-text"}>
                                         <span className={"card-title"}>{title}</span>
-                                        <div className={"card-data"}><img src={"/calendar_icon.png"}/><span>
+                                        <div className={"card-data"}><img src={"/calendar_icon.png"}/>
+                                            <span>
                                             {sortides.map((item) => item.datasortida)}
-                                        </span></div>
+                                            </span>
+                                        </div>
                                         <span className={"more-info"} onClick={goTo("viatge-dautor/" + slug)}>Més Informació    &#8594;</span>
                                     </div>
                                     <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
-                                </Card>
+                                </div>
                             )
                         })
                     }
@@ -196,28 +221,29 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                     <h2 className={"title"}>Destacats /</h2>
 
-                    <Grid size={"300px"}>
+                    <Grid size={"250px"}>
                         {
 
                             viatgesDestacats?.nodes?.map((item) => {
                                 const {dates} = item.Campsviatge;
                                 return (
-                                    <Card onClick={goTo("viatge-destinacio/" + item.slug)} css={top_img_tagged_card}>
+                                    <div onClick={goTo("viatge-destinacio/" + item.slug)} css={top_img_tagged_card}>
                                         <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
                                         <div className={"text"}>
                                             <span className={"title"}>{item.title}</span>
-                                            <span className={"tags"} dangerouslySetInnerHTML={{__html: item.content}}/>
+                                            <span className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
                                             <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates}</span>
                                             <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
                                         </div>
-                                    </Card>
+                                    </div>
                                 )
                             })
                         }
                     </Grid>
 
                     <div className={"next_prev"}>
-                        <button> &#60; </button>
+                        {/* onClick={e => { setSlide(e); slider.current.prev(); }}*/}
+                        <button > &#60; </button>
                         <button disabled>
                             /
                          {/*   <i className="fas fa-slash"></i>*/}

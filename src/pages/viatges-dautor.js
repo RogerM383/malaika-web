@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {viatge_autor_style, nav_buttons} from "../styles/pages/viatge_autorStyles";
 import Header from "../components/Header";
 import Grid from "../components/Grid";
@@ -16,6 +16,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HeaderInici from "../components/HeaderInici";
+import {Carousel} from "antd";
+import {css} from "@emotion/react";
 
 const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }) => {
 
@@ -55,13 +57,27 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
     // --- Slider ------------------------------------------------------------------------------------------------------
     const settings = {
-        dots: true,
+      //  dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false
     };
+
+    const slider = useRef();
+    const [slide, setSlide] = useState(0);
+
+    const carrosusel = (theme) => {
+        const style = css`
+            .slick-dots{
+                display: none!important;
+            }
+
+        `;
+        return [style];
+    }
+
 
     const t = [1,2,3,4,5];
 
@@ -172,7 +188,10 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                     <p className={"discover"}>DESCOBREIX</p>
 
-                        <Slider {...settings}>
+                    <div className={"info"}>
+                        <Carousel {...settings}
+                                  css={carrosusel}
+                                   ref={ref => {console.log(ref); slider.current = ref; }} >
                             {
                                 textos.map((text) => {
                                     const {
@@ -198,17 +217,19 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                     )
                                 })
                             }
-                        </Slider>
+                        </Carousel>
 
 
-                    <div className={"next_prev"}>
-                        <button> &#60; </button>
-                        <button disabled>
-                            /
-                            {/*   <i className="fas fa-slash"></i>*/}
-                        </button>
-                        <button> > </button>
+                        <div className={"next_prev"}>
+                            <button onClick={e => { setSlide(e); slider.current.prev(); }}> &#60; </button>
+                            <button disabled>
+                                /
+                                {/*   <i className="fas fa-slash"></i>*/}
+                            </button>
+                            <button onClick={e => { setSlide(e); slider.current.next(); }}> > </button>
+                        </div>
                     </div>
+
 
 
 

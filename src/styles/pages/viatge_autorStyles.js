@@ -47,6 +47,9 @@ export const viatge_autor_style = (theme) => {
                 line-height: 1.538;
             }
 
+          .info {
+            width: 100%;
+          }
 
 
             .slick-arrow {
@@ -54,13 +57,15 @@ export const viatge_autor_style = (theme) => {
             }
         }
 
-        ${theme.mq('tablet-portrait')} {
-            .container {
-                .info {
-                    width: 80%;
-                }
-            }
+      ${theme.mq('tablet-portrait')} {
+        .block2 {
+
+          .info {
+            width: 80%;
+          }
         }
+
+      }
     `;
     return [style];
 }

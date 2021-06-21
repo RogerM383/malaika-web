@@ -10,7 +10,7 @@ import {useRouter} from "next/router";
 import MaxWidthContainer from "../../components/MaxWidthContainer";
 import {bicolor_style} from "../../styles/components/BiColorBlock";
 import {initializeApollo} from "../../contexts/apollo/ApolloContext";
-import {GET_VIATGE_BY_SLUG, GET_VIATGES_DESTACATS} from "../../contexts/apollo/queriesTest";
+import {GET_VIATGE_BY_SLUG, GET_VIATGES_DESTACATS, GET_VIATGES_ZONA} from "../../contexts/apollo/queriesTest";
 import {Col, Row} from "antd";
 import 'antd/dist/antd.css';
 import HeaderInici from "../../components/HeaderInici";
@@ -26,7 +26,7 @@ if(page?.title === undefined){
 }
 
     const {Campsviatge,slug,title,uri,content,featuredImage,zones} = page
-    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,sortides,mapa}=Campsviatge
+    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,sortides,mapa,dates}=Campsviatge
 
 debugger
 
@@ -52,7 +52,7 @@ debugger
 
                     <MaxWidthContainer className={"block1"}>
 
-                        <Row gutter={[60]}>
+                        <Row>
                             <Col className={"left_column"} sm={24} md={12} >
                                 <div >
                                     <p className={"title"}>{title}</p>
@@ -63,24 +63,24 @@ debugger
                             </Col>
                             <Col  className={"right_column"}  sm={24} md={12}>
                                 <div>
-                                    <p>{grup}</p>
-                                    <p>{preu}</p>
-                                    <p>Taxes: {taxes}</p>
-                                    <p>Suplemento: {suplement}</p>
+                                    <p>GRUP: {grup}</p>
+                                    <span>PREU: {preu}</span>
+                                    <span>Taxes d'aeroport: {taxes}</span>
+                                    <span>Suplement hab. individual: {suplement}</span>
                                 </div>
 
-                                <Row className={"plane"}>
-                                    <Col span={2}>
-                                        <img src={"../plane_icon.png"}/>
-                                    </Col>
-                                    <Col span={22}>
-                                      <p> "TODO coger el dato correcto"</p>
-                                    </Col>
+                                {
+                                    dates &&
+                                    <Row className={"plane"}>
+                                        <Col span={2}>
+                                            <img src={"../plane_icon.png"}/>
+                                        </Col>
+                                        <Col span={22}>
+                                            <p> {dates}</p>
+                                        </Col>
+                                    </Row>
+                                }
 
-
-
-
-                                </Row>
 
 
 
@@ -128,15 +128,17 @@ debugger
                                             debugger
                                             return (
                                                 <Col sm={24} md={12}>
-                                                    <Card onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
+                                                    <div onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
                                                     <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
-                                                    <div className={"text"}>
-                                                        <span className={"title"}>{item.zones?.nodes[0]?.name}</span>
-                                                        <p className={"tags"}>{item.title}</p>
-                                                        <span className={"calendar"}><img src={"/calendar_icon.png"}/>{dates}</span>
-                                                        {/*<p>Més Informació -></p>*/}
-                                                    </div>
-                                                </Card>
+
+                                                        <div className={"text"}>
+                                                            <span className={"title"}>{item.title}</span>
+                                                            <span  className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
+                                                            <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
+                                                            <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
+                                                        </div>
+
+                                                </div>
                                                 </Col>
                                             )
                                         })
@@ -177,11 +179,12 @@ export async function getStaticProps({ params,...ctx }) {
     const {error, data} = await client.query({query: GET_VIATGE_BY_SLUG, variables: { slug: params.slug }});
     const page = data.viatge;
 
-    const {error:error2, data:data2} = await client.query({query: GET_VIATGES_DESTACATS});
-    const destacats =data2.viatges;
+    console.log(page);
+
+    const {error:error2, data:data2} = await client.query({query: GET_VIATGES_ZONA,variables: {slug:page.zones.nodes[0].slug,first:2}});
+    const destacats =data2.zona.viatges;
 
 
-    console.log(data);
     return { props:{page,destacats}, revalidate: 3600};
 }
 

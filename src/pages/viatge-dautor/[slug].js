@@ -36,7 +36,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
             <MaxWidthContainer className={"block1"}>
 
-                <Row gutter={[60]}>
+                <Row >
                     <Col className={"left_column"} sm={24} md={12} >
                         <div >
                             <p className={"title"}>{title}</p>
@@ -45,12 +45,13 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
                         </div>
                     </Col>
+
                     <Col  className={"right_column"}  sm={24} md={12}>
                         <div>
-                            <p>{grup}</p>
-                            <p>{preu}</p>
-                            <p>Taxes: {taxes}</p>
-                            <p>Suplemento: {suplement}</p>
+                            <p>GRUP: {grup}</p>
+                            <span>PREU: {preu}</span>
+                            <span>Taxes d'aeroport: {taxes}</span>
+                            <span>Suplement hab. individual: {suplement}</span>
                         </div>
 
                         <Row className={"plane"}>
@@ -85,21 +86,28 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             {
                 inclou &&
                 <div className={"block2"} css={bicolor_style}>
+                <MaxWidthContainer>
                     <Row>
-                        <Col sm={24} md={12} css={{backgroundColor: 'red'}}>
-                            <MaxWidthContainer>
+                        <Col className={"left"} sm={24} md={12}>
+
+                            <div className={"inclou"}>
                                 <p className={"title"}>Inclou</p>
                                 <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
+                            </div>
 
-                            </MaxWidthContainer>
                         </Col>
-                        <Col sm={24} md={12} css={{backgroundColor: 'lime'}}>
-                            <MaxWidthContainer>
+
+                        <Col className={"right"} sm={24} md={12} >
+                            <div className={"inclou"}>
                                 <p className={"title"}>No inclou</p>
                                 <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
-                            </MaxWidthContainer>
+                            </div>
                         </Col>
                     </Row>
+                </MaxWidthContainer>
+
+
+
                 </div>
             }
 

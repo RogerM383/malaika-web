@@ -12,6 +12,9 @@ export const GET_VIATGES_DESTACATS = gql`
                     slug
                     status
                     link
+                    subtitolViatge {
+                        subtitolviatge
+                    }
                     featuredImage {
                         node {
                             altText
@@ -56,6 +59,7 @@ export const GET_VIATGE_BY_SLUG = gql`
             zones {
                 nodes {
                     name
+                    slug
                 }
                 pageInfo {
                     endCursor
@@ -135,9 +139,9 @@ export const GET_VIATGE_DAUTOR_BY_SLUG = gql`
 
 
 export const GET_VIATGES_ZONA = gql`
-    query getViatgesZona($slug:ID!) {
+    query getViatgesZona($slug:ID!,$first: Int) {
     zona(id: $slug, idType: SLUG) {
-        viatges {
+        viatges(first: $first) {
             nodes {
                 Campsviatge {
                     taxes
@@ -145,6 +149,9 @@ export const GET_VIATGES_ZONA = gql`
                     preu
                     grup
                     dates
+                }
+                subtitolViatge {
+                    subtitolviatge
                 }
                 uri
                 title

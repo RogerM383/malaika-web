@@ -1,55 +1,78 @@
 import {css} from '@emotion/react';
 
-export const card_home_1 = (theme) => {
+export const card_viatge_autor_small = (theme) => {
     const style = css`
 
-        box-shadow: 0px 1px 4px -1px RGBA(0,0,0,.20);
+        box-shadow: 0px 1px 4px -1px RGBA(0, 0, 0, .20);
         padding: 0;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+       height: 100%;
+        justify-content: space-between;
 
-        .content {
+          span{
+            display: block;
+          }
 
-            .text {
-                padding: 1rem;
-
-                span:nth-of-type(2) {
-                    margin: 1.5rem 0;
-                }
-
-                img {
-                    width: 24px;
-                }
+            &:last-of-type {
+              margin-bottom: 2rem;
             }
 
-            > img {
-                width: 100%;
+        .card-text {
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 1rem 1rem 0 1rem;
+          height: 100%;
+
+          .card-title {
+            flex: 10;
+            font-family: ${theme.font.didot};
+            font-weight: ${theme.font.bold};
+            font-size: ${theme.font.sm};
+            margin-bottom: 1rem;
+            margin-top: auto;
+          }
+
+          .card-data {
+            flex: 1;
+            font-family: ${theme.font.quicksand};
+            font-weight: ${theme.font.medium};
+            font-size: ${theme.font.sm};
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 1.3rem;
+            margin-top: auto;
+
+            img {
+              margin-right: 1rem;
+              width: 1.2rem;
+              height: 1.2rem;
             }
+          }
+
+          .more-info {
+            flex: 1;
+            font-family: ${theme.font.didot};
+            font-weight: ${theme.font.medium};
+            font-size: ${theme.font.sm};
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 1.3rem;
+            margin-top: auto;
+            height: 100%;
+          }
+
+      }
+        .photo{
+          flex:4;
+          height: 250px;
+          object-fit: cover;
         }
-    `;
-
-    return [style];
-}
-
-
-export const card_home_2 = (theme) => {
-    const style = css`
-
-        border: 1px solid lightgray;
-        padding: 0;
-        box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
-        cursor: pointer;
-
-        .content {
-            // text-align: center;
-            .text {
-                padding: 1rem;
-            }
-
-            > img {
-                width: 100%;
-            }
-        }
-
     `;
 
     return [style];
@@ -73,16 +96,19 @@ export const card_viatge_autor = (theme) => {
         }
 
         .photo-wrapper {
-             margin-bottom: 2rem;
+            //margin-bottom: 2rem;
             .photo {
-                max-width: 100%;
+              max-width: 100%;
+              display: block;
+              margin-bottom: 2rem;
             }
         }
 
         .card-info {
-
             margin-bottom: 2rem;
-
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             .title {
                 font-size: ${theme.font.l};
                 font-weight: ${theme.font.bold};
@@ -128,6 +154,7 @@ export const card_viatge_autor = (theme) => {
                     }
                 }
             }
+
             .more_info {
                 display: flex;
                 flex-direction: column;
@@ -340,25 +367,37 @@ export const card_discover = (theme) => {
 
 export const top_img_tagged_card = (theme) => {
     const style = css`
+
         border: 1px solid lightgray;
         padding: 0;
         box-shadow: 0 1px 50px rgba(0, 0, 0, .3);
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
         .image_card {
 
-            height: 250px;
-            width: 100%;
+          height: 250px;
+          width: 100%;
+          object-fit: cover;
         }
 
         .text {
+            flex:2;
+            padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
             .title {
+              height: 100%;
                 font-family: ${theme.font.didot};
                 font-weight: ${theme.font.medium};
-                margin-bottom: 4.4rem;
+
                 font-size: 0.9rem;
+              margin-bottom: auto;
             }
-            padding: 1rem;
+
 
             .tags {
                 font-family: ${theme.font.quicksand};
@@ -366,6 +405,7 @@ export const top_img_tagged_card = (theme) => {
                 font-size: ${theme.font.s};
                 margin-bottom: 1rem;
                 margin-top: 1rem;
+                display:block;
 
             }
 
@@ -391,7 +431,7 @@ export const top_img_tagged_card = (theme) => {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin-bottom: 1rem;
+                margin-bottom: auto;
                 span {
                     margin-left: .5rem;
                 }

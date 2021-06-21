@@ -36,9 +36,14 @@ const PageBlogEntry = ({children,title,slug,content,featuredImage,date, ...props
                     <div className={"block_text"}>
 
                         <div className={"notice"}>
-                            <Image src={featuredImage.node.mediaItemUrl}/>
-                            <p className={"title"}>{title}</p>
-                            <p  className={"content"} dangerouslySetInnerHTML={{__html: content}}/>
+                            <Row>
+                                <Image src={featuredImage.node.mediaItemUrl}/>
+                            </Row>
+                           <Row>
+                               <p className={"title"}>{title}</p>
+                               <p  className={"content"} dangerouslySetInnerHTML={{__html: content}}/>
+                           </Row>
+
                         </div>
 
 

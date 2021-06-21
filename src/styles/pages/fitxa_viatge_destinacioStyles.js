@@ -14,7 +14,9 @@ export const viatge_destinacio_fitxa = (theme) => {
       .block1 {
         padding-bottom: 4rem;
         .left_column{
+
           padding-bottom: 4rem;
+          padding-right: 0;
           border: none;
           font-size:${theme.font.l} ;
           .title{
@@ -37,34 +39,44 @@ export const viatge_destinacio_fitxa = (theme) => {
 
         }
 
-        .right_column{
-          padding-left:2rem;
-          p{
-            font-size:0.9rem ;
-          }
+        .right_column {
+            padding-left: 0;
 
-          .plane{
-            p{
-              font-size:0.8rem ;
+            div:first-of-type {
+              font-weight: ${theme.font.bold};
+
+              span {
+                display: block;
+                font-size: ${theme.font.m};
+              }
+            }
+
+            p {
+              font-size: 0.9rem;
+            }
+
+            .plane {
+              p {
+                font-size: 0.8rem;
+              }
+            }
+
+
+            img.mapa {
+              object-fit: contain;
+              width: 80%;
+              max-height: 400px;
+              //margin:0 auto;
+              display: block;
+            }
+
+            > div {
+              margin-bottom: 2.5rem;
             }
           }
 
-
-          img.mapa{
-            object-fit: contain;
-            width: 80%;
-            max-height: 400px;
-            margin:0 auto;
-            display: block;
-          }
-
-          > div{
-            margin-bottom: 2.5rem;
-          }
         }
 
-
-      }
 
       .block2{
             margin-bottom: 4rem;
@@ -82,16 +94,27 @@ export const viatge_destinacio_fitxa = (theme) => {
 
         }
 
-
-        ${theme.mq('tablet-portrait')} {
-          .block1 {
-            .left_column{
-              border-right:1px solid black ;
-            }
+      ${theme.mq('tablet-portrait')} {
+        .block1 {
+          .left_column{
+            border-right:1px solid black ;
+            padding-right: 2rem;
           }
-
-
+          .right_column{
+            padding-left: 4rem;
+          }
         }
+
+        .block2{
+          .columna:nth-of-type(2){
+            padding-left: 3rem;
+          }
+        }
+
+
+
+
+      }
 
 
 

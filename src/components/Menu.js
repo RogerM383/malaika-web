@@ -25,7 +25,8 @@ const Menu = ({img = true, children, ...props}) => {
     useEffect(() => {
         if (menuData) {
             const items = menuData.menu.menuItems.nodes;
-            const menu = items.filter(item => item.label !== 'Blog' && item.parentId === null).map((item) => {
+         /*   const menu = items.filter(item => item.label !== 'Blog' && item.parentId === null).map((item) => {*/
+            const menu = items.filter(item => item.parentId === null).map((item) => {
                 const path = item.path !== '#' ? item.path.replace('/index.php','') : null;
                 return {
                     id: item.id,
@@ -35,7 +36,8 @@ const Menu = ({img = true, children, ...props}) => {
                     submenu: []
                 }
             });
-            const subItems = items.filter(item => item.label !== 'Blog' && item.parentId !== null);
+     /*       const subItems = items.filter(item => item.label !== 'Blog' && item.parentId !== null);*/
+            const subItems = items.filter(item =>  item.parentId !== null);
             for (let subItem of subItems) {
                 let parent = menu.find(item => item.id === subItem.parentId);
                 parent.submenu.push({
@@ -49,6 +51,8 @@ const Menu = ({img = true, children, ...props}) => {
                 menu.push({id: 'amics-museu', label: "AMICS", path: "/blog", image: "amics_museu.svg", submenu: []});
             }
             setNavButtons(menu);
+        router
+            debugger
         }
     },[menuData]);
     // -----------------------------------------------------------------------------------------------------------------
@@ -138,7 +142,7 @@ const Menu = ({img = true, children, ...props}) => {
                                         <li key={index}  className={`navli
                                         ${(router.pathname === "/inici" && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
                                             <Link href={button?.path ?? ''}>
-                                                <a className={`NavButton ${router.pathname === button.path ? "active" : ""}`}>
+                                                <a className={`NavButton ${(router.pathname.replace(/\//g, "") === button?.path?.replace(/\//g, "")) && button?.path !== undefined ? "active_link" : "fuck"}`}>
                                                     {button.icon}
                                                     <span css={{textAlign: 'center', display: 'inline-block'}}>
                                                     {

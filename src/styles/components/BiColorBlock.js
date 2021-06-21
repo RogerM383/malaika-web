@@ -2,26 +2,40 @@ import {css} from '@emotion/react';
 
 export const bicolor_style = (theme) => {
     const style = css`
+        background: linear-gradient(90deg, #D8D8D8 50%, #F1F1F1 50%);
 
+    > div{
+        margin: auto;
+        max-width: ${theme.container.max_width};
+        padding: 0;
 
+    }
 
-       /* background: linear-gradient(0deg, #D8D8D8 50%, #F1F1F1 50%);*/
-/*        padding: ${theme.container.vertical_padding};
-        margin: ${theme.container.vertical_padding} 0;*/
-
-        .ant-col{
-            padding: 2rem 0;
-            width: 100%;
+        .inclou{
+            padding:2rem 0;
         }
 
-        .ant-col:first-of-type{
-            background-color: #D8D8D8 ;
+
+
+
+        .left{
+            background-color: #D8D8D8;
+            padding-left: 4rem;
         }
 
-        .ant-col:nth-of-type(2){
-            background-color: #F1F1F1 ;
+        .right{
+            background-color: #F1F1F1;
+            padding-left: 4rem;
         }
-/*        & > div {
+
+
+
+
+
+
+
+
+/*     & > div {
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;

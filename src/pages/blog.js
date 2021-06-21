@@ -85,7 +85,7 @@ const Page = ({children, ...props}) => {
                             <input className={"search_input"} placeholder={"cercar..."} type={"text"}/>
 
                             <div >
-                                <p className={"recent_post"}>Recent Posts</p>
+                                <p className={"recent_post"}>Articles recents</p>
 
                                 {
                                     recentPost.map((element)=>{

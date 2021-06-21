@@ -31,7 +31,6 @@ export const home_styles = (theme) => {
                 }
             }
 
-
             .cita {
                 p{
                     font-family: ${theme.font.didot};
@@ -70,47 +69,7 @@ export const home_styles = (theme) => {
                 }
             }
 
-            .card-vautor {
-                display: flex;
-                flex-direction: column;
-                &:last-of-type {
-                    margin-bottom: 2rem;
-                }
-                .card-text {
-                    display: flex;
-                    flex-direction: column;
-                    padding: 1rem 1rem 0 1rem;
-                    .card-title {
-                        font-family: ${theme.font.didot};
-                        font-weight: ${theme.font.bold};
-                        font-size: ${theme.font.sm};
-                        margin-bottom: 1rem;
-                    }
-                    .card-data {
-                        font-family: ${theme.font.quicksand};
-                        font-weight: ${theme.font.medium};
-                        font-size: ${theme.font.sm};
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        margin-bottom: 1.3rem;
-                        img {
-                            margin-right: 1rem;
-                            width: 1.2rem;
-                            height: 1.2rem;
-                        }
-                    }
-                    .more-info {
-                        font-family: ${theme.font.didot};
-                        font-weight: ${theme.font.medium};
-                        font-size: ${theme.font.sm};
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        margin-bottom: 1.3rem;
-                    }
-                }
-            }
+
 
             .more {
                 float: right;
@@ -133,7 +92,7 @@ export const home_styles = (theme) => {
 
             > div {
                 padding: 0 ${theme.container.horizontal_padding};
-                .title {
+               > .title {
                     font-family: ${theme.font.didot};
                     font-weight: ${theme.font.medium};
                     margin-bottom: 4.4rem;

@@ -28,7 +28,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
 
 
     /***********************************************************************/
-    const [loadViatges, { loading: loadingVD, error: errorVD, data }] = useLazyQuery(GET_VIATGES_ZONA,{variables: {slug}});
+    const [loadViatges, { loading: loadingVD, error: errorVD, data }] = useLazyQuery(GET_VIATGES_ZONA,{variables: {slug,first:2}});
 
     useEffect(() => {
         if(slug)
@@ -71,15 +71,15 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
                             const {dates} = item.Campsviatge;
                             return (
                                 <Col sm={24} md={12} lg={8} >
-                                    <Card  onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
+                                    <div  onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
                                         <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}/>
                                         <div className={"text"}>
                                             <span className={"title"}>{item.title}</span>
-                                            <span  className={"tags"} dangerouslySetInnerHTML={{__html: item.content}}/>
+                                            <span  className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
                                             <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
                                             <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
                                         </div>
-                                    </Card>
+                                    </div>
                                 </Col>
 
                             )

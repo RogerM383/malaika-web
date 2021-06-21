@@ -14,8 +14,12 @@ export const viatge_autor_fitxa = (theme) => {
 
         .block1 {
           padding-bottom: 4rem;
+
+
           .left_column{
+
             padding-bottom: 4rem;
+              padding-right: 0;
             border: none;
             font-size:${theme.font.l} ;
             .title{
@@ -39,7 +43,13 @@ export const viatge_autor_fitxa = (theme) => {
           }
 
           .right_column{
-            padding-left:2rem;
+              padding-left: 0;
+               div:first-of-type{
+                  font-weight: ${theme.font.bold};
+                   span{
+                       display: block;
+                   }
+              }
             p{
               font-size:0.9rem ;
             }
@@ -55,7 +65,7 @@ export const viatge_autor_fitxa = (theme) => {
                 object-fit: contain;
               width: 80%;
               max-height: 400px;
-              margin:0 auto;
+              //margin:0 auto;
               display: block;
             }
 
@@ -75,15 +85,13 @@ export const viatge_autor_fitxa = (theme) => {
                 font-family: ${theme.font.didot};
             }
 
-          .columna:nth-of-type(2){
-            padding-left: 0rem;
-          }
         }
 
 
         .block3 {
             padding-bottom: ${theme.container.vertical_padding};
-            margin-left: 1rem ;
+            padding-left:1rem;
+            //margin-left: 1rem ;
 
 
             .title{
@@ -111,6 +119,10 @@ export const viatge_autor_fitxa = (theme) => {
             .block1 {
                 .left_column{
                     border-right:1px solid black ;
+                    padding-right: 2rem;
+                }
+                .right_column{
+                    padding-left: 4rem;
                 }
             }
 

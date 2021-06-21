@@ -21,10 +21,12 @@ export const blog_article_styles = (theme) => {
             font-size: ${theme.font.s};
           }
             img{
-                width: 100%;
+
                 object-fit: contain;
                 max-height: 80vh;
                 margin-bottom:2rem ;
+                display: block;
+
             }
         }
 

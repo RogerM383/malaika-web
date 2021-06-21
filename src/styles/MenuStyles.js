@@ -25,8 +25,15 @@ export const menu_styles = (theme) => {
                 top: 0;
                 max-width: ${theme.container.max_width};
                 width: 100%;
-                border-top-right-radius: ${theme.header.menu.border_top_right_radius};
+               border-top-right-radius: initial;
 
+
+            }
+
+            .active_link{
+                span{
+                    color:${theme.colors.primary}!important;
+                }
 
             }
 
@@ -68,6 +75,7 @@ export const menu_styles = (theme) => {
                 li {
                     width: 100%;
                     position: relative;
+                    //height: 80px;
                   //  padding:1rem;
 /*                    :after {
 !*
@@ -97,6 +105,7 @@ export const menu_styles = (theme) => {
                         color: ${theme.colors.black};
                         font-size: ${theme.font.s};
                         font-weight: ${theme.font.bold};
+                        padding:0 0.3rem;
                     }
                 }
 
@@ -115,6 +124,7 @@ export const menu_styles = (theme) => {
 
                 border-top-right-radius: ${theme.header.menu.border_top_right_radius};
                 background-color: #4B4C4C;
+                border: 3px solid #4B4C4C;
 
                 img{
                     width: 100%;
@@ -249,6 +259,7 @@ export const menu_styles = (theme) => {
                     z-index: 1;
 
                     li {
+                        height: 70px;
                       //  padding: 0;
                         &.separator {
                             border-left: 1px solid darkgrey;
@@ -269,7 +280,8 @@ export const menu_styles = (theme) => {
                         height: 80%;
                         top: 10%;
                         z-index: -1;
-                        left: 0%;
+                        left: -12%;
+
 
 
                         border:2px solid ${theme.colors.light_gray};
@@ -279,7 +291,7 @@ export const menu_styles = (theme) => {
                         transform-origin: bottom right ;
                         -ms-transform: skew(-30deg, 0deg);
                         -webkit-transform: skew(-30deg, 0deg);
-                        transform: skew(-30deg, 0deg) translateX(50%);
+                        transform: skew(-30deg, 0deg) translateX(100%);
                     }
 
                     .first:after{
