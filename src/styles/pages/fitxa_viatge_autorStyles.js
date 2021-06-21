@@ -90,7 +90,8 @@ export const viatge_autor_fitxa = (theme) => {
 
         .block3 {
             padding-bottom: ${theme.container.vertical_padding};
-            padding-left:1rem;
+          margin-left: 1rem;
+          //  padding-left:1rem;
             //margin-left: 1rem ;
 
 

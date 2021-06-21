@@ -20,16 +20,29 @@ export const bicolor_style = (theme) => {
 
         .left{
             background-color: #D8D8D8;
-            padding-left: 4rem;
+            padding-left: 2rem;
         }
 
         .right{
             background-color: #F1F1F1;
-            padding-left: 4rem;
+            padding-left: 2rem;
         }
 
 
 
+
+      ${theme.mq('tablet-portrait')} {
+
+        .left{
+          padding-left: 4rem;
+        }
+
+        .right{
+          padding-left: 4rem;
+        }
+
+
+      }
 
 
 
