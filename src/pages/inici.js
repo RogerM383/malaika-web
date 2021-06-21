@@ -19,19 +19,19 @@ import Menu from "../components/Menu";
 import HeaderInici from "../components/HeaderInici";
 
 
-const Page = ({page, ...props}) => {
+const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats, content,page,...props}) => {
 
-    if (page?.title === undefined) {
+/*    if (page?.title === undefined) {
         return null
-    }
+    }*/
+
+    /*PAGE INFO*/
+    // const {title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats} = page;
+
 
     debugger
     const router = useRouter();
 
-    /*PAGE INFO*/
-    const {title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats} = page;
-
-    debugger
 
     const PER_PAGE = 1;
     const [loadViatgesAutor, {loading: loadingVA, error: errorVA, data: dataVA}] = useLazyQuery(GET_VIATGES_AUTOR, {variables: {first: PER_PAGE}});
@@ -75,6 +75,7 @@ const Page = ({page, ...props}) => {
     const images =[featuredImage?.node?.mediaItemUrl,'/foto1.png'];
 
     return (
+
         <div css={home_styles}>
 
            <HeaderInici title={title} img={images}/>
@@ -103,10 +104,10 @@ const Page = ({page, ...props}) => {
                 }
 
                 {
-                    page.content &&
+                    content &&
                     <div className={"cita"}>
 
-                        <p dangerouslySetInnerHTML={{__html: page.content}}/>
+                        <p dangerouslySetInnerHTML={{__html: content}}/>
                     </div>
                 }
 
@@ -296,14 +297,14 @@ const Page = ({page, ...props}) => {
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: {uri: '/inici/'}});
-    /*    .then((data) => {
+    const page = await client.query({query: GET_PAGE_BY_URI, variables: {uri: '/inici/'}})
+        .then((data) => {
             return data.data.pageBy;
-        });*/
+        });
 
-    console.log(data.data);
+    //console.log(data.data);
 
-    return {props: {page: data.data.pageBy}, revalidate: 3600};
+    return {props: {...page}, revalidate: 3600};
 }
 
 export default Page;

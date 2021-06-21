@@ -6,11 +6,11 @@ export const header_inici_styles = (theme) => {
         position: relative;
 
         .topRow{
-            padding:2rem;
+          /*  padding:2rem 0;*/
             position: absolute;
             top:0;
             z-index:200;
-            width: 100%;
+            width: 90%;
             color:white;
             font-size: ${theme.font.s};
 
