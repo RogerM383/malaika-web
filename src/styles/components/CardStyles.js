@@ -69,7 +69,6 @@ export const card_viatge_autor_small = (theme) => {
 
       }
         .photo{
-          flex:4;
           height: 250px;
           object-fit: cover;
         }
