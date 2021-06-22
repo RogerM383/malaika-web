@@ -65,6 +65,7 @@ export const viatge_fitxa = (theme) => {
               object-fit: contain;
               max-height: 400px;
               display: block;
+                max-width: 100%;;
             }
 
            > div{
