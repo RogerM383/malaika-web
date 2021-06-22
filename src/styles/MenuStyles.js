@@ -136,7 +136,7 @@ export const menu_styles = (theme) => {
             }
 
             .amics{
-              align-self: stretch;
+
                 border-top-right-radius: ${theme.header.menu.border_top_right_radius};
                 background-color: #4B4C4C;
                 border: 3px solid #4B4C4C;
@@ -271,36 +271,55 @@ export const menu_styles = (theme) => {
                     width: 100%;
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-evenly;
+                    justify-content: space-between;
                   //  padding: 1rem 0;
                     align-items: center;
                     z-index: 1;
 
 
                     li {
+
                         height: 105px;
                         padding: 0 1rem;
+
+
 
                     }
 
 
+
+
                     .normal:after {
-                        content: "";
+      /*                  content: "";
+                        top:10%;*/
+
+                        content: "/";
+                        top: 20%;
+
+                        font-size: 60px;
                         position: absolute;
                         width: 0;
                         height: 80%;
-                        top: 10%;
                         z-index: -1;
-                        left: -12%;
+                        left: -5%;
 
-                        border:2px solid ${theme.colors.light_gray};
+                        font-weight: 100;
+                        color:lightgray;
+                        font-family: Didot;
+
+                        display: inline-block;
+
+
+
+
+/*                        border:2px solid ${theme.colors.light_gray};
                         border-radius: 1000px;
                         border-right: 0;
 
                         transform-origin: bottom right ;
                         -ms-transform: skew(-30deg, 0deg);
                         -webkit-transform: skew(-30deg, 0deg);
-                        transform: skew(-30deg, 0deg) translateX(100%);
+                        transform: skew(-30deg, 0deg) translateX(100%);*/
                     }
 
                     .first:after{
