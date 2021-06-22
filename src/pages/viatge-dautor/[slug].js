@@ -1,5 +1,5 @@
 import React from 'react';
-import {viatge_autor_fitxa} from "../../styles/pages/fitxa_viatge_autorStyles";
+import {viatge_fitxa} from "../../styles/pages/fitxa_viatge_autorStyles";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Image from "../../../package/components/Image";
@@ -27,7 +27,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
 
     return (
-        <div css={viatge_autor_fitxa}>
+        <div css={viatge_fitxa}>
             <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer>
@@ -54,21 +54,23 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                             <span>Suplement hab. individual: {suplement}</span>
                         </div>
 
-                        <Row className={"plane"}>
-                            <Col span={2}>
-                                <img src={"../plane_icon.png"}/>
-                            </Col>
-                            <Col span={22}>
-                                {
-                                    vols.map((item)=><p>{item.datavol}</p>)
-                                }
-                            </Col>
+
+                        {   vols &&
+                            <Row className={"plane"}>
+                                <Col span={2}>
+                                    <img className={"mapa"} src={"../plane_icon.png"}/>
+                                </Col>
+                                <Col span={22}>
+                                    {
+                                        vols.map((item)=><p>{item.datavol}</p>)
+                                    }
+                                </Col>
+                            </Row>
+                        }
 
 
 
-
-                        </Row>
-
+                        {/* DIFERENCIA CON DESTINACIONS*/}
                         <div className={"block_mapa"}>
                             <p className={"bold"}>ITINERARI</p>
                             <Image className={"mapa"} src={mapa.mediaItemUrl}/>
@@ -86,46 +88,43 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             {
                 inclou &&
                 <div className={"block2"} css={bicolor_style}>
-                <MaxWidthContainer>
-                    <Row>
-                        <Col className={"left"} sm={24} md={12}>
+                    <MaxWidthContainer>
+                        <Row>
+                            <Col className={"left"} sm={24} md={12}>
 
-                            <div className={"inclou"}>
-                                <p className={"title"}>Inclou</p>
-                                <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
-                            </div>
+                                <div className={"inclou"}>
+                                    <p className={"title"}>Inclou</p>
+                                    <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
+                                </div>
 
-                        </Col>
+                            </Col>
 
-                        <Col className={"right"} sm={24} md={12} >
-                            <div className={"inclou"}>
-                                <p className={"title"}>No inclou</p>
-                                <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
-                            </div>
-                        </Col>
-                    </Row>
-                </MaxWidthContainer>
-
-
-
+                            <Col className={"right"} sm={24} md={12}>
+                                <div className={"inclou"}>
+                                    <p className={"title"}>No inclou</p>
+                                    <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
+                                </div>
+                            </Col>
+                        </Row>
+                    </MaxWidthContainer>
                 </div>
             }
 
-            <MaxWidthContainer className={"block3"}>
+            <MaxWidthContainer className={"block3_autor"}>
                 <p className={"title"}>Itinerari</p>
 
-                <Row gutter={[60]}>
+                <Row gutter={[60]} className={"row_itinerari"}>
                     <Col sm={24} md={12}>
                         {
 
                             etapes.slice(0, (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : (etapes.length / 2)+1).map((item) => {
                                 return (
-                                    <Card css={card_itinerari}>
+                                    <div css={card_itinerari}>
                                         <p className={"etapa_title"}>{item.etapa.dia}</p>
                                         <p className={"etapa_ubicacio"}>{item.etapa.ubicacio}</p>
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
 
-                                    </Card>)
+                                    </div>)
                             })
 
                         }
@@ -137,11 +136,11 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                             etapes.slice( (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : ((etapes.length / 2)+1)).map((item,i) => {
                                 const number = etapes.length;
                                 return (
-                                    <Card css={ number !== i+1 ? card_itinerari : card_itinerari_finish}>
+                                    <div css={ number !== i+1 ? card_itinerari : card_itinerari_finish}>
                                         <p className={"etapa_title"}>{item.etapa?.dia}</p>
                                         <p className={"etapa_ubicacio"}>{item?.etapa?.ubicacio}</p>
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
-                                    </Card>)
+                                    </div>)
                             })
 
                         }

@@ -511,30 +511,31 @@ export const card_fitxa_destinacio = (theme) => {
 export const card_itinerari = (theme) => {
     const style = css`
         position: relative;
+        padding-left: 2rem;
 
-         .etapa_title{
-            font-size:${theme.font.l};
-            font-weight:${theme.font.bold};
-        }
+             .etapa_title{
+                font-size:${theme.font.l};
+                font-weight:${theme.font.bold};
+            }
 
-      .etapa_ubicacio{
-        font-weight:${theme.font.medium};
-      }
+          .etapa_ubicacio{
+            font-weight:${theme.font.medium};
+          }
 
-        .inner:after {
+        :after {
             content: "";
             position: absolute;
-            top: 20px;
-            left: -18px;
+            top: 15px;
+            left: 0px;
             border-left: 1px solid black;
-            height: 100%;
+            height: 105%;
             z-index: 1;
         }
 
-        .inner:before {
+        :before {
             content: '';
             position: absolute;
-            left: -25px;
+            left: -7px;
             width: 15px;
             height: 15px;
             border-radius: 7.5px;

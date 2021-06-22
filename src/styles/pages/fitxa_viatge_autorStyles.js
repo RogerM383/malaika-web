@@ -1,6 +1,6 @@
 import {css} from '@emotion/react';
 
-export const viatge_autor_fitxa = (theme) => {
+export const viatge_fitxa = (theme) => {
     const style = css`
       padding-bottom: 4rem;
       font-size: 1rem;
@@ -62,10 +62,8 @@ export const viatge_autor_fitxa = (theme) => {
 
 
             img.mapa{
-                object-fit: contain;
-              width: 80%;
+              object-fit: contain;
               max-height: 400px;
-              //margin:0 auto;
               display: block;
             }
 
@@ -88,18 +86,15 @@ export const viatge_autor_fitxa = (theme) => {
         }
 
 
-        .block3 {
-            padding-bottom: ${theme.container.vertical_padding};
-          margin-left: 1rem;
-          //  padding-left:1rem;
-            //margin-left: 1rem ;
+        .block3_autor {
+          padding-bottom: ${theme.container.vertical_padding};
 
 
             .title{
                 font-weight:${theme.font.bold};
                 font-size: ${theme.font.h3};
                 font-family: ${theme.font.didot};
-              padding-bottom: ${theme.container.vertical_padding};
+                padding-bottom: ${theme.container.vertical_padding};
             }
 
             :after {
@@ -112,9 +107,25 @@ export const viatge_autor_fitxa = (theme) => {
 
             }
 
+          .row_itinerari{
+            position: relative;
+          }
+
 
         }
 
+
+      .block3_destinacio {
+        background-color: #F8F8F8;
+        padding: 4rem 0;
+
+        p.title{
+          font-weight: ${theme.font.bold} ;
+          font-size:${theme.font.h3};
+          font-family:${theme.font.didot};
+        }
+
+      }
 
         ${theme.mq('tablet-portrait')} {
             .block1 {

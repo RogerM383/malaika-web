@@ -67,6 +67,11 @@ const Menu = ({img = true, children, ...props}) => {
     const nav = useRef(null);
     const theme = useTheme();
 
+    useEffect(() => {
+    setActive(false)
+    }, [router]);
+
+
     const handleScroll = () => {
         const offset = window.scrollY;
         const point_sticky = window.innerHeight;
@@ -142,7 +147,7 @@ const Menu = ({img = true, children, ...props}) => {
                                         <li key={index}  className={`navli
                                         ${(router.pathname === "/inici" && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
                                             <Link href={button?.path ?? ''}>
-                                                <a className={`NavButton ${(router.pathname.replace(/\//g, "") === button?.path?.replace(/\//g, "")) && button?.path !== undefined ? "active_link" : "fuck"}`}>
+                                                <a className={`NavButton ${(router.pathname.replace(/\//g, "") === button?.path?.replace(/\//g, "")) && button?.path !== undefined ? "active_link" : ""}`}>
                                                     {button.icon}
                                                     <span css={{textAlign: 'center', display: 'inline-block'}}>
                                                     {
@@ -174,7 +179,7 @@ const Menu = ({img = true, children, ...props}) => {
                                                 </div>
                                             }
 
-                                            <li className={'separator'}/>
+                                         {/*   <li className={'separator'}/>*/}
                                         </li>
 
                                     </>

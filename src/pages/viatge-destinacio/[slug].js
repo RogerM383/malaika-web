@@ -14,6 +14,7 @@ import {GET_VIATGE_BY_SLUG, GET_VIATGES_DESTACATS, GET_VIATGES_ZONA} from "../..
 import {Col, Row} from "antd";
 import 'antd/dist/antd.css';
 import HeaderInici from "../../components/HeaderInici";
+import {viatge_fitxa} from "../../styles/pages/fitxa_viatge_autorStyles";
 
 
 
@@ -42,7 +43,7 @@ debugger
 
     return (
 
-                <div css={viatge_destinacio_fitxa}>
+                <div css={viatge_fitxa}>
                     <HeaderInici img={featuredImage?.node?.mediaItemUrl}/>
 
 
@@ -91,29 +92,35 @@ debugger
                         </Row>
 
                     </MaxWidthContainer>
+
+
                     {
                         inclou &&
                         <div className={"block2"} css={bicolor_style}>
-                            <Row>
-                                <Col sm={24} md={12} css={{backgroundColor: 'red'}}>
-                                    <MaxWidthContainer>
-                                        <p className={"title"}>Inclou</p>
-                                        <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
+                            <MaxWidthContainer>
+                                <Row>
+                                    <Col className={"left"} sm={24} md={12}>
 
-                                    </MaxWidthContainer>
-                                </Col>
-                                <Col sm={24} md={12} css={{backgroundColor: 'lime'}}>
-                                    <MaxWidthContainer>
-                                        <p className={"title"}>No inclou</p>
-                                        <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
-                                    </MaxWidthContainer>
-                                </Col>
-                            </Row>
+                                        <div className={"inclou"}>
+                                            <p className={"title"}>Inclou</p>
+                                            <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
+                                        </div>
+
+                                    </Col>
+
+                                    <Col className={"right"} sm={24} md={12}>
+                                        <div className={"inclou"}>
+                                            <p className={"title"}>No inclou</p>
+                                            <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </MaxWidthContainer>
                         </div>
                     }
 
 
-                    <div className={"block3"}>
+                    <div className={"block3_destinacio"}>
 
                         <MaxWidthContainer>
                             <Row gutter={[40,40]}>
