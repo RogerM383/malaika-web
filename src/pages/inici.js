@@ -17,6 +17,7 @@ import 'antd/dist/antd.css';
 import {css} from "@emotion/react";
 import Menu from "../components/Menu";
 import HeaderInici from "../components/HeaderInici";
+import {grid_style} from "../styles/components/GridStyles";
 
 
 const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats, content,page,...props}) => {
@@ -151,7 +152,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
 
 
-                <Grid size={"300px"}>
+                <Grid css={grid_style("400px")}>
                     {
                         viatgesAutor.map((viatge) => {
                             const {
@@ -197,7 +198,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                 </Grid>
 
-                <div className={"bold fs-18 psmall more"}><a href={"viatges-dautor"} onClick={(e) => {
+                <div className={"more"}><a href={"viatges-dautor"} onClick={(e) => {
                     loadViatgesAutor({
                         variables: {
                             first: PER_PAGE,
@@ -210,9 +211,6 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
             </MaxWidthContainer>
 
-            <MaxWidthContainer>
-
-            </MaxWidthContainer>
 
 
             <div className={"block2"}>
@@ -221,7 +219,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                     <h2 className={"title"}>Destacats /</h2>
 
-                    <Grid size={"250px"}>
+                    <Grid css={grid_style("300px")}>
                         {
 
                             viatgesDestacats?.nodes?.map((item) => {

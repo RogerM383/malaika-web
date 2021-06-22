@@ -31,7 +31,7 @@ export const card_viatge_autor_small = (theme) => {
             flex: 10;
             font-family: ${theme.font.didot};
             font-weight: ${theme.font.bold};
-            font-size: ${theme.font.sm};
+            font-size: 1.1rem;
             margin-bottom: 1rem;
             margin-top: auto;
           }

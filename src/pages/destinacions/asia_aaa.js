@@ -11,6 +11,7 @@ import MaxWidthContainer from "../../components/MaxWidthContainer";
 import {apolloClient, initializeApollo} from "../../contexts/apollo/ApolloContext";
 import {GET_PAGE_BY_URI} from "../../contexts/apollo/queries";
 import HeaderInici from "../../components/HeaderInici";
+import {grid_style} from "../../styles/components/GridStyles";
 
 
 const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }) => {
@@ -31,7 +32,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                 <h2 className={"title"}><span>Ens apassiona</span><span>l’Asia</span></h2>
 
-                <Grid size={"350px"}>
+                <Grid css={grid_style("300px")}>
                     {
 
                         elements.map((element) => {

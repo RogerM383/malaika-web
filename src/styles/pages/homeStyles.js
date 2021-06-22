@@ -7,8 +7,8 @@ export const home_styles = (theme) => {
         .block1 {
 
             margin-top: 5.5rem;
+            padding-bottom: ${theme.container.vertical_padding};
 
-           // padding: 0 ${theme.container.horizontal_padding};
             border-bottom: 1ps solif ${theme.colors.light_gray};
 
             .alert {
@@ -53,10 +53,12 @@ export const home_styles = (theme) => {
                     display: flex;
                     flex-direction: column;
                     margin-right: 1rem;
+                    font-size: 2.8rem;
                 }
 
                 .litle {
-                    color: ${theme.colors.primary}
+                    color: ${theme.colors.primary};
+                    font-size: 1.8rem;
                 }
             }
 

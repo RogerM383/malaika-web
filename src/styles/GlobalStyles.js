@@ -147,19 +147,26 @@ export const global = (theme) => {
                 .next_prev {
                     display: flex;
                     align-items: center;
-                    padding:2rem 0;
+                    padding:1.5rem 0;
 
                     button {
 
                         background-color: white;
                         color: gray;
-                        font-size: ${theme.font.xl};
+
                         line-height: initial;
                         display: flex;
                         align-items: center;
-                        height: 3.5rem;
+                            /*font-size: ${theme.font.xl};
+                      height: 3.5rem;
                         padding-left: 1rem;
-                        padding-right: 1rem;
+                        padding-right: 1rem;*/
+
+
+                        font-size: ${theme.font.m};
+                        height: 2rem;
+                        padding-left: 0.5rem;
+                        padding-right: 0.5rem;
 
                         .fa-slash {
                             background-color: transparent;

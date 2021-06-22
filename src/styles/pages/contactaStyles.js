@@ -4,9 +4,6 @@ export const contacta_styles = (theme) => {
     const style = css`
 
 
-
-
-
         input[type="text"] {
             border: 1px solid ${theme.colors.light_gray};
             display: block;
@@ -25,20 +22,20 @@ export const contacta_styles = (theme) => {
         }
 
 
-        .title {
 
-            font-family: ${theme.font.didot};
-            font-size: ${theme.font.h3};
-            padding-bottom: ${theme.container.vertical_padding};
-        }
+      .title_block {
+
+        font-family: ${theme.font.didot};
+        font-size: ${theme.font.h3};
+        padding-bottom: ${theme.container.vertical_padding};
+      }
 
 
 
         .block1 {
-            padding: 6rem 0;
-            //background-color: #F1F1F1 ;
+            padding: 2rem 0;
 
-            .ant-col img {
+          .ant-col img {
 
                 filter: invert(100%);
                 padding-right: 0.5rem;

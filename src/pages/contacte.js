@@ -104,7 +104,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
                 <div className={"block1"}>
                     <MaxWidthContainer>
-                    <p className={"title"}>On som</p>
+                    <p className={"title_block"}>On som</p>
                     <Row gutter={[40, 40]}>
                         <Col xs={24} sm={12} md={12}>
 
@@ -149,7 +149,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                     <form ref={form} onChange={onChange} onSubmit={onSubmit}>
 
                         <div className={"card_form"}>
-                            <p className={"title"}>Contacta amb nosaltres</p>
+                            <p className={"title_block"}>Contacta amb nosaltres</p>
 
                             <Row justify={"space-between"}>
                                 <span className={"label"}>Nom complet</span>
