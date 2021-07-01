@@ -1,0 +1,60 @@
+import React from 'react';
+import {nosaltres_styles} from "../styles/pages/nosaltresStyles";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Image from "../../package/components/Image";
+import MaxWidthContainer from "../components/MaxWidthContainer";
+import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
+import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
+import {Col, Row} from "antd";
+import HeaderInici from "../components/HeaderInici";
+import {politica_styles} from "../styles/pages/politicaStyles";
+
+
+const Page = ({title,content,...props }) => {
+
+    return (
+        <div>
+
+          {/*  <HeaderInici title={title} />*/}
+
+
+            <MaxWidthContainer  className={"block1"}>
+              {/*  <Image src={"logo.png"}></Image>*/}
+                <h1>{title}</h1>
+
+                <p dangerouslySetInnerHTML={{__html: content}}/>
+
+            </MaxWidthContainer>
+
+
+
+            <Footer/>
+        </div>
+
+    );
+
+};
+
+export const getStaticProps = async (ctx) => {
+    const client = initializeApollo();
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/politica-privacidad/' }})
+    .then((data) => {
+        console.log(data)
+        return data.data.pageBy;
+    });
+    return {props: {...data}, revalidate: 10};
+}
+
+export default Page;
+
+
+
+
+
+
+
+
+
+
+

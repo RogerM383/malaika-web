@@ -62,7 +62,7 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
                                 </Col>
 
                                 <Col span={12} className={"language"}>
-                                    <span>Català</span> / <span>Castella</span>
+                                    <span>Català</span> / <span>Castellà</span>
                                 </Col>
 
                             </Row>

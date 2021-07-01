@@ -20,7 +20,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col sm={24} md={8} lg={8}>
                         <div className={"contact"}>
-                            <span className={"address"}>Carrer de París, 209, Ppal 2a</span>
+                            <span className={"address"}>Carrer de París, 209, Pral 2a</span>
                             <span className={"address"}>08008 BARCELONA</span>
 
                             <div className={"phone"}>
@@ -40,7 +40,7 @@ const Footer = ({img = true, children, ...props}) => {
                             <span  className={"address"}>17124 Llofriu, Girona</span>
                             <div className={"phone"}>
                                 <img src={"/phone_icon.png"}/>
-                                <span className={"db"}>872 503 266</span>
+                                <span className={"db"}>+34 872 503 266</span>
                             </div>
 
                             <a>mtribulietx@malaikaviatges.com</a>
@@ -50,7 +50,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col sm={24} md={8} lg={8}>
                         <div className={" last"}>
-                            <span>Avis legal / Política privacitat</span>
+                            <span>Avis legal / Política de privacitat</span>
                             <div className={"social"}>
                                 <img src={"/facebook_icon.png"}/>
                                 <img src={"/instagram_icon.png"}/>

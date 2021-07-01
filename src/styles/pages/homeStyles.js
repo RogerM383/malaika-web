@@ -148,6 +148,7 @@ export const home_styles = (theme) => {
                 .descripcio_novetats{
                     color:white;
                     font-size: ${theme.font.sm};
+                    text-align: justify;
                 }
 
 

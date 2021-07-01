@@ -108,7 +108,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                     <Row gutter={[40, 40]}>
                         <Col xs={24} sm={12} md={12}>
 
-                            <p className={"address"}>Carrer de París, 209 Ppal 2a.</p>
+                            <p className={"address"}>Carrer de París, 209 Pral 2a.</p>
                             <p className={"address"}>08008 BARCELONA</p>
                             <Row >
                                 <Col flex={0}>
@@ -119,7 +119,14 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                                 </Col>
 
                             </Row>
-                            <a>aayats@malaikaviatges.com</a>
+
+                        <Row className={"emails"}>
+                            <span>Toñi Castillo: <a>malaika@malaikaviatges.com</a></span>
+                            <span>Maribel del Valle: <a>maribel@malaikaviatges.com</a></span>
+                            <span>Fina Garcia: <a>fina@malaikaviatges.com</a></span>
+                            <span>Anna Ayats: <a>aayats@malaikaviatges.com</a></span>
+                        </Row>
+
 
                         </Col>
 
@@ -133,11 +140,13 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                                     <img src={"/phone_icon.png"}/>
                                 </Col>
                                 <Col flex={"auto"}>
-                                    <p className={"db"}>872 503 266</p>
+                                    <p className={"db"}>+34 872 503 266</p>
                                 </Col>
 
                             </Row>
-                            <a>mtribulietx@malaikaviatges.com</a>
+                            <Row className={"emails"}>
+                            <span>Montse Tribulietx: <a>mtribulietx@malaikaviatges.com </a></span>
+                            </Row>
 
                         </Col>
                     </Row>
@@ -160,13 +169,13 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
 
                             <div>
-                                <p className={"label"}>Correu electrónic</p>
+                                <p className={"label"}>Correu electrònic</p>
                                 <input style={(data && data['email']?.length <= 0) ? error : null} name={'email'} type={"text"}/>
                             </div>
 
 
                             <div>
-                                <p className={"label"}>Teléfon</p>
+                                <p className={"label"}>Telèfon</p>
                                 <input name={"telefono"} style={(data && data['telefono']?.length <= 0) ? error : null} name={'telefono'} type={"text"}/>
                             </div>
 
@@ -180,7 +189,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
                                 <Col span={16}>
                                     <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}} className={"conditions"}>
-                                        <input style={{margin: '1rem'}} name={'condiciones'} type={"checkbox"} required/><span className={"fs-16"}>Accepto condicions y <a target={"_blank"} href={"/politica-de-privacidad"}>avís legal </a></span>
+                                        <input style={{margin: '1rem'}} name={'condiciones'} type={"checkbox"} required/><span className={"fs-16"}>Accepto condicions i <a target={"_blank"} href={"/politica-de-privacidad"}>avís legal </a></span>
                                     </div>
                                     <button>Enviar</button>
                                 </Col>

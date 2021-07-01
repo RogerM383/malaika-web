@@ -38,7 +38,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
     useEffect(() => {
         if (dataVA) {
             const { nodes, pageInfo } = dataVA.viatgesdautor;
-            setPageInfo(pageInfo);
+            setPageInfo({...pageInfo});
             setViatgesAutor(viatgesAutor.concat(nodes));
         }
     },[dataVA]);
@@ -80,6 +80,18 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
 
     const t = [1,2,3,4,5];
+
+
+    const handlePage = (e) =>{
+        loadViatgesAutor({
+            variables: {
+                first: PER_PAGE * e,
+                 after: pageInfo.endCursor,
+    /*             last: null,
+                 before: null*/
+            }
+        })
+    }
 
     return (
         <div css={viatge_autor_style}>
@@ -163,18 +175,21 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                 }
 
+
+              {/*  <Pagination onChange={handlePage} defaultCurrent={1} total={50} />*/}
+
                 <div className={'navButons'} css={nav_buttons}>
                     {
                         pageInfo?.hasNextPage &&
-                        <button className={'next'} onClick={(e) => {
-                            loadPosts({
+                        <a className={'next'} onClick={(e) => {
+                            loadViatgesAutor({
                                 variables: {
                                     first: PER_PAGE, after: pageInfo.endCursor, last: null, before: null
                                 }
                             })
                         }}>
                             {'Carregar més viatges'}
-                        </button>
+                        </a>
                     }
                 </div>
 

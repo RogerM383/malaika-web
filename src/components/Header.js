@@ -28,7 +28,7 @@ const Header = ({img = true,title=false, children, ...props}) => {
                         </span>
 
                         <span className={"language"}>
-                            <span>Català</span> / <span>Castella</span>
+                            <span>Català</span> / <span>Castellà</span>
                         </span>
 
                     </div>

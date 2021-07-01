@@ -41,6 +41,10 @@ export const contacta_styles = (theme) => {
                 padding-right: 0.5rem;
             }
 
+            .emails{
+              span{display: block}
+            }
+
         }
 
         .block2 {
@@ -60,6 +64,10 @@ export const contacta_styles = (theme) => {
                 .label {
                     margin-bottom: 0.5rem;
                 }
+            }
+
+            .conditions{
+                font-family: Didot;
             }
 
         }

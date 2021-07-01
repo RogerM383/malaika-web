@@ -48,7 +48,7 @@ const Menu = ({img = true, children, ...props}) => {
                 });
             }
             if (menu && router.pathname === "/inici") {
-                menu.push({id: 'amics-museu', label: "AMICS", path: "/blog", image: "amics_museu.svg", submenu: []});
+                menu.push({id: 'amics-museu', label: "AMICS", path: "/blog", image: "amics_museu2.png", submenu: []});
             }
             setNavButtons(menu);
         router

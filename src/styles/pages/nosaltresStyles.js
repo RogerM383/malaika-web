@@ -9,6 +9,7 @@ export const nosaltres_styles = (theme) => {
             flex-direction: column;
             .item {
                 flex: 1;
+                text-align: justify;
 
                 .title {
                     font-family: ${theme.font.didot};

@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {home_styles} from "../styles/pages/homeStyles";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Card from "../../package/components/Card";
+
 import Image from "../../package/components/Image";
 import {card_viatge_autor_small, top_img_tagged_card} from "../styles/components/CardStyles";
 import Grid from "../components/Grid";
@@ -12,12 +12,13 @@ import {useLazyQuery, useQuery} from "@apollo/client";
 import {GET_PAGE_BY_URI, GET_POSTS, GET_VIATGES_AUTOR} from "../contexts/apollo/queries";
 import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 import {GET_VIATGES_DESTACATS} from "../contexts/apollo/queriesTest";
-import {Carousel, Col, Row} from "antd";
+import {Card, Carousel, Col, List, Row} from "antd";
 import 'antd/dist/antd.css';
 import {css} from "@emotion/react";
 import Menu from "../components/Menu";
 import HeaderInici from "../components/HeaderInici";
 import {grid_style} from "../styles/components/GridStyles";
+import {Meta} from "antd/lib/list/Item";
 
 
 const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats, content,page,...props}) => {
@@ -142,7 +143,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                     <h2>
                         <span>Viatges</span><span>d’Autor /</span>
                     </h2>
-                    <h5 className={'litle'}>Grups reduits</h5>
+                    <h5 className={'litle'}>Grups reduïts</h5>
                 </div>
                 {
                     descripcioviatgesdautor && descripcioviatgesdautor.descripcioViatgesDautor &&

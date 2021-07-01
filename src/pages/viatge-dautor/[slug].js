@@ -62,7 +62,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                                 </Col>
                                 <Col span={22}>
                                     {
-                                        vols.map((item)=><p>{item.datavol}</p>)
+                                        vols.map((item)=><span className={"vol"} >{item.datavol}</span>)
                                     }
                                 </Col>
                             </Row>
@@ -120,8 +120,8 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                             etapes.slice(0, (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : (etapes.length / 2)+1).map((item) => {
                                 return (
                                     <div css={card_itinerari}>
-                                        <p className={"etapa_title"}>{item.etapa.dia}</p>
-                                        <p className={"etapa_ubicacio"}>{item.etapa.ubicacio}</p>
+                                        <p className={"etapa_title"}>{item.etapa.dia}  <span className={"etapa_ubicacio"}>{item.etapa.ubicacio}</span></p>
+
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
 
                                     </div>)
@@ -137,8 +137,8 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                                 const number = etapes.length;
                                 return (
                                     <div css={ number !== i+1 ? card_itinerari : card_itinerari_finish}>
-                                        <p className={"etapa_title"}>{item.etapa?.dia}</p>
-                                        <p className={"etapa_ubicacio"}>{item?.etapa?.ubicacio}</p>
+                                        <p className={"etapa_title"}>{item.etapa?.dia} <span className={"etapa_ubicacio"}>{item?.etapa?.ubicacio}</span></p>
+
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
                                     </div>)
                             })

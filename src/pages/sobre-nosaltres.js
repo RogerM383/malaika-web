@@ -44,7 +44,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                 <MaxWidthContainer>
                     <Row>
                         <Col span={8}>
-                            <p className={"text"}>Viatjar per saber,per olorar la llum dels llocs; també, per ésser, per tenir memòria.</p>
+                            <p className={"text"}>Viatjar per saber, per olorar la llum dels llocs; també, per ésser, per tenir memòria.</p>
 
                         </Col>
                         <Col span={16}>

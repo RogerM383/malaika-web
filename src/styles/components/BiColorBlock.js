@@ -13,6 +13,7 @@ export const bicolor_style = (theme) => {
 
         .inclou{
             padding:2rem 0;
+            text-align: justify;
 
           ul{
             list-style: circle;

@@ -151,6 +151,8 @@ export const card_viatge_autor = (theme) => {
                             white-space: nowrap;
                         }
                     }
+
+
                 }
             }
 
@@ -511,14 +513,19 @@ export const card_itinerari = (theme) => {
     const style = css`
         position: relative;
         padding-left: 2rem;
+        text-align: justify;
 
              .etapa_title{
+
                 font-size:${theme.font.l};
                 font-weight:${theme.font.bold};
             }
 
           .etapa_ubicacio{
-            font-weight:${theme.font.medium};
+
+              font-weight:${theme.font.medium};
+              font-size:${theme.font.m};
+              text-align: left;
           }
 
         :after {

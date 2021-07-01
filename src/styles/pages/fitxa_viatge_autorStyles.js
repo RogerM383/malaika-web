@@ -30,6 +30,7 @@ export const viatge_fitxa = (theme) => {
             }
             .content{
               margin-bottom: 4rem;
+                text-align: justify;
 
             }
 
@@ -58,6 +59,13 @@ export const viatge_fitxa = (theme) => {
               p{
                 font-size:0.8rem ;
               }
+
+                .vol{
+
+                    display: block;
+                    line-height: 1.5;
+
+                }
             }
 
 

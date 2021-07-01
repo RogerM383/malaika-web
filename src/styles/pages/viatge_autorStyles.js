@@ -76,11 +76,12 @@ export const nav_buttons = (theme) => {
         width: 100%;
         justify-content: space-between;
         margin-bottom: ${theme.container.big_screen_top_padding};
-        & > button {
+        & > a {
             height: 3rem;
             line-height: 3rem;
             padding-left: .7rem;
             padding-right: 1rem;
+            font-size: ${theme.font.m};
             &.next {
               margin-left: auto;
               padding-left: 1rem;
