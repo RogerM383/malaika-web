@@ -20,7 +20,7 @@ export const bicolor_style = (theme) => {
             width: 90%;
 
             li{
-              margin-bottom: 0.6rem;
+             // margin-bottom: 0.6rem;
             }
 
           }
