@@ -10,6 +10,7 @@ export const politica_styles = (theme) => {
                 display: block;
                 margin:auto;
                 margin-bottom: 4rem;
+                cursor: pointer;
             }
             h1{
                 margin-bottom: 2rem;

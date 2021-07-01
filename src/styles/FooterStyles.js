@@ -58,6 +58,12 @@ export const footer_styles = (theme) => {
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+
+            .politicas{
+               a{
+                   color:#4A4A4A;
+               }
+            }
         }
 
         .social {

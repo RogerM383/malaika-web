@@ -50,7 +50,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col sm={24} md={8} lg={8}>
                         <div className={" last"}>
-                            <span><a href={"avis-legal"}>Avis legal</a> / <a href={"politica-privacitat"}>Política de privacitat</a></span>
+                            <span className={"politicas"}><a target={"_blank"} href={"avis-legal"}>Avis legal</a> / <a target={"_blank"} href={"politica-privacitat"}>Política de privacitat</a></span>
                             <div className={"social"}>
                                 <img src={"/facebook_icon.png"}/>
                                 <img src={"/instagram_icon.png"}/>

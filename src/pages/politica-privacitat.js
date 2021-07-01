@@ -9,9 +9,15 @@ import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 import {Col, Row} from "antd";
 import HeaderInici from "../components/HeaderInici";
 import {politica_styles} from "../styles/pages/politicaStyles";
+import {useRouter} from "next/router";
 
 
 const Page = ({title, content, ...props}) => {
+
+    const router = useRouter();
+    const goTo = (e) => {
+        router.push("inici")
+    }
 
     return (
         <div css={politica_styles}>
@@ -19,7 +25,7 @@ const Page = ({title, content, ...props}) => {
             {/*  <HeaderInici title={title} />*/}
 
             <MaxWidthContainer className={"block1"}>
-                 <Image src={"logoMalaika.png"}></Image>
+                <Image onClick={goTo} src={"logoMalaika.png"}></Image>
                 <h1>{title}</h1>
                 <div dangerouslySetInnerHTML={{__html: content}}/>
 
