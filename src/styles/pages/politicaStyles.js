@@ -5,6 +5,12 @@ export const politica_styles = (theme) => {
 
         padding-top: 5rem;
         .block1 {
+
+            > img {
+                display: block;
+                margin:auto;
+                margin-bottom: 4rem;
+            }
             h1{
                 margin-bottom: 2rem;
             }

@@ -11,23 +11,22 @@ import HeaderInici from "../components/HeaderInici";
 import {politica_styles} from "../styles/pages/politicaStyles";
 
 
-const Page = ({title,content,...props }) => {
+const PageAvisLegal = ({title, content, data, ...props}) => {
 
+
+    debugger
     return (
-        <div>
+        <div css={politica_styles}>
 
-          {/*  <HeaderInici title={title} />*/}
+            {/*  <HeaderInici title={title} />*/}
 
-
-            <MaxWidthContainer  className={"block1"}>
-              {/*  <Image src={"logo.png"}></Image>*/}
+            <MaxWidthContainer className={"block1"}>
+                <Image src={"logoMalaika.png"}></Image>
                 <h1>{title}</h1>
+                <div dangerouslySetInnerHTML={{__html: content}}/>
 
-                <p dangerouslySetInnerHTML={{__html: content}}/>
 
             </MaxWidthContainer>
-
-
 
             <Footer/>
         </div>
@@ -38,15 +37,16 @@ const Page = ({title,content,...props }) => {
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/politica-privacidad/' }})
-    .then((data) => {
-        console.log(data)
-        return data.data.pageBy;
-    });
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: {uri: '/avis-legal/'}})
+        .then((data) => {
+            console.log(data)
+            return data.data.pageBy;
+        });
     return {props: {...data}, revalidate: 10};
 }
 
-export default Page;
+export default PageAvisLegal
+;
 
 
 
