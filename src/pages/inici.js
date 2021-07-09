@@ -291,18 +291,6 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                             })
                                         }
 
-                                        {
-                                            novetats.nodes.map((item) => {
-                                                return(
-                                                    <>
-                                                        <div dangerouslySetInnerHTML={{__html: item.title}} className={"data_title"}/>
-                                                        <div dangerouslySetInnerHTML={{__html: item.content}} className={"data_content"}/>
-                                                    </>
-
-
-                                                )
-                                            })
-                                        }
 
 
                             {/*
