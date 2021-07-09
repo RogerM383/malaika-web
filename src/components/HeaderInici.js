@@ -34,6 +34,7 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
     const settings = {
         dots: true,
         infinite: true,
+        speed: 2000,
         //arrows: true
     };
 

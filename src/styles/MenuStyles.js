@@ -138,13 +138,13 @@ export const menu_styles = (theme) => {
             .amics{
 
                 border-top-right-radius: ${theme.header.menu.border_top_right_radius};
-               /* background-color: #4B4C4C;
+       /*         background-color: #4B4C4C;
                 border: 3px solid #4B4C4C;*/
 
-                background-color: black;
-                border: 3px solid black;
+                background-color: #0D0D0D;
+                border: 3px solid #0D0D0D;
 
-                padding:0;
+                padding:0!important;
 
                 img{
                     border-top-right-radius: ${theme.header.menu.border_top_right_radius};

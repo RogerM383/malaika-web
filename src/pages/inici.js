@@ -19,10 +19,13 @@ import Menu from "../components/Menu";
 import HeaderInici from "../components/HeaderInici";
 import {grid_style} from "../styles/components/GridStyles";
 import {Meta} from "antd/lib/list/Item";
+import {GET_NOVETATS} from "../contexts/apollo/queries/novetats";
 
 
-const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats, content,page,...props}) => {
+const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats,novetats,galeria, content:contenido,page,...props}) => {
 
+
+    debugger
 /*    if (page?.title === undefined) {
         return null
     }*/
@@ -101,11 +104,15 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
     const images =[featuredImage?.node?.mediaItemUrl,'/foto1.png'];
 
+    const images2 = galeria.galeriaImatges.map((image=> image.mediaItemUrl))
+
+    debugger
+
     return (
 
         <div css={home_styles}>
 
-           <HeaderInici title={title} img={images}/>
+           <HeaderInici title={title} img={images2}/>
 
             <MaxWidthContainer className={"block1"}>
 
@@ -130,13 +137,12 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                     </div>
                 }
 
-                {
-                    content &&
-                    <div className={"cita"}>
 
-                        <p dangerouslySetInnerHTML={{__html: content}}/>
+
+                    <div className={"cita"}>
+                        <div dangerouslySetInnerHTML={{__html: contenido }}/>
                     </div>
-                }
+
 
 
                 <div className={'title'}>
@@ -271,11 +277,43 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                 <Row gutter={[40, 40]}>
                                     <Col sm={24} md={5} lg={5} className={'fecha'}>28/01/2021</Col>
                                     <Col sm={24} md={19} lg={19} className={'data'}>
+
+                                        {
+                                            novetats.nodes.map((item) => {
+                                                return(
+                                                    <>
+                                                        <div dangerouslySetInnerHTML={{__html: item.title}} className={"data_title"}/>
+                                                        <div dangerouslySetInnerHTML={{__html: item.content}} className={"data_content"}/>
+                                                    </>
+
+
+                                                )
+                                            })
+                                        }
+
+                                        {
+                                            novetats.nodes.map((item) => {
+                                                return(
+                                                    <>
+                                                        <div dangerouslySetInnerHTML={{__html: item.title}} className={"data_title"}/>
+                                                        <div dangerouslySetInnerHTML={{__html: item.content}} className={"data_content"}/>
+                                                    </>
+
+
+                                                )
+                                            })
+                                        }
+
+
+                            {/*
                                         <p className={"data_title"}>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
                                         <p className={"data_content"}>La nova normativa britànica obliga a les persones que vulguin entrar al
                                             pais a la presentació del test PCR.
                                             <span className={"more"}> + informació</span>
                                         </p>
+                                        */}
+
+
                                     </Col>
                                 </Row>
 
@@ -334,9 +372,13 @@ export const getStaticProps = async (ctx) => {
             return data.data.pageBy;
         });
 
-    //console.log(data.data);
+    const novetats = await client.query({query: GET_NOVETATS})
+        .then((data) => {
+            return data.data.novetats;
+        });
 
-    return {props: {...page}, revalidate: 3600};
+
+    return {props: {...page,novetats}, revalidate: 3600};
 }
 
 export default Page;

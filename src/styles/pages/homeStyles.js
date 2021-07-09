@@ -6,13 +6,14 @@ export const home_styles = (theme) => {
 
         .block1 {
 
-            margin-top: 5.5rem;
+            margin-top: 0;
             padding-bottom: ${theme.container.vertical_padding};
 
             border-bottom: 1ps solif ${theme.colors.light_gray};
 
             .alert {
                 display: flex;
+                flex-wrap: wrap;
                 flex-direction: row;
                 margin-bottom: 5.2rem;
                 .head {
@@ -28,6 +29,17 @@ export const home_styles = (theme) => {
                         font-family: ${theme.font.quicksand};
                         font-size: ${theme.font.sm};
                     }
+                }
+
+                :after{
+                    flex-basis: 60%;
+                    display: block;
+                    height: 2px;
+                    background-color: red;
+                    content: "";
+                    border: 1px solid #E1E1E1;
+                    width: 80px;
+
                 }
             }
 
@@ -184,9 +196,15 @@ export const home_styles = (theme) => {
                     padding:2rem;
 
 
-                    p.data_title{
-
+                    .data_title{
+                      margin-bottom: 0.5rem;
                     }
+
+
+                    .data_content{
+                        margin-bottom: 1.5rem;
+                    }
+
 
                     .more{
                         color:${theme.colors.primary}

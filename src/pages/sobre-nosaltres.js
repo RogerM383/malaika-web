@@ -10,7 +10,7 @@ import {Col, Row} from "antd";
 import HeaderInici from "../components/HeaderInici";
 
 
-const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }) => {
+const Page = ({ id, title, uri, status, slug, content, featuredImage,bloc1,bloc2, ...props }) => {
 
     const elements = ['one', 'two'];
     return (
@@ -21,20 +21,15 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
             <MaxWidthContainer  className={"block1"}>
 
                 <div className={"item"}>
-                    <h2 className={"title"}>Som viatgeres</h2>
+                    <div dangerouslySetInnerHTML={{__html: bloc1.text1}} className={"title"}/>
+                {/*    <h2 className={"title"}>{bloc1.text1}</h2>*/}
                 </div>
 
                 <div className={"item"}>
-                    <p className={"fs-18 mbold pad"}>
-                        Ens agrada tant viatjar que el món ens queda petit. Cada viatge és una experiència vital i d'aprenentatge: les cultures, la seva gent, els paisatges, les olors, la llum. Tots hem sentit alguna vegada aquella felicitat difícil de traduir en paraules.
-                    </p>
-
+                    <div dangerouslySetInnerHTML={{__html: bloc1.text2}} className={"fs-18 mbold pad"}/>
                 </div>
                 <div className={"item"}>
-                    <p className={"fs-18 mbold pad"}>
-                        Això és el que intentem transmetre als nostres viatges, felicitat, i per aconseguir-ho hi posem tota la nostra passió i dedicació, perque cada viatge sigui una experiència única i irrepetible.
-
-                    </p>
+                    <div dangerouslySetInnerHTML={{__html: bloc1.text3}} className={"fs-18 mbold pad"}/>
                 </div>
 
             </MaxWidthContainer>
@@ -44,11 +39,10 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                 <MaxWidthContainer>
                     <Row>
                         <Col span={8}>
-                            <p className={"text"}>Viatjar per saber, per olorar la llum dels llocs; també, per ésser, per tenir memòria.</p>
-
+                            <div dangerouslySetInnerHTML={{__html: bloc2.textc1}} className={"text"}/>
                         </Col>
                         <Col span={16}>
-                            <Image src={"image_nosaltres.png"}/>
+                            <Image src={bloc2.imatgeNos.mediaItemUrl}/>
                         </Col>
                     </Row>
 

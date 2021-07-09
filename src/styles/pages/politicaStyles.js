@@ -14,10 +14,12 @@ export const politica_styles = (theme) => {
             }
             h1{
                 margin-bottom: 2rem;
+                font-size: 1.8rem;
             }
 
             h2{
                 margin-bottom: 1.5rem;
+                font-size: 1.4rem;
             }
         }
 

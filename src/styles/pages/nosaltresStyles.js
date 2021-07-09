@@ -9,15 +9,19 @@ export const nosaltres_styles = (theme) => {
             flex-direction: column;
             .item {
                 flex: 1;
-                text-align: justify;
+
 
                 .title {
                     font-family: ${theme.font.didot};
                     font-weight: ${theme.font.bold};
                     margin-right: 2rem;
                     margin-bottom: 2rem;
+                    font-size: 2rem;
+
                 }
-                p {
+
+                .pad {
+                    text-align: justify;
                     font-family: ${theme.font.quicksand};
                     font-size: 0.9rem;
                     padding-top: 1rem;
@@ -28,7 +32,7 @@ export const nosaltres_styles = (theme) => {
         .block2 {
             background-color: #F8F8F8;
 
-            p.text{
+            .text{
                 font-family: ${theme.font.didot};
                 font-weight: ${theme.font.bold};
                 font-size: ${theme.font.h4};

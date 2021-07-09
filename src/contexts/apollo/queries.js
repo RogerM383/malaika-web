@@ -49,6 +49,32 @@ export const GET_PAGE_BY_URI = gql`
                 descripcioNovetats
                 titolNovetats
             }
+            bloc2 {
+                textc1
+                imatgeNos {
+                    mediaItemUrl
+                    title
+                    uri
+                    slug
+                }
+                fieldGroupName
+            }
+            bloc1 {
+                fieldGroupName
+                text3
+                text2
+                text1
+            }
+            galeria {
+                galeriaImatges {
+                    id
+                    mediaItemUrl
+                    uri
+                    title
+                    slug
+                }
+                fieldGroupName
+            }
         }
     }
 `;

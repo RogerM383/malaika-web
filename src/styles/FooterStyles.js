@@ -6,9 +6,14 @@ export const footer_styles = (theme) => {
         padding: 2rem 0;
         font-size: ${theme.font.xs};
 
-        img{
-            max-height: 1.5rem;
-        }
+
+      .avasa_logo{
+        display: block;
+        max-height: 100px;
+        padding: 0 5px 5px 5px;
+
+      }
+
 
 
         .info_contact {
@@ -69,6 +74,10 @@ export const footer_styles = (theme) => {
         .social {
             display: flex;
             margin: 1rem 0;
+
+          img{
+            max-height: 1.5rem;
+          }
 
             img {
 
