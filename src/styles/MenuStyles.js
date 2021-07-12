@@ -251,7 +251,7 @@ export const menu_styles = (theme) => {
 
         ${theme.mq('tablet-landscape')} {
             .navbar {
-                max-width: 66%;
+                max-width: 85%;
                 overflow: initial;
                 .mobile {
                     position: absolute;
