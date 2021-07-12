@@ -224,7 +224,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                 <MaxWidthContainer className={'container'}>
 
-                    <h2 className={"title"}>Destacats /</h2>
+                    <h2 className={"title"}>Destinacions /</h2>
 
                     <Grid css={grid_style("300px")}>
                         {
