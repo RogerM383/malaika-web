@@ -337,8 +337,13 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                             </div>
 
                             <div>
-                                <input type={"text"} placeholder={"El teu email"}/>
+                                <input css={{margin:'0'}} type={"text"} placeholder={"El teu email"}/>
                                 <button>Subscriu-te</button>
+
+                                <div className={"conditions"}>
+                                    <input type={"checkbox"}/>
+                                    <p>Acepto las <a target={"_blank"} href={"avis-legal"}>condiciones</a> y la<a target={"_blank"} href={"/politica-privacitat"}> politica de privacidad</a></p>
+                                </div>
                             </div>
                         </Col>
                     </Row>

@@ -240,6 +240,19 @@ export const home_styles = (theme) => {
                 }
             }
 
+            .conditions{
+                display: flex;
+                align-items: center;
+                input, p{
+                    margin: 0;
+                    font-size: ${theme.font.sm};
+                }
+
+                input{
+                    margin-right: 0.5rem;
+                }
+            }
+
 
             button{
                 padding-left: 1rem;
