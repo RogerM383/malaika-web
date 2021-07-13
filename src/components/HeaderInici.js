@@ -91,7 +91,9 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
             <Carousel
                 {...settings}
                 autoplay
-                ref={ref => {console.log(ref); slider.current = ref; }}
+                ref={ref => {
+                 /*   console.log(ref);*/
+                    slider.current = ref; }}
                 dotPosition={'bottom'}
                 css={carrosusel}
                 effect="fade">
