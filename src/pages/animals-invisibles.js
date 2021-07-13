@@ -70,7 +70,7 @@ const AnimalsInvisiblesPage = ({title, uri, status, slug, featuredImage, notades
                 <div className={"block1"}>
 
 
-                    <Image className={"logo_animals"} src={'/animal-invisibles.png'}></Image>
+                    <a href={"http://animalesinvisibles.com/ca/"} target={"_blank"}><Image className={"logo_animals"} src={'/animal-invisibles.png'}></Image></a>
 
                     <h2 className={"title"}>Els nostres viatges /</h2>
 
