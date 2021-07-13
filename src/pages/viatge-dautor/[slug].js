@@ -14,12 +14,14 @@ import 'antd/dist/antd.css';
 import HeaderInici from "../../components/HeaderInici";
 
 
-const PageViatgeDautor = ({children, Campsviatge ,slug,title,uri,content,featuredImage, ...props}) => {
+const PageViatgeDautor = ({children,page, ...props}) => {
 
+    if(page?.title === undefined){
+        return null
+    }
 
-    debugger
-   /* const {Campsviatge,slug,title,uri,content,featuredImage} = page*/
-   // const{etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa} = Campsviatge
+    const {Campsviatge,slug,title,uri,content,featuredImage} = page
+    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa}=Campsviatge
 
     debugger
 
@@ -46,21 +48,21 @@ const PageViatgeDautor = ({children, Campsviatge ,slug,title,uri,content,feature
 
                     <Col  className={"right_column"}  sm={24} md={12}>
                         <div>
-                            <p>GRUP: {Campsviatge?.grup}</p>
-                            <span>PREU: {Campsviatge?.preu}</span>
-                            <span>Taxes d'aeroport: {Campsviatge?.taxes}</span>
-                            <span>Suplement hab. individual: {Campsviatge?.suplement}</span>
+                            <p>GRUP: {grup}</p>
+                            <span>PREU: {preu}</span>
+                            <span>Taxes d'aeroport: {taxes}</span>
+                            <span>Suplement hab. individual: {suplement}</span>
                         </div>
 
 
-                        {   Campsviatge?.vols &&
+                        {   vols &&
                             <Row className={"plane"}>
                                 <Col span={2}>
                                     <img className={"mapa"} src={"../plane_icon.png"}/>
                                 </Col>
                                 <Col span={22}>
                                     {
-                                        Campsviatge?.vols.map((item)=><span key={item.datavol} className={"vol"} >{item.datavol}</span>)
+                                        vols.map((item)=><span key={item.datavol} className={"vol"} >{item.datavol}</span>)
                                     }
                                 </Col>
                             </Row>
@@ -71,7 +73,7 @@ const PageViatgeDautor = ({children, Campsviatge ,slug,title,uri,content,feature
                         {/* DIFERENCIA CON DESTINACIONS*/}
                         <div className={"block_mapa"}>
                             <p className={"bold"}>ITINERARI</p>
-                            <Image className={"mapa"} src={Campsviatge?.mapa.mediaItemUrl}/>
+                            <Image className={"mapa"} src={mapa.mediaItemUrl}/>
                         </div>
 
 
@@ -84,7 +86,7 @@ const PageViatgeDautor = ({children, Campsviatge ,slug,title,uri,content,feature
 
 
             {
-                Campsviatge?.inclou &&
+                inclou &&
                 <div className={"block2"} css={bicolor_style}>
                     <MaxWidthContainer>
                         <Row>
@@ -92,7 +94,7 @@ const PageViatgeDautor = ({children, Campsviatge ,slug,title,uri,content,feature
 
                                 <div className={"inclou"}>
                                     <p className={"title"}>Inclou</p>
-                                    <p className={""} dangerouslySetInnerHTML={{__html: Campsviatge?.inclou}}/>
+                                    <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
                                 </div>
 
                             </Col>
@@ -100,7 +102,7 @@ const PageViatgeDautor = ({children, Campsviatge ,slug,title,uri,content,feature
                             <Col className={"right"} sm={24} md={12}>
                                 <div className={"inclou"}>
                                     <p className={"title"}>No inclou</p>
-                                    <p className={""} dangerouslySetInnerHTML={{__html: Campsviatge?.noInclou}}/>
+                                    <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
                                 </div>
                             </Col>
                         </Row>
@@ -115,7 +117,7 @@ const PageViatgeDautor = ({children, Campsviatge ,slug,title,uri,content,feature
                     <Col sm={24} md={12}>
                         {
 
-                            Campsviatge?.etapes.slice(0, ( Campsviatge?.etapes.length / 2) % 2 === 0 ?  Campsviatge?.etapes.length / 2 : (Campsviatge?.etapes.length / 2)+1).map((item) => {
+                            etapes.slice(0, (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : (etapes.length / 2)+1).map((item) => {
                                 debugger
                                 return (
                                     <div css={card_itinerari} key={item.etapa.titol}>
@@ -132,8 +134,8 @@ const PageViatgeDautor = ({children, Campsviatge ,slug,title,uri,content,feature
                     <Col sm={24} md={12} >
                         {
 
-                            Campsviatge?.etapes.slice( ( Campsviatge?.etapes.length / 2) % 2 === 0 ?  Campsviatge?.etapes.length / 2 : (( Campsviatge?.etapes.length / 2)+1)).map((item,i) => {
-                                const number =  Campsviatge?.etapes.length;
+                            etapes.slice( (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : ((etapes.length / 2)+1)).map((item,i) => {
+                                const number = etapes.length;
                                 return (
                                     <div css={ number !== i+1 ? card_itinerari : card_itinerari_finish} key={i}>
                                         <p className={"etapa_title"}>{item.etapa?.dia} <span className={"etapa_ubicacio"}>{item?.etapa?.ubicacio}</span></p>
@@ -180,7 +182,7 @@ export async function getStaticProps({ params,...ctx }) {
     const page = data.viatgedautor;
 
     console.log(data);
-    return { props:{...page}, revalidate: 3600};
+    return { props:{page}, revalidate: 3600};
 }
 
 
