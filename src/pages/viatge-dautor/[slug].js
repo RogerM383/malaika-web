@@ -182,7 +182,7 @@ export async function getStaticProps({ params,...ctx }) {
     const page = data.viatgedautor;
 
     console.log(data);
-    return { props:{page}, revalidate: 3600};
+    return { props:{page}, revalidate: 60};
 }
 
 

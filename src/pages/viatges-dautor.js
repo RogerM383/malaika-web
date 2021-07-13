@@ -267,7 +267,7 @@ export const getStaticProps = async (ctx) => {
         return data.data.pageBy;
     });
     console.log(data)
-    return {props: data, revalidate: 3600};
+    return {props: data, revalidate: 60};
 }
 
 export default Page;

@@ -135,7 +135,7 @@ export async function getStaticProps({params, ...ctx}) {
 
     const {error, data} = await client.query({query: GET_BLOG_ENTRY_BY_SLUG, variables: {slug: params.slug}});
     const page = data.postBy;
-    return {props: {...page}, revalidate: 3600};
+    return {props: {...page}, revalidate: 60};
 }
 
 

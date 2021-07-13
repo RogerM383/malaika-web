@@ -192,7 +192,7 @@ export async function getStaticProps({ params,...ctx }) {
     const destacats =data2.zona.viatges;
 
 
-    return { props:{page,destacats}, revalidate: 3600};
+    return { props:{page,destacats}, revalidate: 60};
 }
 
 export default PageViatgeDestinacio;
@@ -212,6 +212,6 @@ const destacats = await client.query({query: GET_VIATGES_DESTACATS})
     });
 
 
-return { props:{...page,...destacats}, revalidate: 3600};
+return { props:{...page,...destacats}, revalidate: 60};
 */
 

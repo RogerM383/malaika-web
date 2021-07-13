@@ -129,7 +129,7 @@ export async function getStaticProps({ params,...ctx }) {
 
 
     const page = data.pageBy;
-    return { props: {...page}, revalidate: 3600 };
+    return { props: {...page}, revalidate: 60 };
 }
 
 export default PageDestinacions;

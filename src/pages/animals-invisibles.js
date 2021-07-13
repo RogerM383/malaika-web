@@ -119,7 +119,7 @@ export const getStaticProps = async (ctx) => {
             return data.data.pageBy;
         });
 
-    return {props: {...page}, revalidate: 3600};
+    return {props: {...page}, revalidate: 60};
 }
 
 export default AnimalsInvisiblesPage;

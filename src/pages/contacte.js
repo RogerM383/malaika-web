@@ -222,7 +222,7 @@ export const getStaticProps = async (ctx) => {
         .then((data) => {
             return data.data.pageBy;
         });
-    return {props: data, revalidate: 3600};
+    return {props: data, revalidate: 60};
 }
 
 
