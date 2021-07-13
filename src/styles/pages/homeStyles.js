@@ -247,6 +247,9 @@ export const home_styles = (theme) => {
                     margin: 0;
                     font-size: ${theme.font.sm};
                 }
+                a,input[type='checkbox']{
+                    cursor: pointer;
+                }
 
                 input{
                     margin-right: 0.5rem;

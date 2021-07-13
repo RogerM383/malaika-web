@@ -342,7 +342,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                                 <div className={"conditions"}>
                                     <input type={"checkbox"}/>
-                                    <p>Accepto les <a target={"_blank"} href={"avis-legal"}>condicions</a> i la<a target={"_blank"} href={"/politica-privacitat"}> política de privacitat</a></p>
+                                    <p>He llegit i accepto la <a target={"_blank"} href={"avis-legal"}>política de privacitat</a></p>
                                 </div>
                             </div>
                         </Col>

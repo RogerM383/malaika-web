@@ -62,7 +62,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                                 </Col>
                                 <Col span={22}>
                                     {
-                                        vols.map((item)=><span className={"vol"} >{item.datavol}</span>)
+                                        vols.map((item)=><span key={item.datavol} className={"vol"} >{item.datavol}</span>)
                                     }
                                 </Col>
                             </Row>
@@ -118,8 +118,9 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                         {
 
                             etapes.slice(0, (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : (etapes.length / 2)+1).map((item) => {
+                                debugger
                                 return (
-                                    <div css={card_itinerari}>
+                                    <div css={card_itinerari} key={item.etapa.titol}>
                                         <p className={"etapa_title"}>{item.etapa.dia}  <span className={"etapa_ubicacio"}>{item.etapa.ubicacio}</span></p>
 
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
@@ -136,7 +137,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                             etapes.slice( (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : ((etapes.length / 2)+1)).map((item,i) => {
                                 const number = etapes.length;
                                 return (
-                                    <div css={ number !== i+1 ? card_itinerari : card_itinerari_finish}>
+                                    <div css={ number !== i+1 ? card_itinerari : card_itinerari_finish} key={i}>
                                         <p className={"etapa_title"}>{item.etapa?.dia} <span className={"etapa_ubicacio"}>{item?.etapa?.ubicacio}</span></p>
 
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>

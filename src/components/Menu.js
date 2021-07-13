@@ -76,8 +76,8 @@ const Menu = ({img = true, children, ...props}) => {
         const offset = window.scrollY;
         const point_sticky = window.innerHeight;
         setSticky(offset + nav.current.getBoundingClientRect().height > point_sticky);
-        console.log("offset" + offset)
-        console.log("point sticky" + point_sticky)
+      /*  console.log("offset" + offset)
+        console.log("point sticky" + point_sticky)*/
         //setMaxMenuWidth(calcMaxMenuWidth);
     }
 

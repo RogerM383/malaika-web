@@ -24,7 +24,7 @@ export const nosaltres_styles = (theme) => {
                     text-align: justify;
                     font-family: ${theme.font.quicksand};
                     font-size: 0.9rem;
-                    padding-top: 1rem;
+                    padding-top: 0.2rem;
                 }
             }
         }

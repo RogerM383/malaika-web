@@ -51,14 +51,15 @@ export const global = (theme) => {
 
         @font-face {
             font-family: 'Didot';
-            src: local('Didot'), url('./fonts/didot/Didot Regular.ttf') format('truetype');
+            src: local('Didot'), url('/fonts/didot/Didot Regular.ttf') format('truetype');
+          //  src: local(Didot), url('./fonts/didot/Didot Regular.ttf') format('truetype');
         }
 
         @font-face {
             font-family: 'Quicksand';
-            src: local('Quicksand'), url('./fonts/quicksand/Quicksand-Regular.ttf') format('truetype');
+            src: local('Quicksand'), url('/fonts/quicksand/Quicksand-Regular.ttf') format('truetype');
+            //src: local(Quicksand), url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap') ;
         }
-
         * {
             box-sizing: border-box;
             border: 1px solid black;

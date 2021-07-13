@@ -67,7 +67,15 @@ export const contacta_styles = (theme) => {
             }
 
             .conditions{
+
+              input{
+                margin:  1rem 1rem 1rem 0;
+              }
                 font-family: Didot;
+                display: flex;
+                  flex-direction: row;
+                  align-items: center;
+
             }
 
         }

@@ -49,7 +49,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col sm={24} md={6} lg={6}>
                         <div className={"avasa"}>
-                            <a target={"_blank"} href={"https://www.grupoavasa.com/"}><Image className={"avasa_logo"} src={"avasa-logo.jpg"}></Image> </a>
+                            <a target={"_blank"} href={"https://www.grupoavasa.com/"}><Image className={"avasa_logo"} src={"/avasa-logo.jpg"}></Image> </a>
                         </div>
 
                     </Col>
@@ -57,7 +57,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col sm={24} md={6} lg={6}>
                         <div className={" last"}>
-                            <span className={"politicas"}><a target={"_blank"} href={"avis-legal"}>Avis legal</a> / <a target={"_blank"} href={"politica-privacitat"}>Política de privacitat</a></span>
+                            <span className={"politicas"}><a target={"_blank"} href={"avis-legal"}>Avís legal</a> / <a target={"_blank"} href={"condicions-generals"}>Condicions generals</a></span>
                             <div className={"social"}>
                                 <a target={"_blank"} href={"https://www.facebook.com/malaikaviatges"}><img src={"/facebook_icon.png"}/></a>
                                 <a target={"_blank"} href={"https://www.instagram.com/malaikaviatges/"}><img src={"/instagram_icon.png"}/></a>

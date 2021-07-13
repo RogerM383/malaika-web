@@ -187,10 +187,12 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
                             <Row>
 
-                                <Col span={16}>
-                                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}} className={"conditions"}>
-                                        <input style={{margin: '1rem'}} name={'condiciones'} type={"checkbox"} required/><span className={"fs-16"}>Accepto condicions i <a target={"_blank"} href={"/politica-de-privacidad"}>avís legal </a></span>
+                                <Col span={24}>
+                                    <div  className={"conditions"}>
+                                        <input name={'condiciones'} type={"checkbox"} required/>
+                                        <span className={"fs-16"}>He llegit i accepto la <a target={"_blank"} href={"avis-legal"}>política de privacitat</a></span>
                                     </div>
+
                                     <button>Enviar</button>
                                 </Col>
                             </Row>
