@@ -11,7 +11,7 @@ export const nosaltres_styles = (theme) => {
                 flex: 1;
 
 
-                .title {
+                .title p {
                     font-family: ${theme.font.didot};
                     font-weight: ${theme.font.bold};
                     margin-right: 2rem;
@@ -32,7 +32,7 @@ export const nosaltres_styles = (theme) => {
         .block2 {
             background-color: #F8F8F8;
 
-            .text{
+            .text p {
                 font-family: ${theme.font.didot};
                 font-weight: ${theme.font.bold};
                 font-size: ${theme.font.h4};
