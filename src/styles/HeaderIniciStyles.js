@@ -56,7 +56,7 @@ export const header_inici_styles = (theme) => {
            // transform: translateX(50%);
             z-index:1;
            // width: 75%;
-            font-size: ${theme.font.h1};
+            font-size: 3rem;
             font-family: ${theme.font.didot};
             font-weight: ${theme.font.bold};
             color: ${theme.colors.white};

@@ -38,7 +38,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     const router = useRouter();
 
 
-    const PER_PAGE = 4;
+    const PER_PAGE = 6;
     const [loadViatgesAutor, {loading: loadingVA, error: errorVA, data: dataVA}] = useLazyQuery(GET_VIATGES_AUTOR, {variables: {first: PER_PAGE}});
 
     const [loadViatgesDestacats, {loading: loadingVD, error: errorVD, data: dataVD}] = useLazyQuery(GET_VIATGES_DESTACATS,{variables:{first:16}});
@@ -153,7 +153,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                 </div>
                 {
                     descripcioviatgesdautor && descripcioviatgesdautor.descripcioViatgesDautor &&
-                    <div css={{width: '60%'}} className={"subtitle fs-16 bold didot"}
+                    <div css={{width: '60%'}} className={"subtitle fs-25 bold didot"}
                          dangerouslySetInnerHTML={{__html: descripcioviatgesdautor.descripcioViatgesDautor}}/>
                 }
 

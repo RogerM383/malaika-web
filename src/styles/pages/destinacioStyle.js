@@ -11,6 +11,7 @@ export const destinacions_styles = (theme) => {
                 p{
                     font-family: ${theme.font.didot};
                     font-weight: ${theme.font.medium};
+                    font-size:${theme.font.h5};
                 }
 
                 display: flex;

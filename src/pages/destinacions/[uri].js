@@ -56,7 +56,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
     return (
         <div css={destinacions_styles}>
 
-            <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
+            <HeaderInici title={title?.toUpperCase()} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer className={"block1"}>
 

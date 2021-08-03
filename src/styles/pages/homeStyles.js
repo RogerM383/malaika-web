@@ -79,7 +79,7 @@ export const home_styles = (theme) => {
                 p {
                     font-family: ${theme.font.didot};
                     font-weight: ${theme.font.bold};
-                    font-size: ${theme.font.sm};
+                    font-size: 1.25rem;
                 }
             }
 
