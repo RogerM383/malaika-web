@@ -16,9 +16,9 @@ const Footer = ({img = true, children, ...props}) => {
             <div css={footer_styles}>
                 <p className={"info_contact fs-14 sbold"}>Informació de contacte </p>
 
-                <Row gutter={[24, 24]} justify={"space-between"}>
+                <Row gutter={[10, 40]} justify={"space-between"}>
 
-                    <Col sm={24} md={6} lg={6}>
+                    <Col  xs={24} sm={24} md={12} lg={6}>
                         <div className={"contact"}>
                             <span className={"address"}>Carrer de París, 209, Pral 2a</span>
                             <span className={"address"}>08008 BARCELONA</span>
@@ -33,8 +33,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     </Col>
 
-
-                    <Col sm={24} md={6} lg={6}>
+                    <Col xs={24} sm={24} md={12} lg={6}>
                         <div className={"contact"}>
                             <span  className={"address"}>Camí dels Horts, 8</span>
                             <span  className={"address"}>17124 Llofriu, Girona</span>
@@ -47,15 +46,15 @@ const Footer = ({img = true, children, ...props}) => {
                         </div>
                     </Col>
 
-                    <Col sm={24} md={6} lg={6}>
+                    <Col xs={24} sm={24} md={12} lg={6}>
                         <div className={"avasa"}>
+                            <a target={"_blank"} href={"http://locosporviajar.org/"}><Image className={"avasa_logo"} src={"/locos-por-viajar.jpg"}></Image> </a>
                             <a target={"_blank"} href={"https://www.grupoavasa.com/"}><Image className={"avasa_logo"} src={"/avasa-logo.jpg"}></Image> </a>
                         </div>
 
                     </Col>
 
-
-                    <Col sm={24} md={6} lg={6}>
+                    <Col xs={24} sm={24} md={12} lg={6}>
                         <div className={" last"}>
                             <span className={"politicas"}><a target={"_blank"} href={"avis-legal"}>Avís legal</a> / <a target={"_blank"} href={"condicions-generals"}>Condicions generals</a></span>
                             <div className={"social"}>

@@ -3,7 +3,9 @@ import {css} from '@emotion/react';
 export const footer_styles = (theme) => {
     const style = css`
 
-        padding: 2rem 0;
+        padding-top: 2rem ;
+        padding-bottom: 1rem ;
+
         font-size: ${theme.font.xs};
 
 
@@ -62,9 +64,10 @@ export const footer_styles = (theme) => {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
+          // height: 100%;
 
             .politicas{
+            margin-bottom: 1rem;
                a{
                    color:#4A4A4A;
                }
@@ -88,7 +91,7 @@ export const footer_styles = (theme) => {
         }
 
         ${theme.mq('tablet-portrait')} {
-            padding: 5rem 0;
+            padding-top: 5rem ;
         }
 
 
