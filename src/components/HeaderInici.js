@@ -9,7 +9,7 @@ import {css} from "@emotion/react";
 import {header_inici_styles} from "../styles/HeaderIniciStyles";
 
 
-const HeaderInici = ({img , title = false, children, ...props}) => {
+const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}) => {
 
 
 
@@ -31,11 +31,16 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
         return [style];
     }
 
+    const [slideNum, setSlideNum] = useState(0);
+
     const settings = {
         dots: true,
         infinite: true,
         speed: 2000,
         //arrows: true
+        beforeChange: (current, next) =>{
+        setSlideNum(next)
+        }
     };
 
     const slider = useRef();
@@ -59,11 +64,11 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
                                 <Col span={12} className={"contact"}>
                                     <Image className={"icons"} src={"/phone_icon.png"}/>
                                     <a className={"phone"} href="tel:34930011176">+34 930 011 176</a>
-                                    <Image  className={"icons"} src={"/mail_icon.png"}/>
+                                   <a href="mailto:aayats@malaikaviatges.com"> <Image  className={"icons"} src={"/mail_icon.png"}/></a>
                                 </Col>
 
                                 <Col span={12} className={"language"}>
-                                    <span>Català</span> / <span>Castellà</span>
+                                    <span>Català</span> / <span>Castellà  {slideNum}</span>
                                 </Col>
 
                             </Row>
@@ -74,6 +79,11 @@ const HeaderInici = ({img , title = false, children, ...props}) => {
 
                 <div className={"title"}>
                     {title}
+                    {
+                        fraseInici &&
+                        <div className={"subtitle"} dangerouslySetInnerHTML={{__html: fraseInici[slideNum] }} />
+                    }
+
                 </div>
             </MaxWidthContainer>
 {/*

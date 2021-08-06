@@ -77,7 +77,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     }
 
 
-    const settings = {
+/*    const settings = {
         dots: true,
         infinite: true,
         arrows: true,
@@ -91,8 +91,6 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
         const style = css`
             .slick-slide{
                 padding:1rem;
-
-
             }
 
         `;
@@ -103,8 +101,10 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     const [slide, setSlide] = useState(0);
 
     const images =[featuredImage?.node?.mediaItemUrl,'/foto1.png'];
+*/
+    const images2 = galeria.slider.map((image=> image.slide.image.mediaItemUrl))
 
-    const images2 = galeria.galeriaImatges.map((image=> image.mediaItemUrl))
+   const  fraseInici = galeria.slider.map((image=> image.slide.text))
 
     debugger
 
@@ -112,7 +112,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
         <div css={home_styles}>
 
-           <HeaderInici title={title} img={images2}/>
+           <HeaderInici title={title} fraseInici={fraseInici} img={images2}/>
 
             <MaxWidthContainer className={"block1"}>
 

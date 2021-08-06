@@ -4,7 +4,7 @@ export const nosaltres_styles = (theme) => {
     const style = css`
 
         .block1 {
-            padding: 7.5rem ${theme.container.horizontal_padding};
+            padding-bottom: 7.5rem ;
             display: flex;
             flex-direction: column;
             .item {

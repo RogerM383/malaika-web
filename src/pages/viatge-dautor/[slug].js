@@ -9,7 +9,7 @@ import MaxWidthContainer from "../../components/MaxWidthContainer";
 import {bicolor_style} from "../../styles/components/BiColorBlock";
 import {initializeApollo} from "../../contexts/apollo/ApolloContext";
 import {GET_VIATGE_BY_SLUG, GET_VIATGE_DAUTOR_BY_SLUG} from "../../contexts/apollo/queriesTest";
-import { Row, Col } from 'antd';
+import {Row, Col, Table} from 'antd';
 import 'antd/dist/antd.css';
 import HeaderInici from "../../components/HeaderInici";
 
@@ -61,9 +61,29 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                                     <img className={"mapa"} src={"../plane_icon.png"}/>
                                 </Col>
                                 <Col span={22}>
+
+                                    <Row gutter={[10,10]}>
+
+
                                     {
-                                        vols.map((item)=><span key={item.datavol} className={"vol"} >{item.datavol}</span>)
+                                        vols.map((item)=>{
+                                            return(
+                                                <>
+                                                    <Col xs={10} sm={12} md={12} lg={10} ><span key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
+                                                    <Col xs={4} sm={12} md={12} lg={4}  ><span key={item.vol.datavol} className={"vol"} >{item.vol.datavol}</span></Col>
+                                                    <Col xs={4} sm={12} md={12} lg={4} ><span key={item.vol.numvol} className={"vol"} >{item.vol.numvol}</span></Col>
+                                                    <Col xs={6} sm={12} md={12} lg={6} ><span key={item.vol.horari} className={"vol vol-right"} >{item.vol.horari}</span></Col>
+
+                                                </>
+
+
+                                                )
+
+                                        })
+
                                     }
+
+                                    </Row>
                                 </Col>
                             </Row>
                         }

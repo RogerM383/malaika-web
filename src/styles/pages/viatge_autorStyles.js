@@ -4,7 +4,7 @@ export const viatge_autor_style = (theme) => {
     const style = css`
 
         .container {
-            padding: 8.5rem ${theme.container.horizontal_padding} 0;
+            //padding: 8.5rem ${theme.container.horizontal_padding} 0;
             margin-bottom: 3rem;
             .info {
                 width: 100%;

@@ -71,7 +71,7 @@ const AnimalsInvisiblesPage = ({title, uri, status, slug, featuredImage, notades
 
 
                     <a href={"http://animalesinvisibles.com/ca/"} target={"_blank"}><Image className={"logo_animals"} src={'/animal-invisibles.png'}></Image></a>
-
+{/*
                     <h2 className={"title"}>Els nostres viatges /</h2>
 
                     <Grid css={grid_style("300px")}>
@@ -101,6 +101,8 @@ const AnimalsInvisiblesPage = ({title, uri, status, slug, featuredImage, notades
                         </button>
                         <button> ></button>
                     </div>
+                    */}
+
 
                 </div>
             </MaxWidthContainer>

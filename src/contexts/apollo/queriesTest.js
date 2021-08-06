@@ -118,6 +118,13 @@ export const GET_VIATGE_DAUTOR_BY_SLUG = gql`
                 }
                 vols {
                     datavol
+                    vol {
+                        ubicacio
+                        numvol
+                        datavol
+                        horari
+                        fieldGroupName
+                    }
                 }
 
                 mapa {

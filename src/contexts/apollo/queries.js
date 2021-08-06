@@ -73,6 +73,19 @@ export const GET_PAGE_BY_URI = gql`
                     title
                     slug
                 }
+
+                slider {
+                    slide {
+                        text
+                        title
+                        image {
+                            mediaItemUrl
+                            title
+                        }
+                    }
+                }
+
+
                 fieldGroupName
             }
         }

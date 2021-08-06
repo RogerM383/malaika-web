@@ -72,6 +72,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
         const style = css`
             .slick-dots{
                 display: none!important;
+
             }
 
         `;
@@ -80,7 +81,6 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
 
     const t = [1,2,3,4,5];
-
 
     const handlePage = (e) =>{
         loadViatgesAutor({
@@ -205,6 +205,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                     <div className={"info"}>
                         <Carousel {...settings}
+                                  adaptiveHeight={true}
                                   css={carrosusel}
                                    ref={ref => {console.log(ref); slider.current = ref; }} >
                             {
@@ -225,7 +226,10 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                                     <h2 className={"title"}>{title}</h2>
                                                     <div className={'text'} dangerouslySetInnerHTML={{__html: content}}/>
                                                 </div>
+                                                {image?.node?.mediaItemUrl &&
                                                 <Image alt={image?.altText} src={image?.node?.mediaItemUrl}/>
+                                                }
+
                                                 <p css={{float: 'right'}}></p>
                                             </div>
                                         </div>

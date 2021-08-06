@@ -2,8 +2,9 @@ import {css} from '@emotion/react';
 
 export const destinacions_styles = (theme) => {
     const style = css`
+
         .block1 {
-            padding: 5rem ${theme.container.horizontal_padding} 0;
+           // padding: 3rem ${theme.container.horizontal_padding} 0;
 
 
 

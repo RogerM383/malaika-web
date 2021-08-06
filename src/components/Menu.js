@@ -48,7 +48,7 @@ const Menu = ({img = true, children, ...props}) => {
                 });
             }
             if (menu && router.pathname === "/inici") {
-                menu.push({id: 'amics-museu', label: "AMICS", path: "/blog", image: "amics-mnac.png", submenu: []});
+                menu.push({id: 'amics-museu', label: "AMICS", path: "https://reservesmnac.malaikaviatges.com/", image: "amics-mnac.png", submenu: []});
             }
             setNavButtons(menu);
         router

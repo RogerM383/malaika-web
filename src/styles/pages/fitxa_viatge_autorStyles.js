@@ -29,7 +29,8 @@ export const viatge_fitxa = (theme) => {
               padding-bottom: 4rem;
             }
             .content{
-              margin-bottom: 4rem;
+                font-size: 1.1rem;
+                 margin-bottom: 4rem;
                 text-align: justify;
 
             }
@@ -57,15 +58,39 @@ export const viatge_fitxa = (theme) => {
 
             .plane{
               p{
-                font-size:0.8rem ;
+                font-size:0.6rem ;
               }
 
-                .vol{
+            .vol{
 
-                    display: block;
-                    line-height: 1.5;
+                font-size: 1rem;
+                display: block;
+                line-height: 1.5;
+             // white-space: nowrap;
 
+            }
+
+                .vol-right{
+
+                    //white-space: nowrap;
                 }
+
+                .plane-table{
+                    width: 100%;
+                   // max-width: 500px ;
+                    text-align: left;
+                    white-space: nowrap;
+
+              /*      th{
+                        width: 20%;
+                    }*/
+
+                    .last{
+                        text-align: right;
+                    }
+                }
+
+
             }
 
 
@@ -144,6 +169,11 @@ export const viatge_fitxa = (theme) => {
                 }
                 .right_column{
                     padding-left: 4rem;
+                    .plane{
+                        p{
+                            font-size:0.8rem ;
+                        }
+
                 }
             }
 

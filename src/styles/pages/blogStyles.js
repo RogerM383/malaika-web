@@ -5,7 +5,7 @@ export const blog_styles = (theme) => {
 
 
         .block1{
-            padding-top: 4rem;
+           // padding-top: 4rem;
 
             .left_column{}
             .right_column{
