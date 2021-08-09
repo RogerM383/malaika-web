@@ -63,10 +63,14 @@ export const header_inici_styles = (theme) => {
             pointer-events: none;
 
             .subtitle{
+              width: 80%;
+              p, i, a, span{
                 font-size: 2rem;
-                width: 80%;
                 font-weight: ${theme.font.medium};
                 font-family: ${theme.font.didot};
+              }
+
+
 
           /*      p, i, span{
                     font-family: ${theme.font.quicksand}!important;
