@@ -2,8 +2,8 @@ import {gql} from "@apollo/client";
 
 
 export const GET_BLOG_ENTRYS= gql`
-    query getBlogEntrys {
-        posts {
+    query getBlogEntrys($where:LanguageCodeFilterEnum) {
+        posts(where:{language:$where}) {
             nodes {
                 excerpt
                 content

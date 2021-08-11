@@ -53,9 +53,6 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
 
     const switchLanguage = (checked) => (e) => {
 
-        language
-        debugger
-
         if(language.pageTranslation === null){
             router.push("/inici")
         }
@@ -90,7 +87,7 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
 
                                 <Col span={12} className={"language"}>
                                     <span onClick={switchLanguage("CA")} >Català</span> / <span onClick={switchLanguage("ES")}>Castellà </span>
-                                   <p>{language.language}</p>
+                                 {/*  <p>{language.language}</p>*/}
                                       {/*  <Switch  checkedChildren="Català" unCheckedChildren="Castellano" checked={language.language === "CA"}  onChange={switchLanguage} />*/}
                                 </Col>
 

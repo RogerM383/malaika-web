@@ -21,15 +21,25 @@ import {LaunguageContext} from "../../contexts/LanguageContext";
 
 const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content, date, ...props}) => {
 
-
+    debugger
     const router = useRouter();
 
     const {language,setLanguage} = useContext(LaunguageContext)
     useEffect(() => {
+
+
         setLanguage({
-            language:props?.language?.code ,
-            pageTranslation: "inici"
+            language:"CA",
+            pageTranslation:"/inici"
         })
+
+/*
+        setLanguage({
+            language:"CA",
+            pageTranslation: "destinacions/"+props.translations[0].slug
+            /!*    props.translations.length >= 1 ?
+                "destinacions/"+props.translations[0].slug : null*!/
+        })*/
     }, []);
 
 
@@ -39,7 +49,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
 
 
     /***********************************************************************/
-    const [loadViatges, { loading: loadingVD, error: errorVD, data }] = useLazyQuery(GET_VIATGES_ZONA,{variables: {slug,first:2}});
+    const [loadViatges, { loading: loadingVD, error: errorVD, data }] = useLazyQuery(GET_VIATGES_ZONA,{variables: {slug:slug,first:2}});
 
     useEffect(() => {
         if(slug)
@@ -88,7 +98,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
                                             <span className={"title"}>{item.title}</span>
                                             <span  className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
                                             <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
-                                            <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
+                                            <span className={"more_info"}>Más Información <span className={"arrow"}>&#8594;</span>	</span>
                                         </div>
                                     </div>
                                 </Col>
@@ -114,7 +124,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
 
 export async function getStaticPaths() {
     const client = initializeApollo();
-    const {error, data} =  await client.query({ query: GET_ZONED_PAGES });
+/*    const {error, data} =  await client.query({ query: GET_ZONED_PAGES });
     const paths = data.terms.nodes.map( (node) => {
         let term = node.slug;
         let aux;
@@ -126,7 +136,16 @@ export async function getStaticPaths() {
         return aux;
     });
 
-    return { paths, fallback: true }
+    return { paths, fallback: true }*/
+
+
+    return {
+        paths: [
+            { params: { uri:"asia/" } } // See the "paths" section below
+        ],
+        fallback: true // See the "fallback" section below
+    };
+
 }
 
 export async function getStaticProps({ params,...ctx }) {

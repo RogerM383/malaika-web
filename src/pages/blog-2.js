@@ -26,10 +26,8 @@ const Page = ({children, ...props}) => {
     const {language,setLanguage} = useContext(LaunguageContext);
     useEffect(() => {
         setLanguage({language:props?.language?.code,
-            pageTranslation:"blog-2"})
+            pageTranslation:"blog"})
     }, []);
-
-
 
     const goTo = (slug) => (e) =>{
         router.push(slug)
@@ -43,8 +41,8 @@ const Page = ({children, ...props}) => {
     const [recentPost, setRecentPosts] = useState([]);
 
     useEffect(() => {
-        loadPosts({variables: {where:"CA"}});
-        loadRecentPosts({variables: {where:"CA"}});
+        loadPosts({variables: {where:"ES"}});
+        loadRecentPosts({variables: {where:"ES"}});
     }, []);
 
     useEffect(() => {
@@ -77,7 +75,7 @@ const Page = ({children, ...props}) => {
                                     debugger
                                     const{content,title,slug,featuredImage,date,excerpt} = element;
                                     return(
-                                        <div  onClick={goTo("/blog/"+slug)} css={card_blog} >
+                                        <div  onClick={goTo("/blog-2/"+slug)} css={card_blog} >
                                             <span><Image  src={featuredImage?.node?.mediaItemUrl}/></span>
                                             <p>{moment(date).format('DD-MM-YYYY')}</p>
                                             <p className={"title_entry"}>{title}</p>
@@ -93,16 +91,16 @@ const Page = ({children, ...props}) => {
                         </Col>
 
                         <Col className={"right_column recent"} sm={24} md={8} lg={10}  >
-                            <input className={"search_input"} placeholder={"cercar..."} type={"text"}/>
+                            <input className={"search_input"} placeholder={"buscar..."} type={"text"}/>
 
                             <div >
-                                <p className={"recent_post"}>Articles recents</p>
+                                <p className={"recent_post"}>Articulos recientes</p>
 
                                 {
                                     recentPost.map((element)=>{
                                         const{content,title,slug,featuredImage,date} = element;
                                         return(
-                                            <Row gutter={[20]} onClick={goTo("/blog/"+slug)} css={card_blog_thumbnail}>
+                                            <Row gutter={[20]} onClick={goTo("/blog-2/"+slug)} css={card_blog_thumbnail}>
                                                 <Col span={8}><Image  src={featuredImage?.node?.mediaItemUrl}/></Col>
                                                 <Col span={16}>
                                                     <span className={"title_entry"}>{title}</span>
@@ -136,13 +134,12 @@ const Page = ({children, ...props}) => {
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog/' }})
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog-2/' }})
         .then((data) => {
             return data.data.pageBy;
         });
     return {props: data, revalidate: 60};
 }
-
 
 
 export default Page;

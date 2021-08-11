@@ -42,10 +42,9 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
     const PER_PAGE = 6;
     const LANG = 'CA';
+
     const [loadViatgesAutor, {loading: loadingVA, error: errorVA, data: dataVA}] = useLazyQuery(GET_VIATGES_AUTOR);
-
     const [loadViatgesDestacats, {loading: loadingVD, error: errorVD, data: dataVD}] = useLazyQuery(GET_VIATGES_DESTACATS);
-
 
     const [viatgesAutor, setViatgesAutor] = useState([]);
     const [viatgesDestacats, setViatgesDestacats] = useState([]);
