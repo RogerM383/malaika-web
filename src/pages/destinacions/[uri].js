@@ -31,7 +31,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage,translati
 
         setLanguage({
         language:"ES",
-        pageTranslation:"/inici"
+        pageTranslation:"inici"
     })
 
 /*            setLanguage({
