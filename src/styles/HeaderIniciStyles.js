@@ -5,6 +5,25 @@ export const header_inici_styles = (theme) => {
 
         position: relative;
 
+        .ant-switch{
+            background-color: rgba(0, 0, 0, 0.85);
+
+        }
+
+        .ant-switch-checked {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+        .ant-switch{
+            //padding: 1rem;
+        }
+
+        .ant-switch-inner{
+            font-size: 1rem;
+           // display: block;
+            //margin: auto;
+
+        }
+
         .topRow{
             padding:2rem 0;
             position: absolute;
@@ -19,6 +38,10 @@ export const header_inici_styles = (theme) => {
                 margin-top: 1rem;
                 .phone{
                     padding:0 0.5rem;
+                }
+
+                > span{
+                    cursor: pointer;
                 }
 
 

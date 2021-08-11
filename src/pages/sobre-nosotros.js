@@ -16,12 +16,9 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage,bloc1,bloc2
     const elements = ['one', 'two'];
     const {language,setLanguage} = useContext(LaunguageContext);
 
-
     useEffect(() => {
         setLanguage({language:props?.language?.code,pageTranslation:props.translations[0].slug})
     }, []);
-
-
 
     return (
         <div css={nosaltres_styles}>
@@ -70,7 +67,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage,bloc1,bloc2
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/sobre-nosaltres/' }})
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/sobre-nosotros/' }})
     .then((data) => {
         return data.data.pageBy;
     });

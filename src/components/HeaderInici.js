@@ -4,9 +4,10 @@ import {header_styles} from "../styles/HeaderStyles";
 import Image from "../../package/components/Image";
 import Menu from "./Menu";
 import MaxWidthContainer from "./MaxWidthContainer";
-import {Carousel, Col, InputNumber, Row} from "antd";
+import {Carousel, Col, InputNumber, Row, Switch} from "antd";
 import {css} from "@emotion/react";
 import {header_inici_styles} from "../styles/HeaderIniciStyles";
+import {LaunguageContext} from "../contexts/LanguageContext";
 
 
 const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}) => {
@@ -14,6 +15,8 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
 
 
     const router = useRouter();
+
+
 
     const carrosusel = (theme) => {
         const style = css`
@@ -46,6 +49,24 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
     const slider = useRef();
     const [slide, setSlide] = useState(0);
 
+    const {language,setLanguage} = useContext(LaunguageContext)
+
+    const switchLanguage = (checked) => (e) => {
+
+        language
+        debugger
+
+        if(language.pageTranslation === null){
+            router.push("/inici")
+        }
+        else{
+            let data = {...language,language:checked}
+            setLanguage(data)
+            router.push("/"+language.pageTranslation)
+        }
+
+    }
+
     return (
         <div css={[header_inici_styles]}>
 
@@ -68,7 +89,9 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
                                 </Col>
 
                                 <Col span={12} className={"language"}>
-                                    <span>Català</span> / <span>Castellà  {slideNum}</span>
+                                    <span onClick={switchLanguage("CA")} >Català</span> / <span onClick={switchLanguage("ES")}>Castellà </span>
+                                   <p>{language.language}</p>
+                                      {/*  <Switch  checkedChildren="Català" unCheckedChildren="Castellano" checked={language.language === "CA"}  onChange={switchLanguage} />*/}
                                 </Col>
 
                             </Row>

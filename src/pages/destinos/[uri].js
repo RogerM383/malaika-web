@@ -28,9 +28,10 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
     useEffect(() => {
         setLanguage({
             language:props?.language?.code ,
-            pageTranslation: "inicio"
+            pageTranslation: "inici"
         })
     }, []);
+
 
     const PER_PAGE = 6;
     const [pageInfo, setPageInfo] = useState(null);

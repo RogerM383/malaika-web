@@ -57,6 +57,15 @@ export const GET_PAGE_BY_URI = gql`
             descripcioviatgesdautor {
                 descripcioViatgesDautor
             }
+            language {
+                code
+            }
+            translations {
+                slug
+                language {
+                    slug
+                }
+            }
         }
     }
 `;

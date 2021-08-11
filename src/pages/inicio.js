@@ -23,27 +23,23 @@ import {GET_NOVETATS} from "../contexts/apollo/queries/novetats";
 import {LaunguageContext} from "../contexts/LanguageContext";
 
 
-const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats,novetats, translations,galeria, content:contenido,page,...props}) => {
+const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats,novetats,galeria,translations, content:contenido,page,...props}) => {
 
 
-    debugger
-/*    if (page?.title === undefined) {
-        return null
-    }*/
-
+debugger
     /*PAGE INFO*/
     // const {title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats} = page;
 
 
 
     const router = useRouter();
-    const {language,setLanguage} = useContext(LaunguageContext)
+    const {language,setLanguage} = useContext(LaunguageContext);
 
 
     const PER_PAGE = 6;
-    const LANG = 'CA';
-    const [loadViatgesAutor, {loading: loadingVA, error: errorVA, data: dataVA}] = useLazyQuery(GET_VIATGES_AUTOR);
+    const LANG = 'ES';
 
+    const [loadViatgesAutor, {loading: loadingVA, error: errorVA, data: dataVA}] = useLazyQuery(GET_VIATGES_AUTOR);
     const [loadViatgesDestacats, {loading: loadingVD, error: errorVD, data: dataVD}] = useLazyQuery(GET_VIATGES_DESTACATS);
 
 
@@ -53,8 +49,8 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
     useEffect(() => {
         loadViatgesAutor({variables: {first: PER_PAGE, where:LANG} });
-        loadViatgesDestacats({variables:{first:16,language:LANG,categoryName:"destacat"}  });
-        setLanguage({language:props?.language?.code,pageTranslation:translations[0].slug})
+        loadViatgesDestacats({variables:{first:16,language:LANG,categoryName:"destacat-es"}  });
+        setLanguage({ language:props?.language?.code , pageTranslation:translations[0].slug})
     }, []);
 
     useEffect(() => {
@@ -199,7 +195,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                             {sortides.map((item) => item.datasortida)}
                                             </span>
                                         </div>
-                                        <span className={"more-info"} onClick={goTo("viatge-dautor/" + slug)}>Més Informació    &#8594;</span>
+                                        <span className={"more-info"} onClick={goTo("viaje-de-autor/" + slug)}>Més Informació    &#8594;</span>
                                     </div>
                                     <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
                                 </div>
@@ -209,7 +205,8 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                 </Grid>
 
-                <div className={"more"}><a href={"viatges-dautor"} onClick={(e) => {
+                <div className={"more"}><a href={"viatges-dautor"} onC
+                                           lick={(e) => {
                     loadViatgesAutor({
                         variables: {
                             first: PER_PAGE,
@@ -218,7 +215,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                             before: null*/
                         }
                     })
-                }}>Veure més viatges d’autor  &#8594;</a></div>
+                }}>Ver más viajes de autor  &#8594;</a></div>
 
             </MaxWidthContainer>
 
@@ -228,7 +225,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                 <MaxWidthContainer className={'container'}>
 
-                    <h2 className={"title"}>Destinacions /</h2>
+                    <h2 className={"title"}>Destinaciones /</h2>
 
                     <Grid css={grid_style("300px")}>
                         {
@@ -236,13 +233,13 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                             viatgesDestacats?.nodes?.map((item) => {
                                 const {dates} = item.Campsviatge;
                                 return (
-                                    <div onClick={goTo("viatge-destinacio/" + item.slug)} css={top_img_tagged_card}>
+                                    <div onClick={goTo("viaje-destinacion/" + item.slug)} css={top_img_tagged_card}>
                                         <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
                                         <div className={"text"}>
                                             <span className={"title"}>{item.title}</span>
                                             <span className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
                                             <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates}</span>
-                                            <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
+                                            <span className={"more_info"}>Más información<span className={"arrow"}>&#8594;</span>	</span>
                                         </div>
                                     </div>
                                 )
@@ -279,7 +276,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                             <div className={"normas"}>
                                 <Row gutter={[40, 40]}>
-                                    <Col sm={24} md={5} lg={5} className={'fecha'}>28/01/2021</Col>
+                                    <Col sm={24} md={5} lg={5} className={'fecha'}>28/01/2021 {language.language}</Col>
                                     <Col sm={24} md={19} lg={19} className={'data'}>
 
                                         {
@@ -289,11 +286,11 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                                 return(
                                                     <>{
                                                         item.language.code === language.language &&
-                                                        <>
+                                                            <>
 
-                                                            <div dangerouslySetInnerHTML={{__html: item.title}} className={"data_title"}/>
-                                                            <div dangerouslySetInnerHTML={{__html: item.content}} className={"data_content"}/>
-                                                        </>
+                                                        <div dangerouslySetInnerHTML={{__html: item.title}} className={"data_title"}/>
+                                                        <div dangerouslySetInnerHTML={{__html: item.content}} className={"data_content"}/>
+                                                            </>
                                                     }
 
                                                     </>
@@ -337,24 +334,24 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                     <Row className={"row"}>
 
                         <Col sm={20} md={24} lg={12}>
-                            <p className={"info"}>I si vols estar informat de tot</p>
+                            <p className={"info"}>Y si quieres estar informado de todo</p>
                         </Col>
 
                         <Col sm={20} md={24} lg={12}>
 
                             <div className={"subscribe"}>
-                                <p>Subscriu-te al nostre Newsletter</p>
-                                <p>Inscriviu-vos a les nostres llistes de correu i rebreu les novetats
-                                    ofertes i promocions directament a la safata d’entrada.</p>
+                                <p>Suscríbete a nuestro Newsletter</p>
+                                <p>Registrarse en nuestras listas de correo y recibirá las novedades
+                                    ofertas y promociones directamente en la bandeja de entrada.</p>
                             </div>
 
                             <div>
                                 <input css={{margin:'0'}} type={"text"} placeholder={"El teu email"}/>
-                                <button>Subscriu-te</button>
+                                <button>Suscríbete</button>
 
                                 <div className={"conditions"}>
                                     <input type={"checkbox"}/>
-                                    <p>He llegit i accepto la <a target={"_blank"} href={"avis-legal"}>política de privacitat</a></p>
+                                    <p>He leído y acepto la <a target={"_blank"} href={"avis-legal"}>política de privacidad</a></p>
                                 </div>
                             </div>
                         </Col>
@@ -372,7 +369,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const page = await client.query({query: GET_PAGE_BY_URI, variables: {uri: '/inici/'}})
+    const page = await client.query({query: GET_PAGE_BY_URI, variables: {uri: '/inicio/'}})
         .then((data) => {
             return data.data.pageBy;
         });

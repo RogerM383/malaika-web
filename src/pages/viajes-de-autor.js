@@ -35,13 +35,15 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
     useEffect(() => {
         setLanguage({ language:props?.language?.code , pageTranslation:props.translations[0].slug})
+
         if(language?.language){
-            loadViatgesAutor({variables: {first: PER_PAGE, where:"CA"}});
-            loadTextos({variables: {language:"CA"}});
+            loadViatgesAutor({variables: {first: PER_PAGE, where:"ES"}});
+            loadTextos({variables: {language:"ES"}});
         }
 
-
     }, []);
+
+
 
 
 
@@ -62,7 +64,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
     },[dataTextos]);
 
     const goTo = (slug) => (e) =>{
-       router.push("/viatge-dautor/"+slug)
+       router.push("/viaje-de-autor/"+slug)
     }
 
     // --- Slider ------------------------------------------------------------------------------------------------------
@@ -211,7 +213,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                 <MaxWidthContainer>
 
-                    <p className={"discover"}>DESCOBREIX</p>
+                    <p className={"discover"}>DESCUBRE</p>
 
                     <div className={"info"}>
                         <Carousel {...settings}
@@ -276,11 +278,11 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/viatges-dautor/' }})
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/viajes-de-autor/' }})
     .then((data) => {
         return data.data.pageBy;
     });
-    console.log(data)
+
     return {props: data, revalidate: 60};
 }
 

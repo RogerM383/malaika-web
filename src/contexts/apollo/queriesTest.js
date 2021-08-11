@@ -1,8 +1,8 @@
 import {gql} from "@apollo/client";
 
 export const GET_VIATGES_DESTACATS = gql`
-        query geytViatgesDestacats($first: Int,$after:String) {
-            viatges(where: {categoryName: "Destacat"},first:$first,after:$after) {
+        query geytViatgesDestacats($first: Int,$after:String,$categoryName:String, $language:LanguageCodeFilterEnum) {
+            viatges(where: {categoryName: $categoryName, language:$language},first:$first,after:$after) {
                 nodes {
                     content
                     date
@@ -137,6 +137,15 @@ export const GET_VIATGE_DAUTOR_BY_SLUG = gql`
                     uri
                     title
                     mediaItemUrl
+                }
+            }
+            language {
+                code
+            }
+            translations {
+                slug
+                language {
+                    slug
                 }
             }
         }

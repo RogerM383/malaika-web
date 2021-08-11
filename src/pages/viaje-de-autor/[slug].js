@@ -19,21 +19,21 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
 
     debugger
-    if(page?.title === undefined){
+   if(page?.title === undefined){
         return null
     }
 
-    const {Campsviatge,slug,title,uri,content,featuredImage,translations} = page
+    const {Campsviatge,slug,title,uri,content,featuredImage,translations,language:languageV} = page
     const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa}=Campsviatge
 
-    const {language,setLanguage} = useContext(LaunguageContext)
+
+   const {language,setLanguage} = useContext(LaunguageContext)
 
     useEffect(() => {
-        setLanguage({ language:props?.language?.code ,
-            pageTranslation:translations.length >= 1 ? "viaje-de-autor/"+translations[0]?.slug :null})
+            setLanguage({
+                language:props?.language?.code ,
+                pageTranslation:translations.length >= 1 ? "viatge-dautor/"+translations[0]?.slug :null})
     }, [translations]);
-
-
 
 
 

@@ -8,6 +8,9 @@ export const GET_NOVETATS = gql`
                 title
                 uri
                 slug
+                language {
+                    code
+                }
             }
         }
     }

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import DefaultTheme from 'styles/themes/DefaultTheme';
 import { global } from '../styles/GlobalStyles'
 import {ApolloContextProvider} from "../contexts/apollo/ApolloContext";
+import {LaunguageContext, LaunguageContextProvider} from "../contexts/LanguageContext";
 
 
 
@@ -68,12 +69,14 @@ export default function App ({ Component, pageProps }) {
 
     return (
         <ApolloContextProvider>
+            <LaunguageContextProvider>
                 <ThemeProvider theme={DefaultTheme}>
                     <CacheProvider value={malaikaCache}>
                         <Global styles={global}/>
                         <Component {...pageProps} />
                     </CacheProvider>
                 </ThemeProvider>
+            </LaunguageContextProvider>
         </ApolloContextProvider>
     )
 }

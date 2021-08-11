@@ -21,7 +21,6 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
     }, []);
 
 
-
     const [sendMail, resp] = useMutation(SEND_MAIL);
     const form = useRef(null);
     const [data, setData] = useState({});
@@ -51,20 +50,20 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
             sendMail({
                 variables: {
                     to: process.env.NEXT_PUBLIC_BELFOOD_MAIL,
-                    subject: 'Formulari de contacte',
+                    subject: 'Formulario de contacto ',
                     body: `
                     <table>
                         <tr>
-                            <td>Nom: </td><td>${data['nombre']}</td>
+                            <td>Nombre: </td><td>${data['nombre']}</td>
                         </tr>
                         <tr>
-                            <td>Correo electrònic: </td><td>${data['email']}</td>
+                            <td>Correo electrónico: </td><td>${data['email']}</td>
                         </tr>
                         <tr>
-                            <td>Telèfon: </td><td>${data['telefono']}</td>
+                            <td>Teléfono: </td><td>${data['telefono']}</td>
                         </tr>
                         <tr>
-                            <td>Missatge: </td><td>${data['mensaje']}</td>
+                            <td>Mensaje: </td><td>${data['mensaje']}</td>
                         </tr>
                     </table>
                 `
@@ -80,7 +79,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                     }
                 }
                 notification.success({
-                    message: 'Missatge enviat amb éxito',
+                    message: 'Mensaje enviado con éxito',
                     placement: 'bottomRight',
                     style: {
                         zIndex: 500,
@@ -89,7 +88,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
             }).catch((error) => {
                 setLoading(false);
                 notification.error({
-                    message: 'Error',
+                    message: 'Error de envío',
                     placement: 'bottomRight',
                     style: {
                         zIndex: 500,
@@ -112,7 +111,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
                 <div className={"block1"}>
                     <MaxWidthContainer>
-                    <p className={"title_block"}>On som</p>
+                    <p className={"title_block"}>Dónde estamos</p>
                     <Row gutter={[40, 40]}>
                         <Col xs={24} sm={12} md={12}>
 
@@ -166,10 +165,10 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                     <form ref={form} onChange={onChange} onSubmit={onSubmit}>
 
                         <div className={"card_form"}>
-                            <p className={"title_block"}>Contacta amb nosaltres</p>
+                            <p className={"title_block"}>Contacta con nosotros</p>
 
                             <Row justify={"space-between"}>
-                                <span className={"label"}>Nom complet</span>
+                                <span className={"label"}>Nombre completo</span>
                                 <span>Opcional</span>
                             </Row>
 
@@ -177,19 +176,19 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
 
                             <div>
-                                <p className={"label"}>Correu electrònic</p>
+                                <p className={"label"}>Corro electrónico</p>
                                 <input style={(data && data['email']?.length <= 0) ? error : null} name={'email'} type={"text"}/>
                             </div>
 
 
                             <div>
-                                <p className={"label"}>Telèfon</p>
+                                <p className={"label"}>Teléfono</p>
                                 <input name={"telefono"} style={(data && data['telefono']?.length <= 0) ? error : null} name={'telefono'} type={"text"}/>
                             </div>
 
 
                             <div>
-                                <p className={"label"}>Missatge</p>
+                                <p className={"label"}>Mensaje</p>
                                 <textarea name={'mensaje'} style={(data && data['mensaje']?.length <= 0) ? error : null} id="w3review" rows="6"/>
                             </div>
 
@@ -198,7 +197,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                                 <Col span={24}>
                                     <div  className={"conditions"}>
                                         <input name={'condiciones'} type={"checkbox"} required/>
-                                        <span className={"fs-16"}>He llegit i accepto la <a target={"_blank"} href={"avis-legal"}>política de privacitat</a></span>
+                                        <span className={"fs-16"}>He leído y acepto la <a target={"_blank"} href={"avis-legal"}>política de privacidad</a></span>
                                     </div>
 
                                     <button>Enviar</button>
@@ -226,7 +225,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
 export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/contacte/' }})
+    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/contacto/' }})
         .then((data) => {
             return data.data.pageBy;
         });

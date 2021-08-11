@@ -7,6 +7,7 @@ import {useLazyQuery} from "@apollo/client";
 import Image from "../../package/components/Image";
 import {useWindowSize} from "../../package/hooks/useWindowSize";
 import {useTheme} from "@emotion/react";
+import {LaunguageContext, LaunguageContextProvider} from "../contexts/LanguageContext";
 
 const Menu = ({img = true, children, ...props}) => {
 
@@ -14,13 +15,15 @@ const Menu = ({img = true, children, ...props}) => {
     const [navButtons, setNavButtons] = useState(null);
     const [getMenu, {loading: loadingMenu, error: errorMenu, data: menuData}] = useLazyQuery(GET_MENU_BY_NAME);
 
+    const {language,setLanguage} = useContext(LaunguageContext)
+
     useEffect(() => {
         /**
          *  TODO: poner el idioma dinamico, supongo que por langContext, y mirar si tendremos que
          *  remplazar el idioma al final de la pagina al igual que signe con los paises
          */
-        getMenu({variables: {name: 'Header CAT', first: 50}});
-    },[]);
+        getMenu({variables: {name: language.language === 'CA' ? 'Header CAT' : 'Header ES' , first: 50}});
+    },[language]);
 
     useEffect(() => {
         if (menuData) {

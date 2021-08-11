@@ -7,23 +7,14 @@ import {footer_styles} from "../styles/FooterStyles";
 import MaxWidthContainer from "./MaxWidthContainer";
 import {Col, Row} from "antd";
 import 'antd/dist/antd.css';
-import {LaunguageContext} from "../contexts/LanguageContext";
 
 const Footer = ({img = true, children, ...props}) => {
 
     const router = useRouter();
-    const {language,setLanguage} = useContext(LaunguageContext);
-
-    useEffect(() => {
-
-    }, []);
-
-    const {language:lang} = language
-
     return (
         <MaxWidthContainer>
             <div css={footer_styles}>
-                <p className={"info_contact fs-14 sbold"}>{lang === "CA" ? "Informació de contacte" : "Información de contacto" } </p>
+                <p className={"info_contact fs-14 sbold"}>Información de contacto </p>
 
                 <Row gutter={[10, 40]} justify={"space-between"}>
 
@@ -65,20 +56,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col xs={24} sm={24} md={12} lg={6}>
                         <div className={" last"}>
-                            {
-                                lang === "CA" &&
-                                <span className={"politicas"}><a target={"_blank"} href={"/avis-legal"}>Avís legal</a> / <a target={"_blank"} href={"condicions-generals"}>Condicions generals</a></span>
-
-                            }
-
-                            {
-                                lang === "ES" &&
-                                <span className={"politicas"}><a target={"_blank"} href={"/aviso-legal"}>Aviso legal</a> / <a target={"_blank"} href={"condiciones-generales"}>Condiciones generales</a></span>
-
-                            }
-{/*
-                            <span className={"politicas"}><a target={"_blank"} href={"avis-legal"}>{lang === "CA" ? "Avís legal" : "Aviso legal" }</a> / <a target={"_blank"} href={"condicions-generals"}>{lang === "CA" ? "Condicions generals" : "Condiciones generales" }</a></span>
-*/}
+                            <span className={"politicas"}><a target={"_blank"} href={"avis-legal"}>Aviso legal</a> / <a target={"_blank"} href={"condicions-generals"}>Condiciones generals</a></span>
                             <div className={"social"}>
                                 <a target={"_blank"} href={"https://www.facebook.com/malaikaviatges"}><img src={"/facebook_icon.png"}/></a>
                                 <a target={"_blank"} href={"https://www.instagram.com/malaikaviatges/"}><img src={"/instagram_icon.png"}/></a>

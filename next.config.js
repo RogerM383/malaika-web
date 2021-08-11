@@ -7,5 +7,13 @@ module.exports = {
                 permanent: true,
             },
         ]
-    }
+    },
+/*    i18n: {
+        locales: ['ca', 'es'],
+        defaultLocale: 'ca'
+    },*/
+
+
+
+
 }

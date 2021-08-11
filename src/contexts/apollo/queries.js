@@ -66,13 +66,7 @@ export const GET_PAGE_BY_URI = gql`
                 text1
             }
             galeria {
-                galeriaImatges {
-                    id
-                    mediaItemUrl
-                    uri
-                    title
-                    slug
-                }
+
 
                 slider {
                     slide {
@@ -87,6 +81,16 @@ export const GET_PAGE_BY_URI = gql`
 
 
                 fieldGroupName
+            }
+
+            translations {
+                slug
+                language {
+                    slug
+                }
+            }
+            language {
+                code
             }
         }
     }
@@ -214,8 +218,8 @@ export const GET_MENU_BY_NAME = gql`
 `;
 
 export const GET_VIATGES_AUTOR = gql`
-    query geytVietagesAutor ($first: Int, $last: Int, $before: String, $after: String) {
-        viatgesdautor(first: $first, last: $last, before: $before, after: $after) {
+    query geytVietagesAutor ($first: Int, $last: Int, $before: String, $after: String, $where:LanguageCodeFilterEnum) {
+        viatgesdautor(where:{language:$where},first: $first, last: $last, before: $before, after: $after) {
             nodes {
                 content
                 date
@@ -313,8 +317,8 @@ export const GET_VIATGES = gql`
 `;
 
 export const GET_TEXTOS = gql`
-    query getTextos ($first: Int, $last: Int, $before: String, $after: String) {
-        textos(first: $first, last: $last, before: $before, after: $after) {
+    query getTextos ($first: Int, $last: Int, $before: String, $after: String ,$language:LanguageCodeFilterEnum) {
+        textos(where: {language: $language},first: $first, last: $last, before: $before, after: $after) {
             nodes {
                 date
                 content
