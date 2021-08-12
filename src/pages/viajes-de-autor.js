@@ -34,7 +34,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
     const [textos, setTextos] = useState([]);
 
     useEffect(() => {
-        setLanguage({ language:props?.language?.code , pageTranslation:props.translations[0].slug})
+        setLanguage({ ...language , pageTranslation:props.translations[0].slug})
 
         if(language?.language){
             loadViatgesAutor({variables: {first: PER_PAGE, where:"ES"}});
@@ -176,7 +176,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                                         <div className={"more_info"}>
                                             <span className={"author"}>{autor}</span>
-                                            <span className={"button"} onClick={goTo(slug)} >Més Informació <span className={"primary"}>&#8594;</span> </span>
+                                            <span className={"button"} onClick={goTo(slug)} >Más información <span className={"primary"}>&#8594;</span> </span>
                                         </div>
 
                                     </div>

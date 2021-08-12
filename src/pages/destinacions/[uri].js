@@ -29,19 +29,12 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage,translati
 
     useEffect(() => {
 
+        translations &&
         setLanguage({
-        language:"ES",
-        pageTranslation:"inici"
+            ...language,
+            pageTranslation: translations.length >= 1 ? "destinos/"+translations[0].slug : null
     })
 
-/*            setLanguage({
-                language: "ES",
-                pageTranslation: "destinos/" + translations[0].slug
-                /!*         props.translations.length >= 1 ?
-                         "destinos/"+
-                         props.translations[0].slug*!/
-            })
-*/
     }, []);
 
 

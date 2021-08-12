@@ -29,7 +29,8 @@ const PageViatgeDautor = ({children,page, ...props}) => {
     const {language,setLanguage} = useContext(LaunguageContext)
 
     useEffect(() => {
-        setLanguage({ language:props?.language?.code ,
+        setLanguage({
+            ...language ,
             pageTranslation:translations.length >= 1 ? "viaje-de-autor/"+translations[0]?.slug :null})
     }, [translations]);
 

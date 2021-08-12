@@ -34,7 +34,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
     const [textos, setTextos] = useState([]);
 
     useEffect(() => {
-        setLanguage({ language:props?.language?.code , pageTranslation:props.translations[0].slug})
+        setLanguage({ ...language , pageTranslation:props.translations[0].slug})
         if(language?.language){
             loadViatgesAutor({variables: {first: PER_PAGE, where:"CA"}});
             loadTextos({variables: {language:"CA"}});

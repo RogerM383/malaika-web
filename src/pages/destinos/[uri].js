@@ -19,7 +19,7 @@ import HeaderInici from "../../components/HeaderInici";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
-const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content, date, ...props}) => {
+const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations,content, date, ...props}) => {
 
     debugger
     const router = useRouter();
@@ -27,19 +27,12 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
     const {language,setLanguage} = useContext(LaunguageContext)
     useEffect(() => {
 
-
+        translations &&
         setLanguage({
-            language:"CA",
-            pageTranslation:"inici"
+            ...language,
+            pageTranslation: translations.length >= 1 ? "destinacions/"+translations[0].slug : null
         })
 
-/*
-        setLanguage({
-            language:"CA",
-            pageTranslation: "destinacions/"+props.translations[0].slug
-            /!*    props.translations.length >= 1 ?
-                "destinacions/"+props.translations[0].slug : null*!/
-        })*/
     }, []);
 
 
@@ -92,7 +85,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, content,
                             const {dates} = item.Campsviatge;
                             return (
                                 <Col sm={24} md={12} lg={8} >
-                                    <div  onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
+                                    <div  onClick={goTo("/viaje-destinacion/"+item.slug)} css={top_img_tagged_card}>
                                         <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}/>
                                         <div className={"text"}>
                                             <span className={"title"}>{item.title}</span>

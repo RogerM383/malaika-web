@@ -23,7 +23,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
         return null
     }
 
-    const {Campsviatge,slug,title,uri,content,featuredImage,translations,language:languageV} = page
+    const {Campsviatge,slug,title,uri,content,featuredImage,translations} = page
     const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa}=Campsviatge
 
 
@@ -31,7 +31,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
     useEffect(() => {
             setLanguage({
-                language:props?.language?.code ,
+                ...language ,
                 pageTranslation:translations.length >= 1 ? "viatge-dautor/"+translations[0]?.slug :null})
     }, [translations]);
 
@@ -45,7 +45,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer>
-                <div className={"breadcrumb"}>Viatges d'autor > {title}</div>
+                <div className={"breadcrumb"}>Viajes de autor > {title}</div>
             </MaxWidthContainer>
 
             <MaxWidthContainer className={"block1"}>
@@ -55,17 +55,17 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                         <div >
                             <p className={"title"}>{title}</p>
                             <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
-                            <button >Fitxa viatge pdf</button>
+                            <button >Ficha viaje pdf</button>
 
                         </div>
                     </Col>
 
                     <Col  className={"right_column"}  sm={24} md={12}>
                         <div>
-                            <p>GRUP: {grup}</p>
-                            <span>PREU: {preu}</span>
-                            <span>Taxes d'aeroport: {taxes}</span>
-                            <span>Suplement hab. individual: {suplement}</span>
+                            <p>GRUPO: {grup}</p>
+                            <span>PRECIO: {preu}</span>
+                            <span>Tasas de aeropuerto: {taxes}</span>
+                            <span>Suplemento hab. individual: {suplement}</span>
                         </div>
 
 
@@ -106,7 +106,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
                         {/* DIFERENCIA CON DESTINACIONS*/}
                         <div className={"block_mapa"}>
-                            <p className={"bold"}>ITINERARI</p>
+                            <p className={"bold"}>ITINERARIO</p>
                             <Image className={"mapa"} src={mapa.mediaItemUrl}/>
                         </div>
 
@@ -127,7 +127,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                             <Col className={"left"} sm={24} md={12}>
 
                                 <div className={"inclou"}>
-                                    <p className={"title"}>Inclou</p>
+                                    <p className={"title"}>Incluye</p>
                                     <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
                                 </div>
 
@@ -135,7 +135,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
                             <Col className={"right"} sm={24} md={12}>
                                 <div className={"inclou"}>
-                                    <p className={"title"}>No inclou</p>
+                                    <p className={"title"}>No incluye</p>
                                     <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
                                 </div>
                             </Col>
@@ -145,7 +145,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             }
 
             <MaxWidthContainer className={"block3_autor"}>
-                <p className={"title"}>Itinerari</p>
+                <p className={"title"}>Itinerario</p>
 
                 <Row gutter={[60]} className={"row_itinerari"}>
                     <Col sm={24} md={12}>

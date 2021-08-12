@@ -58,16 +58,16 @@ debugger
                                 <div >
                                     <p className={"title"}>{title}</p>
                                     <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
-                                    <button >Fitxa viatge pdf</button>
+                                    <button >Ficha viaje pdf</button>
 
                                 </div>
                             </Col>
                             <Col  className={"right_column"}  sm={24} md={12}>
                                 <div>
-                                    <p>GRUP: {grup}</p>
-                                    <span>PREU: {preu}</span>
-                                    <span>Taxes d'aeroport: {taxes}</span>
-                                    <span>Suplement hab. individual: {suplement}</span>
+                                    <p>GRUPO: {grup}</p>
+                                    <span>PRECIO: {preu}</span>
+                                    <span>Tasas de aeropuerto: {taxes}</span>
+                                    <span>Suplemento hab. individual: {suplement}</span>
                                 </div>
 
                                 {
@@ -102,7 +102,7 @@ debugger
                                     <Col className={"left"} sm={24} md={12}>
 
                                         <div className={"inclou"}>
-                                            <p className={"title"}>Inclou</p>
+                                            <p className={"title"}>Incluye</p>
                                             <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
                                         </div>
 
@@ -110,7 +110,7 @@ debugger
 
                                     <Col className={"right"} sm={24} md={12}>
                                         <div className={"inclou"}>
-                                            <p className={"title"}>No inclou</p>
+                                            <p className={"title"}>No incluye</p>
                                             <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
                                         </div>
                                     </Col>
@@ -125,7 +125,7 @@ debugger
                         <MaxWidthContainer>
                             <Row gutter={[40,40]}>
                             <Col  xs={24} sm={24} md={24} lg={10} xl={10} >
-                                <p className={"title"}>Altres viatges que et poden interessar</p>
+                                <p className={"title"}>Otros viajes que te pueden interesar</p>
                             </Col>
                             <Col xs={24} sm={24} md={24} lg={14} xl={14} >
                                 <Row gutter={[40,40]}>
@@ -135,7 +135,7 @@ debugger
                                             debugger
                                             return (
                                                 <Col sm={24} md={12}>
-                                                    <div onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
+                                                    <div onClick={goTo("/viaje-destinacion/"+item.slug)} css={top_img_tagged_card}>
                                                     <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
 
                                                         <div className={"text"}>

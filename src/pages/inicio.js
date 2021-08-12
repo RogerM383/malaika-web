@@ -50,7 +50,7 @@ debugger
     useEffect(() => {
         loadViatgesAutor({variables: {first: PER_PAGE, where:LANG} });
         loadViatgesDestacats({variables:{first:16,language:LANG,categoryName:"destacat-es"}  });
-        setLanguage({ language:props?.language?.code , pageTranslation:translations[0].slug})
+        setLanguage({...language, pageTranslation:translations[0].slug})
     }, []);
 
     useEffect(() => {
