@@ -55,7 +55,7 @@ if(page?.title === undefined){
 
 
                     <MaxWidthContainer>
-                     <div className={"breadcrumb"}>DESTINACIONS > {zones?.nodes[0]?.name } > {title}</div>
+                     <div className={"breadcrumb"}>DESTINACIONES > {zones?.nodes[0]?.name } > {title}</div>
                     </MaxWidthContainer>
 
                     <MaxWidthContainer className={"block1"}>
