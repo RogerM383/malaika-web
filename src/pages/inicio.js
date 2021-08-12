@@ -147,9 +147,9 @@ debugger
 
                 <div className={'title'}>
                     <h2>
-                        <span>Viatges</span><span>d’Autor /</span>
+                        <span>Viajes</span><span>de Autor /</span>
                     </h2>
-                    <h5 className={'litle'}>Grups reduïts</h5>
+                    <h5 className={'litle'}>Grupos reducidos</h5>
                 </div>
                 {
                     descripcioviatgesdautor && descripcioviatgesdautor.descripcioViatgesDautor &&
@@ -195,7 +195,7 @@ debugger
                                             {sortides.map((item) => item.datasortida)}
                                             </span>
                                         </div>
-                                        <span className={"more-info"} onClick={goTo("viaje-de-autor/" + slug)}>Més Informació    &#8594;</span>
+                                        <span className={"more-info"} onClick={goTo("viaje-de-autor/" + slug)}>Más Información    &#8594;</span>
                                     </div>
                                     <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
                                 </div>

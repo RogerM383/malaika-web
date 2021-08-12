@@ -23,7 +23,7 @@ const Menu = ({img = true, children, ...props}) => {
          *  remplazar el idioma al final de la pagina al igual que signe con los paises
          */
         getMenu({variables: {name: language.language === 'CA' ? 'Header CAT' : 'Header ES' , first: 50}});
-    },[language.language]);
+    },[language]);
 
     useEffect(() => {
         if (menuData) {

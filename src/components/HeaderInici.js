@@ -56,6 +56,7 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
 
         debugger
         if(language.pageTranslation === null){
+            setLanguage({...language,language:checked})
             router.push(checked === "ES" ? "/inicio" : "/inici")
         }
         else{
