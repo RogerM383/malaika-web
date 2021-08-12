@@ -332,6 +332,7 @@ export const card_discover = (theme) => {
             }
 
             .text {
+                font-weight: 600;
                 font-size: ${theme.font.sm};
                 a {
                     color: ${theme.colors.primary}

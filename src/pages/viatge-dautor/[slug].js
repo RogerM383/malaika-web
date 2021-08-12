@@ -52,7 +52,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             <MaxWidthContainer className={"block1"}>
 
                 <Row >
-                    <Col className={"left_column"} sm={24} md={12} >
+                    <Col className={"left_column"} sm={24} md={24}  lg={12}>
                         <div >
                             <p className={"title"}>{title}</p>
                             <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
@@ -62,7 +62,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                         </div>
                     </Col>
 
-                    <Col  className={"right_column"}  sm={24} md={12}>
+                    <Col  className={"right_column"}  sm={24} md={12} md={24}  lg={12}>
                         <div>
                             <p>GRUP: {grup}</p>
                             <span>PREU: {preu}</span>
@@ -78,17 +78,17 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                                 </Col>
                                 <Col span={22}>
 
-                                    <Row gutter={[10,10]}>
+                                    <Row gutter={[10,5]}>
 
 
                                     {
                                         vols.map((item)=>{
                                             return(
                                                 <>
-                                                    <Col xs={10} sm={12} md={12} lg={10} ><span key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
-                                                    <Col xs={4} sm={12} md={12} lg={4}  ><span key={item.vol.datavol} className={"vol"} >{item.vol.datavol}</span></Col>
-                                                    <Col xs={4} sm={12} md={12} lg={4} ><span key={item.vol.numvol} className={"vol"} >{item.vol.numvol}</span></Col>
-                                                    <Col xs={6} sm={12} md={12} lg={6} ><span key={item.vol.horari} className={"vol vol-right"} >{item.vol.horari}</span></Col>
+                                                    <Col xs={10} sm={9} md={9} lg={8} xl={9} ><span key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
+                                                    <Col xs={4} sm={5} md={5} lg={5} xl={9}  ><span key={item.vol.datavol} className={"vol"} >{item.vol.datavol}</span></Col>
+                                                    <Col xs={4} sm={4} md={5} lg={5} xl={3} ><span key={item.vol.numvol} className={"vol"} >{item.vol.numvol}</span></Col>
+                                                    <Col xs={6} sm={5} md={5} lg={6}  xl={3}><span key={item.vol.horari} className={"vol vol-right"} >{item.vol.horari}</span></Col>
 
                                                 </>
 

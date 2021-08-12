@@ -34,10 +34,10 @@ const Footer = ({img = true, children, ...props}) => {
 
                             <div className={"phone"}>
                                 <img src={"/phone_icon.png"}/>
-                                <span className={"db"}>+34 930 011 176</span>
+                                <a css={{color:'black'}} href={"tel:+34 930 011 176"}><span  css={{color:'black'}} className={"db"}>+34 930 011 176</span></a>
                             </div>
 
-                            <a>aayats@malaikaviatges.com</a>
+                            <a target={"_blank"} href="mailto:aayats@malaikaviatges.com" >aayats@malaikaviatges.com</a>
                         </div>
 
                     </Col>
@@ -48,10 +48,10 @@ const Footer = ({img = true, children, ...props}) => {
                             <span  className={"address"}>17124 Llofriu, Girona</span>
                             <div className={"phone"}>
                                 <img src={"/phone_icon.png"}/>
-                                <span className={"db"}>+34 872 503 266</span>
+                                <a css={{color:'black'}} href={"tel:+34 872 503 266"}><span  css={{color:'black'}} className={"db"}>+34 872 503 266</span></a>
                             </div>
 
-                            <a>mtribulietx@malaikaviatges.com</a>
+                            <a target={"_blank"} href="mailto:mtribulietx@malaikaviatges.com">mtribulietx@malaikaviatges.com</a>
                         </div>
                     </Col>
 
@@ -59,6 +59,7 @@ const Footer = ({img = true, children, ...props}) => {
                         <div className={"avasa"}>
                             <a target={"_blank"} href={"http://locosporviajar.org/"}><Image className={"avasa_logo"} src={"/locos-por-viajar.jpg"}></Image> </a>
                             <a target={"_blank"} href={"https://www.grupoavasa.com/"}><Image className={"avasa_logo"} src={"/avasa-logo.jpg"}></Image> </a>
+                            <a target={"_blank"} href={"http://animalesinvisibles.com/"}><Image className={"avasa_logo"} src={"/animal-invisibles.png"}></Image> </a>
                         </div>
 
                     </Col>

@@ -101,7 +101,7 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
                 </div>
 
                 <div className={"title"}>
-                    {title}
+                   <span>{title}</span>
                     {
                         fraseInici &&
                         <div className={"subtitle"} dangerouslySetInnerHTML={{__html: fraseInici[slideNum] }} />

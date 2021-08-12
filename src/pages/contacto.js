@@ -49,7 +49,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
             setLoading(true);
             sendMail({
                 variables: {
-                    to: process.env.NEXT_PUBLIC_BELFOOD_MAIL,
+                    to: process.env.NEXT_PUBLIC_MAIL,
                     subject: 'Formulario de contacto ',
                     body: `
                     <table>
@@ -122,16 +122,16 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                                     <img src={"/phone_icon.png"}/>
                                 </Col>
                                 <Col flex={"auto"}>
-                                    <p className={"db"}>+34 930 011 176</p>
+                                    <p className={"db"}><a css={{color:'black'}} href={"tel:+34 930 011 176"}>+34 930 011 176</a></p>
                                 </Col>
 
                             </Row>
 
                         <Row className={"emails"}>
-                            <span>Toñi Castillo: <a>malaika@malaikaviatges.com</a></span>
-                            <span>Maribel del Valle: <a>maribel@malaikaviatges.com</a></span>
-                            <span>Fina Garcia: <a>fina@malaikaviatges.com</a></span>
-                            <span>Anna Ayats: <a>aayats@malaikaviatges.com</a></span>
+                            <span>Toñi Castillo: <a target={"_blank"} href={"mailto:malaika@malaikaviatges.com"}>malaika@malaikaviatges.com</a></span>
+                            <span>Maribel del Valle: <a target={"_blank"} href={"mailto:maribel@malaikaviatges.com"}>maribel@malaikaviatges.com</a></span>
+                            <span>Fina Garcia: <a target={"_blank"} href={"mailto:fina@malaikaviatges.com"}>fina@malaikaviatges.com</a></span>
+                            <span>Anna Ayats: <a target={"_blank"} href={"mailto:aayats@malaikaviatges.com"}>aayats@malaikaviatges.com</a></span>
                         </Row>
 
 
@@ -147,12 +147,12 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
                                     <img src={"/phone_icon.png"}/>
                                 </Col>
                                 <Col flex={"auto"}>
-                                    <p className={"db"}>+34 872 503 266</p>
+                                    <p className={"db"}><a  css={{color:'black'}} href={"tel:+34 872 503 266"}>+34 872 503 266</a></p>
                                 </Col>
 
                             </Row>
                             <Row className={"emails"}>
-                            <span>Montse Tribulietx: <a>mtribulietx@malaikaviatges.com </a></span>
+                            <span>Montse Tribulietx: <a target={"_blank"} href={"mailto:mtribulietx@malaikaviatges.com"}>mtribulietx@malaikaviatges.com</a></span>
                             </Row>
 
                         </Col>

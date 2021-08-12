@@ -57,22 +57,26 @@ export const viatge_fitxa = (theme) => {
             }
 
             .plane{
+            img{
+              padding-right: 0.2rem;
+            }
               p{
                 font-size:0.6rem ;
               }
 
             .vol{
 
-                font-size: 1rem;
+                font-size: 0.7rem;
                 display: block;
                 line-height: 1.5;
-             // white-space: nowrap;
+               // white-space: nowrap;
 
             }
 
                 .vol-right{
 
-                    //white-space: nowrap;
+                  // margin-bottom: 0rem;
+                    white-space: nowrap;
                 }
 
                 .plane-table{

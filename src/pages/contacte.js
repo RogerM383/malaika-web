@@ -50,7 +50,7 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
             setLoading(true);
             sendMail({
                 variables: {
-                    to: process.env.NEXT_PUBLIC_BELFOOD_MAIL,
+                    to: process.env.NEXT_PUBLIC_MAIL,
                     subject: 'Formulari de contacte',
                     body: `
                     <table>
