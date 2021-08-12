@@ -26,7 +26,7 @@ if(page?.title === undefined){
 }
 
     const {Campsviatge,slug,title,uri,content,featuredImage,translations,zones} = page
-    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,sortides,mapa,dates}=Campsviatge
+    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,sortides,mapa,dates,fitxa}=Campsviatge
 
 
     const items = ['one', 'two'];
@@ -65,7 +65,10 @@ if(page?.title === undefined){
                                 <div >
                                     <p className={"title"}>{title}</p>
                                     <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
-                                    <button >Ficha viaje pdf</button>
+                                    {fitxa?.mediaItemUrl &&
+                                    <button><a target={"_blank"} css={{color: 'white'}} href={fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
+                                    }
+
 
                                 </div>
                             </Col>

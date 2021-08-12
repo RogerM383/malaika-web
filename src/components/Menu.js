@@ -50,7 +50,7 @@ const Menu = ({img = true, children, ...props}) => {
                     order: subItem.order
                 });
             }
-            if (menu && router.pathname === "/inici") {
+            if (menu && (router.pathname === "/inici" || router.pathname === "/inicio" )) {
                 menu.push({id: 'amics-museu', label: "AMICS", path: "https://reservesmnac.malaikaviatges.com/", image: "amics-mnac.png", submenu: []});
             }
             setNavButtons(menu);
@@ -148,7 +148,7 @@ const Menu = ({img = true, children, ...props}) => {
                                 return (
                                     <>
                                         <li key={index}  className={`navli
-                                        ${(router.pathname === "/inici" && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
+                                        ${( (router.pathname === "/inici" || router.pathname === "/inicio" ) && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
                                             <Link href={button?.path ?? ''}>
                                                 <a className={`NavButton ${(router.pathname.replace(/\//g, "") === button?.path?.replace(/\//g, "")) && button?.path !== undefined ? "active_link" : ""}`}>
                                                     {button.icon}

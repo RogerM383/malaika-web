@@ -24,7 +24,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
     }
 
     const {Campsviatge,slug,title,uri,content,featuredImage,translations} = page
-    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa}=Campsviatge
+    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa,fitxa}=Campsviatge
 
     const {language,setLanguage} = useContext(LaunguageContext)
 
@@ -56,8 +56,9 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                         <div >
                             <p className={"title"}>{title}</p>
                             <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
-                            <button >Fitxa viatge pdf</button>
-
+                            {fitxa?.mediaItemUrl &&
+                            <button><a target={"_blank"} css={{color: 'white'}} href={fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
+                            }
                         </div>
                     </Col>
 

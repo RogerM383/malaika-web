@@ -28,6 +28,9 @@ export const GET_VIATGES_DESTACATS = gql`
                         preu
                         grup
                         fieldGroupName
+                        fitxa {
+                            mediaItemUrl
+                        }
                     }
                     zones {
                         nodes {
@@ -73,6 +76,9 @@ export const GET_VIATGE_BY_SLUG = gql`
                 grup
                 dates
                 fieldGroupName
+                fitxa {
+                    mediaItemUrl
+                }
             }
             featuredImage {
                 node {
@@ -140,6 +146,9 @@ export const GET_VIATGE_DAUTOR_BY_SLUG = gql`
                     mediaItemUrl
                    title
                 }
+                fitxa {
+                    mediaItemUrl
+                }
             }
             featuredImage {
                 node {
@@ -174,6 +183,9 @@ export const GET_VIATGES_ZONA = gql`
                     preu
                     grup
                     dates
+                    fitxa {
+                        mediaItemUrl
+                    }
                 }
                 subtitolViatge {
                     subtitolviatge
