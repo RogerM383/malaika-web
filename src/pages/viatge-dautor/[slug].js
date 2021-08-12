@@ -52,7 +52,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
             <MaxWidthContainer className={"block1"}>
 
                 <Row >
-                    <Col className={"left_column"} sm={24} md={24}  lg={12}>
+                    <Col className={"left_column"} sm={24} md={12} >
                         <div >
                             <p className={"title"}>{title}</p>
                             <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
@@ -62,7 +62,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                         </div>
                     </Col>
 
-                    <Col  className={"right_column"}  sm={24} md={12} md={24}  lg={12}>
+                    <Col  className={"right_column"}  sm={24} md={12}>
                         <div>
                             <p>GRUP: {grup}</p>
                             <span>PREU: {preu}</span>
