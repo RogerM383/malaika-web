@@ -56,7 +56,7 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
 
         debugger
         if(language.pageTranslation === null){
-            router.push(language === "ES" ? "/inicio" : "/inici")
+            router.push(checked === "ES" ? "/inicio" : "/inici")
         }
         else{
             let data = {...language,language:checked}

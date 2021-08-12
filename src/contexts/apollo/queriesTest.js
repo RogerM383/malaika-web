@@ -81,6 +81,15 @@ export const GET_VIATGE_BY_SLUG = gql`
                     mediaItemUrl
                 }
             }
+            language {
+                code
+            }
+            translations {
+                slug
+                language {
+                    slug
+                }
+            }
 
         }
     }

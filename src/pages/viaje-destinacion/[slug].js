@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {viatge_destinacio_fitxa} from "../../styles/pages/fitxa_viatge_destinacioStyles";
 import Header from "../../components/Header";
 import Image from "../../../package/components/Image";
@@ -15,8 +15,7 @@ import {Col, Row} from "antd";
 import 'antd/dist/antd.css';
 import HeaderInici from "../../components/HeaderInici";
 import {viatge_fitxa} from "../../styles/pages/fitxa_viatge_autorStyles";
-
-
+import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
 
@@ -26,16 +25,24 @@ if(page?.title === undefined){
     return null
 }
 
-    const {Campsviatge,slug,title,uri,content,featuredImage,zones} = page
+    const {Campsviatge,slug,title,uri,content,featuredImage,translations,zones} = page
     const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,sortides,mapa,dates}=Campsviatge
-
-debugger
-
 
 
     const items = ['one', 'two'];
 
     const router = useRouter();
+
+    const {language,setLanguage} = useContext(LaunguageContext)
+    useEffect(() => {
+
+        translations &&
+        setLanguage({
+            ...language,
+            pageTranslation: translations.length >= 1 ? "viatge-destinacio/"+translations[0].slug : null
+        })
+
+    }, []);
 
     const goTo = (slug)=>(e) =>{
         router.push(slug);
