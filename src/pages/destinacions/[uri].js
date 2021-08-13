@@ -48,7 +48,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage,translati
 
     useEffect(() => {
         if(slug)
-            loadViatges({variables: {slug,first:2}});
+            loadViatges({variables: {slug}});
     }, [slug]);
 
     useEffect(() => {

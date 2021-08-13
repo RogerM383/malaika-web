@@ -57,6 +57,8 @@ export const viatge_fitxa = (theme) => {
             }
 
             .plane{
+
+                max-width: 600px;
             img{
               padding-right: 0.2rem;
             }

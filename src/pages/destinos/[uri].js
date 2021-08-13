@@ -42,7 +42,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translat
 
 
     /***********************************************************************/
-    const [loadViatges, { loading: loadingVD, error: errorVD, data }] = useLazyQuery(GET_VIATGES_ZONA,{variables: {slug:slug,first:2}});
+    const [loadViatges, { loading: loadingVD, error: errorVD, data }] = useLazyQuery(GET_VIATGES_ZONA,{variables: {slug:slug}});
 
     useEffect(() => {
         if(slug)
