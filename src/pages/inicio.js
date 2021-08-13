@@ -12,7 +12,7 @@ import {useLazyQuery, useQuery} from "@apollo/client";
 import {GET_PAGE_BY_URI, GET_POSTS, GET_VIATGES_AUTOR} from "../contexts/apollo/queries";
 import {apolloClient, initializeApollo} from "../contexts/apollo/ApolloContext";
 import {GET_VIATGES_DESTACATS} from "../contexts/apollo/queriesTest";
-import {Card, Carousel, Col, List, Row} from "antd";
+import {Card, Carousel, Col, Form, List, Row} from "antd";
 import 'antd/dist/antd.css';
 import {css} from "@emotion/react";
 import Menu from "../components/Menu";
@@ -21,6 +21,7 @@ import {grid_style} from "../styles/components/GridStyles";
 import {Meta} from "antd/lib/list/Item";
 import {GET_NOVETATS} from "../contexts/apollo/queries/novetats";
 import {LaunguageContext} from "../contexts/LanguageContext";
+import axios from "axios";
 
 
 const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats,novetats,galeria,translations, content:contenido,page,...props}) => {
@@ -107,6 +108,57 @@ debugger
    const  fraseInici = galeria.slider.map((image=> image.slide.text))
 
     debugger
+
+
+    const mdirector = (e) => {
+        e.preventDefault();
+        console.log(e);
+
+        const headers = {
+            "Content-Type": "application/json"
+        }
+
+        const MDATA = {
+            grant_type:"password",
+            client_id:"webapp",
+            username:"7619",
+            password:"a1c1c04cd0f61adf24ee",
+        }
+
+        const config = {
+            headers: {
+               /* "Content-Type": "application/json"*/
+       /*         'Content-Type': 'application/x-www-form-urlencoded',
+                "Access-Control-Allow-Origin": "*",*/
+                'Content-Type': 'text/plain',
+                'Connection':'keep-alive',
+                'Accept':'*',
+
+            },
+        };
+
+        var formdata = new FormData();
+
+        formdata.append("grant_type", "password");
+        formdata.append("client_id", "webapp");
+        formdata.append("username", "7619");
+        formdata.append("password", "a1c1c04cd0f61adf24ee");
+
+        /*  http://www.mdirector.com/api_contact  */
+        /*   https://app.mdirector.com/oauth2  */
+
+
+           axios.post("http://app.mdirector.com/oauth2/",MDATA,config).then((resp) => {
+                    console.log(resp)
+
+            })  .catch(error => {
+
+               console.error('There was an error!', error);
+           });
+
+        };
+
+
 
     return (
 
@@ -346,13 +398,17 @@ debugger
                             </div>
 
                             <div>
-                                <input css={{margin:'0'}} type={"text"} placeholder={"El teu email"}/>
-                                <button>Suscríbete</button>
+                                <form onSubmit={mdirector}
+                                    >
+                                    <input name={"email-news"} css={{margin:'0'}} type={"text"} placeholder={"El teu email"}/>
+                                    <button  htmlType="submit">Suscríbete</button>
 
-                                <div className={"conditions"}>
-                                    <input type={"checkbox"}/>
-                                    <p>He leído y acepto la <a target={"_blank"} href={"avis-legal"}>política de privacidad</a></p>
-                                </div>
+                                    <div className={"conditions"}>
+                                        <input type={"checkbox"}/>
+                                        <p>He leído y acepto la <a target={"_blank"} href={"avis-legal"}>política de privacidad</a></p>
+                                    </div>
+                                </form>
+
                             </div>
                         </Col>
                     </Row>
