@@ -127,10 +127,10 @@ debugger
 
         const config = {
             headers: {
-               /* "Content-Type": "application/json"*/
+               "Content-Type": "application/json",
        /*         'Content-Type': 'application/x-www-form-urlencoded',
                 "Access-Control-Allow-Origin": "*",*/
-                'Content-Type': 'text/plain',
+             /*   'Content-Type': 'text/plain',*/
                 'Connection':'keep-alive',
                 'Accept':'*',
 
@@ -148,7 +148,7 @@ debugger
         /*   https://app.mdirector.com/oauth2  */
 
 
-           axios.post("http://app.mdirector.com/oauth2/",MDATA,config).then((resp) => {
+           axios.post("https://app.mdirector.com/oauth2/",MDATA,config).then((resp) => {
                     console.log(resp)
 
             })  .catch(error => {
