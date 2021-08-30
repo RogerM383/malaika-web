@@ -170,7 +170,7 @@ const Menu = ({img = true, children, ...props}) => {
                                                     {
                                                         !button.image &&
                                                         (button.label === "ANIMALS INVISIBLES" || button.label === "ANIMALES INVISIBLES") &&
-                                                        <div>
+                                                        <div css={{maxHeight:'80px'}}>
                                                             <img className={"animals"} src={button.label === "ANIMALS INVISIBLES" ? "/animal-invisibles.png"
                                                             : "/animales-invisibles.png"}/>
                                                         </div>
