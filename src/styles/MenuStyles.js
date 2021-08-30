@@ -59,7 +59,7 @@ export const menu_styles = (theme) => {
                 top: 0;
                //max-width: ${theme.container.max_width};
                 width: 100vw!important;
-                overflow-x: scroll;
+
 
 
                 li{
