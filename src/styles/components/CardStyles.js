@@ -8,8 +8,9 @@ export const card_viatge_autor_small = (theme) => {
         cursor: pointer;
         display: flex;
         flex-direction: column;
-       height: 100%;
+         height: 100%;
         justify-content: space-between;
+        max-width: 300px;
 
           span{
             display: block;
@@ -72,6 +73,11 @@ export const card_viatge_autor_small = (theme) => {
           height: 250px;
           object-fit: cover;
         }
+
+
+      ${theme.mq('mobile-landscape')} {
+        max-width: 600px;
+      }
     `;
 
     return [style];
@@ -377,12 +383,14 @@ export const top_img_tagged_card = (theme) => {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        max-width: 250px;
 
         .image_card {
 
           height: 250px;
           width: 100%;
           object-fit: cover;
+          max-width: 100%;
         }
 
         .text {
@@ -439,6 +447,13 @@ export const top_img_tagged_card = (theme) => {
                 }
             }
         }
+
+
+      ${theme.mq('mobile-landscape')} {
+        max-width: 600px;
+      }
+
+
     `;
 
     return [style];

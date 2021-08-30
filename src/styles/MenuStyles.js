@@ -4,7 +4,30 @@ export const menu_styles = (theme) => {
     const style = css`
 
 
+        .animals{
+
+            display: block;
+            max-width:100%;
+            max-height:50px;
+          // object-fit: contain;
+            height: 100%;
+
+        }
+
+        ${theme.mq('tablet-landscape')} {
+            .animals {
+                max-height: inherit;
+            }
+        }
+
+        .navbar.active.sticky{
+            overflow: scroll;
+
+        }
+
+
         .navbar {
+
             display: flex;
             flex-direction: column;
             max-width: 100%;
@@ -26,6 +49,7 @@ export const menu_styles = (theme) => {
                //max-width: ${theme.container.max_width};
                 width: 100vw!important;
 
+
                 li{
                     border-top-right-radius:initial;
                 }
@@ -44,6 +68,8 @@ export const menu_styles = (theme) => {
             &.active {
                 ul.nav-links {
                     display: initial;
+
+
                 }
             }
 

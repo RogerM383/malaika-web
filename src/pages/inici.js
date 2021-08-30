@@ -26,7 +26,6 @@ import {LaunguageContext} from "../contexts/LanguageContext";
 const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats,novetats, translations,galeria, content:contenido,page,...props}) => {
 
 
-    debugger
 /*    if (page?.title === undefined) {
         return null
     }*/
@@ -70,7 +69,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
         if (dataVD) {
             setViatgesDestacats(dataVD.viatges)
 
-            debugger
+
         }
     }, [dataVD]);
 
@@ -109,7 +108,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
    const  fraseInici = galeria.slider.map((image=> image.slide.text))
 
-    debugger
+
 
     return (
 
@@ -284,7 +283,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                         {
                                             novetats.nodes.map((item) => {
 
-                                                debugger
+
                                                 return(
                                                     <>{
                                                         item.language.code === language.language &&

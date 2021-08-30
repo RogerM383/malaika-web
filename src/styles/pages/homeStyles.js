@@ -105,7 +105,7 @@ export const home_styles = (theme) => {
             margin-top: 4.5rem;
 
             > div {
-                padding: 0 ${theme.container.horizontal_padding};
+              //  padding: 0 ${theme.container.horizontal_padding};
                > .title {
                     font-family: ${theme.font.didot};
                     font-weight: ${theme.font.medium};

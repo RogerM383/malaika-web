@@ -208,7 +208,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                 }
                             })
                         }}>
-                            {'Carregar més viatges'}
+                            {'Cargar más viajes'}
                         </a>
                     }
                 </div>

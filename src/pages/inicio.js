@@ -27,7 +27,7 @@ import axios from "axios";
 const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats,novetats,galeria,translations, content:contenido,page,...props}) => {
 
 
-debugger
+
     /*PAGE INFO*/
     // const {title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats} = page;
 
@@ -68,7 +68,7 @@ debugger
         if (dataVD) {
             setViatgesDestacats(dataVD.viatges)
 
-            debugger
+
         }
     }, [dataVD]);
 
@@ -107,7 +107,7 @@ debugger
 
    const  fraseInici = galeria.slider.map((image=> image.slide.text))
 
-    debugger
+
 
 
     const mdirector = (e) => {
@@ -334,7 +334,7 @@ debugger
                                         {
                                             novetats.nodes.map((item) => {
 
-                                                debugger
+
                                                 return(
                                                     <>{
                                                         item.language.code === language.language &&

@@ -28,6 +28,8 @@ const Menu = ({img = true, children, ...props}) => {
     useEffect(() => {
         if (menuData) {
             const items = menuData.menu.menuItems.nodes;
+
+            debugger
          /*   const menu = items.filter(item => item.label !== 'Blog' && item.parentId === null).map((item) => {*/
             const menu = items.filter(item => item.parentId === null).map((item) => {
                 const path = item.path !== '#' ? item.path.replace('/index.php','') : null;
@@ -162,8 +164,19 @@ const Menu = ({img = true, children, ...props}) => {
                                                     }
                                                     {
                                                         !button.image &&
+                                                        (button.label !== "ANIMALS INVISIBLES" && button.label !== "ANIMALES INVISIBLES") &&
                                                         button.label
                                                     }
+                                                    {
+                                                        !button.image &&
+                                                        (button.label === "ANIMALS INVISIBLES" || button.label === "ANIMALES INVISIBLES") &&
+                                                        <div>
+                                                            <img className={"animals"} src={"/animal-invisibles.png"}/>
+                                                        </div>
+
+                                                    }
+
+
                                                     </span>
                                                 </a>
                                             </Link>
