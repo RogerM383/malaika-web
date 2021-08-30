@@ -9,7 +9,6 @@ export const menu_styles = (theme) => {
             display: block;
             max-width:100%;
             max-height:50px;
-          // object-fit: contain;
             height: 100%;
             padding: 0;
 
@@ -17,7 +16,7 @@ export const menu_styles = (theme) => {
 
         ${theme.mq('tablet-landscape')} {
             .animals {
-                max-height: initial;
+                max-height: 90px;
             }
         }
 
@@ -28,10 +27,11 @@ export const menu_styles = (theme) => {
         }
 
 
-        .navbar.active.sticky{
-            overflow: scroll;
+        .nav-links.true{
+            overflow-y: scroll;
+            height: 100vh;
             .animals{
-                padding:0;
+                padding: 0;
             }
 
         }
@@ -59,6 +59,7 @@ export const menu_styles = (theme) => {
                 top: 0;
                //max-width: ${theme.container.max_width};
                 width: 100vw!important;
+                overflow-x: scroll;
 
 
                 li{

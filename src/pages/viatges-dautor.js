@@ -203,7 +203,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                         <a className={'next'} onClick={(e) => {
                             loadViatgesAutor({
                                 variables: {
-                                    first: PER_PAGE, after: pageInfo.endCursor, last: null, before: null
+                                    first: PER_PAGE, after: pageInfo.endCursor, last: null, before: null, where:"CA"
                                 }
                             })
                         }}>

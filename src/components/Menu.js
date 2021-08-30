@@ -171,7 +171,8 @@ const Menu = ({img = true, children, ...props}) => {
                                                         !button.image &&
                                                         (button.label === "ANIMALS INVISIBLES" || button.label === "ANIMALES INVISIBLES") &&
                                                         <div>
-                                                            <img className={"animals"} src={"/animal-invisibles.png"}/>
+                                                            <img className={"animals"} src={button.label === "ANIMALS INVISIBLES" ? "/animal-invisibles.png"
+                                                            : "/animales-invisibles.png"}/>
                                                         </div>
 
                                                     }
