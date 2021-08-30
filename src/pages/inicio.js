@@ -257,8 +257,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                 </Grid>
 
-                <div className={"more"}><a href={"viatges-dautor"} onC
-                                           lick={(e) => {
+                <div className={"more"}><a href={"viajes-de-autor"} onClick={(e) => {
                     loadViatgesAutor({
                         variables: {
                             first: PER_PAGE,
