@@ -17,7 +17,7 @@ export const menu_styles = (theme) => {
 
         ${theme.mq('tablet-landscape')} {
             .animals {
-                max-height: inherit;
+                max-height: initial;
             }
         }
 
