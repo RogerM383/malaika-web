@@ -11,6 +11,7 @@ export const menu_styles = (theme) => {
             max-height:50px;
           // object-fit: contain;
             height: 100%;
+            padding: 0;
 
         }
 
@@ -20,8 +21,18 @@ export const menu_styles = (theme) => {
             }
         }
 
+        .sticky{
+            .animals{
+                padding: 0.5rem;
+            }
+        }
+
+
         .navbar.active.sticky{
             overflow: scroll;
+            .animals{
+                padding:0;
+            }
 
         }
 
