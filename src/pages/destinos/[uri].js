@@ -91,7 +91,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translat
                                             <span className={"title"}>{item.title}</span>
                                             <span  className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
                                             <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
-                                            <span className={"more_info"}>Más Información <span className={"arrow"}>&#8594;</span>	</span>
+                                            <span className={"more_info"}>Más información <span className={"arrow"}>&#8594;</span>	</span>
                                         </div>
                                     </div>
                                 </Col>

@@ -39,7 +39,7 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
     const settings = {
         dots: true,
         infinite: true,
-        speed: 2000,
+        speed: 4000,
         //arrows: true
         beforeChange: (current, next) =>{
         setSlideNum(next)

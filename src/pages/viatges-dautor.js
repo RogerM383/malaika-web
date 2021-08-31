@@ -183,7 +183,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                                         <div className={"more_info"}>
                                             <span className={"author"}>{autor}</span>
-                                            <span className={"button"} onClick={goTo(slug)} >Més Informació <span className={"primary"}>&#8594;</span> </span>
+                                            <span className={"button"} onClick={goTo(slug)} >Més informació <span className={"primary"}>&#8594;</span> </span>
                                         </div>
 
                                     </div>

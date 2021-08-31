@@ -28,7 +28,7 @@ const PageBlogEntry = ({children,title,slug,content,featuredImage,date, ...props
             <div css={blog_article_styles}>
 
                 <HeaderInici
-                    title={"Notícia"}
+                    title={"ESPAI DE DIVULGACIÓ"}
                     img={"/blog_card.png/"}/>
 
                 <MaxWidthContainer>

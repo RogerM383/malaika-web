@@ -152,7 +152,7 @@ if(page?.title === undefined){
                                                             <span className={"title"}>{item.title}</span>
                                                             <span  className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
                                                             <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
-                                                            <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
+                                                            <span className={"more_info"}>Más información <span className={"arrow"}>&#8594;</span>	</span>
                                                         </div>
 
                                                 </div>

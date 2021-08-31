@@ -247,7 +247,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                             {sortides.map((item) => item.datasortida)}
                                             </span>
                                         </div>
-                                        <span className={"more-info"} onClick={goTo("viaje-de-autor/" + slug)}>Más Información    &#8594;</span>
+                                        <span className={"more-info"} onClick={goTo("viaje-de-autor/" + slug)}>Más información    &#8594;</span>
                                     </div>
                                     <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
                                 </div>

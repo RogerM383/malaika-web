@@ -197,7 +197,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                             {sortides.map((item) => item.datasortida)}
                                             </span>
                                         </div>
-                                        <span className={"more-info"} onClick={goTo("viatge-dautor/" + slug)}>Més Informació    &#8594;</span>
+                                        <span className={"more-info"} onClick={goTo("viatge-dautor/" + slug)}>Més informació    &#8594;</span>
                                     </div>
                                     <Image className={"photo"} alt={image?.altText} src={image?.node?.mediaItemUrl}/>
                                 </div>
@@ -240,7 +240,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                             <span className={"title"}>{item.title}</span>
                                             <span className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
                                             <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates}</span>
-                                            <span className={"more_info"}>Més Informació <span className={"arrow"}>&#8594;</span>	</span>
+                                            <span className={"more_info"}>Més informació <span className={"arrow"}>&#8594;</span>	</span>
                                         </div>
                                     </div>
                                 )
@@ -342,8 +342,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                             <div className={"subscribe"}>
                                 <p>Subscriu-te al nostre Newsletter</p>
-                                <p>Inscriviu-vos a les nostres llistes de correu i rebreu les novetats
-                                    ofertes i promocions directament a la safata d’entrada.</p>
+                                <p>Inscriviu-vos a les nostres llistes de correu i rebreu les novetats, ofertes i promocions directament a la safata d’entrada del vostre e-mail.</p>
                             </div>
 
                             <div>

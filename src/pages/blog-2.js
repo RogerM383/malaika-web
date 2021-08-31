@@ -80,7 +80,7 @@ const Page = ({children, ...props}) => {
                                             <p>{moment(date).format('DD-MM-YYYY')}</p>
                                             <p className={"title_entry"}>{title}</p>
                                             <p  className={""} dangerouslySetInnerHTML={{__html: excerpt}}/>
-                                            <p >Més Informació &#8594;</p>
+                                            <p >Más información &#8594;</p>
                                         </div>
                                     )
                                 })

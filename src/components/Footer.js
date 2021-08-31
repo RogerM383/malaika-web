@@ -57,8 +57,8 @@ const Footer = ({img = true, children, ...props}) => {
 
                     <Col xs={24} sm={24} md={12} lg={6}>
                         <div className={"avasa"}>
-                            <a target={"_blank"} href={"http://locosporviajar.org/"}><Image className={"avasa_logo"} src={"/locos-por-viajar.jpg"}></Image> </a>
-                            <a target={"_blank"} href={"https://www.grupoavasa.com/"}><Image className={"avasa_logo"} src={"/avasa-logo.jpg"}></Image> </a>
+                            <a css={{cursor:'default'}} target={"_blank"}><Image className={"avasa_logo"} src={"/locos-por-viajar.jpg"}></Image> </a>
+                            <a css={{cursor:'default'}} target={"_blank"}><Image className={"avasa_logo"} src={"/avasa-logo.jpg"}></Image> </a>
                             <a target={"_blank"} href={"http://animalesinvisibles.com/"}><Image className={"avasa_logo"} src={"/animal-invisibles.png"}></Image> </a>
                         </div>
 
