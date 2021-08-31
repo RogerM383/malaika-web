@@ -149,7 +149,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                 <div className={'title'}>
                     <h2>
-                        <span>Viatges</span><span>d’Autor /</span>
+                        <span>Viatges</span><span>d’autor /</span>
                     </h2>
                     <h5 className={'litle'}>Grups reduïts</h5>
                 </div>
