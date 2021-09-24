@@ -25,9 +25,9 @@ const Footer = ({img = true, children, ...props}) => {
             <div css={footer_styles}>
                 <p className={"info_contact fs-14 sbold"}>{lang === "CA" ? "Informació de contacte" : "Información de contacto" } </p>
 
-                <Row gutter={[10, 40]} justify={"space-between"}>
+                <Row gutter={[10, 40]} justify={"space-between"} align={"middle"}>
 
-                    <Col  xs={24} sm={24} md={12} lg={6}>
+                    <Col  xs={24} sm={24} md={12} lg={5}>
                         <div className={"contact"}>
                             <span className={"address"}>Carrer de París, 209, Pral 2a</span>
                             <span className={"address"}>08008 BARCELONA</span>
@@ -42,7 +42,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     </Col>
 
-                    <Col xs={24} sm={24} md={12} lg={6}>
+                    <Col xs={24} sm={24} md={12} lg={5}>
                         <div className={"contact"}>
                             <span  className={"address"}>Camí dels Horts, 8</span>
                             <span  className={"address"}>17124 Llofriu, Girona</span>
@@ -56,15 +56,19 @@ const Footer = ({img = true, children, ...props}) => {
                     </Col>
 
                     <Col xs={24} sm={24} md={12} lg={6}>
-                        <div className={"avasa"}>
-                            <a css={{cursor:'default'}} target={"_blank"}><Image className={"avasa_logo"} src={"/locos-por-viajar.jpg"}></Image> </a>
-                            <a css={{cursor:'default'}} target={"_blank"}><Image className={"avasa_logo"} src={"/avasa-logo.jpg"}></Image> </a>
-                            <a target={"_blank"} href={"http://animalesinvisibles.com/"}><Image className={"avasa_logo"} src={"/animal-invisibles.png"}></Image> </a>
+                        <div className={"logos"}>
+                            <div>
+                                <a css={{cursor: 'default'}} target={"_blank"}><Image className={"logo-item"} src={"/locos-por-viajar.jpg"}></Image> </a>
+                                <a css={{cursor: 'default'}} target={"_blank"}><Image className={"logo-item"} src={"/avasa-logo.jpg"}></Image> </a>
+                            </div>
+                            <div>
+                                <a target={"_blank"} href={"http://animalesinvisibles.com/"}><Image className={"logo-item"} src={"/animal-invisibles.png"}></Image> </a>
+                            </div>
                         </div>
 
                     </Col>
 
-                    <Col xs={24} sm={24} md={12} lg={6}>
+                    <Col xs={24} sm={24} md={12} lg={8}>
                         <div className={" last"}>
                             {
                                 lang === "CA" &&
