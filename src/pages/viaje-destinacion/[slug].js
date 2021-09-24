@@ -74,10 +74,25 @@ if(page?.title === undefined){
                             </Col>
                             <Col  className={"right_column"}  sm={24} md={12}>
                                 <div>
-                                    <p>GRUPO: {grup}</p>
-                                    <span>PRECIO: {preu}</span>
-                                    <span>Tasas de aeropuerto: {taxes}</span>
-                                    <span>Suplemento hab. individual: {suplement}</span>
+                                    {
+                                        grup &&
+                                        <p>GRUP: {grup}</p>
+                                    }
+                                    {
+
+                                        preu &&
+                                        <span>PREU: {preu}</span>
+
+                                    }
+
+                                    {
+                                        taxes &&
+                                        <span>Taxes d'aeroport: {taxes}</span>
+                                    }
+                                    {
+                                        suplement &&
+                                        <span>Suplement hab. individual: {suplement}</span>
+                                    }
                                 </div>
 
                                 {

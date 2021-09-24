@@ -78,10 +78,26 @@ debugger
                             </Col>
                             <Col  className={"right_column"}  sm={24} md={12}>
                                 <div>
-                                    <p>GRUP: {grup}</p>
-                                    <span>PREU: {preu}</span>
-                                    <span>Taxes d'aeroport: {taxes}</span>
-                                    <span>Suplement hab. individual: {suplement}</span>
+                                    {
+                                        grup &&
+                                        <p>GRUP: {grup}</p>
+                                    }
+                                    {
+
+                                        preu &&
+                                        <span>PREU: {preu}</span>
+
+                                    }
+
+                                    {
+                                        taxes &&
+                                        <span>Taxes d'aeroport: {taxes}</span>
+                                    }
+                                    {
+                                        suplement &&
+                                        <span>Suplement hab. individual: {suplement}</span>
+                                    }
+
                                 </div>
 
                                 {

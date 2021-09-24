@@ -219,7 +219,7 @@ export const GET_MENU_BY_NAME = gql`
 
 export const GET_VIATGES_AUTOR = gql`
     query geytVietagesAutor ($first: Int, $last: Int, $before: String, $after: String, $where:LanguageCodeFilterEnum) {
-        viatgesdautor(where:{language:$where},first: $first, last: $last, before: $before, after: $after) {
+        viatgesdautor(where:{language:$where,orderby: {field: DATE, order: ASC}},first: $first, last: $last, before: $before, after: $after) {
             nodes {
                 content
                 date
