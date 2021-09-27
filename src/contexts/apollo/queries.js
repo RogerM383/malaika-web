@@ -256,9 +256,7 @@ export const GET_VIATGES_AUTOR = gql`
                         sourceUrl
                         title
                     }
-                    vols {
-                        datavol
-                    }
+
                     sortides {
                         datasortida
                     }
