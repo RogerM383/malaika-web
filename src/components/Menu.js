@@ -78,12 +78,14 @@ const Menu = ({img = true, children, ...props}) => {
 
 
     const handleScroll = () => {
-        const offset = window.scrollY;
-        const point_sticky = window.innerHeight;
-        setSticky(offset + nav.current.getBoundingClientRect().height > point_sticky);
-      /*  console.log("offset" + offset)
-        console.log("point sticky" + point_sticky)*/
-        //setMaxMenuWidth(calcMaxMenuWidth);
+        if (nav.current) {
+            const offset = window.scrollY;
+            const point_sticky = window.innerHeight;
+            setSticky(offset + nav.current.getBoundingClientRect().height > point_sticky);
+            /*  console.log("offset" + offset)
+              console.log("point sticky" + point_sticky)*/
+            //setMaxMenuWidth(calcMaxMenuWidth);
+        }
     }
 
     // --- Scroll event listener ---------------------------------------------------------------------------------------

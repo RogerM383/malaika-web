@@ -1,12 +1,18 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Loader from "./Loader";
 import useImage from "../hooks/useImage";
 import {main} from "../styles/ImageStyle"
 
 const Image = ({key, src, alt, ...props}) => {
 
-    const _src = src;
+    const [_src, setSrc] = useState(null)
     const {hasLoaded, hasError} = useImage(_src);
+
+    useEffect(() => {
+        if (src) {
+            setSrc(src);
+        }
+    },[src]);
 
     return (
         <>

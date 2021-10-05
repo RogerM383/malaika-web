@@ -10,7 +10,7 @@ import MaxWidthContainer from "../components/MaxWidthContainer";
 import {Col, Row} from "antd";
 import {useLazyQuery} from "@apollo/client";
 import {GET_VIATGES_DESTACATS} from "../contexts/apollo/queriesTest";
-import {GET_BLOG_ENTRYS} from "../contexts/apollo/queries/blog";
+import {GET_BLOG_ENTRY_BY_SLUG, GET_BLOG_ENTRYS} from "../contexts/apollo/queries/blog";
 import moment from "moment";
 import HeaderInici from "../components/HeaderInici";
 import {initializeApollo} from "../contexts/apollo/ApolloContext";
@@ -18,53 +18,56 @@ import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 import {LaunguageContext} from "../contexts/LanguageContext";
 
 
-const Page = ({children, ...props}) => {
+const Page = ({data, ...props}) => {
 
     const elements = ['one', 'two', 'three'];
     const router = useRouter();
 
-    const {language,setLanguage} = useContext(LaunguageContext);
+    const [page, setPage] = useState(null);
     useEffect(() => {
-        setLanguage({language:props?.language?.code,
-            pageTranslation:"blog-2"})
-    }, []);
+        if (data) {
+            setPage(data.pageBy);
+        }
+    },[data]);
 
-
+    const {language, setLanguage} = useContext(LaunguageContext);
+    useEffect(() => {
+        setLanguage({
+            language: page?.language?.code,
+            pageTranslation: "blog-2"
+        });
+    }, [page]);
 
     const goTo = (slug) => (e) =>{
         router.push(slug)
     }
 
-    const [loadPosts, { loading, errorD, data }] = useLazyQuery(GET_BLOG_ENTRYS);
-    const [loadRecentPosts, { loading:loadingRecents, error:errorRecents, data:dataRecents }] = useLazyQuery(GET_BLOG_ENTRYS);
-
-
     const [posts, setPosts] = useState([]);
-    const [recentPost, setRecentPosts] = useState([]);
-
+    const [loadPosts, { loading, errorD, data: dataEntrys }] = useLazyQuery(GET_BLOG_ENTRYS);
     useEffect(() => {
-        loadPosts({variables: {where:"CA"}});
-        loadRecentPosts({variables: {where:"CA"}});
-    }, []);
-
-    useEffect(() => {
-        if (data) {
-            setPosts(data.posts.nodes);
+        if (dataEntrys) {
+            setPosts(dataEntrys.posts.nodes);
         }
-    },[data]);
+    },[dataEntrys]);
 
+    const [recentPost, setRecentPosts] = useState([]);
+    const [loadRecentPosts, { loading: loadingRecents, error: errorRecents, data: dataRecents }] = useLazyQuery(GET_BLOG_ENTRYS);
     useEffect(() => {
         if (dataRecents) {
-            setRecentPosts(data.posts.nodes);
+            setRecentPosts(dataRecents.posts.nodes);
         }
     },[dataRecents]);
 
+    useEffect(() => {
+        loadPosts({variables: { where: "CA" }});
+        loadRecentPosts({ variables: { where:"CA" }});
+    }, []);
+
     return (
         <div css={blog_styles}>
-           <HeaderInici
+            <HeaderInici
                 title={"Blog"}
                 img={"palmeras.png/"}/>
-
 
             <MaxWidthContainer>
                 <div className={"block1"}>
@@ -87,8 +90,6 @@ const Page = ({children, ...props}) => {
                                     )
                                 })
                             }
-
-
 
                         </Col>
 
@@ -114,20 +115,15 @@ const Page = ({children, ...props}) => {
                                 }
                             </div>
 
-
                         </Col>
                     </Row>
 
-
                 </div>
-
-
-
 
             </MaxWidthContainer>
 
-
             <Footer/>
+
         </div>
 
     );
@@ -135,15 +131,15 @@ const Page = ({children, ...props}) => {
 };
 
 export const getStaticProps = async (ctx) => {
-    const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog/' }})
-        .then((data) => {
-            return data.data.pageBy;
-        });
-    return {props: data, revalidate: 60};
+    const {data, initialState} = await getInitialData();
+    return {props: {data, initialState}, revalidate: 60};
 }
 
-
+const getInitialData = async (slug) => {
+    const apolloClient = initializeApollo();
+    const {error, data} = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog/' }})
+    return { data: data, initialState: apolloClient.cache.extract()};
+}
 
 export default Page;
 

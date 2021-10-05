@@ -15,7 +15,7 @@ import HeaderInici from "../../components/HeaderInici";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
-const PageViatgeDautor = ({children, data, slug, ...props}) => {
+const PageViatgeDautor = ({data, slug, ...props}) => {
 
     const {language,setLanguage} = useContext(LaunguageContext)
 
@@ -184,7 +184,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params,...ctx }) {
     const {data, initialState} = await getInitialData(params.slug);
-    return { props: { data, slug: params.slug, initialState }, revalidate: 600};
+    return { props: { data, slug: params.slug, initialState }, revalidate: 60};
 }
 
 const getInitialData = async (slug) => {
