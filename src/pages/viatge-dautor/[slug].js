@@ -28,7 +28,6 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
 
     const {language,setLanguage} = useContext(LaunguageContext)
 
-
     // ------------------------------------------------------------------------------------------
     const [page, setPage] = useState(null);
     const [campsViatge, setCampsviatge] = useState(null);
@@ -41,7 +40,6 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
     },[pagina]);
     // ------------------------------------------------------------------------------------------
 
-
     useEffect(() => {
         if (page) {
             setLanguage({
@@ -50,13 +48,6 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
             })
         }
     }, [page]);
-
-
-
-
-
-    debugger
-
 
     return (
         <div css={viatge_fitxa}>

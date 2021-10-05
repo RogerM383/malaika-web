@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import {ApolloClient, ApolloLink as authLink, ApolloProvider, createHttpLink, InMemoryCache} from "@apollo/client";
 
 const link = new createHttpLink({
@@ -52,3 +52,8 @@ export const ApolloContextProvider = ({initialValue,...props}) => {
         </ApolloProvider>
     );
 };
+
+export function useApollo(initialState) {
+    const store = useMemo(() => initializeApollo(initialState), [initialState])
+    return store
+}
