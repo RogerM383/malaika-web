@@ -43,32 +43,10 @@ export default function App ({ Component, pageProps }) {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     }, [router]);
 
-    const initialState = {
-
-        /*        address:
-                    {
-                        name: "Principal",
-                        address: "Carrer de Sant Ferran, 18",
-                        zipcode: " 08940",
-                        city: "Cornellà de Llobregat",
-                        province:  "Barcelona",
-                        country:"esp"
-                    },
-                license:{
-                    product_id:1
-                },
-                user:{
-                    name:"ivan",
-                    email:"ivang@mail.com",
-                    password:"secret",
-                    nif:"43234234",
-                    phone:"123456"
-                }*/
-
-    }
+    const {initialState} = pageProps;
 
     return (
-        <ApolloContextProvider>
+        <ApolloContextProvider initialValue={initialState}>
             <LaunguageContextProvider>
                 <ThemeProvider theme={DefaultTheme}>
                     <CacheProvider value={malaikaCache}>

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {viatge_fitxa} from "../../styles/pages/fitxa_viatge_autorStyles";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -15,24 +15,41 @@ import HeaderInici from "../../components/HeaderInici";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
-const PageViatgeDautor = ({children,page, ...props}) => {
+const PageViatgeDautor = ({children, pagina, ...props}) => {
 
 
-    debugger
+    /*debugger
     if(page?.title === undefined){
         return null
     }
 
     const {Campsviatge,slug,title,uri,content,featuredImage,translations} = page
-    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa,fitxa}=Campsviatge
+    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa,fitxa}=Campsviatge*/
 
     const {language,setLanguage} = useContext(LaunguageContext)
 
+
+    // ------------------------------------------------------------------------------------------
+    const [page, setPage] = useState(null);
+    const [campsViatge, setCampsviatge] = useState(null);
+
     useEffect(() => {
-        setLanguage({
-            ...language ,
-            pageTranslation:translations.length >= 1 ? "viaje-de-autor/"+translations[0]?.slug :null})
-    }, [translations]);
+        if (pagina) {
+            setPage(pagina);
+            setCampsviatge(pagina.Campsviatge);
+        }
+    },[pagina]);
+    // ------------------------------------------------------------------------------------------
+
+
+    useEffect(() => {
+        if (page) {
+            setLanguage({
+                ...language,
+                pageTranslation: page.translations.length >= 1 ? "viaje-de-autor/" + page[0]?.slug : null
+            })
+        }
+    }, [page]);
 
 
 
@@ -43,10 +60,10 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
     return (
         <div css={viatge_fitxa}>
-            <HeaderInici title={title} img={featuredImage?.node?.mediaItemUrl}/>
+            <HeaderInici title={page?.title} img={page?.featuredImage?.node?.mediaItemUrl}/>
 
             <MaxWidthContainer>
-                <div className={"breadcrumb"}>Viatges d'autor > {title}</div>
+                <div className={"breadcrumb"}>Viatges d'autor > {page?.title}</div>
             </MaxWidthContainer>
 
             <MaxWidthContainer className={"block1"}>
@@ -54,24 +71,25 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                 <Row >
                     <Col className={"left_column"} sm={24} md={12} >
                         <div >
-                            <p className={"title"}>{title}</p>
-                            <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
-                            {fitxa?.mediaItemUrl &&
-                            <button><a target={"_blank"} css={{color: 'white'}} href={fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
+                            <p className={"title"}>{page?.title}</p>
+                            <p  className={"content"}  dangerouslySetInnerHTML={{__html: page?.content}}/>
+                            {
+                                campsViatge?.fitxa?.mediaItemUrl &&
+                                <button><a target={"_blank"} css={{color: 'white'}} href={campsViatge?.fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
                             }
                         </div>
                     </Col>
 
                     <Col  className={"right_column"}  sm={24} md={12}>
                         <div>
-                            <p>GRUP: {grup}</p>
-                            <span>PREU: {preu}</span>
-                            <span>Taxes d'aeroport: {taxes}</span>
-                            <span>Suplement hab. individual: {suplement}</span>
+                            <p>GRUP: {campsViatge?.grup}</p>
+                            <span>PREU: {campsViatge?.preu}</span>
+                            <span>Taxes d'aeroport: {campsViatge?.taxes}</span>
+                            <span>Suplement hab. individual: {campsViatge?.suplement}</span>
                         </div>
 
 
-                        {   vols &&
+                        {   campsViatge?.vols &&
                             <Row className={"plane"}>
                                 <Col span={2}>
                                     <img className={"mapa"} src={"../plane_icon.png"}/>
@@ -82,7 +100,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
 
                                     {
-                                        vols.map((item)=>{
+                                        campsViatge?.vols.map((item)=>{
                                             return(
                                                 <>
                                                     <Col xs={10} sm={9} md={9} lg={8} xl={9} ><span key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
@@ -109,7 +127,10 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                         {/* DIFERENCIA CON DESTINACIONS*/}
                         <div className={"block_mapa"}>
                             <p className={"bold"}>ITINERARI</p>
-                            <Image className={"mapa"} src={mapa.mediaItemUrl}/>
+                            {
+                                campsViatge &&
+                                <Image className={"mapa"} src={campsViatge?.mapa.mediaItemUrl}/>
+                            }
                         </div>
 
 
@@ -122,7 +143,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
 
             {
-                inclou &&
+                campsViatge?.inclou &&
                 <div className={"block2"} css={bicolor_style}>
                     <MaxWidthContainer>
                         <Row>
@@ -130,7 +151,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
 
                                 <div className={"inclou"}>
                                     <p className={"title"}>Inclou</p>
-                                    <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
+                                    <p className={""} dangerouslySetInnerHTML={{__html: campsViatge?.inclou}}/>
                                 </div>
 
                             </Col>
@@ -138,7 +159,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                             <Col className={"right"} sm={24} md={12}>
                                 <div className={"inclou"}>
                                     <p className={"title"}>No inclou</p>
-                                    <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
+                                    <p className={""} dangerouslySetInnerHTML={{__html: campsViatge?.noInclou}}/>
                                 </div>
                             </Col>
                         </Row>
@@ -153,7 +174,7 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                     <Col sm={24} md={12}>
                         {
 
-                            etapes.slice(0, (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : (etapes.length / 2)+1).map((item) => {
+                            campsViatge?.etapes.slice(0, (campsViatge?.etapes.length / 2) % 2 === 0 ? campsViatge?.etapes.length / 2 : (campsViatge?.etapes.length / 2)+1).map((item) => {
                                 debugger
                                 return (
                                     <div css={card_itinerari} key={item.etapa.titol}>
@@ -170,8 +191,8 @@ const PageViatgeDautor = ({children,page, ...props}) => {
                     <Col sm={24} md={12} >
                         {
 
-                            etapes.slice( (etapes.length / 2) % 2 === 0 ? etapes.length / 2 : ((etapes.length / 2)+1)).map((item,i) => {
-                                const number = etapes.length;
+                            campsViatge?.etapes.slice( (campsViatge?.etapes.length / 2) % 2 === 0 ? campsViatge?.etapes.length / 2 : ((campsViatge?.etapes.length / 2)+1)).map((item,i) => {
+                                const number = campsViatge?.etapes.length;
                                 return (
                                     <div css={ number !== i+1 ? card_itinerari : card_itinerari_finish} key={i}>
                                         <p className={"etapa_title"}>{item.etapa?.dia} <span className={"etapa_ubicacio"}>{item?.etapa?.ubicacio}</span></p>
@@ -215,13 +236,17 @@ export async function getStaticProps({ params,...ctx }) {
     const client = initializeApollo();
 
     const {error, data} = await client.query({query: GET_VIATGE_DAUTOR_BY_SLUG, variables: { slug: params.slug }});
-    const page = data.viatgedautor;
-
+    const pagina = data.viatgedautor;
+    const initialState = await getInitialData(params.slug);
     console.log(data);
-    return { props:{page}, revalidate: 60};
+    return { props: { pagina, initialState }, revalidate: 60};
 }
 
-
+const getInitialData = async (slug) => {
+    const apolloClient = initializeApollo();
+    const {error, data} = await apolloClient.query({query: GET_VIATGE_DAUTOR_BY_SLUG, variables: { slug: slug }});
+    return apolloClient.cache.extract();
+}
 
 export default PageViatgeDautor;
 

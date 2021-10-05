@@ -16,7 +16,12 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
 
     const router = useRouter();
 
-
+    const [image, setImage] = useState(null);
+    useEffect(() => {
+        if (img) {
+            setImage(img);
+        }
+    },[img]);
 
     const carrosusel = (theme) => {
         const style = css`
@@ -120,36 +125,38 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
             }
 */}
 
+            {
+                image &&
+                <Carousel
+                    {...settings}
+                    autoplay
+                    ref={ref => {
+                        /*   console.log(ref);*/
+                        slider.current = ref;
+                    }}
+                    dotPosition={'bottom'}
+                    css={carrosusel}
+                    effect="fade">
 
-            <Carousel
-                {...settings}
-                autoplay
-                ref={ref => {
-                 /*   console.log(ref);*/
-                    slider.current = ref; }}
-                dotPosition={'bottom'}
-                css={carrosusel}
-                effect="fade">
-
-                { Array.isArray(img) &&
-                    img.map((im)=>{
-                        return(
+                    {Array.isArray(image) &&
+                    image.map((im) => {
+                        return (
                             <div>
-                                <Image src={im}/>
+                                <Image src={image}/>
                             </div>
                         )
                     })
-                }
+                    }
 
-                {
-                    !Array.isArray(img) &&
-                    <div>
-                        <Image src={img}/>
-                    </div>
-                }
+                    {
+                        !Array.isArray(image) &&
+                        <div>
+                            <Image src={image}/>
+                        </div>
+                    }
 
 
-        {/*        <div>
+                    {/*        <div>
                     <Image src={"/foto1.png"}/>
                 </div>
                 <div>
@@ -163,7 +170,8 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
                 </div>*/}
 
 
-            </Carousel>
+                </Carousel>
+            }
 
 
             <Menu/>
