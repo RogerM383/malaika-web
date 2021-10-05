@@ -31,6 +31,12 @@ const createApolloClient = () => {
         ssrMode: typeof window === 'undefined',
         cache: new InMemoryCache(),
         link: link,
+        queryDeduplication: false,
+        defaultOptions: {
+            query: {
+                fetchPolicy: 'cache-first',
+            },
+        },
     })
 }
 

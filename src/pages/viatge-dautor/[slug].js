@@ -7,7 +7,7 @@ import {card_itinerari, card_itinerari_finish} from "../../styles/components/Car
 import Card from "../../../package/components/Card";
 import MaxWidthContainer from "../../components/MaxWidthContainer";
 import {bicolor_style} from "../../styles/components/BiColorBlock";
-import {initializeApollo} from "../../contexts/apollo/ApolloContext";
+import {initializeApollo, useApollo} from "../../contexts/apollo/ApolloContext";
 import {GET_VIATGE_BY_SLUG, GET_VIATGE_DAUTOR_BY_SLUG} from "../../contexts/apollo/queriesTest";
 import {Row, Col, Table} from 'antd';
 import 'antd/dist/antd.css';
@@ -15,16 +15,7 @@ import HeaderInici from "../../components/HeaderInici";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
-const PageViatgeDautor = ({children, pagina, ...props}) => {
-
-
-    /*debugger
-    if(page?.title === undefined){
-        return null
-    }
-
-    const {Campsviatge,slug,title,uri,content,featuredImage,translations} = page
-    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,vols,mapa,fitxa}=Campsviatge*/
+const PageViatgeDautor = ({children, data, slug, ...props}) => {
 
     const {language,setLanguage} = useContext(LaunguageContext)
 
@@ -33,19 +24,16 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
     const [campsViatge, setCampsviatge] = useState(null);
 
     useEffect(() => {
-        if (pagina) {
-            setPage(pagina);
-            setCampsviatge(pagina.Campsviatge);
+        if (data) {
+            setPage(data.viatgedautor);
+            setCampsviatge(data.viatgedautor.Campsviatge);
         }
-    },[pagina]);
+    },[data]);
     // ------------------------------------------------------------------------------------------
 
     useEffect(() => {
         if (page) {
-            setLanguage({
-                ...language,
-                pageTranslation: page.translations.length >= 1 ? "viaje-de-autor/" + page[0]?.slug : null
-            })
+            setLanguage({ ...language,  pageTranslation: page.translations.length >= 1 ? "viaje-de-autor/" + page[0]?.slug : null});
         }
     }, [page]);
 
@@ -59,7 +47,7 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
 
             <MaxWidthContainer className={"block1"}>
 
-                <Row >
+                <Row>
                     <Col className={"left_column"} sm={24} md={12} >
                         <div >
                             <p className={"title"}>{page?.title}</p>
@@ -79,41 +67,32 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
                             <span>Suplement hab. individual: {campsViatge?.suplement}</span>
                         </div>
 
-
                         {   campsViatge?.vols &&
                             <Row className={"plane"}>
+
                                 <Col span={2}>
                                     <img className={"mapa"} src={"../plane_icon.png"}/>
                                 </Col>
+
                                 <Col span={22}>
-
                                     <Row gutter={[10,5]}>
-
-
                                     {
                                         campsViatge?.vols.map((item)=>{
-                                            return(
+                                            return (
                                                 <>
-                                                    <Col xs={10} sm={9} md={9} lg={8} xl={9} ><span key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
-                                                    <Col xs={4} sm={5} md={5} lg={5} xl={9}  ><span key={item.vol.datavol} className={"vol"} >{item.vol.datavol}</span></Col>
-                                                    <Col xs={4} sm={4} md={5} lg={5} xl={3} ><span key={item.vol.numvol} className={"vol"} >{item.vol.numvol}</span></Col>
+                                                    <Col xs={10} sm={9} md={9} lg={8} xl={9}><span key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
+                                                    <Col xs={4} sm={5} md={5} lg={5} xl={9}><span key={item.vol.datavol} className={"vol"} >{item.vol.datavol}</span></Col>
+                                                    <Col xs={4} sm={4} md={5} lg={5} xl={3}><span key={item.vol.numvol} className={"vol"} >{item.vol.numvol}</span></Col>
                                                     <Col xs={6} sm={5} md={5} lg={6}  xl={3}><span key={item.vol.horari} className={"vol vol-right"} >{item.vol.horari}</span></Col>
-
                                                 </>
-
-
-                                                )
-
+                                            )
                                         })
-
                                     }
-
                                     </Row>
                                 </Col>
+
                             </Row>
                         }
-
-
 
                         {/* DIFERENCIA CON DESTINACIONS*/}
                         <div className={"block_mapa"}>
@@ -123,15 +102,9 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
                                 <Image className={"mapa"} src={campsViatge?.mapa.mediaItemUrl}/>
                             }
                         </div>
-
-
-
                     </Col>
-
                 </Row>
-
             </MaxWidthContainer>
-
 
             {
                 campsViatge?.inclou &&
@@ -139,12 +112,10 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
                     <MaxWidthContainer>
                         <Row>
                             <Col className={"left"} sm={24} md={12}>
-
                                 <div className={"inclou"}>
                                     <p className={"title"}>Inclou</p>
                                     <p className={""} dangerouslySetInnerHTML={{__html: campsViatge?.inclou}}/>
                                 </div>
-
                             </Col>
 
                             <Col className={"right"} sm={24} md={12}>
@@ -159,12 +130,12 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
             }
 
             <MaxWidthContainer className={"block3_autor"}>
+
                 <p className={"title"}>Itinerari</p>
 
                 <Row gutter={[60]} className={"row_itinerari"}>
                     <Col sm={24} md={12}>
                         {
-
                             campsViatge?.etapes.slice(0, (campsViatge?.etapes.length / 2) % 2 === 0 ? campsViatge?.etapes.length / 2 : (campsViatge?.etapes.length / 2)+1).map((item) => {
                                 debugger
                                 return (
@@ -196,47 +167,30 @@ const PageViatgeDautor = ({children, pagina, ...props}) => {
                     </Col>
                 </Row>
 
-
-
-
-
             </MaxWidthContainer>
-
-
 
             <Footer/>
         </div>
-
     );
-
 };
 
 
 export async function getStaticPaths() {
-
     return {
-        paths: [
-            { params: { slug:"atapuerca-i-burgos/" } } // See the "paths" section below
-        ],
-        fallback: true // See the "fallback" section below
+        paths: [ { params: { slug:"atapuerca-i-burgos/" } } ],
+        fallback: true
     };
 }
 
 export async function getStaticProps({ params,...ctx }) {
-
-    const client = initializeApollo();
-
-    const {error, data} = await client.query({query: GET_VIATGE_DAUTOR_BY_SLUG, variables: { slug: params.slug }});
-    const pagina = data.viatgedautor;
-    const initialState = await getInitialData(params.slug);
-    console.log(data);
-    return { props: { pagina, initialState }, revalidate: 60};
+    const {data, initialState} = await getInitialData(params.slug);
+    return { props: { data, slug: params.slug, initialState }, revalidate: 600};
 }
 
 const getInitialData = async (slug) => {
     const apolloClient = initializeApollo();
     const {error, data} = await apolloClient.query({query: GET_VIATGE_DAUTOR_BY_SLUG, variables: { slug: slug }});
-    return apolloClient.cache.extract();
+    return { data: data, initialState: apolloClient.cache.extract()};
 }
 
 export default PageViatgeDautor;
