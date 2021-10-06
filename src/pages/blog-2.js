@@ -23,39 +23,45 @@ const Page = ({children, ...props}) => {
     const elements = ['one', 'two', 'three'];
     const router = useRouter();
 
-    const {language,setLanguage} = useContext(LaunguageContext);
+    const [page, setPage] = useState(null);
     useEffect(() => {
-        setLanguage({language:props?.language?.code,
-            pageTranslation:"blog"})
-    }, []);
+        if (data) {
+            setPage(data.pageBy);
+        }
+    },[data]);
+
+    const {language, setLanguage} = useContext(LaunguageContext);
+    useEffect(() => {
+        setLanguage({
+            language: page?.language?.code,
+            pageTranslation: "blog-2"
+        });
+    }, [page]);
 
     const goTo = (slug) => (e) =>{
         router.push(slug)
     }
 
-    const [loadPosts, { loading, errorD, data }] = useLazyQuery(GET_BLOG_ENTRYS);
-    const [loadRecentPosts, { loading:loadingRecents, error:errorRecents, data:dataRecents }] = useLazyQuery(GET_BLOG_ENTRYS);
-
-
     const [posts, setPosts] = useState([]);
-    const [recentPost, setRecentPosts] = useState([]);
-
+    const [loadPosts, { loading, errorD, data: dataEntrys }] = useLazyQuery(GET_BLOG_ENTRYS);
     useEffect(() => {
-        loadPosts({variables: {where:"ES"}});
-        loadRecentPosts({variables: {where:"ES"}});
-    }, []);
-
-    useEffect(() => {
-        if (data) {
-            setPosts(data.posts.nodes);
+        if (dataEntrys) {
+            setPosts(dataEntrys.posts.nodes);
         }
-    },[data]);
+    },[dataEntrys]);
 
+    const [recentPost, setRecentPosts] = useState([]);
+    const [loadRecentPosts, { loading: loadingRecents, error: errorRecents, data: dataRecents }] = useLazyQuery(GET_BLOG_ENTRYS);
     useEffect(() => {
         if (dataRecents) {
-            setRecentPosts(data.posts.nodes);
+            setRecentPosts(dataRecents.posts.nodes);
         }
     },[dataRecents]);
+
+    useEffect(() => {
+        loadPosts({variables: { where: "ES" }});
+        loadRecentPosts({ variables: { where:"ES" }});
+    }, []);
 
     return (
         <div css={blog_styles}>
