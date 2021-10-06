@@ -94,11 +94,11 @@ const Menu = ({img = true, children, ...props}) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
- /*   useEffect(() => {
+    /*useEffect(() => {
         setMaxMenuHeight(mobileMenu.current.getBoundingClientRect().height);
-    }, [width, height]);*/
+    }, [width, height]);
 
-/*    const calcMaxMenuWidth = () => {
+    const calcMaxMenuWidth = () => {
         return ( window.scrollY  * 100 / width)
     }*/
 

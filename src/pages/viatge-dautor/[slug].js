@@ -33,7 +33,8 @@ const PageViatgeDautor = ({data, slug, ...props}) => {
 
     useEffect(() => {
         if (page) {
-            setLanguage({ ...language,  pageTranslation: page.translations.length >= 1 ? "viaje-de-autor/" + page[0]?.slug : null});
+            debugger
+            setLanguage({ ...language,  pageTranslation: page.translations.length >= 1 ? "viaje-de-autor/" + page?.slug : null});
         }
     }, [page]);
 

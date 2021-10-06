@@ -18,6 +18,7 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
 
     const [image, setImage] = useState(null);
     useEffect(() => {
+        debugger
         if (img) {
             setImage(img);
         }
@@ -57,8 +58,6 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
     const {language,setLanguage} = useContext(LaunguageContext)
 
     const switchLanguage = (checked) => (e) => {
-
-
         debugger
         if(language.pageTranslation === null){
             setLanguage({...language,language:checked})
@@ -138,14 +137,15 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
                     css={carrosusel}
                     effect="fade">
 
-                    {Array.isArray(image) &&
-                    image.map((im) => {
-                        return (
-                            <div>
-                                <Image src={image}/>
-                            </div>
-                        )
-                    })
+                    {
+                        Array.isArray(image) &&
+                        image.map((im) => {
+                            return (
+                                <div>
+                                    <Image src={im}/>
+                                </div>
+                            )
+                        })
                     }
 
                     {

@@ -25,19 +25,8 @@ import {LaunguageContext} from "../contexts/LanguageContext";
 
 const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats,novetats, translations,galeria, content:contenido,page,...props}) => {
 
-
-/*    if (page?.title === undefined) {
-        return null
-    }*/
-
-    /*PAGE INFO*/
-    // const {title, uri, status, slug, featuredImage, notadestacada, descripcioviatgesdautor, Novetats} = page;
-
-
-
     const router = useRouter();
     const {language,setLanguage} = useContext(LaunguageContext)
-
 
     const PER_PAGE = 6;
     const LANG = 'CA';
