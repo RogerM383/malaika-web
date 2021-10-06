@@ -18,7 +18,7 @@ import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 import {LaunguageContext} from "../contexts/LanguageContext";
 
 
-const Page = ({children, ...props}) => {
+const Page = ({data, ...props}) => {
 
     const elements = ['one', 'two', 'three'];
     const router = useRouter();
@@ -34,7 +34,7 @@ const Page = ({children, ...props}) => {
     useEffect(() => {
         setLanguage({
             language: page?.language?.code,
-            pageTranslation: "blog-2"
+            pageTranslation: "blog"
         });
     }, [page]);
 
@@ -139,14 +139,15 @@ const Page = ({children, ...props}) => {
 };
 
 export const getStaticProps = async (ctx) => {
-    const client = initializeApollo();
-    const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog-2/' }})
-        .then((data) => {
-            return data.data.pageBy;
-        });
-    return {props: data, revalidate: 60};
+    const {data, initialState} = await getInitialData();
+    return {props: {data, initialState}, revalidate: 60};
 }
 
+const getInitialData = async (slug) => {
+    const apolloClient = initializeApollo();
+    const {error, data} = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog-2/' }})
+    return { data: data, initialState: apolloClient.cache.extract()};
+}
 
 export default Page;
 
