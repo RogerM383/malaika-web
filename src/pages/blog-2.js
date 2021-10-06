@@ -135,7 +135,6 @@ const Page = ({data, ...props}) => {
         </div>
 
     );
-
 };
 
 export const getStaticProps = async (ctx) => {

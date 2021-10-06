@@ -18,7 +18,6 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
 
     const [image, setImage] = useState(null);
     useEffect(() => {
-        debugger
         if (img) {
             setImage(img);
         }
@@ -47,8 +46,8 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
         infinite: true,
         speed: 4000,
         //arrows: true
-        beforeChange: (current, next) =>{
-        setSlideNum(next)
+        beforeChange: (current, next) => {
+            setSlideNum(next)
         }
     };
 
@@ -105,7 +104,14 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
                 </div>
 
                 <div className={"title"}>
-                   <span>{title}</span>
+                    {
+                        title && Array.isArray(title) ?
+                        <span dangerouslySetInnerHTML={{__html: title[slideNum] }}/>
+                        :
+                        title &&
+                        <span>{title}</span>
+
+                    }
                     {
                         fraseInici &&
                         <div className={"subtitle"} dangerouslySetInnerHTML={{__html: fraseInici[slideNum] }} />

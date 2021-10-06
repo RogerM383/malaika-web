@@ -94,16 +94,14 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     const images =[featuredImage?.node?.mediaItemUrl,'/foto1.png'];
 */
     const images2 = galeria.slider.map((image=> image.slide.image.mediaItemUrl))
-
-   const  fraseInici = galeria.slider.map((image=> image.slide.text))
-
-
+    const  fraseInici = galeria.slider.map((image => image.slide.text))
+    const  titolsInici = galeria.slider.map((image => image.slide.title))
 
     return (
 
         <div css={home_styles}>
 
-           <HeaderInici title={title} fraseInici={fraseInici} img={images2}/>
+           <HeaderInici title={titolsInici} fraseInici={fraseInici} img={images2}/>
 
             <MaxWidthContainer className={"block1"}>
 
