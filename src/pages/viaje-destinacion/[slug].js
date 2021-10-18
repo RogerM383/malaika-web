@@ -20,7 +20,7 @@ import {useLazyQuery} from "@apollo/client";
 
 
 
-const PageViatgeDestinacio = ({data,data2,...props}) => {
+const PageViatgeDestinacio = ({data,...props}) => {
 
     const items = ['one', 'two'];
 
@@ -36,12 +36,6 @@ const PageViatgeDestinacio = ({data,data2,...props}) => {
     },[data]);
 
     const [destacats, setDestacats] = useState(null);
-    useEffect(() => {
-        if (data2) {
-            setDestacats(data2.zona.viatges);
-        }
-    },[data2]);
-
     const [loadDestacats, { loading, errorD, data: dataDestacats }] = useLazyQuery(GET_VIATGES_ZONA);
     useEffect(() => {
         if (dataDestacats) {
@@ -50,7 +44,6 @@ const PageViatgeDestinacio = ({data,data2,...props}) => {
     },[dataDestacats]);
 
     useEffect(() => {
-        debugger
         if (page)
             loadDestacats({variables: {slug: page.zones.nodes[0].slug, first:2}});
     }, [page]);
@@ -232,10 +225,10 @@ const getInitialData = async (slug) => {
     //const {error, data} = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog/' }})
 
     const {error, data} = await client.query({query: GET_VIATGE_BY_SLUG, variables: { slug: slug }});
-    const page = data.viatge;
-    const {error:error2, data:data2} = await client.query({query: GET_VIATGES_ZONA, variables: {slug: page.zones.nodes[0].slug, first:2}});
-    const destacats = data2.zona.viatges;
-    return { data: data, data2: data2, initialState: client.cache.extract()};
+    //const page = data.viatge;
+    //const {error:error2, data:data2} = await client.query({query: GET_VIATGES_ZONA, variables: {slug: page.zones.nodes[0].slug, first:2}});
+    //const destacats = data2.zona.viatges;
+    return { data: data, initialState: client.cache.extract()};
 }
 
 export default PageViatgeDestinacio;
