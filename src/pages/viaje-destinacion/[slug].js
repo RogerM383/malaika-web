@@ -52,7 +52,7 @@ const PageViatgeDestinacio = ({data,...props}) => {
 
     useEffect(() => {
         if (page) {
-            setLanguage({ ...language,  pageTranslation: page.translations.length >= 1 ? "viatge-destinacio/" + page.translations[0].slug : null});
+            setLanguage({ ...language,  pageTranslation: page.translations.length >= 1 ? "viaje-destinacion/" + page.translations[0].slug : null});
         }
     }, [page]);
 
@@ -92,7 +92,7 @@ const PageViatgeDestinacio = ({data,...props}) => {
                                     {
 
                                         campsVietge?.preu &&
-                                        <span>PREU: {campsVietge?.preu}</span>
+                                        <span>PRECIO: {campsVietge?.preu}</span>
 
                                     }
 
