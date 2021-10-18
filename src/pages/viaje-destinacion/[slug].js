@@ -87,7 +87,7 @@ const PageViatgeDestinacio = ({data,...props}) => {
                                 <div>
                                     {
                                         campsVietge?.grup &&
-                                        <p>GRUP: {campsVietge?.grup}</p>
+                                        <p>GRUPO: {campsVietge?.grup}</p>
                                     }
                                     {
 
@@ -98,11 +98,11 @@ const PageViatgeDestinacio = ({data,...props}) => {
 
                                     {
                                         campsVietge?.taxes &&
-                                        <span>Taxes d'aeroport: {campsVietge?.taxes}</span>
+                                        <span>Tasas del aeropuerto: {campsVietge?.taxes}</span>
                                     }
                                     {
                                         campsVietge?.suplement &&
-                                        <span>Suplement hab. individual: {campsVietge?.suplement}</span>
+                                        <span>Suplemento hab. individual: {campsVietge?.suplement}</span>
                                     }
                                 </div>
 
