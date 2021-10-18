@@ -192,7 +192,7 @@ const PageViatgeDestinacio = ({data, data2, ...props}) => {
                                             debugger
                                             return (
                                                 <Col sm={24} md={12}>
-                                                    <div onClick={goTo("/viatge-destinacion/"+item.slug)} css={top_img_tagged_card}>
+                                                    <div onClick={goTo("/viaje-destinacion/"+item.slug)} css={top_img_tagged_card}>
                                                     <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
 
                                                         <div className={"text"}>
