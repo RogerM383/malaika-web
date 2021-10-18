@@ -17,15 +17,14 @@ import HeaderInici from "../../components/HeaderInici";
 import {viatge_fitxa} from "../../styles/pages/fitxa_viatge_autorStyles";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 import {GET_PAGE_BY_URI} from "../../contexts/apollo/queries";
+import {useLazyQuery} from "@apollo/client";
+import {GET_BLOG_ENTRYS} from "../../contexts/apollo/queries/blog";
 
 
 
 
 
-const PageViatgeDestinacio = ({data, destacats, ...props}) => {
-
-    //const {Campsviatge,slug,title,uri,content,featuredImage,translations,zones} = page
-    //const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,sortides,mapa,dates,fitxa}=Campsviatge
+const PageViatgeDestinacio = ({data, data2, ...props}) => {
 
     const items = ['one', 'two'];
 
@@ -34,12 +33,39 @@ const PageViatgeDestinacio = ({data, destacats, ...props}) => {
     const [page, setPage] = useState(null);
     const [campsVietge, setCampsViatge] = useState(null);
     useEffect(() => {
+        debugger
         if (data) {
             setPage(data.viatge);
             setCampsViatge(data.viatge.Campsviatge);
-            debugger
         }
     },[data]);
+
+    const [destacats, setDestacats] = useState(null);
+    useEffect(() => {
+        debugger
+        if (data2) {
+            setDestacats(data2.zona.viatges);
+        }
+    },[data2]);
+
+
+
+
+    const [loadDestacats, { loading, errorD, data: dataDestacats }] = useLazyQuery(GET_VIATGES_ZONA);
+    useEffect(() => {
+        if (dataDestacats) {
+            setDestacats(dataDestacats.zona.viatges);
+        }
+    },[dataDestacats]);
+
+    useEffect(() => {
+        debugger
+        if (page)
+            loadDestacats({variables: {slug: page.zones.nodes[0].slug, first:2}});
+    }, [page]);
+
+
+
 
     const {language,setLanguage} = useContext(LaunguageContext)
 
@@ -166,7 +192,7 @@ const PageViatgeDestinacio = ({data, destacats, ...props}) => {
                                             debugger
                                             return (
                                                 <Col sm={24} md={12}>
-                                                    <div onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
+                                                    <div onClick={goTo("/viatge-destinacion/"+item.slug)} css={top_img_tagged_card}>
                                                     <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
 
                                                         <div className={"text"}>
@@ -218,11 +244,9 @@ const getInitialData = async (slug) => {
 
     const {error, data} = await client.query({query: GET_VIATGE_BY_SLUG, variables: { slug: slug }});
     const page = data.viatge;
-console.log('DATA --- > ', data);
-    const {error:error2, data:data2} = await client.query({query: GET_VIATGES_ZONA,variables: {slug: page.zones.nodes[0].slug, first:2}});
+    const {error:error2, data:data2} = await client.query({query: GET_VIATGES_ZONA, variables: {slug: page.zones.nodes[0].slug, first:2}});
     const destacats = data2.zona.viatges;
-    console.log('DATA --- > ', destacats);
-    return { data: data, destacats: destacats, initialState: client.cache.extract()};
+    return { data: data, data2: data2, initialState: client.cache.extract()};
 }
 
 /*export async function getStaticProps({ params,...ctx }) {

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {viatge_destinacio_fitxa} from "../../styles/pages/fitxa_viatge_destinacioStyles";
 import Header from "../../components/Header";
 import Image from "../../../package/components/Image";
@@ -16,33 +16,52 @@ import 'antd/dist/antd.css';
 import HeaderInici from "../../components/HeaderInici";
 import {viatge_fitxa} from "../../styles/pages/fitxa_viatge_autorStyles";
 import {LaunguageContext} from "../../contexts/LanguageContext";
+import {useLazyQuery} from "@apollo/client";
 
 
 
-const PageViatgeDestinacio = ({page,destacats,...props}) => {
-
-if(page?.title === undefined){
-    return null
-}
-
-    const {Campsviatge,slug,title,uri,content,featuredImage,translations,zones} = page
-    const{autor,durada,etapes,inclou,noInclou,preu,suplement,taxes,grup,sortides,mapa,dates,fitxa}=Campsviatge
-
+const PageViatgeDestinacio = ({data,data2,...props}) => {
 
     const items = ['one', 'two'];
 
     const router = useRouter();
 
-    const {language,setLanguage} = useContext(LaunguageContext)
+    const [page, setPage] = useState(null);
+    const [campsVietge, setCampsViatge] = useState(null);
     useEffect(() => {
+        if (data) {
+            setPage(data.viatge);
+            setCampsViatge(data.viatge.Campsviatge);
+        }
+    },[data]);
 
-        translations &&
-        setLanguage({
-            ...language,
-            pageTranslation: translations.length >= 1 ? "viatge-destinacio/"+translations[0].slug : null
-        })
+    const [destacats, setDestacats] = useState(null);
+    useEffect(() => {
+        if (data2) {
+            setDestacats(data2.zona.viatges);
+        }
+    },[data2]);
 
-    }, []);
+    const [loadDestacats, { loading, errorD, data: dataDestacats }] = useLazyQuery(GET_VIATGES_ZONA);
+    useEffect(() => {
+        if (dataDestacats) {
+            setDestacats(dataDestacats.zona.viatges);
+        }
+    },[dataDestacats]);
+
+    useEffect(() => {
+        debugger
+        if (page)
+            loadDestacats({variables: {slug: page.zones.nodes[0].slug, first:2}});
+    }, [page]);
+
+    const {language,setLanguage} = useContext(LaunguageContext)
+
+    useEffect(() => {
+        if (page) {
+            setLanguage({ ...language,  pageTranslation: page.translations.length >= 1 ? "viatge-destinacio/" + page.translations[0].slug : null});
+        }
+    }, [page]);
 
     const goTo = (slug)=>(e) =>{
         router.push(slug);
@@ -51,11 +70,11 @@ if(page?.title === undefined){
     return (
 
                 <div css={viatge_fitxa}>
-                    <HeaderInici img={featuredImage?.node?.mediaItemUrl}/>
 
+                    <HeaderInici img={page?.featuredImage?.node?.mediaItemUrl}/>
 
                     <MaxWidthContainer>
-                     <div className={"breadcrumb"}>DESTINACIONES > {zones?.nodes[0]?.name } > {title}</div>
+                        <div className={"breadcrumb"}>DESTINACIONES > {page?.zones?.nodes[0]?.name } > {page?.title}</div>
                     </MaxWidthContainer>
 
                     <MaxWidthContainer className={"block1"}>
@@ -63,46 +82,45 @@ if(page?.title === undefined){
                         <Row>
                             <Col className={"left_column"} sm={24} md={12} >
                                 <div >
-                                    <p className={"title"}>{title}</p>
-                                    <p  className={"content"}  dangerouslySetInnerHTML={{__html: content}}/>
-                                    {fitxa?.mediaItemUrl &&
-                                    <button><a target={"_blank"} css={{color: 'white'}} href={fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
+                                    <p className={"title"}>{page?.title}</p>
+                                    <p  className={"content"}  dangerouslySetInnerHTML={{__html: page?.content}}/>
+                                    {   campsVietge?.fitxa?.mediaItemUrl &&
+                                        <button><a target={"_blank"} css={{color:'white'}} href={campsVietge?.fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
                                     }
-
 
                                 </div>
                             </Col>
                             <Col  className={"right_column"}  sm={24} md={12}>
                                 <div>
                                     {
-                                        grup &&
-                                        <p>GRUP: {grup}</p>
+                                        campsVietge?.grup &&
+                                        <p>GRUP: {campsVietge?.grup}</p>
                                     }
                                     {
 
-                                        preu &&
-                                        <span>PREU: {preu}</span>
+                                        campsVietge?.preu &&
+                                        <span>PREU: {campsVietge?.preu}</span>
 
                                     }
 
                                     {
-                                        taxes &&
-                                        <span>Taxes d'aeroport: {taxes}</span>
+                                        campsVietge?.taxes &&
+                                        <span>Taxes d'aeroport: {campsVietge?.taxes}</span>
                                     }
                                     {
-                                        suplement &&
-                                        <span>Suplement hab. individual: {suplement}</span>
+                                        campsVietge?.suplement &&
+                                        <span>Suplement hab. individual: {campsVietge?.suplement}</span>
                                     }
                                 </div>
 
                                 {
-                                    dates &&
+                                    campsVietge?.dates &&
                                     <Row className={"plane"}>
                                         <Col span={2}>
                                             <img src={"../plane_icon.png"}/>
                                         </Col>
                                         <Col span={22}>
-                                            <p> {dates}</p>
+                                            <p> {campsVietge?.dates}</p>
                                         </Col>
                                     </Row>
                                 }
@@ -120,7 +138,7 @@ if(page?.title === undefined){
 
 
                     {
-                        inclou &&
+                        campsVietge?.inclou &&
                         <div className={"block2"} css={bicolor_style}>
                             <MaxWidthContainer>
                                 <Row>
@@ -128,7 +146,7 @@ if(page?.title === undefined){
 
                                         <div className={"inclou"}>
                                             <p className={"title"}>Incluye</p>
-                                            <p className={""} dangerouslySetInnerHTML={{__html: inclou}}/>
+                                            <p className={""} dangerouslySetInnerHTML={{__html: campsVietge?.inclou}}/>
                                         </div>
 
                                     </Col>
@@ -136,7 +154,7 @@ if(page?.title === undefined){
                                     <Col className={"right"} sm={24} md={12}>
                                         <div className={"inclou"}>
                                             <p className={"title"}>No incluye</p>
-                                            <p className={""} dangerouslySetInnerHTML={{__html: noInclou}}/>
+                                            <p className={""} dangerouslySetInnerHTML={{__html: campsVietge?.noInclou}}/>
                                         </div>
                                     </Col>
                                 </Row>
@@ -160,7 +178,7 @@ if(page?.title === undefined){
                                             debugger
                                             return (
                                                 <Col sm={24} md={12}>
-                                                    <div onClick={goTo("/viaje-destinacion/"+item.slug)} css={top_img_tagged_card}>
+                                                    <div onClick={goTo("/viatge-destinacion/"+item.slug)} css={top_img_tagged_card}>
                                                     <Image className={"image_card"} src={item.featuredImage.node.mediaItemUrl}></Image>
 
                                                         <div className={"text"}>
@@ -204,7 +222,25 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params,...ctx }) {
+export const getStaticProps = async ({ params,...ctx }) => {
+    const {data, initialState} = await getInitialData(params.slug);
+    return {props: {data, initialState}, revalidate: 60};
+}
+
+const getInitialData = async (slug) => {
+    const client = initializeApollo();
+    //const {error, data} = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog/' }})
+
+    const {error, data} = await client.query({query: GET_VIATGE_BY_SLUG, variables: { slug: slug }});
+    const page = data.viatge;
+    const {error:error2, data:data2} = await client.query({query: GET_VIATGES_ZONA, variables: {slug: page.zones.nodes[0].slug, first:2}});
+    const destacats = data2.zona.viatges;
+    return { data: data, data2: data2, initialState: client.cache.extract()};
+}
+
+export default PageViatgeDestinacio;
+
+/*export async function getStaticProps({ params,...ctx }) {
 
     const client = initializeApollo();
 
@@ -220,7 +256,7 @@ export async function getStaticProps({ params,...ctx }) {
     return { props:{page,destacats}, revalidate: 60};
 }
 
-export default PageViatgeDestinacio;
+export default PageViatgeDestinacio;*/
 
 
 
