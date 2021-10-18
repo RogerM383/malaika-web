@@ -135,7 +135,7 @@ const Menu = ({img = true, children, ...props}) => {
 
                 <nav className={`navbar${active ? ' active' : ''}${sticky ? ' sticky' : ''}`}
                      style={{
-                         maxHeight: active || height <= 995 ? '100vh' :  maxMenuHeight
+                         maxHeight: active || height >= 995 ? '100vh' :  maxMenuHeight
                      }}
                      ref={nav}>
 
