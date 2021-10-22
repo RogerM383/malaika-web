@@ -132,7 +132,8 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                             title,
                             viatgedautorId,
                             Campsviatge: customFields,
-                            featuredImage: image
+                            featuredImage: image,
+                            subtitolViatge
                         } = viatge;
                         const {
                             autor,
@@ -156,7 +157,10 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                                     <div className={'card-info'}>
 
-                                        <span className={"title"}>{title}</span>
+                                        <div>
+                                            <span className={"title"}>{title}</span>
+                                            <span className={'subtitle'}>{subtitolViatge?.subtitolviatge}</span>
+                                        </div>
 
                                         <div className={"timetable"}>
 

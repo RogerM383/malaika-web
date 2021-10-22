@@ -261,6 +261,9 @@ export const GET_VIATGES_AUTOR = gql`
                         datasortida
                     }
                 }
+                subtitolViatge {
+                    subtitolviatge
+                }
             }
             pageInfo {
                 hasNextPage

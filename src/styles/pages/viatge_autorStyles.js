@@ -36,7 +36,7 @@ export const viatge_autor_style = (theme) => {
                 margin-bottom: 2rem;
             }
 
-            .title{
+            .title {
                 font-family: ${theme.font.didot};
                 font-weight: ${theme.font.bold};
             }

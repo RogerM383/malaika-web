@@ -75,8 +75,11 @@ const PageViatgeDestinacio = ({data,...props}) => {
                         <Row>
                             <Col className={"left_column"} sm={24} md={12} >
                                 <div >
-                                    <p className={"title"}>{page?.title}</p>
-                                    <p  className={"content"}  dangerouslySetInnerHTML={{__html: page?.content}}/>
+                                    <div className={"title"}>
+                                        <div style={{marginBottom: '1rem'}}>{page?.title}</div>
+                                        <div style={{fontSize: '1.2rem'}}>{page?.subtitolViatge?.subtitolviatge}</div>
+                                    </div>
+                                    <div className={"content"}  dangerouslySetInnerHTML={{__html: page?.content}}/>
                                     {   campsVietge?.fitxa?.mediaItemUrl &&
                                         <button><a target={"_blank"} css={{color:'white'}} href={campsVietge?.fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
                                     }

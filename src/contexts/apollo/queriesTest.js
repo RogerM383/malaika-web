@@ -114,6 +114,9 @@ export const GET_VIATGE_DAUTOR_BY_SLUG = gql`
                     name
                 }
             }
+            subtitolViatge {
+                subtitolviatge
+            }
             Campsviatge {
                 grup
                 autor

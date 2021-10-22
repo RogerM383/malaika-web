@@ -118,8 +118,11 @@ export const card_viatge_autor = (theme) => {
                 font-size: ${theme.font.l};
                 font-weight: ${theme.font.bold};
                 font-family: ${theme.font.didot};
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
                 display: block;
+            }
+            .subtitle {
+              font-size: ${theme.font.sm};
             }
             .timetable {
                 display: flex;
