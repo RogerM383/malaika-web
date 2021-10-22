@@ -69,6 +69,9 @@ export const GET_VIATGE_BY_SLUG = gql`
                     startCursor
                 }
             }
+            subtitolViatge {
+                subtitolviatge
+            }
             Campsviatge {
                 taxes
                 suplement
