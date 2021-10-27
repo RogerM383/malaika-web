@@ -12,10 +12,10 @@ export default class MyDocument extends Document {
             styles: (
                 <>
                     {initialProps.styles}
-                    <style
+                    {/*<style
                         data-emotion-css={styles.ids.join(' ')}
                         dangerouslySetInnerHTML={{ __html: styles.css }}
-                    />
+                    />*/}
                 </>
             ),
         }

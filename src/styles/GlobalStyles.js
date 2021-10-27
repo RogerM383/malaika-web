@@ -25,6 +25,16 @@ export const global = (theme) => {
             vertical-align: baseline;
         }
 
+        em {
+            font-style: italic;
+        }
+      
+        b, strong {
+            font-weight: bold;
+        }
+      
+        
+        
         /* HTML5 display-role reset for older browsers */
         article, aside, details, figcaption, figure,
         footer, header, hgroup, menu, nav, section {
