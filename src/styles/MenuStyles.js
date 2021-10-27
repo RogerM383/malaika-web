@@ -48,7 +48,7 @@ export const menu_styles = (theme) => {
             border-top-right-radius: ${theme.header.menu.border_top_right_radius};
             position: relative;
             z-index: 999;
-            transform: translateX(0%) translateY(-100%);
+            transform: translateX(0%) translateY(-99%);
             overflow: hidden;
             //transition: width 1s ease-in-out, max-height 1s ease-in-out, max-width .5s, opacity .5s, border-top-right-radius 1s;
             transition: all 1s ease-in-out;
