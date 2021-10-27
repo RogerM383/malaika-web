@@ -76,7 +76,8 @@ const PageViatgeDautor = ({data, slug, ...props}) => {
                             <span>Suplement hab. individual: {campsViatge?.suplement}</span>
                         </div>
 
-                        {   campsViatge?.vols &&
+                        {
+                            campsViatge?.vols &&
                             <Row className={"plane"}>
 
                                 <Col span={2}>

@@ -28,7 +28,7 @@ export const menu_styles = (theme) => {
 
 
         .nav-links.true{
-            overflow-y: scroll;
+            overflow-y: auto;
             height: 100vh;
             .animals{
                 padding: 0;
@@ -50,24 +50,19 @@ export const menu_styles = (theme) => {
             z-index: 999;
             transform: translateX(0%) translateY(-100%);
             overflow: hidden;
-            transition: width 1s ease-in-out, max-height 1s ease-in-out, max-width .5s, opacity .5s, border-top-right-radius 1s;
-
+            //transition: width 1s ease-in-out, max-height 1s ease-in-out, max-width .5s, opacity .5s, border-top-right-radius 1s;
+            transition: all 1s ease-in-out;
 
             &.sticky {
                 transform: translateY(0%);
                 position: fixed;
                 top: 0;
                //max-width: ${theme.container.max_width};
-                width: 100vw!important;
-
-
-
+                width: 100vw !important;
+              
                 li{
                     border-top-right-radius:initial;
                 }
-
-
-
             }
 
             .active_link{
@@ -78,10 +73,9 @@ export const menu_styles = (theme) => {
             }
 
             &.active {
+                //transform: translateY(0);
                 ul.nav-links {
                     display: initial;
-
-
                 }
             }
 
@@ -107,7 +101,7 @@ export const menu_styles = (theme) => {
                 padding: 0 0;
                 max-width: 100%;
                 width: 100%;
-                display: none;
+                //display: none;
                 font-family: ${theme.font.quicksand};
                 text-align: center;
                 align-items: center;

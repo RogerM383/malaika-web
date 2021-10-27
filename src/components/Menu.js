@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect, useRef} from 'react';
+import React, {useContext, useState, useEffect, useRef, useMemo} from 'react';
 import {useRouter} from "next/router";
 import {menu_styles} from "../styles/MenuStyles";
 import Link from "next/link";
@@ -94,6 +94,20 @@ const Menu = ({img = true, children, ...props}) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const isDesktop = useMemo( () => {
+        if (width > 992) {
+            return true;
+        } else {
+            return false;
+        }
+    },[width]);
+
+    useEffect(() => {
+        if (isDesktop) {
+            setActive(false);
+        }
+    },[isDesktop])
+
     /*useEffect(() => {
         setMaxMenuHeight(mobileMenu.current.getBoundingClientRect().height);
     }, [width, height]);
@@ -109,10 +123,18 @@ const Menu = ({img = true, children, ...props}) => {
         }
     }, [mobileMenu]);
 
-
+    const [scroll, setScroll] = useState(0);
 
     const burguerClick = (e) => {
         setActive(!active);
+        if (!active) {
+            setScroll(window.scrollY);
+        } else {
+            setScroll(0);
+        }
+        if (!sticky) {
+            window.scrollTo(0, 0);
+        }
     }
 
     useEffect(() => {
@@ -130,29 +152,16 @@ const Menu = ({img = true, children, ...props}) => {
 
     return (
         <div css={menu_styles}>
-
-            {/*<div className={`containers ${sticky === true  ? 'sticky' : ''}`}>*/}
-
-                <nav className={`navbar${active ? ' active' : ''}${sticky ? ' sticky' : ''}`}
-                     style={{
-                         maxHeight: !active /*|| height >= 995*/ ? '100vh' :  maxMenuHeight
-                     }}
-                     ref={nav}>
-
-                    <div className={'mobile'} ref={mobileMenu}>
-                        <Image src={"/logo.png"}/>
-                        <i className="fas fa-bars fa-2x" id="burger" onClick={burguerClick}/>
-                    </div>
-
+            {
+                isDesktop ?
+                <nav className={`navbar${active ? ' active' : ''}${sticky ? ' sticky' : ''}`}>
                     <ul className={`nav-links ${active}`}>
-
                         {
                             navButtons &&
                             navButtons.map((button, index, array) => {
                                 return (
                                     <>
-                                        <li key={index}  className={`navli
-                                        ${( (router.pathname === "/inici" || router.pathname === "/inicio" ) && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
+                                        <li key={index}  className={`navli ${( (router.pathname === "/inici" || router.pathname === "/inicio" ) && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
                                             <Link href={button?.path ?? ''}>
                                                 <a className={`NavButton ${(router.pathname.replace(/\//g, "") === button?.path?.replace(/\//g, "")) && button?.path !== undefined ? "active_link" : ""}`}>
                                                     {button.icon}
@@ -162,7 +171,6 @@ const Menu = ({img = true, children, ...props}) => {
                                                         <div>
                                                             <img src={button.image}/>
                                                         </div>
-
                                                     }
                                                     {
                                                         !button.image &&
@@ -173,13 +181,9 @@ const Menu = ({img = true, children, ...props}) => {
                                                         !button.image &&
                                                         (button.label === "ANIMALS INVISIBLES" || button.label === "ANIMALES INVISIBLES") &&
                                                         <div css={{maxHeight:'80px'}}>
-                                                            <img className={"animals"} src={button.label === "ANIMALS INVISIBLES" ? "/animal-invisibles.png"
-                                                            : "/animales-invisibles.png"}/>
+                                                            <img className={"animals"} src={button.label === "ANIMALS INVISIBLES" ? "/animal-invisibles.png" : "/animales-invisibles.png"}/>
                                                         </div>
-
                                                     }
-
-
                                                     </span>
                                                 </a>
                                             </Link>
@@ -197,20 +201,87 @@ const Menu = ({img = true, children, ...props}) => {
                                                     }
                                                 </div>
                                             }
-
-                                         {/*   <li className={'separator'}/>*/}
                                         </li>
-
                                     </>
                                 )
                             })
                         }
-
                     </ul>
-
                 </nav>
-            </div>
-        /*</div>*/
+                :
+                <nav className={`navbar${active ? ' active' : ''} ${sticky ? ' sticky' : ''}`}
+                     style={{
+                         maxHeight: active ? '100vh' :  maxMenuHeight,
+                         height: '100vh'
+                     }}
+                     ref={nav}>
+
+                    <div className={'mobile'} ref={mobileMenu}>
+                        <Image src={"/logo.png"}/>
+                        <i className="fas fa-bars fa-2x" id="burger" onClick={burguerClick}/>
+                    </div>
+
+                    <ul className={`nav-links ${active}`}>
+                    {
+                        navButtons &&
+                        navButtons.map((button, index, array) => {
+                            return (
+                                <>
+                                    <li key={index}  className={`navli ${( (router.pathname === "/inici" || router.pathname === "/inicio" ) && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
+                                        <Link href={button?.path ?? ''}>
+                                            <a className={`NavButton ${(router.pathname.replace(/\//g, "") === button?.path?.replace(/\//g, "")) && button?.path !== undefined ? "active_link" : ""}`}>
+                                                {button.icon}
+                                                <span css={{textAlign: 'center', display: 'inline-block'}}>
+                                            {
+                                                button.image &&
+                                                <div>
+                                                    <img src={button.image}/>
+                                                </div>
+
+                                            }
+                                                    {
+                                                        !button.image &&
+                                                        (button.label !== "ANIMALS INVISIBLES" && button.label !== "ANIMALES INVISIBLES") &&
+                                                        button.label
+                                                    }
+                                                    {
+                                                        !button.image &&
+                                                        (button.label === "ANIMALS INVISIBLES" || button.label === "ANIMALES INVISIBLES") &&
+                                                        <div css={{maxHeight:'80px'}}>
+                                                            <img className={"animals"} src={button.label === "ANIMALS INVISIBLES" ? "/animal-invisibles.png"
+                                                                : "/animales-invisibles.png"}/>
+                                                        </div>
+
+                                                    }
+
+
+                                            </span>
+                                            </a>
+                                        </Link>
+                                        {
+                                            button.submenu.length > 0 &&
+                                            <div className={`dropdown-content mobile_menu`}>
+                                                {
+                                                    button.submenu.map((item) => {
+                                                        return (
+                                                            <Link href={item.path} passHref={true}>
+                                                                <a>{item.label}</a>
+                                                            </Link>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        }
+                                    </li>
+
+                                </>
+                            )
+                        })
+                    }
+                    </ul>
+                </nav>
+            }
+        </div>
     );
 };
 
