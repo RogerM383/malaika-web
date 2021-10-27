@@ -31,7 +31,7 @@ const PageViatgeDestinacio = ({data, ...props}) => {
     const router = useRouter();
 
     const [page, setPage] = useState(null);
-    const [campsVietge, setCampsViatge] = useState(null);
+    const [campsViatge, setCampsViatge] = useState(null);
     useEffect(() => {
         debugger
         if (data) {
@@ -89,47 +89,47 @@ const PageViatgeDestinacio = ({data, ...props}) => {
                                         <div style={{fontSize: '1.2rem'}}>{page?.subtitolViatge?.subtitolviatge}</div>
                                     </div>
                                     <div className={"content"}  dangerouslySetInnerHTML={{__html: page?.content}}/>
-                                    {   campsVietge?.fitxa?.mediaItemUrl &&
-                                        <button><a target={"_blank"} css={{color:'white'}} href={campsVietge?.fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
+                                    {   campsViatge?.fitxa?.mediaItemUrl &&
+                                        <button><a target={"_blank"} css={{color:'white'}} href={campsViatge?.fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
                                     }
                                     {
-                                        campsVietge?.notaFitxa &&
-                                        <span style={{fontStyle: 'italic', fontSize: '.7rem', display: 'block', marginTop: '1rem'}}>{campsVietge?.notaFitxa}</span>
+                                        campsViatge?.notaFitxa &&
+                                        <span style={{fontStyle: 'italic', fontSize: '.7rem', display: 'block', marginTop: '1rem'}}>{campsViatge?.notaFitxa}</span>
                                     }
                                 </div>
                             </Col>
                             <Col  className={"right_column"}  sm={24} md={12}>
                                 <div>
                                     {
-                                        campsVietge?.grup &&
-                                        <p>GRUP: {campsVietge?.grup}</p>
+                                        campsViatge?.grup &&
+                                        <p>GRUP: {campsViatge?.grup}</p>
                                     }
                                     {
 
-                                        campsVietge?.preu &&
-                                        <span>PREU: {campsVietge?.preu}</span>
+                                        campsViatge?.preu &&
+                                        <span>PREU: {campsViatge?.preu}</span>
 
                                     }
 
                                     {
-                                        campsVietge?.taxes &&
-                                        <span>Taxes d'aeroport: {campsVietge?.taxes}</span>
+                                        campsViatge?.taxes &&
+                                        <span>Taxes d'aeroport: {campsViatge?.taxes}</span>
                                     }
                                     {
-                                        campsVietge?.suplement &&
-                                        <span>Suplement hab. individual: {campsVietge?.suplement}</span>
+                                        campsViatge?.suplement &&
+                                        <span>Suplement hab. individual: {campsViatge?.suplement}</span>
                                     }
 
                                 </div>
 
                                 {
-                                    campsVietge?.dates &&
+                                    campsViatge?.dates &&
                                     <Row className={"plane"}>
                                         <Col span={2}>
                                             <img src={"../plane_icon.png"}/>
                                         </Col>
                                         <Col span={22}>
-                                            <p> {campsVietge?.dates}</p>
+                                            <p> {campsViatge?.dates}</p>
                                         </Col>
                                     </Row>
                                 }
@@ -147,7 +147,7 @@ const PageViatgeDestinacio = ({data, ...props}) => {
 
 
                     {
-                        campsVietge?.inclou &&
+                        campsViatge?.inclou &&
                         <div className={"block2"} css={bicolor_style}>
                             <MaxWidthContainer>
                                 <Row>
@@ -155,7 +155,7 @@ const PageViatgeDestinacio = ({data, ...props}) => {
 
                                         <div className={"inclou"}>
                                             <p className={"title"}>Inclou</p>
-                                            <p className={""} dangerouslySetInnerHTML={{__html: campsVietge?.inclou}}/>
+                                            <p className={""} dangerouslySetInnerHTML={{__html: campsViatge?.inclou}}/>
                                         </div>
 
                                     </Col>
@@ -163,7 +163,7 @@ const PageViatgeDestinacio = ({data, ...props}) => {
                                     <Col className={"right"} sm={24} md={12}>
                                         <div className={"inclou"}>
                                             <p className={"title"}>No inclou</p>
-                                            <p className={""} dangerouslySetInnerHTML={{__html: campsVietge?.noInclou}}/>
+                                            <p className={""} dangerouslySetInnerHTML={{__html: campsViatge?.noInclou}}/>
                                         </div>
                                     </Col>
                                 </Row>

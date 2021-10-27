@@ -58,12 +58,12 @@ const PageViatgeDautor = ({data, slug, ...props}) => {
                             </div>
                             <div className={"content"} dangerouslySetInnerHTML={{__html: page?.content}}/>
                             {
-                                campsVietge?.fitxa?.mediaItemUrl &&
-                                <button><a target={"_blank"} css={{color: 'white'}} href={campsVietge?.fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
+                                campsViatge?.fitxa?.mediaItemUrl &&
+                                <button><a target={"_blank"} css={{color: 'white'}} href={campsViatge?.fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
                             }
                             {
-                                campsVietge?.notaFitxa &&
-                                <span style={{fontStyle: 'italic', fontSize: '.7rem', display: 'block', marginTop: '1rem'}}>{campsVietge?.notaFitxa}</span>
+                                campsViatge?.notaFitxa &&
+                                <span style={{fontStyle: 'italic', fontSize: '.7rem', display: 'block', marginTop: '1rem'}}>{campsViatge?.notaFitxa}</span>
                             }
                         </div>
                     </Col>
