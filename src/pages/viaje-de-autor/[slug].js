@@ -55,12 +55,14 @@ const PageViatgeDautor = ({ data, ...props}) => {
                                 <div style={{fontSize: '1.2rem'}}>{page?.subtitolViatge?.subtitolviatge}</div>
                             </div>
                             <div className={"content"} dangerouslySetInnerHTML={{__html: page?.content}}/>
-
-                            {   campsViatge?.fitxa?.mediaItemUrl &&
+                            {
+                                campsViatge?.fitxa?.mediaItemUrl &&
                                 <button><a target={"_blank"} css={{color:'white'}} href={campsViatge?.fitxa?.mediaItemUrl}>Ficha viaje pdf</a></button>
                             }
-
-
+                            {
+                                campsVietge?.notaFitxa &&
+                                <span style={{fontStyle: 'italic', fontSize: '.7rem', display: 'block', marginTop: '1rem'}}>{campsVietge?.notaFitxa}</span>
+                            }
                         </div>
                     </Col>
 

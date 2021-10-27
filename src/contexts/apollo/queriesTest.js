@@ -78,6 +78,7 @@ export const GET_VIATGE_BY_SLUG = gql`
                 preu
                 grup
                 dates
+                notaFitxa
                 fieldGroupName
                 fitxa {
                     mediaItemUrl
@@ -129,6 +130,7 @@ export const GET_VIATGE_DAUTOR_BY_SLUG = gql`
                 taxes
                 noInclou
                 inclou
+                notaFitxa
                 etapes {
                     etapa {
                         descripcio

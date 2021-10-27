@@ -240,6 +240,7 @@ export const GET_VIATGES_AUTOR = gql`
                     preu
                     taxes
                     suplement
+                    notaFitxa
                     etapes {
                         etapa {
                             descripcio
@@ -300,6 +301,7 @@ export const GET_VIATGES = gql`
                     suplement
                     taxes
                     itinerari
+                    notaFitxa
                     fitxa {
                         fileSize
                         title

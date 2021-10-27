@@ -83,7 +83,10 @@ const PageViatgeDestinacio = ({data,...props}) => {
                                     {   campsVietge?.fitxa?.mediaItemUrl &&
                                         <button><a target={"_blank"} css={{color:'white'}} href={campsVietge?.fitxa?.mediaItemUrl}>Fitxa viatge pdf</a></button>
                                     }
-
+                                    {
+                                        campsVietge?.notaFitxa &&
+                                        <span style={{fontStyle: 'italic', fontSize: '.7rem', display: 'block', marginTop: '1rem'}}>{campsVietge?.notaFitxa}</span>
+                                    }
                                 </div>
                             </Col>
                             <Col  className={"right_column"}  sm={24} md={12}>
