@@ -159,7 +159,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                                         <div>
                                             <span className={"title"}>{title}</span>
-                                            <span className={'subtitle'}>{subtitolViatge?.subtitolviatge}</span>
+                                            { subtitolViatge?.subtitolviatge && <span className={'subtitle'}><span css={{color: 'red'}}>*</span>{subtitolViatge?.subtitolviatge}</span>}
                                         </div>
 
                                         <div className={"timetable"}>

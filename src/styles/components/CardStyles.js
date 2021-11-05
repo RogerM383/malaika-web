@@ -122,7 +122,10 @@ export const card_viatge_autor = (theme) => {
                 display: block;
             }
             .subtitle {
-              font-size: ${theme.font.sm};
+                font-size: ${theme.font.sm};
+                font-style: italic;
+                margin-bottom: 2.5rem;
+                display: block;
             }
             .timetable {
                 display: flex;
