@@ -278,7 +278,6 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                     <Grid css={grid_style("300px")}>
                         {
-
                             viatgesDestacats?.nodes?.map((item) => {
                                 const {dates} = item.Campsviatge;
                                 return (
@@ -300,7 +299,6 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                         {/* onClick={e => { setSlide(e); slider.current.prev(); }}*/}
                         <button > &#60; </button>
                         <button disabled>
-                            /
                          {/*   <i className="fas fa-slash"></i>*/}
                         </button>
                         <button> > </button>
@@ -324,46 +322,23 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                         <Col sm={20} md={16} lg={18} className={"column"}>
 
                             <div className={"normas"}>
-                                <Row gutter={[40, 40]}>
-                                    <Col sm={24} md={5} lg={5} className={'fecha'}>28/01/2021 {language.language}</Col>
-                                    <Col sm={24} md={19} lg={19} className={'data'}>
+                                {
+                                    novetats?.edges?.slice(-3).map((item) => {
+                                        let novetat = item.node;
+                                        let date = new Intl.DateTimeFormat('es',{day: 'numeric', month: 'numeric', year: 'numeric'}).format(new Date(Date.parse(novetat.date)));
 
-                                        {
-                                            novetats.nodes.map((item) => {
-
-
-                                                return(
-                                                    <>{
-                                                        item.language.code === language.language &&
-                                                            <>
-
-                                                        <div dangerouslySetInnerHTML={{__html: item.title}} className={"data_title"}/>
-                                                        <div dangerouslySetInnerHTML={{__html: item.content}} className={"data_content"}/>
-                                                            </>
-                                                    }
-
-                                                    </>
-
-
-                                                )
-                                            })
-                                        }
-
-
-
-                            {/*
-                                        <p className={"data_title"}>Obligatorietat de test PCR per entrar a la Gran Bretanya</p>
-                                        <p className={"data_content"}>La nova normativa britànica obliga a les persones que vulguin entrar al
-                                            pais a la presentació del test PCR.
-                                            <span className={"more"}> + informació</span>
-                                        </p>
-                                        */}
-
-
-                                    </Col>
-                                </Row>
-
-
+                                        return (
+                                            <div className={'n-row'} css={{borderBottom: '1px solid grey'}}>
+                                                <div sm={24} md={4} lg={4} className={'fecha'}>{date}</div>
+                                                <div sm={24} md={20} lg={19} className={'data'}>
+                                                    <div className={"data_title"}>{novetat.title}</div>
+                                                    <div dangerouslySetInnerHTML={{__html: novetat.content}}
+                                                         className={"data_content"}/>
+                                                </div>
+                                            </div>
+                                        );
+                                    })
+                                }
                             </div>
 
                         </Col>
@@ -427,7 +402,7 @@ export const getStaticProps = async (ctx) => {
             return data.data.pageBy;
         });
 
-    const novetats = await client.query({query: GET_NOVETATS})
+    const novetats = await client.query({query: GET_NOVETATS, variables: {lang: 'ES'} })
         .then((data) => {
             return data.data.novetats;
         });

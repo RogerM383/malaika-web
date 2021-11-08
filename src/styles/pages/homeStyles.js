@@ -185,31 +185,59 @@ export const home_styles = (theme) => {
                 border-top-left-radius: 23px;
                 border-top-right-radius: 23px;
 
-                .normas{
+                .normas {
 
                     p, span{
                         font-family: ${theme.font.quicksand};
                         font-size: ${theme.font.sm};
+                        margin-bottom: 0px;
                     }
+                    
                     font-size: ${theme.font.sm};
                     color:black;
-                    padding:2rem;
-
-
-                    .data_title{
-                      margin-bottom: 0.5rem;
-                    }
-
-
-                    .data_content{
+                    padding:2rem 3rem 0;
+                    
+                    .n-row {
+                        
+                        padding-bottom: 1.5rem;
                         margin-bottom: 1.5rem;
+                        
+                        display: flex;
+                        flex-direction: column;
+                        
+                        ${theme.mq('tablet-landscape')} {
+                                flex-direction: row;
+                            }
+                        
+                        &:last-of-type {
+                            border-bottom: none;
+                        }
+                        
+                        .fecha {
+                            text-align: left; 
+                            padding-right: 10px;
+                            padding-bottom: 1rem;
+                            
+                            ${theme.mq('tablet-landscape')} {
+                                text-align: right;
+                            }
+                        }
+                        
+                        .data_title {
+                            margin-bottom: 0.5rem;
+                        }
+    
+    
+                        .data_content{
+                            margin-bottom: 0rem;
+                            padding-left: 10px;
+                        }
+
+
+                        .more {
+                            color:${theme.colors.primary}
+                        }
                     }
-
-
-                    .more{
-                        color:${theme.colors.primary}
-                    }
-
 
                 }
             }
