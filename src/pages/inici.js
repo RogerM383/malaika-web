@@ -269,7 +269,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
                             <div className={"normas"}>
                                 {
-                                    novetats?.edges?.slice(-3).map((item) => {
+                                    novetats?.edges?.slice(0,3).map((item) => {
                                         let novetat = item.node;
                                         let date = new Intl.DateTimeFormat('es',{day: 'numeric', month: 'numeric', year: 'numeric'}).format(new Date(Date.parse(novetat.date)));
 
