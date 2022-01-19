@@ -138,7 +138,7 @@ export const GET_VIATGE_DAUTOR_BY_SLUG = gql`
                         titol
                         ubicacio
                         subtTol
-
+                        
                     }
                 }
                 vols {
