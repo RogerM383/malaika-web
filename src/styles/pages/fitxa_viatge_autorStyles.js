@@ -5,6 +5,17 @@ export const viatge_fitxa = (theme) => {
       padding-bottom: 4rem;
       font-size: 1rem;
 
+      .table-parent {
+          overflow-x: auto;
+      }
+      
+      table {
+          width: 100%;
+          td {
+              padding: 0 8px;
+          }
+      }
+      
       .breadcrumb{
         color: lightgray;
         margin: 2rem 0;
@@ -71,7 +82,7 @@ export const viatge_fitxa = (theme) => {
                 font-size: 0.7rem;
                 display: block;
                 line-height: 1.5;
-               // white-space: nowrap;
+                white-space: nowrap;
 
             }
 
@@ -104,7 +115,7 @@ export const viatge_fitxa = (theme) => {
               object-fit: contain;
               max-height: 400px;
               display: block;
-                max-width: 100%;;
+              max-width: 80%;;
             }
 
            > div{

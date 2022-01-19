@@ -82,27 +82,29 @@ const PageViatgeDautor = ({ data, ...props}) => {
                                 </Col>
                                 <Col span={22}>
 
-                                    <Row gutter={[10,5]}>
+                                    <Row gutter={[10,5]} className={'table-parent'}>
+                                        <table>
+                                            {
+                                                campsViatge?.vols.map((item)=>{
+                                                    return (
+                                                        <>
+                                                            {/*<Col css={{width: 'auto'}}><span css={{whiteSpace: 'nowrap'}} key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
+                                                        <Col css={{width: 'auto'}}><span css={{whiteSpace: 'nowrap'}} key={item.vol.datavol} className={"vol"} >{item.vol.datavol}</span></Col>
+                                                        <Col css={{width: 'auto'}}><span css={{whiteSpace: 'nowrap'}} key={item.vol.numvol} className={"vol"} >{item.vol.numvol}</span></Col>
+                                                        <Col css={{width: 'auto'}}><span css={{whiteSpace: 'nowrap'}} key={item.vol.horari} className={"vol vol-right"} >{item.vol.horari}</span></Col>*/}
 
+                                                            <tr>
+                                                                <td><span className={"vol"}>{item.vol.ubicacio}</span></td>
+                                                                <td><span className={"vol"}>{item.vol.datavol}</span></td>
+                                                                <td><span className={"vol"}>{item.vol.numvol}</span></td>
+                                                                <td><span className={"vol vol-right"}>{item.vol.horari}</span></td>
+                                                            </tr>
 
-                                    {
-                                        campsViatge?.vols.map((item)=>{
-                                            return(
-                                                <>
-                                                    <Col xs={10} sm={9} md={9} lg={8} xl={9} ><span key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
-                                                    <Col xs={4} sm={5} md={5} lg={5} xl={9}  ><span key={item.vol.datavol} className={"vol"} >{item.vol.datavol}</span></Col>
-                                                    <Col xs={4} sm={4} md={5} lg={5} xl={3} ><span key={item.vol.numvol} className={"vol"} >{item.vol.numvol}</span></Col>
-                                                    <Col xs={6} sm={5} md={5} lg={6}  xl={3}><span key={item.vol.horari} className={"vol vol-right"} >{item.vol.horari}</span></Col>
-
-                                                </>
-
-
-                                                )
-
-                                        })
-
-                                    }
-
+                                                        </>
+                                                    )
+                                                })
+                                            }
+                                        </table>
                                     </Row>
                                 </Col>
                             </Row>
