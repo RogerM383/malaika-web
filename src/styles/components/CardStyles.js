@@ -536,7 +536,7 @@ export const card_itinerari = (theme) => {
         position: relative;
         padding-left: 2rem;
         text-align: justify;
-
+        padding-bottom: 1.5rem;
              .etapa_title{
 
                 font-size:${theme.font.l};

@@ -147,7 +147,6 @@ const PageViatgeDautor = ({data, slug, ...props}) => {
                     <Col sm={24} md={12}>
                         {
                             campsViatge?.etapes.slice(0, (campsViatge?.etapes.length / 2) % 2 === 0 ? campsViatge?.etapes.length / 2 : (campsViatge?.etapes.length / 2)+1).map((item) => {
-                                debugger
                                 return (
                                     <div css={card_itinerari} key={item.etapa.titol}>
                                         <p className={"etapa_title"}>{item.etapa.dia}  <span className={"etapa_ubicacio"}>{item.etapa.ubicacio}</span></p>
