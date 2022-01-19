@@ -156,13 +156,13 @@ const PageViatgeDautor = ({ data, ...props}) => {
                 <Row gutter={[60]} className={"row_itinerari"}>
                     <Col sm={24} md={12}>
                         {
-
                             campsViatge?.etapes.slice(0, (campsViatge?.etapes.length / 2) % 2 === 0 ? campsViatge?.etapes.length / 2 : (campsViatge?.etapes.length / 2)+1).map((item) => {
+                                debugger
                                 return (
                                     <div css={card_itinerari} key={item.etapa.titol}>
                                         <p className={"etapa_title"}>{item.etapa.dia}  <span className={"etapa_ubicacio"}>{item.etapa.ubicacio}</span></p>
+                                        <p className={"etapa_title"} css={{marginBottom: '.2rem'}}><span className={"etapa_ubicacio"}>{item.etapa.titol}</span></p>
                                         <p className={"etapa_title"}> <span className={"etapa_ubicacio"}>{item.etapa.subtTol}</span></p>
-
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
 
                                     </div>)
@@ -179,7 +179,8 @@ const PageViatgeDautor = ({ data, ...props}) => {
                                 return (
                                     <div css={ number !== i+1 ? card_itinerari : card_itinerari_finish} key={i}>
                                         <p className={"etapa_title"}>{item.etapa?.dia} <span className={"etapa_ubicacio"}>{item?.etapa?.ubicacio}</span></p>
-
+                                        <p className={"etapa_title"} css={{marginBottom: '.2rem'}}><span className={"etapa_ubicacio"}>{item.etapa.titol}</span></p>
+                                        <p className={"etapa_title"}> <span className={"etapa_ubicacio"}>{item.etapa.subtTol}</span></p>
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
                                     </div>)
                             })

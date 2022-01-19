@@ -151,7 +151,7 @@ const PageViatgeDautor = ({data, slug, ...props}) => {
                                 return (
                                     <div css={card_itinerari} key={item.etapa.titol}>
                                         <p className={"etapa_title"}>{item.etapa.dia}  <span className={"etapa_ubicacio"}>{item.etapa.ubicacio}</span></p>
-                                        <p className={"etapa_title"} css={{marginBottom: '.2rem'}}><span className={"etapa_ubicacio"} css={{fontWeight: '900'}}>{item.etapa.titol}</span></p>
+                                        <p className={"etapa_title"} css={{marginBottom: '.2rem'}}><span className={"etapa_ubicacio"}>{item.etapa.titol}</span></p>
                                         <p className={"etapa_title"}> <span className={"etapa_ubicacio"}>{item.etapa.subtTol}</span></p>
                                         <p className={""} dangerouslySetInnerHTML={{__html: item.etapa.descripcio}}/>
 
