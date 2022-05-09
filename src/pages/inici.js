@@ -40,7 +40,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
 
     useEffect(() => {
         loadViatgesAutor({variables: {first: PER_PAGE, where:LANG} });
-        loadViatgesDestacats({variables:{first:16,language:LANG,categoryName:"destacat"}  });
+        loadViatgesDestacats({variables:{/*first:16,*/language:LANG,categoryName:"destacat"}  });
         setLanguage({...language, pageTranslation:translations[0].slug})
     }, []);
 
@@ -242,14 +242,14 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                         }
                     </Grid>
 
-                    <div className={"next_prev"}>
-                        {/* onClick={e => { setSlide(e); slider.current.prev(); }}*/}
+                    {/*<div className={"next_prev"}>
+                         //onClick={e => { setSlide(e); slider.current.prev(); }}
                         <button > &#60; </button>
                         <button disabled>
-                         {/*   <i className="fas fa-slash"></i>*/}
+                            <i className="fas fa-slash"></i>
                         </button>
                         <button> > </button>
-                    </div>
+                    </div>*/}
 
                 </MaxWidthContainer>
 
