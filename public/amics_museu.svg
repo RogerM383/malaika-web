@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="156px" height="32px" viewBox="0 0 156 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>AMICS MUSEU NACIONAL</title>
+    <g id="Current" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="DINCondensed-Bold, DIN Condensed" font-size="18" font-style="condensed" font-weight="bold">
+        <g id="Home" transform="translate(-1065.000000, -757.000000)">
+            <text id="AMICS-MUSEU-NACIONAL">
+                <tspan x="1065" y="770" fill="#FC9127">AMICS</tspan>
+                <tspan x="1100.64" y="770" fill="#000000"> </tspan>
+                <tspan x="1103.988" y="770" fill="#FFFFFF">MUSEU NACIONAL</tspan>
+                <tspan x="1065" y="788" fill="#FFFFFF">	    D’ART DE CATALUNYA</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

@@ -4,11 +4,14 @@ import createCache from '@emotion/cache';
 import { useRouter } from 'next/router';
 import DefaultTheme from 'styles/themes/DefaultTheme';
 import { global } from '../styles/GlobalStyles'
+import {ApolloContextProvider} from "../contexts/apollo/ApolloContext";
+import {LaunguageContext, LaunguageContextProvider} from "../contexts/LanguageContext";
+
 
 
 const cacheOptions = {
     // prefix styles with "custom-cache" instead of "css"
-    key: "custom-cache-fresa",
+    key: "custom-cache-malaika",
     // only prefix the following style properties
     prefix: key => {
         switch (key) {
@@ -22,7 +25,7 @@ const cacheOptions = {
     }
 };
 
-const fresaCache = createCache(cacheOptions);
+const malaikaCache = createCache(cacheOptions);
 
 /*
 //Binding Router events.
@@ -40,37 +43,18 @@ export default function App ({ Component, pageProps }) {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     }, [router]);
 
-    const initialState = {
-
-        /*        address:
-                    {
-                        name: "Principal",
-                        address: "Carrer de Sant Ferran, 18",
-                        zipcode: " 08940",
-                        city: "Cornellà de Llobregat",
-                        province:  "Barcelona",
-                        country:"esp"
-                    },
-                license:{
-                    product_id:1
-                },
-                user:{
-                    name:"ivan",
-                    email:"ivang@mail.com",
-                    password:"secret",
-                    nif:"43234234",
-                    phone:"123456"
-                }*/
-
-    }
+    const {initialState} = pageProps;
 
     return (
+        <ApolloContextProvider initialValue={initialState}>
+            <LaunguageContextProvider>
                 <ThemeProvider theme={DefaultTheme}>
-                    <CacheProvider value={fresaCache}>
+                    <CacheProvider value={malaikaCache}>
                         <Global styles={global}/>
                         <Component {...pageProps} />
                     </CacheProvider>
                 </ThemeProvider>
-
+            </LaunguageContextProvider>
+        </ApolloContextProvider>
     )
 }

@@ -1,0 +1,165 @@
+import {css} from '@emotion/react';
+
+export const header_inici_styles = (theme) => {
+    const style = css`
+
+        position: relative;
+
+        .ant-switch{
+            background-color: rgba(0, 0, 0, 0.85);
+
+        }
+
+        .ant-switch-checked {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+        .ant-switch{
+            //padding: 1rem;
+        }
+
+        .ant-switch-inner{
+            font-size: 1rem;
+           // display: block;
+            //margin: auto;
+
+        }
+
+        .topRow{
+            padding:2rem 0;
+            position: absolute;
+            top:0;
+            z-index:200;
+            width: 90%;
+            color:white;
+            font-size: ${theme.font.s};
+
+            .contact, .language{
+                white-space: nowrap;
+                margin-top: 1rem;
+                .phone{
+                    padding:0 0.5rem;
+                }
+
+                > span{
+                    cursor: pointer;
+                }
+
+
+                .icons{
+                    display:none;
+                }
+            }
+
+       /*     img{
+                max-width: 6rem;
+            }*/
+            a{
+                color:white;
+
+            }
+
+            a.phone{
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .info{
+
+            }
+
+
+        }
+
+        .title{
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateX(50%);
+            right: 50%;
+           // transform: translateX(50%);
+            z-index:1;
+           // width: 75%;
+            font-size: 3rem;
+            font-family: ${theme.font.didot};
+            font-weight: ${theme.font.bold};
+            color: ${theme.colors.white};
+            pointer-events: none;
+
+            .subtitle{
+              width: 80%;
+              p, i, a, span{
+                font-size: 2rem;
+                font-weight: ${theme.font.medium};
+                font-family: ${theme.font.didot};
+              }
+
+
+
+          /*      p, i, span{
+                    font-family: ${theme.font.quicksand}!important;
+                }*/
+
+
+
+            }
+
+        }
+
+
+
+
+        .arrows{
+            padding:0 2rem;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index:200;
+            width: 100%;
+            font-size: ${theme.font.m};
+            font-family: ${theme.font.didot};
+            font-weight: ${theme.font.bold};
+            color: ${theme.colors.white};
+        }
+
+
+        .slick-dots{
+            padding-bottom: 7rem;
+        }
+
+        ${theme.mq('tablet-portrait')} {
+         .topRow{
+        /*     img{
+                 max-width: 10rem;
+             }*/
+             .contact, .language{
+                 margin-top: 0;
+                 .icons{
+                     display: inline-block;
+                 }
+             }
+         }
+
+            .title{
+                transform: translateY(-50%);
+                right: initial;
+
+            }
+        }
+
+        ${theme.mq(' mobile-landscape')} {
+            .title{
+
+                right: initial;
+                transform: translateY(-50%);
+            }
+        }
+
+
+
+
+    `;
+
+    return [style];
+}

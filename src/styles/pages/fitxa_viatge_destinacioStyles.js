@@ -3,77 +3,118 @@ import {css} from '@emotion/react';
 export const viatge_destinacio_fitxa = (theme) => {
     const style = css`
 
-        .block1 {
-            .column:first-of-type {
-                border-right: 0;
-                padding-right: 3rem;
-            }
 
-            .column:nth-of-type(2){
-                display: flex;
-                justify-content: start;
-
-                li{
-                    list-style: none;
-                }
-
-                .plane{
-                    margin:2rem 0;
-                }
-
-            }
-
-
-            @media (min-width: 40.0rem) {
-
-                .column:first-of-type {
-                    border-right: 1px solid black;
-                }
-                .column:nth-of-type(2){
-                    justify-content: center;
-                }
-            }
-
-                @media (min-width: 60.0rem) {
-
-                }
-
-                @media (min-width: 80.0rem) {
-                }
-
-
-            }
-
-        .block2 {
-            background: linear-gradient(90deg, #D8D8D8 50%, #F1F1F1 50%);
-            padding: 2rem;
-            margin: 4rem 0;
-
-            > .container {
-                display: flex;
-
-                > .columna {
-                    flex: 0 0 50%;
-                    padding: 2rem 0;
-
-                    :nth-of-type(2) {
-                        padding: 2rem
-                    }
-                }
-
-
-            }
+        .breadcrumb{
+            color: lightgray;
+            margin: 2rem 0;
+            padding-bottom: 4rem;
+            padding-top: 2rem;
         }
 
+      .block1 {
+        padding-bottom: 4rem;
+        .left_column{
+
+          padding-bottom: 4rem;
+          padding-right: 0;
+          border: none;
+          font-size:${theme.font.l} ;
+          .title{
+            font-size:${theme.font.h2} ;
+            font-weight:${theme.bold} ;
+            font-family:${theme.font.didot} ;
+            padding-bottom: 4rem;
+          }
+          .content{
+            margin-bottom: 4rem;
+
+          }
+
+          button{
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 8px;
+            font-size:1.2rem ;
+          }
+
+        }
+
+        .right_column {
+            padding-left: 0;
+
+            div:first-of-type {
+              font-weight: ${theme.font.bold};
+
+              span {
+                display: block;
+                font-size: ${theme.font.m};
+              }
+            }
+
+            p {
+              font-size: 0.9rem;
+            }
+
+            .plane {
+              p {
+                font-size: 0.8rem;
+              }
+            }
+
+
+            img.mapa {
+              object-fit: contain;
+              width: 80%;
+              max-height: 400px;
+              //margin:0 auto;
+              display: block;
+            }
+
+            > div {
+              margin-bottom: 2.5rem;
+            }
+          }
+
+        }
+
+
+      .block2{
+            margin-bottom: 4rem;
+        }
 
         .block3 {
-            background-color:#F8F8F8 ;
-            padding: 8rem 0;
-            > .text{
-                padding-top: 4rem;
-                text-align: center;
+            background-color: #F8F8F8;
+            padding: 4rem 0;
+
+            p.title{
+                font-weight: ${theme.font.bold} ;
+                font-size:${theme.font.h3};
+                font-family:${theme.font.didot};
             }
+
         }
+
+      ${theme.mq('tablet-portrait')} {
+        .block1 {
+          .left_column{
+            border-right:1px solid black ;
+            padding-right: 2rem;
+          }
+          .right_column{
+            padding-left: 4rem;
+          }
+        }
+
+        .block2{
+          .columna:nth-of-type(2){
+            padding-left: 3rem;
+          }
+        }
+
+
+
+
+      }
 
 
 

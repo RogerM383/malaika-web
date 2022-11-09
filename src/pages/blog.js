@@ -1,83 +1,145 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {nosaltres_styles} from "../styles/pages/nosaltresStyles";
 import Header from "../components/Header";
 import Image from "../../package/components/Image";
 import Footer from "../components/Footer";
 import {blog_styles} from "../styles/pages/blogStyles";
-import Card from "../../package/components/Card";
-import {card_blog} from "../styles/components/CardStyles";
-import Item from "../../package/components/Item";
-import {item_blog_thumbnail} from "../styles/components/ItemStyles";
+import {card_blog, card_blog_thumbnail} from "../styles/components/CardStyles";
 import {useRouter} from "next/router";
+import MaxWidthContainer from "../components/MaxWidthContainer";
+import {Col, Row} from "antd";
+import {useLazyQuery} from "@apollo/client";
+import {GET_VIATGES_DESTACATS} from "../contexts/apollo/queriesTest";
+import {GET_BLOG_ENTRY_BY_SLUG, GET_BLOG_ENTRYS} from "../contexts/apollo/queries/blog";
+import moment from "moment";
+import HeaderInici from "../components/HeaderInici";
+import {initializeApollo} from "../contexts/apollo/ApolloContext";
+import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
+import {LaunguageContext} from "../contexts/LanguageContext";
 
 
-const Page = ({children, ...props}) => {
+const Page = ({data, ...props}) => {
 
     const elements = ['one', 'two', 'three'];
     const router = useRouter();
-    const goToArticle = () => {
-        router.push("/blog_article")
+
+    const [page, setPage] = useState(null);
+    useEffect(() => {
+        if (data) {
+            setPage(data.pageBy);
+        }
+    },[data]);
+
+    const {language, setLanguage} = useContext(LaunguageContext);
+    useEffect(() => {
+        setLanguage({
+            language: page?.language?.code,
+            pageTranslation: "blog-2"
+        });
+    }, [page]);
+
+    const goTo = (slug) => (e) =>{
+        router.push(slug)
     }
 
+    const [posts, setPosts] = useState([]);
+    const [loadPosts, { loading, errorD, data: dataEntrys }] = useLazyQuery(GET_BLOG_ENTRYS);
+    useEffect(() => {
+        if (dataEntrys) {
+            setPosts(dataEntrys.posts.nodes);
+        }
+    },[dataEntrys]);
+
+    const [recentPost, setRecentPosts] = useState([]);
+    const [loadRecentPosts, { loading: loadingRecents, error: errorRecents, data: dataRecents }] = useLazyQuery(GET_BLOG_ENTRYS);
+    useEffect(() => {
+        if (dataRecents) {
+            setRecentPosts(dataRecents.posts.nodes);
+        }
+    },[dataRecents]);
+
+    useEffect(() => {
+        loadPosts({variables: { where: "CA" }});
+        loadRecentPosts({ variables: { where:"CA" }});
+    }, []);
 
     return (
         <div css={blog_styles}>
-            <Header img={"Banner.png/"}/>
+            <HeaderInici
+                title={"Blog"}
+                img={"palmeras.png/"}/>
 
-            <div className={"container"}>
+            <MaxWidthContainer>
+                <div className={"block1"}>
 
-                <div className={"listBlock row"}>
-                    <div className={"column column-66"}>
-
-                        {
-                            elements.map((item)=>{
-                                return(
-                                    <Card onClick={goToArticle} css={card_blog} img={"blog_card.png"}>
-                                        <p>30 Jul 2019</p>
-                                        <p className={"didot fs-24"}>Three Ways To Get Travel Discounts</p>
-                                        <p className={"didot fs-14"}>So you’re going abroad, you’ve chosen your destination and now you have to choose a hotel. Ten years ago, you’d have probably visited your local travel agent and trusted the face-to-face advice you were given by the …</p>
-                                        <p className={"didot"}>Més Informació &#8594;</p>
-                                    </Card>
-                                )
-                            })
-                        }
-
-
-
-                    </div>
-                    <div className={"column column-33"}>
-                        <input className={"search_input"} placeholder={"cercar..."} type={"text"}/>
-
-                        <div className={"recent"}>
-                            <p className={"didot fs-18"}>Recent Posts</p>
-
+                    <Row gutter={[40]}>
+                        <Col className={"left_column"} sm={24} md={16} lg={14} >
                             {
-                                elements.map((item)=>{
+                                posts &&
+                                posts.map((element)=>{
+                                    debugger
+                                    const{content,title,slug,featuredImage,date,excerpt} = element;
                                     return(
-                                        <Item css={item_blog_thumbnail} img={"blog_card.png"}>
-                                            <span className={"didot fs-16 bold"}>Three Ways To Get Travel Discounts</span>
-                                            <p>30 Jul 2019</p>
-                                        </Item>
+                                        <div  onClick={goTo("/blog/"+slug)} css={card_blog} >
+                                            <span><Image  src={featuredImage?.node?.mediaItemUrl}/></span>
+                                            <p>{moment(date).format('DD-MM-YYYY')}</p>
+                                            <p className={"title_entry"}>{title}</p>
+                                            <p  className={""} dangerouslySetInnerHTML={{__html: excerpt}}/>
+                                            <p >Més informació &#8594;</p>
+                                        </div>
                                     )
                                 })
                             }
-                        </div>
 
+                        </Col>
 
-                    </div>
+                        <Col className={"right_column recent"} sm={24} md={8} lg={10}  >
+                            <input className={"search_input"} placeholder={"cercar..."} type={"text"}/>
+
+                            <div >
+                                <p className={"recent_post"}>Articles recents</p>
+
+                                {
+                                    recentPost.map((element)=>{
+                                        const{content,title,slug,featuredImage,date} = element;
+                                        return(
+                                            <Row gutter={[20]} onClick={goTo("/blog/"+slug)} css={card_blog_thumbnail}>
+                                                <Col span={8}><Image  src={featuredImage?.node?.mediaItemUrl}/></Col>
+                                                <Col span={16}>
+                                                    <span className={"title_entry"}>{title}</span>
+                                                    <span className={"date"}>{moment(date).format('DD-MM-YYYY')}</span></Col>
+
+                                            </Row>
+                                        )
+                                    })
+                                }
+                            </div>
+
+                        </Col>
+                    </Row>
+
                 </div>
 
-
-
-            </div>
+            </MaxWidthContainer>
 
             <Footer/>
+
         </div>
 
     );
 
 };
 
+export const getStaticProps = async (ctx) => {
+    const {data, initialState} = await getInitialData();
+    return {props: {data, initialState}, revalidate: 60};
+}
+
+const getInitialData = async (slug) => {
+    const apolloClient = initializeApollo();
+    const {error, data} = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog/' }})
+    return { data: data, initialState: apolloClient.cache.extract()};
+}
 
 export default Page;
 

@@ -3,29 +3,94 @@ import {css} from '@emotion/react';
 export const viatge_autor_style = (theme) => {
     const style = css`
 
-    .info{
-        width: 65%;
-        margin:8rem 0;
-    }
+        .container {
+            //padding: 8.5rem ${theme.container.horizontal_padding} 0;
+            margin-bottom: 3rem;
+            .info {
+                width: 100%;
+                margin: 0 0 5rem;
 
-        .block2{
-            margin-top: 7rem;
-            background-color:#F8F8F8 ;
-            padding: 3rem 0;
-        }
+                p {
+                    font-size: ${theme.font.m};
+                    font-weight: ${theme.font.bold};
+                    font-family: ${theme.font.didot};
+                    margin-bottom: 2rem;
 
-        .next_prev{
-            button{
-                background-color: white;
-                color:gray;
-                border-radius: 0;
+                }
             }
         }
 
-    `;
+        .block2 {
 
+            background-color: #F8F8F8;
+            padding: 4rem 0;
+
+            & > div {
+                padding: 0 ${theme.container.horizontal_padding};
+            }
+
+            .discover {
+                color: ${theme.colors.light_gray};
+                font-size: ${theme.font.sm};
+                font-family: ${theme.font.didot};
+                margin-bottom: 2rem;
+            }
+
+            .title {
+                font-family: ${theme.font.didot};
+                font-weight: ${theme.font.bold};
+            }
+
+            .text{
+                font-size: ${theme.font.s};
+                font-weight: ${theme.font.bold};
+                line-height: 1.538;
+            }
+
+          .info {
+            width: 100%;
+          }
+
+
+            .slick-arrow {
+                display: none;
+            }
+        }
+
+      ${theme.mq('tablet-portrait')} {
+        .block2 {
+
+          .info {
+            width: 80%;
+          }
+        }
+
+      }
+    `;
     return [style];
 }
+
+export const nav_buttons = (theme) => {
+    const style = css`
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: ${theme.container.big_screen_top_padding};
+        & > a {
+            height: 3rem;
+            line-height: 3rem;
+            padding-left: .7rem;
+            padding-right: 1rem;
+            font-size: ${theme.font.m};
+            &.next {
+              margin-left: auto;
+              padding-left: 1rem;
+              padding-right: .7rem;
+            }
+        }
+    `;
+    return [style];
+};
 
 
 

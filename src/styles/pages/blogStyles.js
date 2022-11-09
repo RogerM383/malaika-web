@@ -3,43 +3,46 @@ import {css} from '@emotion/react';
 export const blog_styles = (theme) => {
     const style = css`
 
-        .listBlock {
-            padding: 5rem 0;
-            align-items: center;
+
+        .block1{
+           // padding-top: 4rem;
+
+            .left_column{}
+            .right_column{
+                .search_input {
+                    border: 0;
+                    border-bottom: 1px solid lightgray;
+                }
+                .recent_post{
+                    font-weight: ${theme.font.bold};
+                    font-size: 0.9rem;
+                }
+            }
+
+            :after {
+                display: block;
+                content: "";
+                width: 100%;
+                border: 1px solid lightgray;
+                bottom: 0;
+                margin-top: 8rem;
+
+            }
         }
 
-        .search_input {
-            border: 0;
-            border-bottom: 1px solid lightgray;
+        .more {
+            color: #4A4A4A;
         }
 
-        .column-66 {
-            order: 2;
-        }
 
-        .column-33 {
-            order: 1;
-        }
 
-        .recent{
-            display:none;
+        .recent {
+            display: none;
         }
 
         @media (min-width: 40.0rem) {
-            .recent{
-                display:block;
-            }
-
-            .column-66 {
-                order: 1;
-            }
-
-            .column-33 {
-                order: 2;
-            }
-
-            .listBlock {
-                align-items: start;
+            .recent {
+                display: block;
             }
 
         }

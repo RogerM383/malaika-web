@@ -3,14 +3,85 @@ import {css} from '@emotion/react';
 export const global = (theme) => {
 
     const style = css`
+
+        /* --- RESET ------------------------------------------------------------------------------------------------ */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        em {
+            font-style: italic;
+        }
+      
+        b, strong {
+            font-weight: bold;
+        }
+      
+        
+        
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        @font-face {
+            font-family: 'Didot';
+            src: local('Didot'), url('/fonts/didot/Didot Regular.ttf') format('truetype');
+          //  src: local(Didot), url('./fonts/didot/Didot Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Quicksand';
+            src: local('Quicksand'), url('/fonts/quicksand/Quicksand-Regular.ttf') format('truetype');
+            //src: local(Quicksand), url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap') ;
+        }
+        * {
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+
         html {
             padding: 0;
             margin: 0;
             background: ${theme.colors.white};
             min-height: 100vh;
-            font-size: 62.5%;
+            font-size: 12px;
             scroll-behavior: smooth;
-
 
             body {
                 padding: 0;
@@ -19,9 +90,129 @@ export const global = (theme) => {
                 min-height: 100vh;
                 font-family: 'Quicksand', sans-serif;
                 font-size: 1.2rem;
+                color: black;
+                line-height: 1.2;
+                overflow-x: hidden;
+
+                a {
+                    text-decoration: none;
+                    color: ${theme.colors.primary};
+                    &:hover {
+                        color: darkgray;
+                    }
+                }
+
+                p {
+                    font-size: ${theme.font.medium};
+                    font-family: ${theme.font.quicksand};
+                    margin-bottom: 1rem;
+                }
+
+                ul, ol {
+                    list-style: none;
+                }
+
+                h1 {
+                    font-size: ${theme.font.h1};
+                }
+
+                h2 {
+                    font-size: ${theme.font.h2};
+                }
+
+                h3 {
+                    font-size: ${theme.font.h3};
+                }
+
+                h4 {
+                    font-size: ${theme.font.h4};
+                }
+
+                h5 {
+                    font-size: ${theme.font.h5};
+                }
 
                 button {
+
+                    border-radius: 1px;
+                    height: 2.5rem;
+                    align-items: center;
                     background-color: ${theme.colors.primary};
+                    line-height: 1;
+                    border: 0;
+                    color: ${theme.colors.white};
+                    font-size: 1rem;
+
+                }
+
+                input {
+
+                    border: none;
+                    height: 2.5rem;
+                    margin-bottom: 1rem;
+                    padding: 1rem;
+                    font-size: 1rem;
+
+                }
+
+                .next_prev {
+                    display: flex;
+                    align-items: center;
+                    padding:1.5rem 0;
+
+                    button {
+
+                        background-color: white;
+                        color: gray;
+
+                        line-height: initial;
+                        display: flex;
+                        align-items: center;
+                            /*font-size: ${theme.font.xl};
+                      height: 3.5rem;
+                        padding-left: 1rem;
+                        padding-right: 1rem;*/
+
+
+                        font-size: ${theme.font.m};
+                        height: 2rem;
+                        padding-left: 0.5rem;
+                        padding-right: 0.5rem;
+
+                        .fa-slash {
+                            background-color: transparent;
+                            -webkit-transform: rotate(90deg);
+                            -moz-transform: rotate(90deg);
+                            -ms-transform: rotate(90deg);
+                            -o-transform: rotate(90deg);
+                            transform: rotate(90deg);
+                        }
+
+
+                    }
+
+
+                }
+            }
+        }
+
+        ${theme.mq('mobile-landscape')} {
+            html {
+                font-size: 15px;
+            }
+        }
+
+        ${theme.mq('laptop')} {
+            html {
+                font-size: 20px;
+            }
+        }
+
+
+
+/*
+                button {
+                    background-color: ${theme.colors.medium};
                     border: ${theme.colors.primary};
 
                 }
@@ -30,7 +221,6 @@ export const global = (theme) => {
                     color: ${theme.colors.primary};
                 }
 
-            ,
             select {
                 &:hover {
                     border-color: ${theme.colors.primary};
@@ -136,151 +326,86 @@ export const global = (theme) => {
             }
 
 
-
-        , /*body end*/
-        .breadcrumb{
-            color:lightgray;
-            margin:2rem 0 ;
-        }
-        .title {
-            width: 40%;
-            font-size: 50px;
-            font-weight: bold;
-            font-family: Didot;
-            > span{
-                color:${theme.colors.primary};
-                font-size: 30px;
-                font-weight: initial;
-            }
-        }
-
-            .wrap{
-            max-width: 1200px;
-            overflow: visible;
-        }
-
-
-        .bold {
-            font-weight: bold;
-        }
-            .sbold {
-                font-weight: 600;
+            .link{
+                cursor: pointer;
             }
 
 
-        .primary {
-            color: ${theme.colors.primary};
-        }
+            button {
 
-            .white {
-                color: ${theme.colors.white};
+                border-radius: 1px;
+                height: 2.5rem;
+                align-items: center;
+                background-color: ${theme.colors.primary};
+                font-size: ${theme.font.small};
+                line-height: 1;
+
             }
 
-            .black {
-                color: ${theme.colors.black};
+            input[type="text"] {
+                border-radius: 0;
+                height: 2.5rem;
             }
 
-        .fs-100{
-            font-size: 100px;
-        }
-        .fs-50{
-            font-size: 50px;
-        }
-        .fs-40{
-            font-size: 40px;
-        }
-        .fs-36{
-            font-size: 36px;
-        }
-        .fs-32{
-            font-size: 32px;
-        }
-        .fs-30{
-            font-size: 30px;
-        }
-        .fs-28{
-            font-size: 28px;
-        }
-        .fs-26{
-            font-size: 26px;
-        }
-        .fs-24{
-            font-size: 24px;
-        }
-        .fs-20{
-            font-size: 20px;
-        }
-        .fs-21{
-            font-size: 21px;
-        }
-        .fs-18{
-            font-size: 18px;
-        }
-        .fs-14{
-            font-size: 14px;
-        }
-        .fs-12{
-            font-size: 12px;
-        }
 
-        .db{
-            display: block;
-        }
-        .my-5{
-            margin:5rem 0;
-        }
+            .breadcrumb {
+                color: lightgray;
+                margin: 2rem 0;
+            }
 
-        .didot{
-            font-family: 'Didot', sans-serif;;
-        }
+            .title {
+                // width: 40%;
+                font-size: 2.5rem;
+                font-weight: bold;
+                font-family: Didot, serif;
 
-        * {
-            box-sizing: border-box;
-        }
+                > span {
+                    color: ${theme.colors.primary};
+                    font-size: 30px;
+                    font-weight: initial;
+                }
+            }
+*/
 
-   /*         .block1, .block2, .block3, .block4{
-                margin:8rem 5rem;
-                max-width: 1200px;
 
-                overflow-x: hidden;
-            }*/
-        }
+/*
+            .next_prev {
+                display: flex;
+                padding: 3rem 0;
+
+                button, span {
+                    background-color: white;
+                    color: gray;
+                    border-radius: 0;
+                    margin: 0;
+                    border:0;
+                   color:  #9B9B9B;
+                    padding: 1rem;
+                }
+
+                button:nth-of-type(2){
+                    //padding:0;
+
+                }
+            }
+
+
+            .psmall {
+                padding-top: 2rem;
+            }
+
+            .pmedium {
+                padding-top: 3.5rem;
+            }
+
+            .plarge {
+                padding-top: 4rem;
+            }
+
+
+        }*/
+
+
     `;
     return [style];
 }
-
-
-/*         input:hover, textarea:hover, select:hover {
-           border-color:${theme.colors.primary};
-         }
-
-         input:focus, textarea:focus, select:focus {
-           border-color:${theme.colors.primary};
-         }*/
-
-/*      input[type=checkbox] {
-
-    filter: hue-rotate(55deg);*/
-
-/*        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-        appearance: none;
-
-        width: 14px !important;
-        height: 14px !important;
-        margin: 5px;
-
-        outline: 1px solid gray;
-        box-shadow: none;
-        font-size: 0.8em;
-        text-align: center;
-        line-height: 1em;
-        background: ${theme.colors.primary};
-
-        &:checked:after {
-          content: '✔';
-          color: white;
-        }
-
-      }*/
