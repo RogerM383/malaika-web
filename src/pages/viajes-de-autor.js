@@ -174,7 +174,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                                 <div><img src={"/plane_icon.png"}/></div>
                                                 <ul className={"fs-16"}>
                                                     {
-                                                        sortides.map( (item) => {
+                                                        sortides?.map( (item) => {
 
                                                             return (
                                                                <li>{item.datasortida}</li>
