@@ -82,7 +82,7 @@ const PageViatgeDautor = ({data, slug, ...props}) => {
                                 <img
                                     className={"mapa"}
                                     src={
-                                    campsViatge?.vols[0].vol.tipustrajete === "Vol"
+                                    campsViatge?.vols[0].vol.tipustrajecte === "Vol"
                                         ? "../plane_icon.png"
                                         : "../tren.png"
                                     }
