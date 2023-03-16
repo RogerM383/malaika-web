@@ -1,0 +1,119 @@
+RewriteEngine on
+DirectoryIndex
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+RewriteRule ^$ http://malaikaviatges.com:3007/ [P,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://malaikaviatges.com:3007/$1 [P,L]
+
+Redirect 301 /es https://malaikaviatges.com/inicio
+Redirect 301 /ca/destiancions/nautica https://malaikaviatges.com/inici
+Redirect 301 /ca/destiancions/nautica/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/nautica/ https://malaikaviatges.com/
+Redirect 301 /es/aviso-legal/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/africa/ https://malaikaviatges.com/
+Redirect 301 /ca/qui-som/ https://malaikaviatges.com/
+Redirect 301 /es/quienes-somos/ https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/espanya/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/espana/ https://malaikaviatges.com/
+Redirect 301 /ca/condicions/ https://malaikaviatges.com/
+Redirect 301 /es/contacto/ https://malaikaviatges.com/
+Redirect 301 /ca/contacte/ https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/ANO_NUEVO_EN_GEORGIA_2020.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Liban_08_al_15_Agost___cat__26nov_DEFF.pdf https://malaikaviatges.com/
+Redirect 301 /es/condiciones-legales/ https://malaikaviatges.com/
+Redirect 301 /ca/avis-legal/ https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/asia/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/sudamerica/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/asia/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/europa/ https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/europa/ https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/africa/ https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/oceania/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/norteamerica/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/centroamerica/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/oceania/ https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/viatges-dautor/detall/307/comunicat-extraordinari/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/europa/detalle/307/comunicado-extraordinario/ https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/canada_costa_a_costa.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Santorini_y_Creta_15_al_24_julio_cast_21sep.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/NUEVA_ZELANDA_22_DIES.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/NAMIBIA_11_DIES.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Navegando_por_el_sur_de_Croacia_COMP.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/NOVA_ZELANDA_POLINESIA.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Chile_Isla_de_Pascua.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Lo_mejor_de_Jordania_e_Israel.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/GRANS_CLASSICS_MYANMAR.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Canada_Naturaleza_en_el_Oeste.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/JORDANIA_10DIES.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Malta_18_al_25_d_agost_2020_cast.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Costa_Rica_13_dias.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/AVENTURA_EN_LAS_CICLADAS.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Vikings_Balenes_i_Aurores_Boreals_JL_cat_1feb_.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/MADAGASCAR_18_dies.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Navegando_por_La_Costa_Brava_COM.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/vikingos_Ballenas_y_Auroras_Boreales_cast__JL_1_de_febrer_05oct.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Reino_Hashemita.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Liban_08_al_15_Agost__cast_26nov_DEFF.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/INDONESIAcostumbres_ancestrales_y_biodiversidad.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Xina_13_al_27_de_juny_cast_04sep_DEFF_26sep.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Zambia_exte_platja_zanzibar.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/PERU_CON_CRUCERO_AQUA.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/PANAMA_13dias_.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/ZAGORI_Y_METEORA.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/SUDAFRICA_EN_FAMILIA_VIP.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Australia.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/China.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Costa_Oeste_Estados_Unidos_17_dias.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Vikings_Balenes_i_Aurores_Boreals_JL_cat_16_a_22_feb.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Guatemala12_al_25_juliol_cast.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/ESTATS_UNITS___WEB_MALAIKA05OCT17.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/PANAMA_BOCAS_DEL_TORO.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/KENYA.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/FIORDOS_NORUEGOS_2016.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Tunez_12_al_21_dabril_cast.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Tunisia_12_al_21_dabril_cat.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/MAYAS_Y_CARIBE.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/SENDERISME_ZAGORI_Y_METEORA.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/COLOMBIA_ARQUEOLOGICA_Y_EJE_CAFETERO.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Malaika_-_Sardegna_Sud.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/SENEGAL.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/PARCS_NACIONALS_ESTATS_UNITS.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/PERU_Lima_Arequipa_Puno_Cusco_etc.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/BRASIL_PAIS_FANTASTICO_Lo_preferido_de_Brasil.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Israel_18_al_28_maig_cat_14aug.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Dubai_del_4_a_l11_desembre_cat_17_marc.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Guatemala12_al_25_juliol_cat.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Navegando_por_Baleares.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/ETIOPIA_NORD_-_2_al_16_oct_cat_07dec.pdf https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/asia/detall/165/vietnam-sortides-regulars/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/africa/detalle/312/seychelles-9-dias/ https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/EL_MODERNISMO_ESCONDIDO_cast.pdf https://malaikaviatges.com/
+Redirect 301 /es/destinos/africa/detalle/309/malawi-15-dias/ https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/DISTRICTE_22.pdf https://malaikaviatges.com/
+Redirect 301 /es/destinos/asia/detalle/224/tailandia-y-camboya/ https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/DISTRITO_22.pdf https://malaikaviatges.com/
+Redirect 301 /es/destinos/africa/detalle/131/madagascar-18-dias/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/oriente-medio/ https://malaikaviatges.com/
+Redirect 301 /es/destinos/centroamerica/detalle/138/panama-13-dias/ https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/EL_QUIXOT_I_BARCELONA.pdf https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/africa/detall/309/mlawi-15-dies/ https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/orient-mitja/ https://malaikaviatges.com/
+Redirect 301 /ca/destiancions/america-central/ https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Marche_y_Umbria_del_13_al_20_set_cast_-11feb.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Malaika_-_DESCUBRIENDO_AZORES.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Galapagos_-_13_al_28_agosto_cast_7oct.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/croacia-eslovenia.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Israel_18_al_28_maig_-cast_14aug.pdf https://malaikaviatges.com/
+Redirect 301 /uploads/archivos/Ecuador__Islas_Galapagos_-_16_dias_-_Salidas_2019.pdf https://malaikaviatges.com/
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php72” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php72 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

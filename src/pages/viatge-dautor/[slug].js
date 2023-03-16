@@ -76,43 +76,44 @@ const PageViatgeDautor = ({data, slug, ...props}) => {
                             <span>Suplement hab. individual: {campsViatge?.suplement}</span>
                         </div>
 
-                        {
-                            campsViatge?.vols &&
+                        {   campsViatge?.vols && (
                             <Row className={"plane"}>
-
                                 <Col span={2}>
-                                    <img className={"mapa"} src={"../plane_icon.png"}/>
+                                <img
+                                    className={"mapa"}
+                                    src={
+                                    campsViatge?.vols[0].vol.tipustrajete === "Vol"
+                                        ? "../plane_icon.png"
+                                        : "../tren.png"
+                                    }
+                                />
                                 </Col>
-
                                 <Col span={22}>
-                                    <Row gutter={[10,5]} className={'table-parent'}>
-                                        <table>
-                                        {
-                                            campsViatge?.vols.map((item)=>{
-                                                return (
-                                                    <>
-                                                        {/*<Col css={{width: 'auto'}}><span css={{whiteSpace: 'nowrap'}} key={item.vol.ubicacio} className={"vol"}>{item.vol.ubicacio}</span></Col>
-                                                        <Col css={{width: 'auto'}}><span css={{whiteSpace: 'nowrap'}} key={item.vol.datavol} className={"vol"} >{item.vol.datavol}</span></Col>
-                                                        <Col css={{width: 'auto'}}><span css={{whiteSpace: 'nowrap'}} key={item.vol.numvol} className={"vol"} >{item.vol.numvol}</span></Col>
-                                                        <Col css={{width: 'auto'}}><span css={{whiteSpace: 'nowrap'}} key={item.vol.horari} className={"vol vol-right"} >{item.vol.horari}</span></Col>*/}
-
-                                                        <tr>
-                                                            <td><span className={"vol"}>{item.vol.ubicacio}</span></td>
-                                                            <td><span className={"vol"}>{item.vol.datavol}</span></td>
-                                                            <td><span className={"vol"}>{item.vol.numvol}</span></td>
-                                                            <td><span className={"vol vol-right"}>{item.vol.horari}</span></td>
-                                                        </tr>
-
-                                                    </>
-                                                )
-                                            })
-                                        }
-                                        </table>
-                                    </Row>
+                                <Row gutter={[10, 5]} className={"table-parent"}>
+                                    <table>
+                                    {campsViatge?.vols.map((item) => {
+                                        return (
+                                        <tr key={item.vol.ubicacio}>
+                                            <td>
+                                            <span className={"vol"}>{item.vol.ubicacio}</span>
+                                            </td>
+                                            <td>
+                                            <span className={"vol"}>{item.vol.datavol}</span>
+                                            </td>
+                                            <td>
+                                            <span className={"vol"}>{item.vol.numvol}</span>
+                                            </td>
+                                            <td>
+                                            <span className={"vol vol-right"}>{item.vol.horari}</span>
+                                            </td>
+                                        </tr>
+                                        );
+                                    })}
+                                    </table>
+                                </Row>
                                 </Col>
-
                             </Row>
-                        }
+                            )}
 
                         {/* DIFERENCIA CON DESTINACIONS*/}
                         <div className={"block_mapa"}>
