@@ -78,7 +78,11 @@ const PageViatgeDautor = ({ data, ...props}) => {
                         {   campsViatge?.vols &&
                             <Row className={"plane"}>
                                 <Col span={2}>
-                                    <img className={"mapa"} src={"../plane_icon.png"}/>
+                                    <img className={"mapa"} src={
+                                    campsViatge?.vols[0].vol.tipustrajecte === "Vol"
+                                        ? "../plane_icon.png"
+                                        : "../tren.png"
+                                    }/>
                                 </Col>
                                 <Col span={22}>
 
