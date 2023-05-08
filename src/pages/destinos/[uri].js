@@ -19,7 +19,7 @@ import HeaderInici from "../../components/HeaderInici";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
-const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations,content, date, language: lang, ...props}) => {
+const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations,content, date, ...props}) => {
 
     debugger
     const router = useRouter();
@@ -29,8 +29,8 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translat
 
         translations &&
         setLanguage({
-            language: lang?.code,
-            pageTranslation: translations.length >= 1 ? "destinos/"+translations[0].slug : null
+            ...language,
+            pageTranslation: translations.length >= 1 ? "destinacions/"+translations[0].slug : null
         })
 
     }, []);
@@ -146,7 +146,6 @@ export async function getStaticProps({ params,...ctx }) {
     const client = initializeApollo();
     const {error, data} = await client.query({query: GET_PAGE_BY_URI, variables: { uri: uri }});
 
-    console.log(data)
 /*    const {error:error2, data:data2} = await client.query({query:  GET_VIATGE_BY_TERM_SLUG, variables: {first: 6, slug:"Oceania"}});
     console.log("data2")
     console.log(data2)*/
