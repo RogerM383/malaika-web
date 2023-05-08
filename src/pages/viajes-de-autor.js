@@ -132,7 +132,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                             status,
                             title,
                             viatgedautorId,
-                            campsviatge: customFields,
+                            campsViatge: customFields,
                             featuredImage: image,
                             subtitolViatge
                         } = viatge;
