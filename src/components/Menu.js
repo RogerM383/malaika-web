@@ -26,6 +26,10 @@ const Menu = ({img = true, children, ...props}) => {
     },[language]);
 
     useEffect(() => {
+        getMenu({variables: {name: language.language === 'CA' ? 'Header CAT' : 'Header ES' , first: 50}});
+    },[]);
+
+    useEffect(() => {
         if (menuData) {
             const items = menuData.menu.menuItems.nodes;
 
