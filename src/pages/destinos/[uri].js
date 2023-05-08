@@ -19,17 +19,16 @@ import HeaderInici from "../../components/HeaderInici";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
-const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations,content, date, ...props}) => {
+const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations, content, date, ...props}) => {
 
     debugger
     const router = useRouter();
 
     const {language,setLanguage} = useContext(LaunguageContext)
     useEffect(() => {
-
         translations &&
         setLanguage({
-            ...language,
+            language: {...props.language},
             pageTranslation: translations.length >= 1 ? "destinacions/"+translations[0].slug : null
         })
 
@@ -146,13 +145,15 @@ export async function getStaticProps({ params,...ctx }) {
     const client = initializeApollo();
     const {error, data} = await client.query({query: GET_PAGE_BY_URI, variables: { uri: uri }});
 
+
+
 /*    const {error:error2, data:data2} = await client.query({query:  GET_VIATGE_BY_TERM_SLUG, variables: {first: 6, slug:"Oceania"}});
     console.log("data2")
     console.log(data2)*/
 
 
     const page = data.pageBy;
-    return { props: {...page}, revalidate: 60 };
+    return { props: page, revalidate: 60 };
 }
 
 export default PageDestinacions;

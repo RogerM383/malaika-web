@@ -51,7 +51,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     useEffect(() => {
         loadViatgesAutor({variables: {first: PER_PAGE, where:LANG} });
         loadViatgesDestacats({variables:{first:1600,language:LANG,categoryName:"destacat-es"}  });
-        setLanguage({...props.language, pageTranslation:translations[0].slug})
+        setLanguage({language: {...props.language}, pageTranslation:translations[0].slug})
     }, []);
 
     useEffect(() => {
