@@ -49,7 +49,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
      /*   setLanguage({ ...language , pageTranslation:props.translations[0].slug})*/
         props.translations &&
         setLanguage({
-            ...props.language ,
+            language: props?.language?.code,
             pageTranslation:props.translations.length >= 1 ? props.translations[0].slug : null })
     }, [props.translations]);
 
@@ -296,7 +296,7 @@ export const getStaticProps = async (ctx) => {
     const client = initializeApollo();
     const data = await client.query({query: GET_PAGE_BY_URI, variables: { uri: '/viajes-de-autor/' }})
     .then((data) => {
-        return {...data.data.pageBy, language: {language: 'ES'}};
+        return {...data.data.pageBy};
     });
 
     return {props: data, revalidate: 60};
