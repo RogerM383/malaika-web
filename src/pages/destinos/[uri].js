@@ -29,7 +29,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translat
 
         translations &&
         setLanguage({
-            ...props.language,
+            language: {language: 'ES'},
             pageTranslation: translations.length >= 1 ? "destinacions/"+translations[0].slug : null
         })
 
