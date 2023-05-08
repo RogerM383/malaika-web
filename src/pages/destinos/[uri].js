@@ -30,7 +30,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translat
         translations &&
         setLanguage({
             language: {code: 'ES'},
-            pageTranslation: translations.length >= 1 ? "destinacions/"+translations[0].slug : null
+            pageTranslation: translations.length >= 1 ? "destinos/"+translations[0].slug : null
         })
 
     }, []);
