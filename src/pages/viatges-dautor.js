@@ -189,7 +189,7 @@ debugger
                                         </div>
 
                                         <div className={"more_info"}>
-                                            { autor && <span className={"author"}>{autor}</span> }
+                                            <span className={"author"}>{autor}</span>
                                             <span className={"button"} onClick={goTo(slug)} >Més informació <span className={"primary"}>&#8594;</span> </span>
                                         </div>
 

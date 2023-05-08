@@ -172,7 +172,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                                             <div className={"plane"}>
                                                 <div><img src={
-                                                                vols[0].vol.tipustrajecte === "Vol"
+                                                                campsViatge?.vols[0].vol.tipustrajecte === "Vol"
                                                                     ? "/plane_icon.png"
                                                                     : "/tren.png"
                                                                 }/></div>
@@ -191,7 +191,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                         </div>
 
                                         <div className={"more_info"}>
-                                            { autor && <span className={"author"}>{autor}</span> }
+                                            <span className={"author"}>{autor}</span>
                                             <span className={"button"} onClick={goTo(slug)} >Más información <span className={"primary"}>&#8594;</span> </span>
                                         </div>
 
