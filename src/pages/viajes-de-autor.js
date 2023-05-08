@@ -172,7 +172,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
 
                                             <div className={"plane"}>
                                                 <div><img src={
-                                                                campsViatge?.vols[0].vol.tipustrajecte === "Vol"
+                                                                vols[0].vol.tipustrajecte === "Vol"
                                                                     ? "/plane_icon.png"
                                                                     : "/tren.png"
                                                                 }/></div>
