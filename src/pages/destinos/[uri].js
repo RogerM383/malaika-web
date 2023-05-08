@@ -146,6 +146,7 @@ export async function getStaticProps({ params,...ctx }) {
     const client = initializeApollo();
     const {error, data} = await client.query({query: GET_PAGE_BY_URI, variables: { uri: uri }});
 
+    console.log(data)
 /*    const {error:error2, data:data2} = await client.query({query:  GET_VIATGE_BY_TERM_SLUG, variables: {first: 6, slug:"Oceania"}});
     console.log("data2")
     console.log(data2)*/
