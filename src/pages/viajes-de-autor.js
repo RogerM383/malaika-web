@@ -191,7 +191,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                         </div>
 
                                         <div className={"more_info"}>
-                                            <span className={"author"}>{autor}</span>
+                                            { autor && <span className={"author"}>{autor}</span> }
                                             <span className={"button"} onClick={goTo(slug)} >Más información <span className={"primary"}>&#8594;</span> </span>
                                         </div>
 
