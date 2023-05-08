@@ -19,7 +19,7 @@ import HeaderInici from "../../components/HeaderInici";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
-const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations,content, date, language, ...props}) => {
+const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations,content, date, lang: language, ...props}) => {
 
     debugger
     const router = useRouter();
@@ -29,7 +29,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translat
 
         translations &&
         setLanguage({
-            language: language?.code,
+            language: lang?.code,
             pageTranslation: translations.length >= 1 ? "destinos/"+translations[0].slug : null
         })
 
