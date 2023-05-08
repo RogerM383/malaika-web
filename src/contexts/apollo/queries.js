@@ -261,6 +261,17 @@ export const GET_VIATGES_AUTOR = gql`
                     sortides {
                         datasortida
                     }
+                    
+                    vols {
+                        vol {
+                            ubicacio
+                            numvol
+                            datavol
+                            horari
+                            fieldGroupName
+                            tipustrajecte
+                        }
+                    }
                 }
                 subtitolViatge {
                     subtitolviatge
