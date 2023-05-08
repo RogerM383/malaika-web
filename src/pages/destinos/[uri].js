@@ -19,7 +19,7 @@ import HeaderInici from "../../components/HeaderInici";
 import {LaunguageContext} from "../../contexts/LanguageContext";
 
 
-const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations,content, date, lang: language, ...props}) => {
+const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations,content, date, language: lang, ...props}) => {
 
     debugger
     const router = useRouter();
