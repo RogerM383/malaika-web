@@ -92,6 +92,25 @@ export const GET_PAGE_BY_URI = gql`
             language {
                 code
             }
+            
+            datoscontacto {
+                direccionbcn
+                correusbcn {
+                    email
+                    fieldGroupName
+                    nom
+                }
+                correusgirona {
+                    email
+                    fieldGroupName
+                    nom
+                }
+                direcciongirona
+                fieldGroupName
+                telefonbcn
+                telefongirona
+                titolcontacte
+            }
         }
     }
 `;
