@@ -13,7 +13,7 @@ import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 import {LaunguageContext} from "../contexts/LanguageContext";
 
 
-const PageContacta = ({title,featuredImage,children, ...props}) => {
+const PageContacta = ({title,featuredImage,children, datoscontacto, ...props}) => {
 
     const {language,setLanguage} = useContext(LaunguageContext)
     useEffect(() => {
@@ -43,8 +43,6 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
         formData.forEach((value, key) => {
             data[key] = value;
         });
-
-        debugger
 
         if (data['condiciones'] && data['nombre'].length >= 1 && data['email'].length >= 1 && data['mensaje'].length >= 1) {
             setLoading(true);
@@ -112,27 +110,36 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
                 <div className={"block1"}>
                     <MaxWidthContainer>
-                    <p className={"title_block"}>On som</p>
+                    <p className={"title_block"}>{datoscontacto?.titolcontacte}</p>
                     <Row gutter={[40, 40]}>
                         <Col xs={24} sm={12} md={12}>
 
-                            <p className={"address"}>Carrer de París, 209 Pral 2a.</p>
-                            <p className={"address"}>08008 BARCELONA</p>
-                            <Row >
-                                <Col flex={0}>
-                                    <img src={"/phone_icon.png"}/>
-                                </Col>
-                                <Col flex={"auto"}>
-                                    <p className={"db"}><a css={{color:'black'}} href={"tel:+34 930 011 176"}>+34 930 011 176</a></p>
-                                </Col>
+                            <p className={"address"} dangerouslySetInnerHTML={{__html:datoscontacto?.direccionbcn}}/>
 
-                            </Row>
+                            {/*<p className={"address"}>Carrer de París, 209 Pral 2a.</p>
+                            <p className={"address"}>08008 BARCELONA</p>*/}
+
+                            {
+                                datoscontacto?.telefonbcn &&
+                                (<Row>
+                                    <Col flex={0}>
+                                        <img src={'/phone_icon.png'}/>
+                                    </Col>
+                                    <Col flex={'auto'}>
+                                        <p className={'db'}><a css={{color: 'black'}}
+                                                               href={'tel: ' + datoscontacto?.telefonbcn}>{datoscontacto?.telefonbcn}</a>
+                                        </p>
+                                    </Col>
+                                </Row>)
+                            }
 
                         <Row className={"emails"}>
-                            <span>Toñi Castillo: <a target={"_blank"} href={"mailto:malaika@malaikaviatges.com"}>malaika@malaikaviatges.com</a></span>
-                            <span>Maribel del Valle: <a target={"_blank"} href={"mailto:maribel@malaikaviatges.com"}>maribel@malaikaviatges.com</a></span>
-                            <span>Fina Garcia: <a target={"_blank"} href={"mailto:fina@malaikaviatges.com"}>fina@malaikaviatges.com</a></span>
-                            <span>Anna Ayats: <a target={"_blank"} href={"mailto:aayats@malaikaviatges.com"}>aayats@malaikaviatges.com</a></span>
+
+                            {
+                                datoscontacto?.correusbcn?.map((mail) => {
+                                    return (<span>{mail.nom} <a target={"_blank"} href={"mailto:"+mail.email}>{mail.email}</a></span>)
+                                })
+                            }
 
                         </Row>
 
@@ -142,20 +149,30 @@ const PageContacta = ({title,featuredImage,children, ...props}) => {
 
                         <Col xs={24} sm={12} md={12}>
 
-                            <p className={"address"}>Camí dels Horts, 8</p>
-                            <p className={"address"}>17124 Llofriu, Girona</p>
-                            <Row >
-                                <Col flex={0}>
-                                    <img src={"/phone_icon.png"}/>
-                                </Col>
-                                <Col flex={"auto"}>
-                                    <p className={"db"}><a  css={{color:'black'}} href={"tel:+34 872 503 266"}>+34 872 503 266</a></p>
+                            <p className={"address"} dangerouslySetInnerHTML={{__html:datoscontacto?.direcciongirona}}/>
 
-                                </Col>
+                            {
+                                datoscontacto?.telefongirona &&
+                                    (<Row>
+                                        <Col flex={0}>
+                                            <img src={'/phone_icon.png'}/>
+                                        </Col>
+                                        <Col flex={'auto'}>
+                                            <p className={'db'}><a css={{color: 'black'}}
+                                                                   href={'tel: ' + datoscontacto?.telefongirona}>{datoscontacto?.telefongirona}</a>
+                                            </p>
+                                        </Col>
 
-                            </Row>
+                                    </Row>)
+                            }
+
                             <Row className={"emails"}>
-                                <span>Montse Tribulietx: <a target={"_blank"} href={"mailto:mtribulietx@malaikaviatges.com"}>mtribulietx@malaikaviatges.com</a></span>
+
+                                {
+                                    datoscontacto?.correusgirona?.map((mail) => {
+                                        return (<span>{mail.nom} <a target={"_blank"} href={"mailto:"+mail.email}>{mail.email}</a></span>)
+                                    })
+                                }
 
                             </Row>
 
