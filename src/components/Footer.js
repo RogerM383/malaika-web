@@ -42,7 +42,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                     </Col>
 
-                    <Col xs={24} sm={24} md={12} lg={5}>
+                    {/*<Col xs={24} sm={24} md={12} lg={5}>
                         <div className={"contact"}>
                             <span  className={"address"}>Camí dels Horts, 8</span>
                             <span  className={"address"}>17124 Llofriu, Girona</span>
@@ -53,7 +53,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                             <a target={"_blank"} href="mailto:mtribulietx@malaikaviatges.com">mtribulietx@malaikaviatges.com</a>
                         </div>
-                    </Col>
+                    </Col>*/}
 
                     <Col xs={24} sm={24} md={12} lg={6}>
                         <div className={"logos"}>
