@@ -173,8 +173,11 @@ export const menu_styles = (theme) => {
        /*         background-color: #4B4C4C;
                 border: 3px solid #4B4C4C;*/
 
-                background-color: #0D0D0D;
-                border: 3px solid #0D0D0D;
+                /*background-color: #0D0D0D;
+                border: 3px solid #0D0D0D;*/
+
+                background-color: #2b2a25;
+                border: 3px solid #2b2a25;
 
                 padding:0!important;
 
