@@ -27,7 +27,7 @@ const Footer = ({img = true, children, ...props}) => {
 
                 <Row gutter={[10, 40]} justify={"space-between"} align={"middle"}>
 
-                    <Col  xs={24} sm={24} md={12} lg={5}>
+                    <Col  xs={24} sm={24} md={12} lg={8}>
                         <div className={"contact"}>
                             <span className={"address"}>Carrer de París, 209, Pral 2a</span>
                             <span className={"address"}>08008 BARCELONA</span>
@@ -55,7 +55,7 @@ const Footer = ({img = true, children, ...props}) => {
                         </div>
                     </Col>*/}
 
-                    <Col xs={24} sm={24} md={12} lg={6}>
+                    <Col xs={24} sm={24} md={12} lg={8}>
                         <div className={"logos"}>
                             <div>
                                 <a css={{cursor: 'default'}} target={"_blank"}><Image className={"logo-item"} src={"/locos-por-viajar.jpg"}></Image> </a>
