@@ -57,12 +57,12 @@ const HeaderInici = ({img , title = false, fraseInici=false, children, ...props}
     const {language,setLanguage} = useContext(LaunguageContext)
 
     const switchLanguage = (checked) => (e) => {
-        if(language.pageTranslation === null){
+        if(language.pageTranslation === null || language.pageTranslation === undefined){
             setLanguage({...language,language: checked})
             router.push(checked === "ES" ? "/inicio" : "/inici")
         } else {
             let data = {...language,language: checked}
-            setLanguage(data)
+            setLanguage(data);
             router.push("/"+language.pageTranslation)
         }
 

@@ -53,7 +53,8 @@ const Menu = ({img = true, children, ...props}) => {
                 });
             }
             // TODO: Que venga el menu con el item nuevo desde el back (el primat nomada)
-            menu.push({id: "el-primat-nomada", path: "/el-primat-nomada", image: null, submenu: []});
+            if (language.language === 'CA')
+                menu.push({id: "el-primat-nomada", path: "/el-primat-nomada", image: null, submenu: []});
 
             if (menu && (router.pathname === "/inici" || router.pathname === "/inicio" )) {
                 menu.push({id: 'amics-museu', label: "AMICS", path: "https://reservesmnac.malaikaviatges.com/", image: "amics-mnac.png", submenu: []});
