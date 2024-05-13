@@ -63,21 +63,21 @@ const Page = ({data, ...props}) => {
     return (
         <div css={nomada_styles}>
             <HeaderInici
-                title={"Blog"}
+                title={"Newsletter"}
                 img={"palmeras.png/"}/>
 
             <MaxWidthContainer>
                 <div className={"block1"}>
 
                     <Row gutter={[40]}>
-                        <Col className={"left_column"} sm={24} md={16} lg={14} >
+                        <Col className={"left_column"} sm={24} md={20} lg={19} >
                             {
                                 <iframe src={iframeUrl} frameBorder="0" width="99%" height="99%"/>
                             }
 
                         </Col>
 
-                        <Col className={"right_column recent"} sm={24} md={8} lg={10}  >
+                        <Col className={"right_column recent"} sm={24} md={4} lg={5}  >
 
                             <div>
                                 <p className={"recent_post"}>Newsletters</p>
