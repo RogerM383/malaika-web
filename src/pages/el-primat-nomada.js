@@ -18,7 +18,6 @@ import {initializeApollo} from "../contexts/apollo/ApolloContext";
 import {GET_PAGE_BY_URI} from "../contexts/apollo/queries";
 import {LaunguageContext} from "../contexts/LanguageContext";
 
-
 const Page = ({data, ...props}) => {
 
     const elements = ['one', 'two', 'three'];
@@ -30,6 +29,11 @@ const Page = ({data, ...props}) => {
             setPage(data.pageBy);
         }
     },[data]);*/
+
+    useEffect(() => {
+        loadNewsletters({variables: { where: "CA" }});
+    }, [data]);
+
 
     const [iframeUrl, setIframeUrl] = useState("");
 
@@ -44,16 +48,17 @@ const Page = ({data, ...props}) => {
     const [newsletters, setNewsletters] = useState([]);
     const [loadNewsletters, { loadingN, errorN, data: dataNews }] = useLazyQuery(GET_NEWSLETTER_ENTRYS);
     useEffect(() => {
-        if (dataNews) {
+        if (dataNews && dataNews.newsletters.nodes.length >= 1) {
             setNewsletters(dataNews.newsletters.nodes);
-            debugger
             setIframeUrl(dataNews.newsletters.nodes[0].news_pdf.pdf.mediaItemUrl);
+        } else if (dataNews && dataNews.newsletters.nodes.length < 1) {
+            loadNewsletters({variables: { where: "CA" }});
         }
     },[dataNews]);
 
     useEffect(() => {
         loadNewsletters({variables: { where: "CA" }});
-    }, []);
+    },[]);
 
     return (
         <div css={nomada_styles}>
@@ -107,7 +112,7 @@ const Page = ({data, ...props}) => {
 
 };
 
-export const getStaticProps = async (ctx) => {
+/*export const getStaticProps = async (ctx) => {
     const {data, initialState} = await getInitialData();
     return {props: {data, initialState}, revalidate: 60};
 }
@@ -116,7 +121,7 @@ const getInitialData = async (slug) => {
     const apolloClient = initializeApollo();
     const {error, data} = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/blog/' }})
     return { data: data, initialState: apolloClient.cache.extract()};
-}
+}*/
 
 export default Page;
 
