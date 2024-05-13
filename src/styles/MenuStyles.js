@@ -117,7 +117,11 @@ export const menu_styles = (theme) => {
                     flex-direction: column;
                     justify-content: center;
 
-
+                    & .nomada {
+                        color:${theme.colors.primary}!important;
+                        font-family: ${theme.font.super};
+                        font-weight: bold;
+                    }
 
 
      /*             display: flex;

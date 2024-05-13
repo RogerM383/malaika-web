@@ -52,11 +52,14 @@ const Menu = ({img = true, children, ...props}) => {
                     order: subItem.order
                 });
             }
+            // TODO: Que venga el menu con el item nuevo desde el back (el primat nomada)
+            menu.push({id: "el-primat-nomada", path: "/el-primat-nomada", image: null, submenu: []});
+
             if (menu && (router.pathname === "/inici" || router.pathname === "/inicio" )) {
                 menu.push({id: 'amics-museu', label: "AMICS", path: "https://reservesmnac.malaikaviatges.com/", image: "amics-mnac.png", submenu: []});
             }
             setNavButtons(menu);
-        router
+        //router
             debugger
         }
     },[menuData]);
@@ -182,6 +185,13 @@ const Menu = ({img = true, children, ...props}) => {
                                                         (button.label === "ANIMALS INVISIBLES" || button.label === "ANIMALES INVISIBLES") &&
                                                         <div css={{maxHeight:'80px'}}>
                                                             <img className={"animals"} src={button.label === "ANIMALS INVISIBLES" ? "/animal-invisibles.png" : "/animales-invisibles.png"}/>
+                                                        </div>
+                                                    }
+                                                    {
+                                                        !button.image &&
+                                                        (button.id === "el-primat-nomada") &&
+                                                        <div>
+                                                            <div className={'nomada'}>el PRIMAT</div> <div className={'nomada'}>nòmada</div>
                                                         </div>
                                                     }
                                                     </span>
