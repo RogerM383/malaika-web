@@ -121,6 +121,8 @@ export const menu_styles = (theme) => {
                         color:${theme.colors.primary}!important;
                         font-family: ${theme.font.super};
                         font-weight: bold;
+                        font-size: .9rem!important;
+                        white-space: nowrap;
                     }
 
 
@@ -328,7 +330,13 @@ export const menu_styles = (theme) => {
                         height: 105px;
                         padding: 0 1rem;
 
-
+                        & .nomada {
+                        color:${theme.colors.primary}!important;
+                        font-family: ${theme.font.super};
+                        font-weight: bold;
+                        font-size: 1rem!important;
+                        white-space: nowrap;
+                    }
 
                     }
 
