@@ -77,7 +77,7 @@ const Page = ({data, ...props}) => {
                             {
                                 posts &&
                                 posts.map((element)=>{
-                                    debugger
+
                                     const{content,title,slug,featuredImage,date,excerpt} = element;
                                     return(
                                         <div  onClick={goTo("/blog/"+slug)} css={card_blog} >

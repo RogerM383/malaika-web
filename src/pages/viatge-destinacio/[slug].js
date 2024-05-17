@@ -33,7 +33,7 @@ const PageViatgeDestinacio = ({data, ...props}) => {
     const [page, setPage] = useState(null);
     const [campsViatge, setCampsViatge] = useState(null);
     useEffect(() => {
-        debugger
+
         if (data) {
             setPage(data.viatge);
             setCampsViatge(data.viatge.Campsviatge);
@@ -184,7 +184,7 @@ const PageViatgeDestinacio = ({data, ...props}) => {
                                     {
                                         destacats?.nodes?.map((item) => {
                                             const {dates} = item.Campsviatge;
-                                            debugger
+                                            r
                                             return (
                                                 <Col sm={24} md={12}>
                                                     <div onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>

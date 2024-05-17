@@ -21,7 +21,7 @@ import {LaunguageContext} from "../../contexts/LanguageContext";
 
 const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translations, content, date, ...props}) => {
 
-    debugger
+
     const router = useRouter();
 
     const {language,setLanguage} = useContext(LaunguageContext)
@@ -52,7 +52,7 @@ const PageDestinacions = ({id, title, uri, status, slug, featuredImage, translat
         if (data) {
             setViatges( data?.zona?.viatges)
         }
-        debugger
+
     },[data]);
 
     const [viatges, setViatges] = useState([]);

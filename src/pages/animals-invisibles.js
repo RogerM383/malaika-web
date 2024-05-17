@@ -40,7 +40,7 @@ const AnimalsInvisiblesPage = ({title, uri, status, slug, featuredImage, notades
         if (dataVD) {
             setViatgesDestacats(dataVD.viatges)
 
-            debugger
+
         }
     }, [dataVD]);
 

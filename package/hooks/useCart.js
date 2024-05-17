@@ -21,7 +21,7 @@ const useCart = (user) => {
             getCart().then((resp)=>{
             setCart(resp)
                 setState({...state,cart:resp})
-                debugger
+
             });
 
         }else if (token && token != null){
@@ -29,7 +29,7 @@ const useCart = (user) => {
                 getGuestCart().then((resp)=>{
                     setCart(resp)
                     setState({...state,cart:resp})
-                    debugger
+
                 })
         }
 

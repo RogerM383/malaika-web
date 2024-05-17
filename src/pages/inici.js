@@ -70,7 +70,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
     useEffect(() => {
         if (novetats) {
             console.log(novetats);
-            debugger
+
         }
     },[novetats])
 

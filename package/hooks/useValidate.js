@@ -49,7 +49,7 @@ const useValidate = (state, setState, validar, fn) => {
             });
         }
         /*    else if (e.target.name.includes("[]")){
-                debugger
+                r
                 setState({
                     ...state,
                     [e.target.name]: [...state.e.target.name,e.target.value],

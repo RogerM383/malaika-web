@@ -174,7 +174,7 @@ const PageViatgeDestinacio = ({data,...props}) => {
                                     {
                                         destacats?.nodes?.map((item) => {
                                             const {dates} = item.Campsviatge;
-                                            debugger
+
                                             return (
                                                 <Col sm={24} md={12}>
                                                     <div onClick={goTo("/viaje-destinacion/"+item.slug)} css={top_img_tagged_card}>

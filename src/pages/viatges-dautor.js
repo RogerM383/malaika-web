@@ -66,7 +66,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
         if (dataTextos) {
             const { nodes, pageInfo } = dataTextos.textos;
             setTextos(nodes);
-            debugger
+
         }
     },[dataTextos]);
 
@@ -146,7 +146,7 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                             vols,
                             sortides
                         } = customFields;
-debugger
+
                         return (
                             <div onClick={goTo(slug)} className={'cva'} css={card_viatge_autor}>
                                 <div>

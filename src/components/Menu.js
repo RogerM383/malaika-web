@@ -33,7 +33,7 @@ const Menu = ({img = true, children, ...props}) => {
         if (menuData) {
             const items = menuData.menu.menuItems.nodes;
 
-            debugger
+
          /*   const menu = items.filter(item => item.label !== 'Blog' && item.parentId === null).map((item) => {*/
             const menu = items.filter(item => item.parentId === null).map((item) => {
                 const path = item.path !== '#' ? item.path.replace('/index.php','') : null;
