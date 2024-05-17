@@ -2,8 +2,8 @@ import {gql} from "@apollo/client";
 
 
 export const GET_NEWSLETTER_ENTRYS= gql`
-    query getNewslettersEntrys {
-        newsletters {
+    query getNewslettersEntrys ($lang: LanguageCodeFilterEnum) {
+        newsletters (where: {language: $lang}) {
             nodes {
                 title
                 id

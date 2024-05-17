@@ -31,7 +31,7 @@ const Page = ({data, ...props}) => {
     },[data]);
 
     useEffect(() => {
-        loadNewsletters({variables: { where: "CA" }});
+        loadNewsletters({variables: { where: "ES" }});
     }, [data]);
 
 
@@ -39,8 +39,7 @@ const Page = ({data, ...props}) => {
 
     const {language, setLanguage} = useContext(LaunguageContext);
     useEffect(() => {
-        // la url es la inverça -\(-_-)/-
-        setLanguage({language:'CA',pageTranslation:'el-primate-nomada'})
+        setLanguage({language:'ES',pageTranslation:'el-primat-nomada'})
     }, [page]);
 
     const [newsletters, setNewsletters] = useState([]);
@@ -50,12 +49,12 @@ const Page = ({data, ...props}) => {
             setNewsletters(dataNews.newsletters.nodes);
             setIframeUrl(dataNews.newsletters.nodes[0].news_pdf.pdf.mediaItemUrl);
         } else if (dataNews && dataNews.newsletters.nodes.length < 1) {
-            loadNewsletters({variables: { lang: "CA" }});
+            loadNewsletters({variables: { lang: "ES" }});
         }
     },[dataNews]);
 
     useEffect(() => {
-        loadNewsletters({variables: { lang: "CA" }});
+        loadNewsletters({variables: { lang: "ES" }});
     },[page]);
 
     return (
@@ -128,10 +127,10 @@ export const getStaticProps = async (ctx) => {
 
 const getInitialData = async (slug) => {
     const apolloClient = initializeApollo();
-    const {error, data} = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/el-primat-nomada/' }})
+    const {error, data} = await apolloClient.query({query: GET_PAGE_BY_URI, variables: { uri: '/el-primate-nomada/' }})
     return { data: data, initialState: apolloClient.cache.extract()};
-}*/
-
+}
+*/
 export default Page;
 
 

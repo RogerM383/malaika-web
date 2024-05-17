@@ -59,8 +59,21 @@ const Menu = ({img = true, children, ...props}) => {
 
 
             // TODO: Que venga el menu con el item nuevo desde el back (el primat nomada)
-            if (language.language === 'CA')
-                menu.splice(menu.length-1, 0, {id: "el-primat-nomada", path: "/el-primat-nomada", image: null, submenu: []});
+            if (language.language === 'CA') {
+                menu.splice(menu.length - 1, 0, {
+                    id: "el-primat-nomada",
+                    path: "/el-primat-nomada",
+                    image: null,
+                    submenu: []
+                });
+            } else {
+                menu.splice(menu.length - 1, 0, {
+                    id: "el-primate-nomada",
+                    path: "/el-primate-nomada",
+                    image: null,
+                    submenu: []
+                });
+            }
 
             if (menu && (router.pathname === "/inici" || router.pathname === "/inicio" )) {
                 menu.push({id: 'amics-museu', label: "AMICS", path: "https://reservesmnac.malaikaviatges.com/", image: "amics-mnac.png", submenu: []});
@@ -194,9 +207,16 @@ const Menu = ({img = true, children, ...props}) => {
                                                     }
                                                     {
                                                         !button.image &&
-                                                        (button.id === "el-primat-nomada") &&
+                                                        (button.id === "el-primat-nomada" || button.id === "el-primate-nomada") &&
                                                         <div>
-                                                            <div className={'nomada'}>el PRIMAT</div> <div className={'nomada'}>nòmada</div>
+                                                            <>
+                                                            {
+                                                                language.language === 'CA' ?
+                                                                (<><div className={'nomada'}>el PRIMAT</div> <div className={'nomada'}>nòmada</div></>)
+                                                                        :
+                                                                (<><div className={'nomada'}>el PRIMATE</div> <div className={'nomada'}>nómada</div></>)
+                                                            }
+                                                            </>
                                                         </div>
                                                     }
                                                     </span>
@@ -268,7 +288,20 @@ const Menu = ({img = true, children, ...props}) => {
                                                         </div>
 
                                                     }
-
+                                                    {
+                                                        !button.image &&
+                                                        (button.id === "el-primat-nomada" || button.id === "el-primate-nomada") &&
+                                                        <div>
+                                                            <>
+                                                                {
+                                                                    language.language === 'CA' ?
+                                                                            (<><div className={'nomada'}>el PRIMAT</div> <div className={'nomada'}>nòmada</div></>)
+                                                                            :
+                                                                            (<><div className={'nomada'}>el PRIMATE</div> <div className={'nomada'}>nómada</div></>)
+                                                                }
+                                                            </>
+                                                        </div>
+                                                    }
 
                                             </span>
                                             </a>
