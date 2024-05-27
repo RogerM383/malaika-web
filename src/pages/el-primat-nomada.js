@@ -39,7 +39,7 @@ const Page = ({data, ...props}) => {
 
     const {language, setLanguage} = useContext(LaunguageContext);
     useEffect(() => {
-        // la url es la inverÃ§a -\(-_-)/-
+        // la url es la inverça -\(-_-)/-
         setLanguage({language:'CA',pageTranslation:'el-primate-nomada'})
     }, [page]);
 
@@ -87,7 +87,8 @@ const Page = ({data, ...props}) => {
                                             <Row gutter={[20]} onClick={() => setIframeUrl(element.news_pdf.pdf.mediaItemUrl)} css={card_blog_thumbnail}>
                                                 <Col span={16}>
                                                     <span className={"title_entry"}>{title}</span>
-                                                    <span className={"date"}>{moment(date).format('DD-MM-YYYY')}</span></Col>
+                                                    {/*<span className={"date"}>{moment(date).format('DD-MM-YYYY')}</span>*/}
+                                                </Col>
 
                                             </Row>
                                         )
