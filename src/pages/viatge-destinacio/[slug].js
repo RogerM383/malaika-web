@@ -184,7 +184,7 @@ const PageViatgeDestinacio = ({data, ...props}) => {
                                     {
                                         destacats?.nodes?.map((item) => {
                                             const {dates} = item.Campsviatge;
-                                            r
+                                            
                                             return (
                                                 <Col sm={24} md={12}>
                                                     <div onClick={goTo("/viatge-destinacio/"+item.slug)} css={top_img_tagged_card}>
@@ -194,7 +194,7 @@ const PageViatgeDestinacio = ({data, ...props}) => {
                                                             <span className={"title"}>{item.title}</span>
                                                             <span  className={"tags"}>{item.subtitolViatge.subtitolviatge}</span>
                                                             <span className={"calendar"}><img src={"/calendar_icon.png"}/> {dates} </span>
-                                                            <span className={"more_info"}>MÃ©s informaciÃ³ <span className={"arrow"}>&#8594;</span>	</span>
+                                                            <span className={"more_info"}>Més informació <span className={"arrow"}>&#8594;</span>	</span>
                                                         </div>
 
                                                 </div>
