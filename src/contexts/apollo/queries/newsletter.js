@@ -3,7 +3,7 @@ import {gql} from "@apollo/client";
 
 export const GET_NEWSLETTER_ENTRYS= gql`
     query getNewslettersEntrys ($lang: LanguageCodeFilterEnum) {
-        newsletters (where: {language: $lang}) {
+        newsletters (where: {language: $lang}, orderby: {field: DATE, order: ASC}) {
             nodes {
                 title
                 id
