@@ -126,6 +126,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
         const config = {
             headers: {
                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://malaikaviatges.com",
        /*         'Content-Type': 'application/x-www-form-urlencoded',
                 "Access-Control-Allow-Origin": "*",*/
              /*   'Content-Type': 'text/plain',*/
@@ -373,7 +374,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
                                 <form onSubmit={mdirector}
                                     >
                                     <input name={"email-news"} css={{margin:'0'}} type={"text"} placeholder={"El teu email"}/>
-                                    <button  htmlType="submit">Suscríbete</button>
+                                    <button htmlType="submit">Suscríbete</button>
 
                                     <div className={"conditions"}>
                                         <input type={"checkbox"}/>
