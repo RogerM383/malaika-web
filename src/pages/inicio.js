@@ -126,7 +126,7 @@ const Page = ({title, uri, status, slug, featuredImage, notadestacada, descripci
         const config = {
             headers: {
                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://malaikaviatges.com",
        /*         'Content-Type': 'application/x-www-form-urlencoded',
                 "Access-Control-Allow-Origin": "*",*/
              /*   'Content-Type': 'text/plain',*/
