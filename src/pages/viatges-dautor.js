@@ -169,11 +169,13 @@ const Page = ({ id, title, uri, status, slug, content, featuredImage, ...props }
                                             </div>
 
                                             <div className={"plane"}>
-                                                <div><img src={
-                                                    vols[0]?.vol.tipustrajecte === "Vol"
-                                                                    ? "/plane_icon.png"
-                                                                    : "/tren.png"
-                                                                }/></div>
+                                                <div>
+                                                    <img src={
+                                                        vols && vols[0]?.vol?.tipustrajecte === "Vol"
+                                                            ? "/plane_icon.png"
+                                                            : "/tren.png"
+                                                    }/>
+                                                </div>
                                                 <ul className={"fs-16"}>
                                                     {
                                                         sortides?.map( (item) => {
