@@ -59,7 +59,7 @@ const Index = ({children, ...props}) => {
                     navButtons.map((button, index) => {
                         return (
                             <>
-                                <Link key={index} href={button.path}>
+                                <Link legacyBehavior key={index} href={button.path}>
                                     <a className={`NavButton ${router.pathname === button.path ? "active" : ""}`}>
                                         {button.icon}
                                         <span className={"label"}>{button.label}</span>

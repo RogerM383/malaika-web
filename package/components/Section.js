@@ -15,7 +15,7 @@ const Section = ({title = null, url = null, textButton,children, ...props}) => {
 
                 {
                     url &&
-                    <Link  /*href={route}*/>
+                    <Link legacyBehavior  /*href={route}*/>
                         <a className="column link" >{textButton ?? "Ver más"} <i className="fas fa-arrow-right"/></a>
                     </Link>
                 }

@@ -4,7 +4,7 @@ module.exports = {
             {
                 source: '/',
                 destination: '/inici',
-                permanent: true,
+                permanent: false,
             },
         ]
     },

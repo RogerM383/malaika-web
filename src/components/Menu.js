@@ -183,7 +183,7 @@ const Menu = ({img = true, children, ...props}) => {
                                 return (
                                     <>
                                         <li key={index}  className={`navli ${( (router.pathname === "/inici" || router.pathname === "/inicio" ) && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
-                                            <Link href={button?.path ?? ''}>
+                                            <Link legacyBehavior href={button?.path ?? ''}>
                                                 <a className={`NavButton ${(router.pathname.replace(/\//g, "") === button?.path?.replace(/\//g, "")) && button?.path !== undefined ? "active_link" : ""}`}>
                                                     {button.icon}
                                                     <span css={{textAlign: 'center', display: 'inline-block'}}>
@@ -228,7 +228,7 @@ const Menu = ({img = true, children, ...props}) => {
                                                     {
                                                         button.submenu.map((item) => {
                                                             return (
-                                                                <Link href={item.path} passHref={true}>
+                                                                <Link legacyBehavior href={item.path} passHref={true}>
                                                                     <a>{item.label}</a>
                                                                 </Link>
                                                             )
@@ -263,7 +263,7 @@ const Menu = ({img = true, children, ...props}) => {
                             return (
                                 <>
                                     <li key={index}  className={`navli ${( (router.pathname === "/inici" || router.pathname === "/inicio" ) && array.length - 1 === index) ? "amics" : "normal"} ${index === 0 && "first"}`}>
-                                        <Link href={button?.path ?? ''}>
+                                        <Link legacyBehavior href={button?.path ?? ''}>
                                             <a className={`NavButton ${(router.pathname.replace(/\//g, "") === button?.path?.replace(/\//g, "")) && button?.path !== undefined ? "active_link" : ""}`}>
                                                 {button.icon}
                                                 <span css={{textAlign: 'center', display: 'inline-block'}}>
@@ -312,7 +312,7 @@ const Menu = ({img = true, children, ...props}) => {
                                                 {
                                                     button.submenu.map((item) => {
                                                         return (
-                                                            <Link href={item.path} passHref={true}>
+                                                            <Link legacyBehavior href={item.path} passHref={true}>
                                                                 <a>{item.label}</a>
                                                             </Link>
                                                         )

@@ -26,7 +26,7 @@ export default class MyDocument extends Document {
             <Html>
 
                 <Head>
-                  {/*  <link rel="stylesheet" href="styles/reset.css"/>*/}
+                  {/*  <Link legacyBehavior rel="stylesheet" href="styles/reset.css"/>*/}
                     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css"/>
                     {/*<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css"/>*/}
                     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />

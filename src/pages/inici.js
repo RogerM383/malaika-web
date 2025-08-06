@@ -353,6 +353,3 @@ export const getStaticProps = async (ctx) => {
 }
 
 export default Page;
-
-
-
